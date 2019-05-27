@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant_Logic", "Restaur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantModel", "RestaurantModel\RestaurantModel.csproj", "{F6B1FE16-6487-43EA-A2DB-63BAD6A438DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantUI", "..\Restaurant_Project\RestaurantUI\RestaurantUI.csproj", "{C230F467-64B8-4936-B2A7-CA21C1853FDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantUI", "RestaurantUI\RestaurantUI.csproj", "{C230F467-64B8-4936-B2A7-CA21C1853FDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
