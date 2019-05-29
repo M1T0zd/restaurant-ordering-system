@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace RestaurantModel
 {
-    class Employee
+    public class Employee
     {
+        public int Number { get; set; }
+        public string Name { get; set; }
+        public string Role { get; set; }
     }
 }
