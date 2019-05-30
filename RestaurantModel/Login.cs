@@ -10,7 +10,7 @@ namespace RestaurantModel
     {
         public string username;
         public string password;
-        public string adminStatus;
+        public int employeenumber;
 
     }
 }

@@ -96,6 +96,9 @@
     <Compile Include="Table_Form.Designer.cs">
       <DependentUpon>Table_Form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Bar_Form.resx">
+      <DependentUpon>Bar_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +121,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Table_Form.resx">
+      <DependentUpon>Table_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -16,5 +16,10 @@ namespace Restaurant_UI
         {
             InitializeComponent();
         }
+
+        private void Bar_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

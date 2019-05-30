@@ -16,5 +16,25 @@ namespace Restaurant_UI
         {
             InitializeComponent();
         }
+
+        private void Table_Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

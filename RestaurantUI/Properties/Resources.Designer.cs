@@ -83,16 +83,6 @@ namespace Restaurant_UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Capture1 {
-            get {
-                object obj = ResourceManager.GetObject("Capture1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Custom_Icon_Design_Flatastic_3_Payment_creditcard_visa {
             get {
                 object obj = ResourceManager.GetObject("Custom-Icon-Design-Flatastic-3-Payment-creditcard-visa", resourceCulture);

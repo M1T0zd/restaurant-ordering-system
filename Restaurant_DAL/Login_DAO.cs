@@ -27,9 +27,9 @@ namespace Restaurant_DAL
             {
                 Login login = new Login()
                 {
-                    password = (String)dr["PASSWORD"],
-                    username = (String)(dr["USERNAME"]),
-                    adminStatus = (String)dr["adminStatus"]
+                    password = (String)dr["Password"],
+                    username = (String)(dr["Username"]),
+                    employeenumber = (int)dr["EmployeeNumber"]
                 };
                 logins.Add(login);
             }
