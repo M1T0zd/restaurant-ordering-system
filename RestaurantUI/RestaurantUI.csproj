@@ -70,11 +70,23 @@
     <Compile Include="Order_Form.Designer.cs">
       <DependentUpon>Order_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payment Successful.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Successful.Designer.cs">
+      <DependentUpon>Payment Successful.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payment_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Payment_Form.Designer.cs">
       <DependentUpon>Payment_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_payment.Designer.cs">
+      <DependentUpon>Process_payment.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +99,15 @@
     <EmbeddedResource Include="Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Payment Successful.resx">
+      <DependentUpon>Payment Successful.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment_Form.resx">
+      <DependentUpon>Payment_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_payment.resx">
+      <DependentUpon>Process_payment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -95,6 +116,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -118,6 +140,33 @@
       <Project>{3b8cd7c2-ff83-448c-ae37-665ab49af7af}</Project>
       <Name>Restaurant_Logic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Custom-Icon-Design-Flatastic-3-Payment-creditcard-visa1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Designbolts-Credit-Card-Payment-Maestro1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tatice-Cristal-Intense-Ok11.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gakuseisean-Ivista-Error1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Designbolts-Credit-Card-Payment-American-Express1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Designbolts-Credit-Card-Payment-Master-Card-Blue1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button-warning-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment-success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Capture.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
