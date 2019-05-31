@@ -27,7 +27,7 @@ namespace Restaurant_DAL
                 Employee employee = new Employee()
                 {
                     Name = (String)dr["Name"],
-                    Role = (int)(dr["IdRole"]),
+                    Role = (char)(dr["IdRole"]),
                     Number = (int)dr["Number"]
                 };
                 employees.Add(employee);
