@@ -14,7 +14,8 @@ namespace Restaurant_DAL
     {
         public List<Login> Db_Get_All_Login()
         {
-            string query = "SELECT USERNAME, PASSWORD, adminStatus FROM [LOGIN]";
+            string query = "SELECT C.Username,C.Password,R.EmployeRole FROM Credentials AS C " +
+                "JOIN Employees as E ON e.Number = c.EmployeeNumber JOIN Roles AS R ON R.idRole = E.IdRole";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -27,9 +28,10 @@ namespace Restaurant_DAL
             {
                 Login login = new Login()
                 {
-                    password = (String)dr["PASSWORD"],
-                    username = (String)(dr["USERNAME"]),
-                    adminStatus = (String)dr["adminStatus"]
+                    Password = (String)dr["Password"],
+                    Username = (String)(dr["Username"]),
+                    Employeenumber = (int)dr["EmployeeNumber"],
+                    RoleName = (String)dr["EmployeeRole"]                
                 };
                 logins.Add(login);
             }

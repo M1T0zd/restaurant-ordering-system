@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.IO;
 
 namespace Restaurant_DAL
 {
@@ -44,7 +45,7 @@ namespace Restaurant_DAL
             }
             catch (Exception e)
             {
-                //Print.ErrorLog(e);
+                ErrorLogging(e);
                 throw;
             }
         }
@@ -65,7 +66,7 @@ namespace Restaurant_DAL
             }
             catch (SqlException e)
             {
-                // Print.ErrorLog(e);
+                ErrorLogging(e);
 
                 throw;
             }
@@ -96,7 +97,7 @@ namespace Restaurant_DAL
             }
             catch (SqlException e)
             {
-                // Print.ErrorLog(e);
+                ErrorLogging(e);
                 return null;
                 throw;
             }
@@ -105,6 +106,24 @@ namespace Restaurant_DAL
                 CloseConnection();
             }
             return dataTable;
+        }
+        private static void ErrorLogging(Exception e)
+        {
+            string strPath = @"D:\Prins\Log.txt";
+            if (!File.Exists(strPath))
+            {
+                File.Create(strPath).Dispose();
+            }
+            using (StreamWriter sw = File.AppendText(strPath))
+            {
+                sw.WriteLine("=============Error Logging ===========");
+                sw.WriteLine("===========Start============= " + DateTime.Now);
+                sw.WriteLine("Error Message: " + e.Message);
+                sw.WriteLine("Stack Trace: " + e.StackTrace);
+                sw.WriteLine("===========End============= " + DateTime.Now);
+                sw.WriteLine();
+
+            }
         }
 
     }
