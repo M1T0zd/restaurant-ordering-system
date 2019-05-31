@@ -82,8 +82,7 @@
     <None Include="chapeau1819sdb02DataSet.xss">
       <DependentUpon>chapeau1819sdb02DataSet.xsd</DependentUpon>
     </None>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
+    <None Include="DAL_Diagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

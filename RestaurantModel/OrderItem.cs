@@ -17,5 +17,29 @@ namespace RestaurantModel
         public DateTime DateReady { get; set; }
         public OrderStatus Status { get; set; }
 		public Category Category { get; set; }
+
+		public OrderStatus OrderStatus
+		{
+			get => default;
+			set
+			{
+			}
+		}
+
+		public Category Category1
+		{
+			get => default;
+			set
+			{
+			}
+		}
+
+		public MenuItem MenuItem
+		{
+			get => default;
+			set
+			{
+			}
+		}
 	}
 }

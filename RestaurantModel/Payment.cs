@@ -18,6 +18,12 @@ namespace RestaurantModel
         public PaymentMethod PaymentMethod { get; set; }
         public int EmployeeId { get; set; }
 
-
-    }
+		public PaymentMethod PaymentMethod1
+		{
+			get => default;
+			set
+			{
+			}
+		}
+	}
 }
