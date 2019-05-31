@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace RestaurantModel
 {
-	public enum PaymentMethod { Cash, CreditCard, Pin}
+	public enum Category { Lunch_Main, Specials, Bites, Starters, Mains, Desserts, Soft_Drinks, Beers, Wines}
 }
