@@ -13,6 +13,16 @@ namespace Restaurant_Logic
     public class Employee_Service
     {
         Employee_DAO employee_db = new Employee_DAO();
+
+        public Employee_DAO Employee_db
+        {
+            get { return employee_db; }
+            set
+            {
+                value = employee_db;
+            }
+        }
+
         public List<Employee> GetEmployee()
         {
             try
@@ -27,7 +37,7 @@ namespace Restaurant_Logic
                 return null;
             }
         }
-        public static void ErrorLogging(Exception e)
+        private static void ErrorLogging(Exception e)
         {
             string strPath = @"D:\Prins\Log.txt";
             if (!File.Exists(strPath))
@@ -41,6 +51,8 @@ namespace Restaurant_Logic
                 sw.WriteLine("Error Message: " + e.Message);
                 sw.WriteLine("Stack Trace: " + e.StackTrace);
                 sw.WriteLine("===========End============= " + DateTime.Now);
+                sw.WriteLine();
+
 
             }
         }

@@ -58,6 +58,7 @@
             this.btntbl2.TabIndex = 1;
             this.btntbl2.Text = "Table 2";
             this.btntbl2.UseVisualStyleBackColor = true;
+            this.btntbl2.Click += new System.EventHandler(this.Btntbl2_Click);
             // 
             // btntbl3
             // 
@@ -77,6 +78,7 @@
             this.btntbl4.TabIndex = 3;
             this.btntbl4.Text = "Table 4";
             this.btntbl4.UseVisualStyleBackColor = true;
+            this.btntbl4.Click += new System.EventHandler(this.Btntbl4_Click);
             // 
             // btntbl5
             // 
@@ -86,6 +88,7 @@
             this.btntbl5.TabIndex = 4;
             this.btntbl5.Text = "Table 5";
             this.btntbl5.UseVisualStyleBackColor = true;
+            this.btntbl5.Click += new System.EventHandler(this.Btntbl5_Click);
             // 
             // btntbl6
             // 
@@ -95,6 +98,7 @@
             this.btntbl6.TabIndex = 5;
             this.btntbl6.Text = "Table 6";
             this.btntbl6.UseVisualStyleBackColor = true;
+            this.btntbl6.Click += new System.EventHandler(this.Btntbl6_Click);
             // 
             // btntbl7
             // 
@@ -104,6 +108,7 @@
             this.btntbl7.TabIndex = 6;
             this.btntbl7.Text = "Table 7";
             this.btntbl7.UseVisualStyleBackColor = true;
+            this.btntbl7.Click += new System.EventHandler(this.Btntbl7_Click);
             // 
             // btntbl8
             // 
@@ -113,6 +118,7 @@
             this.btntbl8.TabIndex = 7;
             this.btntbl8.Text = "Table 8";
             this.btntbl8.UseVisualStyleBackColor = true;
+            this.btntbl8.Click += new System.EventHandler(this.Btntbl8_Click);
             // 
             // button9
             // 
@@ -132,6 +138,7 @@
             this.button10.TabIndex = 9;
             this.button10.Text = "Table 10";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.Button10_Click);
             // 
             // Table_Form
             // 

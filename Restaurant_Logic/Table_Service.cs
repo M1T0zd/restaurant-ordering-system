@@ -12,7 +12,19 @@ namespace Restaurant_Logic
 {
     public class Table_Service
     {
-        Table_DAO table_DAO = new Table_DAO();
+        Table_DAO table_DAO;
+
+        public Table_DAO Table_DAO
+        {
+            get { return table_DAO; }
+            set { table_DAO = value; }
+         
+        }
+        public Table_Service()
+        {
+            table_DAO = new Table_DAO();
+        }
+
         public List<Table> GetTables()
         {
             try
@@ -26,7 +38,7 @@ namespace Restaurant_Logic
                 return null;
             }
         }
-        public static void ErrorLogging(Exception e)
+        private static void ErrorLogging(Exception e)
         {
             string strPath = @"D:\Prins\Log.txt";
             if (!File.Exists(strPath))
@@ -40,6 +52,8 @@ namespace Restaurant_Logic
                 sw.WriteLine("Error Message: " + e.Message);
                 sw.WriteLine("Stack Trace: " + e.StackTrace);
                 sw.WriteLine("===========End============= " + DateTime.Now);
+                sw.WriteLine();
+
 
             }
         }

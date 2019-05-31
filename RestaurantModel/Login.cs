@@ -8,9 +8,10 @@ namespace RestaurantModel
 {
     public class Login
     {
-        public string username;
-        public string password;
-        public int employeenumber;
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public int Employeenumber { get; set; }
+        public string RoleName { get; set; }
 
     }
 }

@@ -13,9 +13,18 @@ namespace Restaurant_Logic
 
         Payment_DAO registration_db = new Payment_DAO();
 
+        public Payment_DAO Registration_db
+        {
+            get { return registration_db; }
+            set
+            {
+                registration_db = value;
+            }
+        }
+
         public void InsertDetails(Payment payment)
         {
-            registration_db.InsertDetails(payment);
+            Registration_db.InsertDetails(payment);
         }
 
     }

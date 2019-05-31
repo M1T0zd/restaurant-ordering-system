@@ -13,6 +13,16 @@ namespace Restaurant_Logic
     public class Login_Service
     {
         Login_DAO login_db = new Login_DAO();
+
+        public Login_DAO Login_DAO
+        {
+            get { return login_db; }
+            set
+            {
+                value = login_db;
+            }
+        }
+
         public List<Login> GetLogin()
         {
             try
@@ -26,7 +36,7 @@ namespace Restaurant_Logic
                 return null;
             }
         }
-        public static void ErrorLogging(Exception e)
+        private static void ErrorLogging(Exception e)
         {
             string strPath = @"D:\Prins\Log.txt";
             if (!File.Exists(strPath))
@@ -40,6 +50,8 @@ namespace Restaurant_Logic
                 sw.WriteLine("Error Message: " + e.Message);
                 sw.WriteLine("Stack Trace: " + e.StackTrace);
                 sw.WriteLine("===========End============= " + DateTime.Now);
+                sw.WriteLine();
+
 
             }
         }
