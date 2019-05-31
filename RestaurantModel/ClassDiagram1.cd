@@ -1,66 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="RestaurantModel.Employee" Collapsed="true">
-    <Position X="1.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEEAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RestaurantModel.Login" Collapsed="true">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAAAQAAAAAAAAQAAAAAAAAAAAAACAAAAEAAAAAA=</HashCode>
       <FileName>Login.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RestaurantModel.MenuItem">
-    <Position X="5.5" Y="1.5" Width="1.5" />
+  <Class Name="RestaurantModel.MenuItem" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAgAAAAAAAAAAQAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MenuItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RestaurantModel.Order">
-    <Position X="3.25" Y="1.75" Width="1.5" />
+  <Class Name="RestaurantModel.Order" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAABAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Order.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="orderState" />
-      <Property Name="MEnuItems" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="RestaurantModel.Payment" Collapsed="true">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+    <Position X="2.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAACIAABAAAAAAAAAAAAQAAAAAIAAAAAAQA=</HashCode>
       <FileName>Payment.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RestaurantModel.Table" Collapsed="true">
-    <Position X="7.75" Y="3.5" Width="1.5" />
+    <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Table.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RestaurantModel.Properties.Settings" Collapsed="true">
-    <Position X="8" Y="0.5" Width="1.5" />
+    <Position X="9.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
-  <Enum Name="RestaurantModel.OrderStatu">
-    <Position X="0.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAACAAAAAAAgAAAAA=</HashCode>
-      <FileName>Order.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Enum Name="RestaurantModel.PaymentMethod" Collapsed="true">
-    <Position X="9" Y="1.5" Width="1.5" />
+    <Position X="9.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PaymentMethod.cs</FileName>
