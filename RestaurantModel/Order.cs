@@ -8,5 +8,11 @@ namespace RestaurantModel
 {
     public class Order
     {
-    }
+		public int Id { get; set; }
+		public int Table { get; set; }
+		public string Status { get; set; }
+		public DateTime TakenAt { get; set; }
+
+		//TODO: Status, Comment and Quantity should go to OrderItem, not Order.
+	}
 }

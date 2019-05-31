@@ -13,12 +13,11 @@ namespace Restaurant_DAL
         // save payment to database
         public void InsertDetails(Payment payment)
         {
-            string queryy = $"INSERT INTO  [User] VALUES ({payment.orderNumber}, {payment.paymentDate}, {payment.tax}, {payment.tip}, {payment.Total})";
+            string query = $"INSERT INTO  [User] VALUES ({payment.OrderNumber}, {payment.PaymentDate}, {payment.Tax}, {payment.Tip}, {payment.Total})";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
-            ExecuteEditQuery(queryy, sqlParameters);
+            ExecuteEditQuery(query, sqlParameters);
         }
-
     }
 }

@@ -14,7 +14,7 @@ namespace Restaurant_DAL
     {
         public List<Employee> GetEmployees()
         {
-            string query = "SELECT Name, EmpRole, Number FROM [Employees]";
+            string query = "SELECT Name, Role, Number FROM [Employees]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -27,7 +27,7 @@ namespace Restaurant_DAL
                 Employee employee = new Employee()
                 {
                     Name = (String)dr["Name"],
-                    Role = (char)(dr["IdRole"]),
+                    Role = (char)(dr["Role"]),
                     Number = (int)dr["Number"]
                 };
                 employees.Add(employee);

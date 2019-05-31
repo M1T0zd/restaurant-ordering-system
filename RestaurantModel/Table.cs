@@ -10,5 +10,6 @@ namespace RestaurantModel
     {
         public int Number { get; set; }
         public string Status { get; set; }
+		bool IsOccupied { get; set; }
     }
 }

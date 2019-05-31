@@ -10,13 +10,13 @@ namespace RestaurantModel
     {
 
 
-        public float tip { get; set; }
-        public DateTime paymentDate { get; set; }
-        public float tax { get; set; }
+        public float Tip { get; set; }
+        public DateTime PaymentDate { get; set; }
+        public float Tax { get; set; }
         public float Total { get; set; }
-        public int orderNumber { get; set; }
-        public PaymentMethod paymentMethod { get; set; }
-        public int employeeId { get; set; }
+        public int OrderNumber { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
+        public int EmployeeId { get; set; }
 
 
     }
