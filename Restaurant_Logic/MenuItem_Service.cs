@@ -1,20 +1,16 @@
-﻿using System;
+﻿using Restaurant_DAL;
+using RestaurantModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Restaurant_DAL;
-using RestaurantModel;
-
+using System.IO;
 namespace Restaurant_Logic
 {
-    class MenuItem_Service
+    public class MenuItem_Service
     {
         MenuItem_DAO MenuItem_DAO = new MenuItem_DAO();
-
-        public void GetMenuItems()
-        {
-
-        }
     }
 }
