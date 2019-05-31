@@ -10,7 +10,7 @@ using RestaurantModel;
 
 namespace Restaurant_DAL
 {
-    public class Employee_DAO : Base
+    class Employee_DAO : Base
     {
         public List<Employee> GetEmployees()
         {
@@ -27,7 +27,7 @@ namespace Restaurant_DAL
                 Employee employee = new Employee()
                 {
                     Name = (String)dr["Name"],
-                    Role = (int)(dr["IdRole"]),
+                    Role = (String)(dr["EmpRole"]),
                     Number = (int)dr["Number"]
                 };
                 employees.Add(employee);
