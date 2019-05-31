@@ -21,6 +21,9 @@ namespace Restaurant_UI
             InitializeComponent();
         }
 
+        public Table_Service Table_Service { get; set; }
+     
+
         private void Table_Form_Load(object sender, EventArgs e)
         {
             foreach (var button in this.Controls.OfType<Button>())

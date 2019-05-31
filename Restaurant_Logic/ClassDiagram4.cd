@@ -21,14 +21,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Restaurant_Logic.MenuItem_Service" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+    <Position X="3.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MenuItem_Service.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant_Logic.Order_Service" Collapsed="true">
-    <Position X="0.5" Y="1.25" Width="1.5" />
+    <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Order_Service.cs</FileName>

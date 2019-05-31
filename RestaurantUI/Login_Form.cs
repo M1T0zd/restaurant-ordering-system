@@ -22,6 +22,8 @@ namespace Restaurant_UI
             InitializeComponent();
         }
 
+        public Login_Service Login_Service { get; set; }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 

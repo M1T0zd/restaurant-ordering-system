@@ -19,7 +19,7 @@ namespace Restaurant_Logic
             get { return employee_db; }
             set
             {
-                value = employee_db;
+                employee_db = value;
             }
         }
 
