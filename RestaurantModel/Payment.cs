@@ -15,14 +15,15 @@ namespace RestaurantModel
         public float Tax { get; set; }
         public float Total { get; set; }
         public int OrderNumber { get; set; }
-        public PaymentMethod PaymentMethod { get; set; }
+        public PaymentMethod paymentMethod;
         public int EmployeeId { get; set; }
 
 		public PaymentMethod PaymentMethod1
 		{
-			get => default;
+            get { return paymentMethod; }
 			set
 			{
+                paymentMethod = value;
 			}
 		}
 	}

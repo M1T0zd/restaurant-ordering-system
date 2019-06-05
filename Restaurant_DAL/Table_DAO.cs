@@ -26,8 +26,7 @@ namespace Restaurant_DAL
             foreach (DataRow dr in dataTable.Rows)
             {
                 Table table = new Table()
-                {
-                 
+                {                
                     Number = (int)dr["Number"]
                 };
                 tables.Add(table);

@@ -16,13 +16,19 @@ namespace Restaurant_UI
     {
         List<Login> loginList;
         Login CurrentLogin;
-   
+        Kitchen_Form kitchen_Form;
+        Bar_Form bar_Form;
+        Table_Form table_Form;
+        Login_Service Login_Service { get; set; }
+
         public Login_Form()
         {
             InitializeComponent();
+            kitchen_Form = new Kitchen_Form();
+            bar_Form = new Bar_Form();
+            table_Form = new Table_Form();
         }
 
-        public Login_Service Login_Service { get; set; }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -32,9 +38,9 @@ namespace Restaurant_UI
         private void Btnlogin_Click(object sender, EventArgs e)
         {
             //GetAllLoginInfo
-            Restaurant_Logic.Login_Service login_Service = new Login_Service();
-            loginList = login_Service.GetLogin();
-            //
+            Login_Service = new Login_Service();
+            loginList = Login_Service.GetLogin();
+            //Make new Current Login to save current login info
             CurrentLogin = new Login();
             foreach (Login login in loginList)
             {
@@ -48,19 +54,16 @@ namespace Restaurant_UI
                     if (CurrentLogin.RoleName == "Chef")
                     {
                         //Display Chef UI
-                        Kitchen_Form kitchen_Form = new Kitchen_Form();
                         kitchen_Form.Show();
                     }
                     else if (CurrentLogin.RoleName == "Barman")
                     {
                         //Display BarmanUI
-                        Bar_Form bar_Form = new Bar_Form();
                         bar_Form.Show();
                     }
                     else if (CurrentLogin.RoleName == "Waiter")
                     {
                         //Display WaiterUI
-                        Table_Form table_Form = new Table_Form();
                         table_Form.Show();
                     }
                 }

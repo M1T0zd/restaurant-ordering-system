@@ -16,5 +16,10 @@ namespace Restaurant_UI
         {
             InitializeComponent();
         }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

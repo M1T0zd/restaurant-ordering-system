@@ -34,12 +34,17 @@ namespace Restaurant_UI
             payment_Services = new Payment_Service();
             Payment payment = new Payment()
             {
-                paymentDate = Convert.ToDateTime(datetxtbx.Text),
-                orderNumber = Convert.ToInt16(orderNumbertxtbx.Text),
+                PaymentDate = Convert.ToDateTime(datetxtbx.Text),
+                OrderNumber = Convert.ToInt16(orderNumbertxtbx.Text),
             };
 
             payment_Services.InsertDetails(payment);
             MessageBox.Show("Payment Successful");
+
+        }
+
+        private void Payment_Form_Load(object sender, EventArgs e)
+        {
 
         }
     }

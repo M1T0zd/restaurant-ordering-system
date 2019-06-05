@@ -12,11 +12,9 @@ namespace Restaurant_DAL
         private SqlConnection conn;
         public Base()
         {
-            // HAVENT INSERTED YOUR CONNECTION STRING NAMED 'RESTAURANT DATABASE' IN YOUR APP.CONFIG!!
 
-            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Restaurant_DAL.Properties.Settings.chapeau1819sdb02ConnectionString"].ConnectionString);
+            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RestaurantChapeau"].ConnectionString);
             adapter = new SqlDataAdapter();
-
         }
 
         protected SqlConnection OpenConnection()

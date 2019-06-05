@@ -14,11 +14,21 @@ namespace Restaurant_UI
 {
     public partial class Table_Form : Form
     {
-        Table table1 = new Table();
+        List<Table> tables = new List<Table>();
 
         public Table_Form()
         {
             InitializeComponent();
+
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                tables.Add(new Table(i+1));
+            }
         }
 
         public Table_Service Table_Service { get; set; }
@@ -26,60 +36,33 @@ namespace Restaurant_UI
 
         private void Table_Form_Load(object sender, EventArgs e)
         {
-            foreach (var button in this.Controls.OfType<Button>())
+           
+        }
+   
+        private void Button_Click(object sender, EventArgs e)
+        {
+            //Make Panel Status with orders capability in OrderForm
+            Button button = (Button)sender;
+
+            Table table = tables[button.TabIndex];
+
+            Order_Form order_Form = new Order_Form(table);
+
+            order_Form.Show();
+            if (table.Status == "Available")
             {
+                //Background Green
+                btntbl1.BackColor = Color.Green;
             }
-        }
+            else if (table.Status == "Reserve")
+            {
+                btntbl1.BackColor = Color.Yellow;
+            }
+            else
+            {
+                btntbl1.BackColor = Color.Red;
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            Order_Form order_Form1 = new Order_Form();
-            order_Form1.Show();
-        }
-
-        private void Button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Btntbl2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Btntbl4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Btntbl5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Btntbl6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Btntbl7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Btntbl8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button10_Click(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 }
