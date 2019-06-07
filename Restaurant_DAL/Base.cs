@@ -13,7 +13,7 @@ namespace Restaurant_DAL
         public Base()
         {
 
-            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RestaurantChapeau"].ConnectionString);
+            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["chapeau1819sdb02ConnectionString"].ConnectionString);
             adapter = new SqlDataAdapter();
         }
 
