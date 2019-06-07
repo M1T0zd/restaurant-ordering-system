@@ -12,16 +12,7 @@ namespace Restaurant_Logic
 {
     public class Login_Service
     {
-        Login_DAO login_db = new Login_DAO();
-
-        public Login_DAO Login_DAO
-        {
-            get { return login_db; }
-            set
-            {
-                login_db = value;
-            }
-        }
+        private Login_DAO login_db = new Login_DAO();
 
         public List<Login> GetLogin()
         {
@@ -51,8 +42,6 @@ namespace Restaurant_Logic
                 sw.WriteLine("Stack Trace: " + e.StackTrace);
                 sw.WriteLine("===========End============= " + DateTime.Now);
                 sw.WriteLine();
-
-
             }
         }
     }

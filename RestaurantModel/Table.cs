@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace RestaurantModel
 {
+
     public class Table
     {
         public int Number { get; set; }
-        private string status = "Available";
-        public string Status
+        private TableStatus status = TableStatus.Available;
+        public TableStatus Status
         {
             get
             {
@@ -23,11 +24,7 @@ namespace RestaurantModel
                 status = value;
             }
         }
-
-        public Table(int number)
-        {
-            Number = number;
-        }
+     
         public List<Order> orders = new List<Order>();
     }
 }

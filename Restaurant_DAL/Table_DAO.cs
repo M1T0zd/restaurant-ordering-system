@@ -15,7 +15,7 @@ namespace Restaurant_DAL
         public List<Table> GetTables()
         {
             //
-            string query = "SELECT Name, EmpRole, Number FROM [Tables]";
+            string query = "SELECT Number FROM [Tables]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }

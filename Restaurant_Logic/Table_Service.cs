@@ -13,13 +13,7 @@ namespace Restaurant_Logic
     public class Table_Service
     {
         Table_DAO table_DAO;
-
-        public Table_DAO Table_DAO
-        {
-            get { return table_DAO; }
-            set { table_DAO = value; }
-         
-        }
+   
         public Table_Service()
         {
             table_DAO = new Table_DAO();

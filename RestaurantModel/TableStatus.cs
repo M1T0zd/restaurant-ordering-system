@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace RestaurantModel
 {
-    public class Login
+    public enum TableStatus
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string RoleName { get; set; }
-
+        Available,Occupied,Reserved
     }
 }

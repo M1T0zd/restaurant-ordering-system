@@ -30,8 +30,7 @@ namespace Restaurant_DAL
                 {
                     Password = (String)dr["Password"],
                     Username = (String)(dr["Username"]),
-                    Employeenumber = (int)dr["EmployeeNumber"],
-                    RoleName = (String)dr["EmployeeRole"]                
+                    RoleName = (String)dr["EmployeRole"]                
                 };
                 logins.Add(login);
             }

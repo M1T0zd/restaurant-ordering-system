@@ -36,8 +36,8 @@
             this.btntbl6 = new System.Windows.Forms.Button();
             this.btntbl7 = new System.Windows.Forms.Button();
             this.btntbl8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btntable9 = new System.Windows.Forms.Button();
+            this.btntable10 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -121,25 +121,25 @@
             this.btntbl8.UseVisualStyleBackColor = true;
             this.btntbl8.Click += new System.EventHandler(this.Button_Click);
             // 
-            // button9
+            // btntable9
             // 
-            this.button9.Location = new System.Drawing.Point(114, 458);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(90, 90);
-            this.button9.TabIndex = 8;
-            this.button9.Text = "Table 9";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.Button_Click);
+            this.btntable9.Location = new System.Drawing.Point(114, 458);
+            this.btntable9.Name = "btntable9";
+            this.btntable9.Size = new System.Drawing.Size(90, 90);
+            this.btntable9.TabIndex = 8;
+            this.btntable9.Text = "Table 9";
+            this.btntable9.UseVisualStyleBackColor = true;
+            this.btntable9.Click += new System.EventHandler(this.Button_Click);
             // 
-            // button10
+            // btntable10
             // 
-            this.button10.Location = new System.Drawing.Point(287, 458);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(90, 90);
-            this.button10.TabIndex = 9;
-            this.button10.Text = "Table 10";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.Button_Click);
+            this.btntable10.Location = new System.Drawing.Point(287, 458);
+            this.btntable10.Name = "btntable10";
+            this.btntable10.Size = new System.Drawing.Size(90, 90);
+            this.btntable10.TabIndex = 9;
+            this.btntable10.Text = "Table 10";
+            this.btntable10.UseVisualStyleBackColor = true;
+            this.btntable10.Click += new System.EventHandler(this.Button_Click);
             // 
             // label1
             // 
@@ -157,8 +157,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 576);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.btntable10);
+            this.Controls.Add(this.btntable9);
             this.Controls.Add(this.btntbl8);
             this.Controls.Add(this.btntbl7);
             this.Controls.Add(this.btntbl6);
@@ -185,8 +185,8 @@
         private System.Windows.Forms.Button btntbl6;
         private System.Windows.Forms.Button btntbl7;
         private System.Windows.Forms.Button btntbl8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btntable9;
+        private System.Windows.Forms.Button btntable10;
         private System.Windows.Forms.Label label1;
     }
 }

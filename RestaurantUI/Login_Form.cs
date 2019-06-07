@@ -14,7 +14,7 @@ namespace Restaurant_UI
 {
     public partial class Login_Form : Form
     {
-        List<Login> loginList;
+        List<Login> loginList = new List<Login>();
         Login CurrentLogin;
         Kitchen_Form kitchen_Form;
         Bar_Form bar_Form;
@@ -37,6 +37,8 @@ namespace Restaurant_UI
 
         private void Btnlogin_Click(object sender, EventArgs e)
         {
+         
+            int check = 0;
             //GetAllLoginInfo
             Login_Service = new Login_Service();
             loginList = Login_Service.GetLogin();
@@ -47,34 +49,42 @@ namespace Restaurant_UI
                 if (login.Username == txtusername.Text && login.Password == txtpassword.Text)
                 {
                     CurrentLogin.RoleName = login.RoleName;
-          
-                    //Hide login form
-                    this.Hide();
+                    check++;
 
-                    if (CurrentLogin.RoleName == "Chef")
-                    {
-                        //Display Chef UI
-                        kitchen_Form.Show();
-                    }
-                    else if (CurrentLogin.RoleName == "Barman")
-                    {
-                        //Display BarmanUI
-                        bar_Form.Show();
-                    }
-                    else if (CurrentLogin.RoleName == "Waiter")
-                    {
-                        //Display WaiterUI
-                        table_Form.Show();
-                    }
-                }
-                else
-                {
-                    //Show Message Box
-                    string message = "Wrong Username / Password";
-                    string title = "Enter valid login credentials";
-                    MessageBox.Show(message, title);
-                }
+                }   
             }
+            if (check == 1)
+            {
+                //Hide login form
+
+                if (CurrentLogin.RoleName == "Chef")
+                {
+                    //Display Chef UI
+                    kitchen_Form.Show();
+                }
+                else if (CurrentLogin.RoleName == "Barman")
+                {
+                    //Display BarmanUI
+                    bar_Form.Show();
+                }
+                else if (CurrentLogin.RoleName == "Waiter")
+                {
+                    //Display WaiterUI
+                    table_Form.Show();
+                }
+
+               
+            }
+            else
+            {
+                //Show Message Box
+                string message = "Wrong Username / Password";
+                string title = "Enter valid login credentials";
+                MessageBox.Show(message, title);
+            }
+            this.Hide();
+
+
         }
     }
 }
