@@ -18,6 +18,17 @@ namespace Restaurant_UI
         public Payment_Form()
         {
             InitializeComponent();
+            Payment_Service GetOrder = new Payment_Service();
+            List<Order> payOrder = GetOrder.Get_Order();
+
+            foreach (Order item in payOrder)
+            {
+                ListViewItem li = new ListViewItem(item.Id.ToString());
+                li.SubItems.Add(item.TakenAt.ToString());
+                li.SubItems.Add(item.Status);
+                listView1.Items.Add(li);
+            }
+
         }
 
         public Payment_Service Payment_Service
@@ -31,21 +42,14 @@ namespace Restaurant_UI
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            payment_Services = new Payment_Service();
-            Payment payment = new Payment()
-            {
-                PaymentDate = Convert.ToDateTime(datetxtbx.Text),
-                OrderNumber = Convert.ToInt16(orderNumbertxtbx.Text),
-            };
-
-            payment_Services.InsertDetails(payment);
-            MessageBox.Show("Payment Successful");
-
+           
         }
 
         private void Payment_Form_Load(object sender, EventArgs e)
         {
 
         }
+
+       
     }
 }
