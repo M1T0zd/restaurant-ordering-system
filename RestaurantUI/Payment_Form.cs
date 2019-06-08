@@ -23,6 +23,7 @@ namespace Restaurant_UI
         {
             InitializeComponent();
             this.table_Form = table_Form;
+             
         }
        
         public Payment_Service Payment_Service
@@ -33,18 +34,47 @@ namespace Restaurant_UI
                 payment_Services = value;
             }
         }
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            Process_payment process_ = new Process_payment(this, table_Form);
-            process_.Show();
-        }
+      
         
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
             table_Form.Show();
             
+        }
+        public string selectedPaymentMethod()
+        {
+            string  payment_Method;
+            if(PinRadiobtn.Checked == true)
+            {
+                payment_Method = Enum.GetName(typeof(PaymentMethod), 2);
+            }
+            else if(cashRadiobtn.Checked == true)
+            {
+                payment_Method = Enum.GetName(typeof(PaymentMethod),0);
+            }
+            else 
+            {
+                payment_Method = Enum.GetName(typeof(PaymentMethod), 1);
+            }
 
+            return payment_Method;
+        }
+
+        private void PayOrderbtn_Click(object sender, EventArgs e)
+        {
+            if (cashRadiobtn.Checked == false && PinRadiobtn.Checked == false && creditCardRdbtn.Checked == false)
+            {
+                string message = "Select a payment method";
+                string title = "Error";
+                MessageBox.Show(message, title);
+           
+            }
+            else
+            {
+                Confirm_payment_Method process_ = new Confirm_payment_Method(this, table_Form);
+                process_.Show();
+            }
         }
     }
 }

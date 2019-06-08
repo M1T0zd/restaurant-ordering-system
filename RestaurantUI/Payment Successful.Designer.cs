@@ -38,7 +38,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(67, 191);
+            this.button1.Location = new System.Drawing.Point(36, 168);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 38);
             this.button1.TabIndex = 3;
@@ -49,9 +49,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::Restaurant_UI.Properties.Resources.Capture;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(243, 252);
+            this.pictureBox1.Size = new System.Drawing.Size(196, 218);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -61,7 +62,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(243, 252);
+            this.ClientSize = new System.Drawing.Size(196, 218);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

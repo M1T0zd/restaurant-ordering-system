@@ -29,7 +29,6 @@ namespace Restaurant_UI
             form.Show();
             this.Close();
             payment_Form.Close();
-         
         }
     }
 }
