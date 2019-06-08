@@ -86,8 +86,8 @@ namespace Restaurant_UI
 
             table = tables[button.TabIndex];
 
-            Order_Form order_Form = new Order_Form(table);
-
+            Order_Form order_Form = new Order_Form(table,this);
+            this.Hide();
             order_Form.Show();
       
         }

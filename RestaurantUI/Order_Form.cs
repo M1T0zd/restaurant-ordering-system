@@ -17,11 +17,11 @@ namespace Restaurant_UI
         //Make Panel Status with orders capability in OrderForm
         List<Order> orders;
         List<RestaurantModel.MenuItem> menuItems = new List<RestaurantModel.MenuItem>();
-
-        public Order_Form(Table table)
+        Table_Form table_Form;
+        public Order_Form(Table table, Table_Form table_Form)
         {
             InitializeComponent();
-
+            this.table_Form = table_Form;
             Initialize(table);
         }
 
@@ -39,6 +39,13 @@ namespace Restaurant_UI
         void MakeMenuItems()
         {
 
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Payment_Form form = new Payment_Form(table_Form);
+            this.Hide();
+            form.Show();
         }
     }
 }

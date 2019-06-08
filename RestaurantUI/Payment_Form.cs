@@ -14,23 +14,17 @@ namespace Restaurant_UI
 {
     public partial class Payment_Form : Form
     {
-        Payment_Service payment_Services;
-        public Payment_Form()
+
+        private static Payment_Form form;
+        private Payment_Service payment_Services;
+        Table_Form table_Form;
+
+        public Payment_Form(Table_Form table_Form)
         {
             InitializeComponent();
-            Payment_Service GetOrder = new Payment_Service();
-            List<Order> payOrder = GetOrder.Get_Order();
-
-            foreach (Order item in payOrder)
-            {
-                ListViewItem li = new ListViewItem(item.Id.ToString());
-                li.SubItems.Add(item.TakenAt.ToString());
-                li.SubItems.Add(item.Status);
-                listView1.Items.Add(li);
-            }
-
+            this.table_Form = table_Form;
         }
-
+       
         public Payment_Service Payment_Service
         {
             get { return payment_Services; }
@@ -39,17 +33,18 @@ namespace Restaurant_UI
                 payment_Services = value;
             }
         }
-
         private void Button2_Click(object sender, EventArgs e)
         {
-           
+            Process_payment process_ = new Process_payment(this, table_Form);
+            process_.Show();
         }
-
-        private void Payment_Form_Load(object sender, EventArgs e)
+        
+        private void CancelBtn_Click(object sender, EventArgs e)
         {
+            this.Close();
+            table_Form.Show();
+            
 
         }
-
-       
     }
 }
