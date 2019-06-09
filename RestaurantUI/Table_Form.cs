@@ -17,6 +17,8 @@ namespace Restaurant_UI
         List<Table> tables = new List<Table>();
         Button button;
         Table table;
+        public Table_Service Table_Service { get; set; }
+
 
         public Table_Form()
         {
@@ -30,8 +32,8 @@ namespace Restaurant_UI
 
         private void Initialize()
         {
-            Table_Service table_Service = new Table_Service();
-            tables = table_Service.GetTables();
+             Table_Service = new Table_Service();
+            tables = Table_Service.GetTables();
 
 
 
@@ -70,11 +72,9 @@ namespace Restaurant_UI
                 {
                     buttons[i].BackColor = Color.Red;
                 }
-            }
-         
+            } 
         }
 
-        public Table_Service Table_Service { get; set; }
      
 
        
