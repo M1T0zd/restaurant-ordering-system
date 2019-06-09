@@ -11,21 +11,14 @@ namespace Restaurant_Logic
    public class Payment_Service
     {
 
-        Payment_DAO registration_db = new Payment_DAO();
+        Payment_DAO GetOrder = new Payment_DAO();
 
-        public Payment_DAO Registration_db
+        public List<Order> Get_Order()
         {
-            get { return registration_db; }
-            set
-            {
-                registration_db = value;
-            }
+            List<Order> orders = GetOrder.Db_Get_Order();
+            return orders;
         }
 
-        public void InsertDetails(Payment payment)
-        {
-            Registration_db.InsertDetails(payment);
-        }
-
+       
     }
 }

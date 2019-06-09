@@ -1,6 +1,7 @@
 ﻿using RestaurantModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,19 @@ namespace Restaurant_DAL
         // save payment to database
         public void InsertDetails(Payment payment)
         {
-            string query = $"INSERT INTO  [User] VALUES ({payment.OrderNumber}, {payment.PaymentDate}, {payment.Tax}, {payment.Tip}, {payment.Total})";
+            string query = $"INSERT INTO  Payment VALUES ({payment.OrderNumber}, {payment.PaymentMethod}, '{payment.Comments}', {payment.Tip}, {payment.Total})";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             ExecuteEditQuery(query, sqlParameters);
+        }
+
+        // get order items from database.
+        public List<Order> Db_Get_Order()
+        {
+            Order_DAO order_ = new Order_DAO();
+            List<Order>order =  order_.GetOrders();
+            return order;
         }
     }
 }

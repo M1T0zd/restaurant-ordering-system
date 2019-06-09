@@ -14,12 +14,18 @@ namespace Restaurant_UI
 {
     public partial class Payment_Form : Form
     {
-        Payment_Service payment_Services;
-        public Payment_Form()
+
+        private static Payment_Form form;
+        private Payment_Service payment_Services;
+        Table_Form table_Form;
+
+        public Payment_Form(Table_Form table_Form)
         {
             InitializeComponent();
+            this.table_Form = table_Form;
+             
         }
-
+       
         public Payment_Service Payment_Service
         {
             get { return payment_Services; }
@@ -28,24 +34,47 @@ namespace Restaurant_UI
                 payment_Services = value;
             }
         }
-
-        private void Button2_Click(object sender, EventArgs e)
+      
+        
+        private void CancelBtn_Click(object sender, EventArgs e)
         {
-            payment_Services = new Payment_Service();
-            Payment payment = new Payment()
+            this.Close();
+            table_Form.Show();
+            
+        }
+        public string selectedPaymentMethod()
+        {
+            string  payment_Method;
+            if(PinRadiobtn.Checked == true)
             {
-                PaymentDate = Convert.ToDateTime(datetxtbx.Text),
-                OrderNumber = Convert.ToInt16(orderNumbertxtbx.Text),
-            };
+                payment_Method = Enum.GetName(typeof(PaymentMethod), 2);
+            }
+            else if(cashRadiobtn.Checked == true)
+            {
+                payment_Method = Enum.GetName(typeof(PaymentMethod),0);
+            }
+            else 
+            {
+                payment_Method = Enum.GetName(typeof(PaymentMethod), 1);
+            }
 
-            payment_Services.InsertDetails(payment);
-            MessageBox.Show("Payment Successful");
-
+            return payment_Method;
         }
 
-        private void Payment_Form_Load(object sender, EventArgs e)
+        private void PayOrderbtn_Click(object sender, EventArgs e)
         {
-
+            if (cashRadiobtn.Checked == false && PinRadiobtn.Checked == false && creditCardRdbtn.Checked == false)
+            {
+                string message = "Select a payment method";
+                string title = "Error";
+                MessageBox.Show(message, title);
+           
+            }
+            else
+            {
+                Confirm_payment_Method process_ = new Confirm_payment_Method(this, table_Form);
+                process_.Show();
+            }
         }
     }
 }
