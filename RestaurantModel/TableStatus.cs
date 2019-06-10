@@ -8,6 +8,6 @@ namespace RestaurantModel
 {
     public enum TableStatus
     {
-        Available,Occupied,Reserved
+        Available = 1,Occupied,Reserved
     }
 }

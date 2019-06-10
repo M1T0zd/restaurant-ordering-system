@@ -14,15 +14,17 @@ namespace Restaurant_UI
 {
     public partial class Table_Form : Form
     {
-        List<Table> tables = new List<Table>();
+        List<Table> tables;
         Button button;
         Table table;
+        Account_Form form;
         public Table_Service Table_Service { get; set; }
 
 
-        public Table_Form()
+        public Table_Form(Login login, Login_Form login_Form)
         {
             InitializeComponent();
+            form = new Account_Form(login,login_Form);
         }
 
         private void Table_Form_Load(object sender, EventArgs e)
@@ -84,5 +86,10 @@ namespace Restaurant_UI
       
         }
 
+        private void Btnaccount_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            form.Show();
+        }
     }
 }

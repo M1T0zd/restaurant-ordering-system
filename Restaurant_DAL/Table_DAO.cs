@@ -27,7 +27,7 @@ namespace Restaurant_DAL
             {
                 Table table = new Table()
                 {                
-                    Number = (int)dr["Number"]
+                    Number = (int)dr["Number"]       
                 };
                 tables.Add(table);
             }

@@ -40,6 +40,7 @@
             this.btntable10 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnltable = new System.Windows.Forms.Panel();
+            this.btnaccount = new System.Windows.Forms.Button();
             this.pnltable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,6 +156,7 @@
             // 
             // pnltable
             // 
+            this.pnltable.Controls.Add(this.btnaccount);
             this.pnltable.Controls.Add(this.label1);
             this.pnltable.Controls.Add(this.btntable10);
             this.pnltable.Controls.Add(this.btntable9);
@@ -171,6 +173,16 @@
             this.pnltable.Size = new System.Drawing.Size(489, 557);
             this.pnltable.TabIndex = 11;
             // 
+            // btnaccount
+            // 
+            this.btnaccount.Location = new System.Drawing.Point(368, 10);
+            this.btnaccount.Name = "btnaccount";
+            this.btnaccount.Size = new System.Drawing.Size(100, 37);
+            this.btnaccount.TabIndex = 11;
+            this.btnaccount.Text = "My Account";
+            this.btnaccount.UseVisualStyleBackColor = true;
+            this.btnaccount.Click += new System.EventHandler(this.Btnaccount_Click);
+            // 
             // Table_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -180,9 +192,9 @@
             this.Name = "Table_Form";
             this.Text = "Table_Form";
             this.Load += new System.EventHandler(this.Table_Form_Load);
-            this.pnltable.ResumeLayout(false);
+            //this.pnltable.ResumeLayout(false);
             this.pnltable.PerformLayout();
-            this.ResumeLayout(false);
+            //this.ResumeLayout(false);
 
         }
 
@@ -200,5 +212,6 @@
         private System.Windows.Forms.Button btntable10;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnltable;
+        private System.Windows.Forms.Button btnaccount;
     }
 }

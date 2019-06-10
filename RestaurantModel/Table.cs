@@ -12,7 +12,9 @@ namespace RestaurantModel
     public class Table
     {
         public int Number { get; set; }
+
         private TableStatus status = TableStatus.Available;
+        
         public TableStatus Status
         {
             get

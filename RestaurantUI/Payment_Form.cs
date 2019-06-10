@@ -18,11 +18,13 @@ namespace Restaurant_UI
         private static Payment_Form form;
         private Payment_Service payment_Services;
         Table_Form table_Form;
+        Table table;
 
-        public Payment_Form(Table_Form table_Form)
+        public Payment_Form(Table_Form table_Form,Table table)
         {
             InitializeComponent();
             this.table_Form = table_Form;
+            this.table = table;
              
         }
        
@@ -72,7 +74,7 @@ namespace Restaurant_UI
             }
             else
             {
-                Confirm_payment_Method process_ = new Confirm_payment_Method(this, table_Form);
+                Confirm_payment_Method process_ = new Confirm_payment_Method(this, table_Form,table);
                 process_.Show();
             }
         }

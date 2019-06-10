@@ -14,31 +14,21 @@ namespace Restaurant_UI
 {
     public partial class Login_Form : Form
     {
+        //Bar- and Kitchen-form can be the same form(if the logged in employee == bar then get drinks otherwise get food).
         List<Login> loginList = new List<Login>();
         Login CurrentLogin;
         Kitchen_Form kitchen_Form;
         Bar_Form bar_Form;
         Table_Form table_Form;
+        int check = 0;
         Login_Service Login_Service { get; set; }
 
         public Login_Form()
         {
             InitializeComponent();
-            kitchen_Form = new Kitchen_Form();
-            bar_Form = new Bar_Form();
-            table_Form = new Table_Form();
         }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Btnlogin_Click(object sender, EventArgs e)
         {
-         
-            int check = 0;
             //GetAllLoginInfo
             Login_Service = new Login_Service();
             loginList = Login_Service.GetLogin();
@@ -49,31 +39,40 @@ namespace Restaurant_UI
                 if (login.Username == txtusername.Text && login.Password == txtpassword.Text)
                 {
                     CurrentLogin.RoleName = login.RoleName;
+                    CurrentLogin.Username = login.Username;
                     check++;
+                    txtusername.Text = "";
+                    txtpassword.Text = "";
 
                 }   
             }
+            ShowForm();
+        }
+        private void ShowForm()
+        {
             if (check == 1)
             {
                 //Hide login form
-
+                this.Hide();
                 if (CurrentLogin.RoleName == "Chef")
                 {
                     //Display Chef UI
+                    kitchen_Form = new Kitchen_Form(CurrentLogin);
                     kitchen_Form.Show();
                 }
                 else if (CurrentLogin.RoleName == "Barman")
                 {
                     //Display BarmanUI
+                    bar_Form = new Bar_Form();
                     bar_Form.Show();
                 }
                 else if (CurrentLogin.RoleName == "Waiter")
                 {
                     //Display WaiterUI
+                    table_Form = new Table_Form(CurrentLogin, this);
                     table_Form.Show();
                 }
-                
-               
+                check = 0;
             }
             else
             {
@@ -82,9 +81,6 @@ namespace Restaurant_UI
                 string title = "Enter valid login credentials";
                 MessageBox.Show(message, title);
             }
-            this.Hide();
-
-
         }
     }
 }

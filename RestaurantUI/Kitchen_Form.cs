@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace Restaurant_UI
 {
     public partial class Kitchen_Form : Form
     {
-        public Kitchen_Form()
+        public Kitchen_Form(Login login)
         {
             InitializeComponent();
         }

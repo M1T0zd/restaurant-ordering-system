@@ -54,7 +54,7 @@ namespace Restaurant_UI
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Payment_Form form = new Payment_Form(table_Form);
+            Payment_Form form = new Payment_Form(table_Form,table);
             this.Hide();
             form.Show();
         }
