@@ -29,22 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment_confirmation));
-            this.button1 = new System.Windows.Forms.Button();
+            this.Okbtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // Okbtn
             // 
-            this.button1.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(36, 168);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 38);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Ok";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.Okbtn.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.Okbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Okbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Okbtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Okbtn.Location = new System.Drawing.Point(40, 181);
+            this.Okbtn.Name = "Okbtn";
+            this.Okbtn.Size = new System.Drawing.Size(113, 38);
+            this.Okbtn.TabIndex = 3;
+            this.Okbtn.Text = "Ok";
+            this.Okbtn.UseVisualStyleBackColor = false;
+            this.Okbtn.Click += new System.EventHandler(this.Button1_Click);
             // 
             // pictureBox1
             // 
@@ -52,7 +54,7 @@
             this.pictureBox1.Image = global::Restaurant_UI.Properties.Resources.Capture;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(196, 218);
+            this.pictureBox1.Size = new System.Drawing.Size(196, 243);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -62,8 +64,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(196, 218);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(196, 243);
+            this.Controls.Add(this.Okbtn);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Payment_confirmation";
@@ -75,6 +77,6 @@
 
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Okbtn;
     }
 }
