@@ -32,15 +32,13 @@ namespace Restaurant_UI
 
         private void Initialize()
         {
-             Table_Service = new Table_Service();
+            Table_Service = new Table_Service();
             tables = Table_Service.GetTables();
 
-
-
-            GiveColor(tables);
+            GiveColor();
 
         }
-        void GiveColor(List<Table> tables)
+        public void GiveColor()
         {
             List<Button> buttons = new List<Button>
             {
@@ -56,7 +54,6 @@ namespace Restaurant_UI
                 btntable10
             };
 
-
             for (int i = 0; i < tables.Count; i++)
             {
                 if (tables[i].Status == TableStatus.Available)
@@ -64,7 +61,7 @@ namespace Restaurant_UI
                     //Background Green
                     buttons[i].BackColor = Color.Green;
                 }
-                else if (tables[i].Status == TableStatus.Occupied)
+                else if (tables[i].Status == TableStatus.Reserved)
                 {
                     buttons[i].BackColor = Color.Yellow;
                 }
@@ -74,11 +71,6 @@ namespace Restaurant_UI
                 }
             } 
         }
-
-     
-
-       
-   
         private void Button_Click(object sender, EventArgs e)
         {
             //Make Panel Status with orders capability in OrderForm
@@ -91,5 +83,6 @@ namespace Restaurant_UI
             order_Form.Show();
       
         }
+
     }
 }
