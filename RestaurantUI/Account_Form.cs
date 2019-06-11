@@ -15,21 +15,36 @@ namespace Restaurant_UI
 {
     public partial class Account_Form : Form
     {
-        Employee employee;
         Login_Form loginform;
-        public Account_Form(Employee employee,Login_Form login_Form)
+        Employee Employee;
+        Table_Form Table_Form;
+        public Account_Form(Employee employee,Login_Form login_Form,Table_Form table_Form)
         {
             InitializeComponent();
             this.loginform = login_Form;
+            this.Employee = employee;
+            Table_Form = table_Form;
           
-            lblname.Text = $"Your Name: {employee.Name}";
+            lblname.Text = $"{employee.Name}";
+        }
+        public Account_Form(Employee employee, Login_Form login_Form,Kitchen_Form kitchen_Form)
+        {
+
         }
 
         private void Btnlogout_Click(object sender, EventArgs e)
         {
             loginform.Show();
-            this.Hide();
+            this.Close();
+        }
 
+        private void Btnback_Click(object sender, EventArgs e)
+        {
+            if (Employee.Role == "Waiter")
+            {
+                Table_Form.Show();
+            }
+            this.Hide();
         }
     }
 }

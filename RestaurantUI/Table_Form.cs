@@ -24,7 +24,7 @@ namespace Restaurant_UI
         public Table_Form(Employee employee, Login_Form login_Form)
         {
             InitializeComponent();
-            form = new Account_Form(employee,login_Form);
+            form = new Account_Form(employee,login_Form,this);
         }
 
         private void Table_Form_Load(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace Restaurant_UI
 
         private void Btnaccount_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             form.Show();
         }
 	}
