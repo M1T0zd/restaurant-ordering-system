@@ -8,38 +8,25 @@ namespace RestaurantModel
 {
 	public class OrderItem
 	{
-        public int Amount { get; set; }
-        public string Comment { get; set; }
-        public string ItemName { get; set; }
-        public int MenuItemId { get; set; }
-        public int OrderItemId { get; set; }
-        public DateTime Taken { get; set; }
-        public DateTime DateReady { get; set; }
-        public OrderStatus Status { get; set; }
+
+		public int Id { get; set; }
+		public int Amount { get; set; }
+		public string Comment { get; set; }
+		public string ItemName { get; set; }
+		public int MenuItemId { get; set; }
+		public DateTime DateReady { get; set; }
+		public OrderStatus Status { get; set; }
 		public Category Category { get; set; }
+		public MenuItem MenuItem { get; set; }
 
-		public OrderStatus OrderStatus
+		public OrderItem()
 		{
-			get => default;
-			set
-			{
-			}
+
 		}
 
-		public Category Category1
+		public OrderItem(OrderStatus status)
 		{
-			get => default;
-			set
-			{
-			}
-		}
-
-		public MenuItem MenuItem
-		{
-			get => default;
-			set
-			{
-			}
+			Status = status;
 		}
 	}
 }

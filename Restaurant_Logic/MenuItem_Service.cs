@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Diagnostics;
+
 namespace Restaurant_Logic
 {
     public class MenuItem_Service
@@ -21,38 +23,27 @@ namespace Restaurant_Logic
 			}
 		}
 
-		public List<MenuItem> GetMenuItem()
+		public List<MenuItem> GetMenuItems()
         {
-            try
-            {
-                List<MenuItem> menuitems = MenuItem_DAO.GetMenuItems();
+			try
+			{
+				List<MenuItem> menuitems = MenuItem_DAO.GetMenuItems();
                 return menuitems;
-            }
+			}
             catch (Exception e)
             {
                 ErrorLogging(e);
 
                 return null;
             }
-        }
+}
         private static void ErrorLogging(Exception e)
         {
-            string strPath = @"D:\Prins\Log.txt";
-            if (!File.Exists(strPath))
-            {
-                File.Create(strPath).Dispose();
-            }
-            using (StreamWriter sw = File.AppendText(strPath))
-            {
-                sw.WriteLine("=============Error Logging ===========");
-                sw.WriteLine("===========Start============= " + DateTime.Now);
-                sw.WriteLine("Error Message: " + e.Message);
-                sw.WriteLine("Stack Trace: " + e.StackTrace);
-                sw.WriteLine("===========End============= " + DateTime.Now);
-                sw.WriteLine();
-
-
-            }
-        }
+			Debug.WriteLine("=============Error Logging ===========");
+			Debug.WriteLine("===========Start============= " + DateTime.Now);
+			Debug.WriteLine("Error Message: " + e.Message);
+			Debug.WriteLine("Stack Trace: " + e.StackTrace);
+			Debug.WriteLine("===========End============= " + DateTime.Now + "\n");
+		}
     }
 }

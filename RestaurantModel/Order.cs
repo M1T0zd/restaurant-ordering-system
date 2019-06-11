@@ -10,17 +10,19 @@ namespace RestaurantModel
     {
 		public int Id { get; set; }
 		//public int Table { get; set; }
-		public string Status { get; set; }
 		public DateTime TakenAt { get; set; }
 
-		public OrderItem OrderItem
+		public List<OrderItem> OrderItems { get; set; }
+
+		public Order()
 		{
-			get => default;
-			set
-			{
-			}
+
 		}
 
-		//TODO: Status, Comment and Quantity should go to OrderItem, not Order.
+		public Order(DateTime takenAt)
+		{
+			TakenAt = takenAt;
+		}
+
 	}
 }

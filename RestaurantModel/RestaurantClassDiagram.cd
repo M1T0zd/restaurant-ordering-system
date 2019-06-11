@@ -10,7 +10,7 @@
   <Class Name="RestaurantModel.Login">
     <Position X="6.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAQAAAAAAAAAAAAACAAAAEAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAQAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Login.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,39 +24,31 @@
   <Class Name="RestaurantModel.Order">
     <Position X="9" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAEAAAAAAAIAAAAQAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAACAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Order.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="OrderItem" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="RestaurantModel.OrderItem">
     <Position X="9" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAEAAACABAAAAAAAACAAQQAAACAAAAAAAAACAQ=</HashCode>
+      <HashCode>AAAGAAAEAAAAABAAAAAAAACAAQAAAACAAAAAAAAACAA=</HashCode>
       <FileName>OrderItem.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="OrderStatus" />
-      <Property Name="Category1" />
       <Property Name="MenuItem" />
     </ShowAsAssociation>
   </Class>
   <Class Name="RestaurantModel.Payment">
     <Position X="4.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAIAAAEgAAAIACAAAAAAAAAAQAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AAABAAIAAAAgAAAAACAAAAAAAAAAQAAAAAAAAAACIAA=</HashCode>
       <FileName>Payment.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="PaymentMethod1" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="RestaurantModel.Table">
     <Position X="4.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAAAAAAAEAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAFAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Table.cs</FileName>
     </TypeIdentifier>
   </Class>

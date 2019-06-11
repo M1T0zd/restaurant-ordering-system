@@ -14,7 +14,7 @@ namespace Restaurant_UI
 {
     public partial class Order_Form : Form
     {
-        //Make Panel Status with orders capability in OrderForm
+		//Make Panel Status with orders capability in OrderForm
         List<Order> orders;
         List<RestaurantModel.MenuItem> menuItems = new List<RestaurantModel.MenuItem>();
         Table_Form table_Form;
@@ -23,66 +23,100 @@ namespace Restaurant_UI
         public Order_Form(Table table, Table_Form table_Form)
         {
             InitializeComponent();
-            this.table_Form = table_Form;
-            this.table = table;
-            Initialize(table);
-            lblnumber.Text = $"Table {table.Number}";        
-        }
+			Initialize(table, table_Form);
+		}
 
-        void Initialize(Table table)
+        void Initialize(Table table, Table_Form table_Form)
         {
-            orders = table.orders;
+			this.table_Form = table_Form;
+			this.table = table;
+
+			orders = table.orders;
         }
        
         private void Order_Form_Load(object sender, EventArgs e)
         {
-            if (table.Status == TableStatus.Available || table.Status == TableStatus.Reserved)
-            {
-                pnldefault.Hide();
-                pnlchangestatus.Show();
-            }
-            else
-            {
-                pnlchangestatus.Hide();
-                pnldefault.Show();
-            }
+			lblNumber.Text = $"Table {table.Number}";
+			lblNumber2.Text = $"Table {table.Number}";
+
+			UpdateStatusButtons();
+
+			if (table.Status == TableStatus.Occupied)
+			{
+				pnlChangeStatus.Hide();
+				pnlDefault.Show();
+			} else {
+				pnlChangeStatus.Show();
+				pnlDefault.Hide();
+			}
+
+			ListViewSetups();
+		}
+
+        private void ListViewSetups()
+        {
+			lvMenuItems.Columns.Add("Name", 100, HorizontalAlignment.Left);
+			lvMenuItems.Columns.Add("Price", 150, HorizontalAlignment.Left);
+			lvMenuItems.Columns.Add("Stock", 150, HorizontalAlignment.Left);
+
+			lvOrderItems.Columns.Add("Name", 100, HorizontalAlignment.Left);
+			lvOrderItems.Columns.Add("Price", 150, HorizontalAlignment.Left);
+			lvOrderItems.Columns.Add("Stock", 150, HorizontalAlignment.Left);
+
+			MenuItem_Service menuItem_Service = new MenuItem_Service();
+			List<RestaurantModel.MenuItem> menuItems = menuItem_Service.GetMenuItems();
+
+			foreach(RestaurantModel.MenuItem menuItem in menuItems)
+			{
+				ListViewItem lvi = new ListViewItem(menuItem.Name);
+				lvi.SubItems.Add(menuItem.Price.ToString());
+				lvi.SubItems.Add(menuItem.Stock.ToString());
+				lvi.Tag = menuItem;
+				lvMenuItems.Items.Add(lvi);
+			}
         }
 
-        void MakeMenuItems()
-        {
+		private void BtnOccupied_Click(object sender, EventArgs e)
+		{
+			table.Status = TableStatus.Occupied;
+			table_Form.GiveColor();
+			pnlChangeStatus.Hide();
+			pnlDefault.Show();
+		}
 
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            Payment_Form form = new Payment_Form(table_Form,table);
-			form.Show();
-			this.Close();
-        }
-
-        private void Btnsetoccupy_Click(object sender, EventArgs e)
-        {
-            table.Status = TableStatus.Occupied;
-            table_Form.GiveColor();
-            pnlchangestatus.Hide();
-            pnldefault.Show();
-        }
-
-        private void Btnreserve_Click(object sender, EventArgs e)
-        {
-            table.Status = TableStatus.Reserved;
-            table_Form.GiveColor();
+		private void BtnAvailable_Click(object sender, EventArgs e)
+		{
+			table.Status = TableStatus.Available;
+			table_Form.GiveColor();
 			table_Form.Show();
 			this.Close();
-        }
+		}
+
+		private void BtnReserved_Click(object sender, EventArgs e)
+		{
+			table.Status = TableStatus.Reserved;
+			table_Form.GiveColor();
+			table_Form.Show();
+			this.Close();
+		}
+
+
+
 
 		private void BtnOrder_Click(object sender, EventArgs e)
 		{
 			if(lvOrderItems.Items.Count != 0)
 			{
+				Order order = new Order(DateTime.Now);
 
+				foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
+				{
+					order.OrderItems.Add((OrderItem)lvi.Tag);
+				}
+
+				orders.Add(order);
 			} else {
-				MessageBox.Show("OrderItems list empty.", "Please add an OrderItem to the OrderItem list first.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Please add an OrderItem to the OrderItem list first.", "OrderItems list empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -98,13 +132,43 @@ namespace Restaurant_UI
 		{
 			lvOrderItems.SelectedItems.Clear();
 		}
-	
-        private void Btnavailable_Click(object sender, EventArgs e)
-        {
-            table.Status = TableStatus.Available;
-            table_Form.GiveColor();
-            this.Hide();
-            table_Form.Show();
-        }
-    }
+
+		private void BtnChangeStatus_Click(object sender, EventArgs e)
+		{
+			UpdateStatusButtons();
+			pnlChangeStatus.Show();
+			pnlDefault.Hide();
+		}
+
+		private void BtnPay_Click(object sender, EventArgs e)
+		{
+			Payment_Form form = new Payment_Form(table_Form, table);
+			form.Show();
+			this.Close();
+		}
+
+		//TOOLS
+		private void UpdateStatusButtons()
+		{
+			btnOccupied.Show();
+			btnAvailable.Show();
+			btnReserved.Show();
+
+			if (table.Status == TableStatus.Occupied)
+			{
+				btnOccupied.Hide();
+			}
+			else if (table.Status == TableStatus.Available)
+			{
+				btnAvailable.Hide();
+			}
+			else if (table.Status == TableStatus.Reserved)
+			{
+
+				btnReserved.Hide();
+			}
+		}
+
+
+	}
 }
