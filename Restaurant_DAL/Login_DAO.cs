@@ -14,8 +14,8 @@ namespace Restaurant_DAL
     {
         public List<Login> Db_Get_All_Login()
         {
-            string query = "SELECT C.Username,C.Password,R.EmployeRole FROM Credentials AS C " +
-                "JOIN Employees as E ON e.Number = c.EmployeeNumber JOIN Roles AS R ON R.idRole = E.IdRole";
+            string query = "SELECT C.Username,C.Password,R.Role " +
+                "FROM Credentials AS C JOIN Employees as E ON e.Number = c.EmployeeNumber JOIN EmployeeRole AS R ON R.Id = E.RoleId";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -30,7 +30,7 @@ namespace Restaurant_DAL
                 {
                     Password = (String)dr["Password"],
                     Username = (String)(dr["Username"]),
-                    RoleName = (String)dr["EmployeRole"]                
+                    RoleName = (String)dr["Role"]                
                 };
                 logins.Add(login);
             }
