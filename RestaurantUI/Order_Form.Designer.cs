@@ -34,6 +34,7 @@
             this.btnsetoccupy = new System.Windows.Forms.Button();
             this.lblnumber = new System.Windows.Forms.Label();
             this.pnldefault = new System.Windows.Forms.Panel();
+            this.btnavailable = new System.Windows.Forms.Button();
             this.pnlchangestatus.SuspendLayout();
             this.pnldefault.SuspendLayout();
             this.SuspendLayout();
@@ -41,7 +42,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(168, 324);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(208, 58);
             this.button1.TabIndex = 0;
@@ -51,6 +52,7 @@
             // 
             // pnlchangestatus
             // 
+            this.pnlchangestatus.Controls.Add(this.btnavailable);
             this.pnlchangestatus.Controls.Add(this.btnreserve);
             this.pnlchangestatus.Controls.Add(this.btnsetoccupy);
             this.pnlchangestatus.Controls.Add(this.lblnumber);
@@ -61,7 +63,7 @@
             // 
             // btnreserve
             // 
-            this.btnreserve.Location = new System.Drawing.Point(244, 279);
+            this.btnreserve.Location = new System.Drawing.Point(244, 303);
             this.btnreserve.Name = "btnreserve";
             this.btnreserve.Size = new System.Drawing.Size(206, 45);
             this.btnreserve.TabIndex = 2;
@@ -71,7 +73,7 @@
             // 
             // btnsetoccupy
             // 
-            this.btnsetoccupy.Location = new System.Drawing.Point(244, 167);
+            this.btnsetoccupy.Location = new System.Drawing.Point(244, 216);
             this.btnsetoccupy.Name = "btnsetoccupy";
             this.btnsetoccupy.Size = new System.Drawing.Size(206, 45);
             this.btnsetoccupy.TabIndex = 1;
@@ -96,6 +98,16 @@
             this.pnldefault.Name = "pnldefault";
             this.pnldefault.Size = new System.Drawing.Size(719, 503);
             this.pnldefault.TabIndex = 14;
+            // 
+            // btnavailable
+            // 
+            this.btnavailable.Location = new System.Drawing.Point(244, 127);
+            this.btnavailable.Name = "btnavailable";
+            this.btnavailable.Size = new System.Drawing.Size(206, 45);
+            this.btnavailable.TabIndex = 3;
+            this.btnavailable.Text = "Available";
+            this.btnavailable.UseVisualStyleBackColor = true;
+            this.btnavailable.Click += new System.EventHandler(this.Btnavailable_Click);
             // 
             // Order_Form
             // 
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Button btnsetoccupy;
         private System.Windows.Forms.Label lblnumber;
         private System.Windows.Forms.Panel pnldefault;
+        private System.Windows.Forms.Button btnavailable;
     }
 }

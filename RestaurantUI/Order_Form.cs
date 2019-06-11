@@ -35,7 +35,7 @@ namespace Restaurant_UI
        
         private void Order_Form_Load(object sender, EventArgs e)
         {
-            if (table.Status == TableStatus.Available)
+            if (table.Status == TableStatus.Available || table.Status == TableStatus.Reserved)
             {
                 pnldefault.Hide();
                 pnlchangestatus.Show();
@@ -70,6 +70,14 @@ namespace Restaurant_UI
         private void Btnreserve_Click(object sender, EventArgs e)
         {
             table.Status = TableStatus.Reserved;
+            table_Form.GiveColor();
+            this.Hide();
+            table_Form.Show();
+        }
+
+        private void Btnavailable_Click(object sender, EventArgs e)
+        {
+            table.Status = TableStatus.Available;
             table_Form.GiveColor();
             this.Hide();
             table_Form.Show();
