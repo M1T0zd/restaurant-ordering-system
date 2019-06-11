@@ -81,15 +81,14 @@ namespace Restaurant_UI
             table = tables[button.TabIndex];
 
             Order_Form order_Form = new Order_Form(table,this);
-            this.Hide();
             order_Form.Show();
       
         }
 
         private void Btnaccount_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             form.Show();
         }
-    }
+	}
 }

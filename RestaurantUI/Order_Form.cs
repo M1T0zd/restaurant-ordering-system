@@ -19,6 +19,7 @@ namespace Restaurant_UI
         List<RestaurantModel.MenuItem> menuItems = new List<RestaurantModel.MenuItem>();
         Table_Form table_Form;
         Table table;
+
         public Order_Form(Table table, Table_Form table_Form)
         {
             InitializeComponent();
@@ -55,8 +56,8 @@ namespace Restaurant_UI
         private void Button1_Click(object sender, EventArgs e)
         {
             Payment_Form form = new Payment_Form(table_Form,table);
-            this.Hide();
-            form.Show();
+			form.Show();
+			this.Close();
         }
 
         private void Btnsetoccupy_Click(object sender, EventArgs e)
@@ -71,10 +72,33 @@ namespace Restaurant_UI
         {
             table.Status = TableStatus.Reserved;
             table_Form.GiveColor();
-            this.Hide();
-            table_Form.Show();
+			table_Form.Show();
+			this.Close();
         }
 
+		private void BtnOrder_Click(object sender, EventArgs e)
+		{
+			if(lvOrderItems.Items.Count != 0)
+			{
+
+			} else {
+				MessageBox.Show("OrderItems list empty.", "Please add an OrderItem to the OrderItem list first.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		private void BtnAdd_Click(object sender, EventArgs e)
+		{
+			foreach(ListViewItem lvi in lvMenuItems.SelectedItems)
+			{
+				lvOrderItems.Items.Add(lvi);
+			}
+		}
+
+		private void BtnRemove_Click(object sender, EventArgs e)
+		{
+			lvOrderItems.SelectedItems.Clear();
+		}
+	
         private void Btnavailable_Click(object sender, EventArgs e)
         {
             table.Status = TableStatus.Available;
