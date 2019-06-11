@@ -15,14 +15,14 @@ namespace Restaurant_UI
 {
     public partial class Account_Form : Form
     {
-        Login login;
+        Employee employee;
         Login_Form loginform;
-        public Account_Form(Login login,Login_Form login_Form)
+        public Account_Form(Employee employee,Login_Form login_Form)
         {
             InitializeComponent();
             this.loginform = login_Form;
-            this.login = login;
-            lblname.Text = $"Your Email: {login.Username}";
+          
+            lblname.Text = $"Your Name: {employee.Name}";
         }
 
         private void Btnlogout_Click(object sender, EventArgs e)

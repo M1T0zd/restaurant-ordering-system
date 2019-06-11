@@ -16,13 +16,21 @@ namespace Restaurant_UI
     {
         //Bar- and Kitchen-form can be the same form(if the logged in employee == bar then get drinks otherwise get food).
         List<Login> loginList = new List<Login>();
+        List<Employee> employees = new List<Employee>();
         Login CurrentLogin;
+        Employee currentemployee;
         int check = 0;
         Login_Service Login_Service { get; set; }
 
         public Login_Form()
         {
             InitializeComponent();
+            GetEmployee();
+        }
+        void GetEmployee()
+        {
+            Employee_Service employee_Service = new Employee_Service();
+            employees = employee_Service.GetEmployee();
         }
         private void Btnlogin_Click(object sender, EventArgs e)
         {
@@ -35,15 +43,24 @@ namespace Restaurant_UI
             {
                 if (login.Username == txtusername.Text && login.Password == txtpassword.Text)
                 {
-                    CurrentLogin.RoleName = login.RoleName;
-                    CurrentLogin.Username = login.Username;
+                    CurrentLogin.EmployeeNumber = login.EmployeeNumber;
                     check++;
                     txtusername.Text = "";
                     txtpassword.Text = "";
-
-                }   
+                }           
             }
+            CheckEmployee();
             ShowForm();
+        }
+        void CheckEmployee()
+        {
+            foreach (Employee employee in employees)
+            {
+                if (employee.Number == CurrentLogin.EmployeeNumber)
+                {
+                    currentemployee = employee;
+                }
+            }
         }
         private void ShowForm()
         {
@@ -51,22 +68,22 @@ namespace Restaurant_UI
             {
                 //Hide login form
                 this.Hide();
-                if (CurrentLogin.RoleName == "Chef")
+                if (currentemployee.Role == "Chef")
                 {
                     //Display Chef UI
-                    Kitchen_Form kitchen_Form = new Kitchen_Form(CurrentLogin);
+                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
                     kitchen_Form.Show();
                 }
-                else if (CurrentLogin.RoleName == "Barman")
+                else if (currentemployee.Role == "Barman")
                 {
                     //Display BarmanUI
                     Bar_Form bar_Form = new Bar_Form();
                     bar_Form.Show();
                 }
-                else if (CurrentLogin.RoleName == "Waiter")
+                else if (currentemployee.Role == "Waiter")
                 {
                     //Display WaiterUI
-                    Table_Form table_Form = new Table_Form(CurrentLogin, this);
+                    Table_Form table_Form = new Table_Form(currentemployee, this);
                     table_Form.Show();
                 }
                 check = 0;

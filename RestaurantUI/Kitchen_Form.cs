@@ -13,7 +13,7 @@ namespace Restaurant_UI
 {
     public partial class Kitchen_Form : Form
     {
-        public Kitchen_Form(Login login)
+        public Kitchen_Form(Employee employee)
         {
             InitializeComponent();
         }

@@ -21,10 +21,10 @@ namespace Restaurant_UI
         public Table_Service Table_Service { get; set; }
 
 
-        public Table_Form(Login login, Login_Form login_Form)
+        public Table_Form(Employee employee, Login_Form login_Form)
         {
             InitializeComponent();
-            form = new Account_Form(login,login_Form);
+            form = new Account_Form(employee,login_Form);
         }
 
         private void Table_Form_Load(object sender, EventArgs e)
