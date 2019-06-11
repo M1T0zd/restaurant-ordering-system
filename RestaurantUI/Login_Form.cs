@@ -17,9 +17,6 @@ namespace Restaurant_UI
         //Bar- and Kitchen-form can be the same form(if the logged in employee == bar then get drinks otherwise get food).
         List<Login> loginList = new List<Login>();
         Login CurrentLogin;
-        Kitchen_Form kitchen_Form;
-        Bar_Form bar_Form;
-        Table_Form table_Form;
         int check = 0;
         Login_Service Login_Service { get; set; }
 
@@ -57,19 +54,19 @@ namespace Restaurant_UI
                 if (CurrentLogin.RoleName == "Chef")
                 {
                     //Display Chef UI
-                    kitchen_Form = new Kitchen_Form(CurrentLogin);
+                    Kitchen_Form kitchen_Form = new Kitchen_Form(CurrentLogin);
                     kitchen_Form.Show();
                 }
                 else if (CurrentLogin.RoleName == "Barman")
                 {
                     //Display BarmanUI
-                    bar_Form = new Bar_Form();
+                    Bar_Form bar_Form = new Bar_Form();
                     bar_Form.Show();
                 }
                 else if (CurrentLogin.RoleName == "Waiter")
                 {
                     //Display WaiterUI
-                    table_Form = new Table_Form(CurrentLogin, this);
+                    Table_Form table_Form = new Table_Form(CurrentLogin, this);
                     table_Form.Show();
                 }
                 check = 0;
