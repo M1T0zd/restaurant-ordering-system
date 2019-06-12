@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace RestaurantModel
 {
-    public class MenuItem
+    public class Session
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int Stock { get; set; }
+        public int HostId { get; set; }
+        public int TableId { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
     }
 }

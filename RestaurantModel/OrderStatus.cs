@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace RestaurantModel
 {
-	public enum OrderStatus { Waiting, Processing, Ready, Served, Error }
+	public enum OrderStatus { Waiting = 1, Processing, Ready, Served }
 }

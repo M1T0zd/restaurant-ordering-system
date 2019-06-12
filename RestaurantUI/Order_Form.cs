@@ -19,18 +19,21 @@ namespace Restaurant_UI
         List<RestaurantModel.MenuItem> menuItems = new List<RestaurantModel.MenuItem>();
         Table_Form table_Form;
         Table table;
+        Employee employee;
+        Session currentsession;
 
-        public Order_Form(Table table, Table_Form table_Form)
+        public Order_Form(Table table, Table_Form table_Form,Employee employee,Session session)
         {
             InitializeComponent();
-			Initialize(table, table_Form);
+			Initialize(table, table_Form,session);
+            this.employee = employee;
 		}
 
-        void Initialize(Table table, Table_Form table_Form)
+        void Initialize(Table table, Table_Form table_Form,Session session)
         {
 			this.table_Form = table_Form;
 			this.table = table;
-
+            this.currentsession = session;
 			orders = table.orders;
         }
        
@@ -55,13 +58,13 @@ namespace Restaurant_UI
 
         private void ListViewSetups()
         {
-			lvMenuItems.Columns.Add("Name", 100, HorizontalAlignment.Left);
-			lvMenuItems.Columns.Add("Price", 150, HorizontalAlignment.Left);
-			lvMenuItems.Columns.Add("Stock", 150, HorizontalAlignment.Left);
+			lvMenuItems.Columns.Add("Name", 150, HorizontalAlignment.Left);
+			lvMenuItems.Columns.Add("Price", 50, HorizontalAlignment.Left);
+			lvMenuItems.Columns.Add("Stock", 50, HorizontalAlignment.Left);
 
-			lvOrderItems.Columns.Add("Name", 100, HorizontalAlignment.Left);
-			lvOrderItems.Columns.Add("Price", 150, HorizontalAlignment.Left);
-			lvOrderItems.Columns.Add("Stock", 150, HorizontalAlignment.Left);
+			lvOrderItems.Columns.Add("Name", 150, HorizontalAlignment.Left);
+			lvOrderItems.Columns.Add("Price", 50, HorizontalAlignment.Left);
+			lvOrderItems.Columns.Add("Amount", 50, HorizontalAlignment.Left);
 
 			MenuItem_Service menuItem_Service = new MenuItem_Service();
 			List<RestaurantModel.MenuItem> menuItems = menuItem_Service.GetMenuItems();
@@ -78,16 +81,27 @@ namespace Restaurant_UI
 
 		private void BtnOccupied_Click(object sender, EventArgs e)
 		{
-			table.Status = TableStatus.Occupied;
-			table_Form.GiveColor();
-			pnlChangeStatus.Hide();
-			pnlDefault.Show();
+            currentsession.Start = DateTime.Now;
+
+            table.Status = TableStatus.Occupied;
+            Table_Service table_Service = new Table_Service();
+            table_Service.UpdateStatus(table);
+            table_Form.GiveColor();
+
+            Session_Service session_Service = new Session_Service();
+            session_Service.UpdateTable(currentsession);
+
+            pnlChangeStatus.Hide();
+			pnlDefault.Show();           
+            
 		}
 
 		private void BtnAvailable_Click(object sender, EventArgs e)
 		{
 			table.Status = TableStatus.Available;
-			table_Form.GiveColor();
+            Table_Service table_Service = new Table_Service();
+            table_Service.UpdateStatus(table);
+            table_Form.GiveColor();
 			table_Form.Show();
 			this.Close();
 		}
@@ -95,6 +109,8 @@ namespace Restaurant_UI
 		private void BtnReserved_Click(object sender, EventArgs e)
 		{
 			table.Status = TableStatus.Reserved;
+            Table_Service table_Service = new Table_Service();
+            table_Service.UpdateStatus(table);
 			table_Form.GiveColor();
 			table_Form.Show();
 			this.Close();
@@ -124,13 +140,41 @@ namespace Restaurant_UI
 		{
 			foreach(ListViewItem lvi in lvMenuItems.SelectedItems)
 			{
-				lvOrderItems.Items.Add(lvi);
+				RestaurantModel.MenuItem menuItem = (RestaurantModel.MenuItem)lvi.Tag;
+
+				//Check if MenuItem is already in OrderItem list.
+				foreach(ListViewItem orderLvi in lvOrderItems.Items)
+				{
+					OrderItem orderItem = (OrderItem)orderLvi.Tag;
+					if (menuItem == orderItem.MenuItem)
+					{
+						return;
+					}
+				}
+				
+				
+				OrderItem newOrderItem = new OrderItem
+				{
+					Amount = 1,
+					MenuItem = menuItem,
+					Status = OrderStatus.Waiting
+				};
+
+				ListViewItem lviNew = new ListViewItem(newOrderItem.MenuItem.Name);// menuItem.Name);
+				lviNew.SubItems.Add(newOrderItem.MenuItem.Price.ToString());
+				lviNew.SubItems.Add(newOrderItem.Amount.ToString());
+				lviNew.Tag = newOrderItem;
+
+				lvOrderItems.Items.Add(lviNew);
 			}
 		}
 
 		private void BtnRemove_Click(object sender, EventArgs e)
 		{
-			lvOrderItems.SelectedItems.Clear();
+			foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
+			{
+				lvOrderItems.Items.Remove(lvi);
+			}
 		}
 
 		private void BtnChangeStatus_Click(object sender, EventArgs e)
@@ -142,7 +186,7 @@ namespace Restaurant_UI
 
 		private void BtnPay_Click(object sender, EventArgs e)
 		{
-			Payment_Form form = new Payment_Form(table_Form, table);
+			Payment_Form form = new Payment_Form(table_Form, table,currentsession);
 			form.Show();
 			this.Close();
 		}
@@ -164,11 +208,94 @@ namespace Restaurant_UI
 			}
 			else if (table.Status == TableStatus.Reserved)
 			{
-
 				btnReserved.Hide();
 			}
 		}
 
+		private void TxtComment_Leave(object sender, EventArgs e)
+		{
+			foreach(ListViewItem lvi in lvOrderItems.SelectedItems)
+			{
+				OrderItem orderItem = (OrderItem)lvi.Tag;
 
+				orderItem.Comment = txtComment.Text;
+			}
+		}
+
+		private void LvOrderItems_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+		{
+			if(lvOrderItems.SelectedItems.Count == 1)
+			{
+				OrderItem orderItem = (OrderItem)lvOrderItems.SelectedItems[0].Tag;
+
+				txtComment.Text = orderItem.Comment;
+				nudQuantity.Value = orderItem.Amount;
+
+			} else {
+				txtComment.Text = "";
+				nudQuantity.Value = 0;
+			}
+		}
+
+		private void NudQuantity_ValueChanged(object sender, EventArgs e)
+		{
+			foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
+			{
+				OrderItem orderItem = (OrderItem)lvi.Tag;
+
+				orderItem.Amount = (int)nudQuantity.Value;
+
+				lvi.SubItems[2].Text = orderItem.Amount.ToString();
+			}
+		}
+
+		private void NudQuantity_Leave(object sender, EventArgs e)
+		{
+			foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
+			{
+				OrderItem orderItem = (OrderItem)lvi.Tag;
+
+				orderItem.Amount = (int)nudQuantity.Value;
+
+				if(orderItem.Amount <= 0)
+				{
+					lvOrderItems.Items.Remove(lvi);
+				}
+			}
+		}
+
+		private void RdoButtons_Changed(object sender, EventArgs e)
+		{
+			MenuItem_Service menuItem_Service = new MenuItem_Service();
+			List<RestaurantModel.MenuItem> menuItems = menuItem_Service.GetMenuItems();
+
+			lvMenuItems.Items.Clear();
+
+			if (rdoAll.Checked)
+			{
+
+			}
+			else if(rdoLunch.Checked)
+			{
+
+			}
+			else if(rdoDinner.Checked)
+			{
+
+			}
+			else if(rdoDrinks.Checked)
+			{
+
+			}
+
+			foreach (RestaurantModel.MenuItem menuItem in menuItems)
+			{
+				ListViewItem lvi = new ListViewItem(menuItem.Name);
+				lvi.SubItems.Add(menuItem.Price.ToString());
+				lvi.SubItems.Add(menuItem.Stock.ToString());
+				lvi.Tag = menuItem;
+				lvMenuItems.Items.Add(lvi);
+			}
+		}
 	}
 }

@@ -26,6 +26,8 @@ namespace Restaurant_UI
         }
         private void Button1_Click(object sender, EventArgs e)
         {
+            payment_Form.SaveOrderDetails();
+            payment_Form.WriteComments();
             form.Show();
             this.Close();
             payment_Form.Close();

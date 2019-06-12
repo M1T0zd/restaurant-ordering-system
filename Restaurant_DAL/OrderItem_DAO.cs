@@ -79,7 +79,7 @@ namespace Restaurant_DAL
                     Amount = (int)dr["Quantity"],
                     Comment = (string)dr["Comment"],
                     state = (OrderState)Enum.Parse(typeof(OrderState), Convert.ToString(dr["State"])),
-                     OrderId = (int)dr["OrderID"],
+                    OrderId = (int)dr["OrderID"],
                     OrderItemId = (int)dr["Id"],
                 };
                 OrderItems.Add(OrderItem);
@@ -96,5 +96,28 @@ namespace Restaurant_DAL
             ExecuteEditQuery(query, sqlParameters);
         }
         //**************************** is ready 
+        private List<OrderItem> ReadTables(DataTable dataTable)
+        {
+            List<OrderItem> orderItems = new List<OrderItem>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                OrderItem order = new OrderItem()
+                {
+                    TableNumber = (int)dr["tableid"],
+                    Status = (OrderStatus)dr["StateId"],
+                    ItemName = (String)dr["Name"],
+                    Id = (int)dr["Id"]
+                };
+                orderItems.Add(order);
+            }
+            return orderItems;
+        }
+        public void UpdateStatus(OrderItem orderItem)
+        {
+            string query = ($"UPDATE Tables SET StatusId = {(int)orderItem.Status} where Number = {orderItem.Id}");
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

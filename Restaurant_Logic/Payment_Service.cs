@@ -8,17 +8,15 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Logic
 {
-   public class Payment_Service
+    public class Payment_Service
     {
 
-        Payment_DAO GetOrder = new Payment_DAO();
+        Payment_DAO insertDetails = new Payment_DAO();
 
-        public List<Order> Get_Order()
+        public void insertOrder(int method, Decimal total, Decimal tax)
         {
-            List<Order> orders = GetOrder.Db_Get_Order();
-            return orders;
+            insertDetails.InsertDetails(method, total, tax);
         }
 
-       
     }
 }

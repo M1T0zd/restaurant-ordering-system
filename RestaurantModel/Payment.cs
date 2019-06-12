@@ -10,14 +10,13 @@ namespace RestaurantModel
     {
 
 
-        public float Tip { get; set; }
-        public string Comments { get; set; }
-        public float Tax { get; set; }
-        public float Total { get; set; }
-        public int OrderNumber { get; set; }
+        public Decimal Tip { get; set; }
 
+        public Decimal Tax { get; set; }
+        public Decimal Total { get; set; }
+       
         public PaymentMethod PaymentMethod;
-        public int EmployeeId { get; set; }
+        
 
 	}
 }

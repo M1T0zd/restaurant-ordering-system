@@ -74,6 +74,37 @@ namespace Restaurant_DAL
             }
         }
 
+        protected DataTable ExecuteEditOutputQuery(String query, SqlParameter[] sqlParameters)
+        {
+            SqlCommand command = new SqlCommand();
+			DataTable dataTable;
+			DataSet dataSet = new DataSet();
+
+			try
+            {
+                command.Connection = OpenConnection();
+                command.CommandText = query;
+                command.Parameters.AddRange(sqlParameters);
+                adapter.InsertCommand = command;
+                command.ExecuteNonQuery();
+				adapter.Fill(dataSet);
+				dataTable = dataSet.Tables[0];
+
+			}
+            catch (SqlException e)
+            {
+                ErrorLogging(e);
+				return null;
+                throw;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+			return dataTable;
+        }
+
 
 
         /* For Select Queries */

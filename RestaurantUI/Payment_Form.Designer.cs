@@ -59,7 +59,7 @@
             this.tbNumberlbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.commentstxt_btn = new System.Windows.Forms.TextBox();
+            this.commentstxt_box = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -371,20 +371,20 @@
             this.label5.TabIndex = 53;
             this.label5.Text = "Add Tip";
             // 
-            // commentstxt_btn
+            // commentstxt_box
             // 
-            this.commentstxt_btn.Location = new System.Drawing.Point(39, 450);
-            this.commentstxt_btn.Multiline = true;
-            this.commentstxt_btn.Name = "commentstxt_btn";
-            this.commentstxt_btn.Size = new System.Drawing.Size(336, 74);
-            this.commentstxt_btn.TabIndex = 54;
+            this.commentstxt_box.Location = new System.Drawing.Point(39, 450);
+            this.commentstxt_box.Multiline = true;
+            this.commentstxt_box.Name = "commentstxt_box";
+            this.commentstxt_box.Size = new System.Drawing.Size(336, 74);
+            this.commentstxt_box.TabIndex = 54;
             // 
             // Payment_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 654);
-            this.Controls.Add(this.commentstxt_btn);
+            this.Controls.Add(this.commentstxt_box);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Table_Numberlbl);
             this.Controls.Add(this.tbNumberlbl);
@@ -448,6 +448,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button PayOrderbtn;
-        private System.Windows.Forms.TextBox commentstxt_btn;
+        private System.Windows.Forms.TextBox commentstxt_box;
     }
 }

@@ -13,19 +13,12 @@ namespace RestaurantModel
     {
         public int Number { get; set; }
 
-        private TableStatus status = TableStatus.Available;
+        public TableStatus Status { get; set; }
         
-        public TableStatus Status
-        {
-            get
-            {
-                return status;
-            }
-            set
-            {
-                status = value;
-            }
-        }
+
+
+		//DEPRECATED
+        public Employee Employee { get; set; }
      
         public List<Order> orders = new List<Order>();
     }
