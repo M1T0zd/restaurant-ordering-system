@@ -53,13 +53,13 @@
             this.PayOrderbtn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.CancelBtn = new System.Windows.Forms.Button();
-            this.Comments = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.orderNumbertxtbx = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Table_Numberlbl = new System.Windows.Forms.TextBox();
+            this.tbNumberlbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.commentstxt_btn = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -307,14 +307,6 @@
             this.CancelBtn.UseVisualStyleBackColor = true;
             this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
-            // Comments
-            // 
-            this.Comments.FormattingEnabled = true;
-            this.Comments.Location = new System.Drawing.Point(35, 450);
-            this.Comments.Name = "Comments";
-            this.Comments.Size = new System.Drawing.Size(339, 82);
-            this.Comments.TabIndex = 46;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -337,32 +329,32 @@
             this.label9.TabIndex = 49;
             this.label9.Text = "(Optional)";
             // 
-            // orderNumbertxtbx
+            // Table_Numberlbl
             // 
-            this.orderNumbertxtbx.BackColor = System.Drawing.SystemColors.Menu;
-            this.orderNumbertxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.orderNumbertxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderNumbertxtbx.ForeColor = System.Drawing.Color.Red;
-            this.orderNumbertxtbx.Location = new System.Drawing.Point(240, 12);
-            this.orderNumbertxtbx.Name = "orderNumbertxtbx";
-            this.orderNumbertxtbx.Size = new System.Drawing.Size(39, 15);
-            this.orderNumbertxtbx.TabIndex = 52;
+            this.Table_Numberlbl.BackColor = System.Drawing.SystemColors.Menu;
+            this.Table_Numberlbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Table_Numberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Table_Numberlbl.ForeColor = System.Drawing.Color.Red;
+            this.Table_Numberlbl.Location = new System.Drawing.Point(240, 9);
+            this.Table_Numberlbl.Name = "Table_Numberlbl";
+            this.Table_Numberlbl.Size = new System.Drawing.Size(39, 15);
+            this.Table_Numberlbl.TabIndex = 52;
             // 
-            // label3
+            // tbNumberlbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(126, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 16);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "Table number:";
+            this.tbNumberlbl.AutoSize = true;
+            this.tbNumberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNumberlbl.Location = new System.Drawing.Point(126, 9);
+            this.tbNumberlbl.Name = "tbNumberlbl";
+            this.tbNumberlbl.Size = new System.Drawing.Size(108, 16);
+            this.tbNumberlbl.TabIndex = 51;
+            this.tbNumberlbl.Text = "Table number:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(134, 31);
+            this.label1.Location = new System.Drawing.Point(134, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 15);
             this.label1.TabIndex = 50;
@@ -379,18 +371,26 @@
             this.label5.TabIndex = 53;
             this.label5.Text = "Add Tip";
             // 
+            // commentstxt_btn
+            // 
+            this.commentstxt_btn.Location = new System.Drawing.Point(39, 450);
+            this.commentstxt_btn.Multiline = true;
+            this.commentstxt_btn.Name = "commentstxt_btn";
+            this.commentstxt_btn.Size = new System.Drawing.Size(336, 74);
+            this.commentstxt_btn.TabIndex = 54;
+            // 
             // Payment_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 654);
+            this.Controls.Add(this.commentstxt_btn);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.orderNumbertxtbx);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Table_Numberlbl);
+            this.Controls.Add(this.tbNumberlbl);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.Comments);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Tax_txt_bx);
@@ -441,13 +441,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox Comments;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox orderNumbertxtbx;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox Table_Numberlbl;
+        private System.Windows.Forms.Label tbNumberlbl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button PayOrderbtn;
+        private System.Windows.Forms.TextBox commentstxt_btn;
     }
 }

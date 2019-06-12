@@ -19,13 +19,14 @@ namespace Restaurant_UI
         private Payment_Service payment_Services;
         Table_Form table_Form;
         Table table;
-
+       
         public Payment_Form(Table_Form table_Form,Table table)
         {
             InitializeComponent();
             this.table_Form = table_Form;
             this.table = table;
-             
+           Table_Numberlbl.Text = table.Number.ToString();
+           this.Text = $"Payment From   {DateTime.Now.ToShortDateString()}     [ {DateTime.Now.ToShortTimeString()} ]";
         }
        
         public Payment_Service Payment_Service
@@ -78,5 +79,7 @@ namespace Restaurant_UI
                 process_.Show();
             }
         }
+
+      
     }
 }
