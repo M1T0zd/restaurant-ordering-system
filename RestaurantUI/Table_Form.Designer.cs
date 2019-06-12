@@ -55,6 +55,7 @@
             this.btnnotif = new System.Windows.Forms.Button();
             this.listviewnotif = new System.Windows.Forms.ListView();
             this.btnpanelback = new System.Windows.Forms.Button();
+            this.btnserveitem = new System.Windows.Forms.Button();
             this.pnltable.SuspendLayout();
             this.pnlnotif.SuspendLayout();
             this.SuspendLayout();
@@ -313,6 +314,7 @@
             // 
             // pnlnotif
             // 
+            this.pnlnotif.Controls.Add(this.btnserveitem);
             this.pnlnotif.Controls.Add(this.btnpanelback);
             this.pnlnotif.Controls.Add(this.listviewnotif);
             this.pnlnotif.Location = new System.Drawing.Point(12, 11);
@@ -338,6 +340,7 @@
             this.listviewnotif.TabIndex = 0;
             this.listviewnotif.UseCompatibleStateImageBehavior = false;
             this.listviewnotif.View = System.Windows.Forms.View.Details;
+            this.listviewnotif.SelectedIndexChanged += new System.EventHandler(this.Listviewnotif_SelectedIndexChanged);
             // 
             // btnpanelback
             // 
@@ -348,6 +351,16 @@
             this.btnpanelback.Text = "Back";
             this.btnpanelback.UseVisualStyleBackColor = true;
             this.btnpanelback.Click += new System.EventHandler(this.Btnpanelback_Click);
+            // 
+            // btnserveitem
+            // 
+            this.btnserveitem.Location = new System.Drawing.Point(133, 505);
+            this.btnserveitem.Name = "btnserveitem";
+            this.btnserveitem.Size = new System.Drawing.Size(227, 40);
+            this.btnserveitem.TabIndex = 2;
+            this.btnserveitem.Text = "Serve";
+            this.btnserveitem.UseVisualStyleBackColor = true;
+            this.btnserveitem.Click += new System.EventHandler(this.Btnserveitem_Click);
             // 
             // Table_Form
             // 
@@ -396,5 +409,6 @@
         private System.Windows.Forms.Panel pnlnotif;
         private System.Windows.Forms.ListView listviewnotif;
         private System.Windows.Forms.Button btnpanelback;
+        private System.Windows.Forms.Button btnserveitem;
     }
 }

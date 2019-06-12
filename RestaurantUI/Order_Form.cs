@@ -81,7 +81,9 @@ namespace Restaurant_UI
 		private void BtnOccupied_Click(object sender, EventArgs e)
 		{
 			table.Status = TableStatus.Occupied;
-			table_Form.GiveColor();
+            Table_Service table_Service = new Table_Service();
+            table_Service.UpdateStatus(table);
+            table_Form.GiveColor();
 			pnlChangeStatus.Hide();
 			pnlDefault.Show();           
             
@@ -90,7 +92,9 @@ namespace Restaurant_UI
 		private void BtnAvailable_Click(object sender, EventArgs e)
 		{
 			table.Status = TableStatus.Available;
-			table_Form.GiveColor();
+            Table_Service table_Service = new Table_Service();
+            table_Service.UpdateStatus(table);
+            table_Form.GiveColor();
 			table_Form.Show();
 			this.Close();
 		}
@@ -98,6 +102,8 @@ namespace Restaurant_UI
 		private void BtnReserved_Click(object sender, EventArgs e)
 		{
 			table.Status = TableStatus.Reserved;
+            Table_Service table_Service = new Table_Service();
+            table_Service.UpdateStatus(table);
 			table_Form.GiveColor();
 			table_Form.Show();
 			this.Close();

@@ -14,8 +14,6 @@ namespace Restaurant_Logic
     {
         OrderItem_DAO order_DAO = new OrderItem_DAO();
 
- 
-
         public List<OrderItem> GetOrder()
         {
             try
@@ -29,6 +27,10 @@ namespace Restaurant_Logic
 
                 return null;
             }
+        }
+        public void UpdateStatus(OrderItem orderItem)
+        {
+            order_DAO.UpdateStatus(orderItem);
         }
         private static void ErrorLogging(Exception e)
         {

@@ -32,6 +32,10 @@ namespace Restaurant_Logic
                 return null;
             }
         }
+        public void UpdateStatus(Table table)
+        {
+            table_DAO.UpdateTable(table);
+        }
         private static void ErrorLogging(Exception e)
         {
             string strPath = @"D:\Prins\Log.txt";

@@ -37,7 +37,7 @@ namespace Restaurant_DAL
         }
         public void UpdateTable(Table table)
         {
-            string query = ($"UPDATE Tables SET StatusId = {(int)table.Status} where Number = 1");
+            string query = ($"UPDATE Tables SET StatusId = {(int)table.Status} where Number = {table.Number}");
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }

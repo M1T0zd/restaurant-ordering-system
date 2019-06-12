@@ -29,12 +29,13 @@ namespace Restaurant_UI
             InitializeComponent();
             form = new Account_Form(employee,login_Form,this);
             this.Employee = employee;
+            //Get Notification List If Order Is ready
+            GetNotificationWithTimer();
         }
 
         private void Table_Form_Load(object sender, EventArgs e)
         {
-            Initialize();
-            GetList();
+            Initialize();          
         }
 
         private void Initialize()
@@ -44,6 +45,15 @@ namespace Restaurant_UI
 
             GiveColor();
 
+        }
+        void GetNotificationWithTimer()
+        {
+            var startTimeSpan = TimeSpan.Zero;
+            var periodTimeSpan = TimeSpan.FromMinutes(2);
+            var timer = new System.Threading.Timer((f) =>
+            {
+                GetList();
+            }, null, startTimeSpan, periodTimeSpan);
         }
         public void GiveName()
         {
@@ -117,7 +127,7 @@ namespace Restaurant_UI
             form.Show();
             
         }
-
+      
         private void Btnnotif_Click(object sender, EventArgs e)
         {
             pnltable.Hide();
@@ -145,6 +155,39 @@ namespace Restaurant_UI
         {
             pnlnotif.Hide();
             pnltable.Show();
+        }
+        OrderItem selectedorderItem;
+        private void Listviewnotif_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = listviewnotif.SelectedIndices[0];
+            OrderItem orderItem = orderItems[index];
+            CurrentOrderItem(orderItem);
+        }
+        void CurrentOrderItem(OrderItem orderItem)
+        {
+           
+                selectedorderItem.Id = orderItem.Id;
+                selectedorderItem.Status = orderItem.Status;
+            
+       
+        }
+
+        private void Btnserveitem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                selectedorderItem.Status = OrderStatus.Served;
+                OrderItem_Service item_Service = new OrderItem_Service();
+                item_Service.UpdateStatus(selectedorderItem);
+            }
+            catch (Exception)
+            {
+                //Show Message Box
+                string message = "Please Select an Item";
+                string title = "You haven't selected an item";
+                MessageBox.Show(message, title);
+            }
+           
         }
     }
 }
