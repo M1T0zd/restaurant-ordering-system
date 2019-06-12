@@ -20,19 +20,20 @@ namespace Restaurant_UI
         Table_Form table_Form;
         Table table;
         Employee employee;
+        Session currentsession;
 
-        public Order_Form(Table table, Table_Form table_Form,Employee employee)
+        public Order_Form(Table table, Table_Form table_Form,Employee employee,Session session)
         {
             InitializeComponent();
-			Initialize(table, table_Form);
+			Initialize(table, table_Form,session);
             this.employee = employee;
 		}
 
-        void Initialize(Table table, Table_Form table_Form)
+        void Initialize(Table table, Table_Form table_Form,Session session)
         {
 			this.table_Form = table_Form;
 			this.table = table;
-
+            this.currentsession = session;
 			orders = table.orders;
         }
        
@@ -80,11 +81,17 @@ namespace Restaurant_UI
 
 		private void BtnOccupied_Click(object sender, EventArgs e)
 		{
-			table.Status = TableStatus.Occupied;
+            currentsession.Start = DateTime.Now;
+
+            table.Status = TableStatus.Occupied;
             Table_Service table_Service = new Table_Service();
             table_Service.UpdateStatus(table);
             table_Form.GiveColor();
-			pnlChangeStatus.Hide();
+
+            Session_Service session_Service = new Session_Service();
+            session_Service.UpdateTable(currentsession);
+
+            pnlChangeStatus.Hide();
 			pnlDefault.Show();           
             
 		}
@@ -168,7 +175,7 @@ namespace Restaurant_UI
 
 		private void BtnPay_Click(object sender, EventArgs e)
 		{
-			Payment_Form form = new Payment_Form(table_Form, table);
+			Payment_Form form = new Payment_Form(table_Form, table,currentsession);
 			form.Show();
 			this.Close();
 		}

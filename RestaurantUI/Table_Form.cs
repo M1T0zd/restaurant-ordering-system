@@ -20,6 +20,7 @@ namespace Restaurant_UI
         Account_Form form;
         Employee Employee;
         List<OrderItem> orderItems;
+        Session currentsession;
         
         public Table_Service Table_Service { get; set; }
 
@@ -28,9 +29,10 @@ namespace Restaurant_UI
         {
             InitializeComponent();
             form = new Account_Form(employee,login_Form,this);
+            currentsession = new Session();
             this.Employee = employee;
             //Get Notification List If Order Is ready
-            GetNotificationWithTimer();
+            GetList();
         }
 
         private void Table_Form_Load(object sender, EventArgs e)
@@ -42,19 +44,11 @@ namespace Restaurant_UI
         {
             Table_Service = new Table_Service();
             tables = Table_Service.GetTables();
-
+            currentsession.HostId = Employee.Number;
             GiveColor();
 
         }
-        void GetNotificationWithTimer()
-        {
-            var startTimeSpan = TimeSpan.Zero;
-            var periodTimeSpan = TimeSpan.FromMinutes(2);
-            var timer = new System.Threading.Timer((f) =>
-            {
-                GetList();
-            }, null, startTimeSpan, periodTimeSpan);
-        }
+      
         public void GiveName()
         {
             List<Label> labels = new List<Label>
@@ -116,8 +110,9 @@ namespace Restaurant_UI
             button = (Button)sender;
             //If button clicked, get table from list based on it's TabIndex
             table = tables[button.TabIndex];
+            currentsession.TableId = table.Number;
 
-            Order_Form order_Form = new Order_Form(table,this,Employee);
+            Order_Form order_Form = new Order_Form(table,this,Employee,currentsession);
             order_Form.Show();
       
         }
@@ -127,6 +122,7 @@ namespace Restaurant_UI
             form.Show();
             
         }
+        //Below Code is for the Notification Panel
       
         private void Btnnotif_Click(object sender, EventArgs e)
         {
@@ -138,6 +134,8 @@ namespace Restaurant_UI
             listviewnotif.View = View.Details;
             listviewnotif.Columns.Add("Name");
             listviewnotif.Columns.Add("Status");
+            listviewnotif.Columns.Add("Table");
+
             OrderItem_Service order_Service = new OrderItem_Service();
             orderItems = order_Service.GetOrder();
 
@@ -145,10 +143,11 @@ namespace Restaurant_UI
             {
                 ListViewItem listViewItem = new ListViewItem(order.ItemName);
                 listViewItem.SubItems.Add(order.Status.ToString());
+                listViewItem.SubItems.Add(order.TableNumber.ToString());
+
 
                 listviewnotif.Items.Add(listViewItem);
             }
-
         }
 
         private void Btnpanelback_Click(object sender, EventArgs e)
@@ -161,17 +160,8 @@ namespace Restaurant_UI
         {
             int index = listviewnotif.SelectedIndices[0];
             OrderItem orderItem = orderItems[index];
-            CurrentOrderItem(orderItem);
-        }
-        void CurrentOrderItem(OrderItem orderItem)
-        {
-           
-                selectedorderItem.Id = orderItem.Id;
-                selectedorderItem.Status = orderItem.Status;
-            
-       
-        }
-
+            selectedorderItem = orderItem;
+        }     
         private void Btnserveitem_Click(object sender, EventArgs e)
         {
             try
@@ -183,11 +173,16 @@ namespace Restaurant_UI
             catch (Exception)
             {
                 //Show Message Box
-                string message = "Please Select an Item";
-                string title = "You haven't selected an item";
+                string message = "Please Select An Item";
+                string title = "You haven't selected An item";
                 MessageBox.Show(message, title);
-            }
-           
+            }        
+        }
+
+        private void Btnrefresh_Click(object sender, EventArgs e)
+        {
+            listviewnotif.Clear();
+            GetList();
         }
     }
 }

@@ -16,17 +16,11 @@ namespace Restaurant_Logic
 
         public List<OrderItem> GetOrder()
         {
-            try
-            {
+           
                 List<OrderItem> orders = order_DAO.GetOrders();
                 return orders;
-            }
-            catch (Exception e)
-            {
-                ErrorLogging(e);
+            
 
-                return null;
-            }
         }
         public void UpdateStatus(OrderItem orderItem)
         {

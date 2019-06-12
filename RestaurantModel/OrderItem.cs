@@ -18,6 +18,8 @@ namespace RestaurantModel
 		public OrderStatus Status { get; set; }
 		public Category Category { get; set; }
 		public MenuItem MenuItem { get; set; }
+        public int TableNumber { get; set; }
+
 
 		public OrderItem()
 		{

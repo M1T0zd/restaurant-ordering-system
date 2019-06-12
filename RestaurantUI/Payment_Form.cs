@@ -20,9 +20,11 @@ namespace Restaurant_UI
         Table_Form table_Form;
         Table table;
         Payment payment;
-        public Payment_Form(Table_Form table_Form, Table table)
+        Session currentsession;
+        public Payment_Form(Table_Form table_Form, Table table,Session session)
         {
             InitializeComponent();
+            this.currentsession = session;
             this.table_Form = table_Form;
             this.table = table;
             Table_Numberlbl.Text = table.Number.ToString();
