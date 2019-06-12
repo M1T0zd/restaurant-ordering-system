@@ -12,21 +12,14 @@ namespace Restaurant_DAL
     public class Payment_DAO : Base
     {
         // save payment to database
-        public void InsertDetails(Payment payment)
+        public void InsertDetails( int method, Payment payment)
         {
-            string query = $"INSERT INTO  Payment VALUES ({payment.OrderNumber}, {payment.PaymentMethod}, '{payment.Comments}', {payment.Tip}, {payment.Total})";
+            string query = $"INSERT INTO  Payments VALUES ( {method}, {payment.Total},{payment.Tax})";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        // get order items from database.
-        public List<Order> Db_Get_Order()
-        {
-            Order_DAO order_ = new Order_DAO();
-            List<Order>order =  order_.GetOrders();
-            return order;
-        }
     }
 }

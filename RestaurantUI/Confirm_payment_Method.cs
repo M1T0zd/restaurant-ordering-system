@@ -24,7 +24,7 @@ namespace Restaurant_UI
             this.table_Form = table_Form;
             this.table = table;
             payment_Confirmation = new Payment_confirmation(table_Form,form);
-            payMethodlbl.Text = form.selectedPaymentMethod();
+      
         }
 
         private void Button1_Click(object sender, EventArgs e)
