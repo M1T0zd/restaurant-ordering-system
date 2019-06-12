@@ -87,7 +87,8 @@ namespace Restaurant_DAL
                 command.Parameters.AddRange(sqlParameters);
                 adapter.InsertCommand = command;
                 command.ExecuteNonQuery();
-				adapter.Fill(dataSet);
+                //adapter.SelectCommand = command;
+				//adapter.Fill(dataSet);
 				dataTable = dataSet.Tables[0];
 
 			}

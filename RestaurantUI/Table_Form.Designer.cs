@@ -40,23 +40,23 @@
             this.btntable10 = new System.Windows.Forms.Button();
             this.lbltitle = new System.Windows.Forms.Label();
             this.pnltable = new System.Windows.Forms.Panel();
-            this.btnaccount = new System.Windows.Forms.Button();
-            this.lbltable1 = new System.Windows.Forms.Label();
-            this.lbltable2 = new System.Windows.Forms.Label();
-            this.lbltable3 = new System.Windows.Forms.Label();
-            this.lbltable4 = new System.Windows.Forms.Label();
-            this.lbltable5 = new System.Windows.Forms.Label();
-            this.lbltable6 = new System.Windows.Forms.Label();
-            this.lbltable7 = new System.Windows.Forms.Label();
-            this.lbltable8 = new System.Windows.Forms.Label();
-            this.lbltable9 = new System.Windows.Forms.Label();
-            this.lbltable10 = new System.Windows.Forms.Label();
-            this.pnlnotif = new System.Windows.Forms.Panel();
             this.btnnotif = new System.Windows.Forms.Button();
-            this.listviewnotif = new System.Windows.Forms.ListView();
-            this.btnpanelback = new System.Windows.Forms.Button();
-            this.btnserveitem = new System.Windows.Forms.Button();
+            this.lbltable10 = new System.Windows.Forms.Label();
+            this.lbltable9 = new System.Windows.Forms.Label();
+            this.lbltable8 = new System.Windows.Forms.Label();
+            this.lbltable7 = new System.Windows.Forms.Label();
+            this.lbltable6 = new System.Windows.Forms.Label();
+            this.lbltable5 = new System.Windows.Forms.Label();
+            this.lbltable4 = new System.Windows.Forms.Label();
+            this.lbltable3 = new System.Windows.Forms.Label();
+            this.lbltable2 = new System.Windows.Forms.Label();
+            this.lbltable1 = new System.Windows.Forms.Label();
+            this.btnaccount = new System.Windows.Forms.Button();
+            this.pnlnotif = new System.Windows.Forms.Panel();
             this.btnrefresh = new System.Windows.Forms.Button();
+            this.btnserveitem = new System.Windows.Forms.Button();
+            this.btnpanelback = new System.Windows.Forms.Button();
+            this.listviewnotif = new System.Windows.Forms.ListView();
             this.pnltable.SuspendLayout();
             this.pnlnotif.SuspendLayout();
             this.SuspendLayout();
@@ -212,88 +212,24 @@
             this.pnltable.Size = new System.Drawing.Size(486, 686);
             this.pnltable.TabIndex = 11;
             // 
-            // btnaccount
+            // btnnotif
             // 
-            this.btnaccount.Location = new System.Drawing.Point(368, 10);
-            this.btnaccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnaccount.Name = "btnaccount";
-            this.btnaccount.Size = new System.Drawing.Size(100, 37);
-            this.btnaccount.TabIndex = 11;
-            this.btnaccount.Text = "My Account";
-            this.btnaccount.UseVisualStyleBackColor = true;
-            this.btnaccount.Click += new System.EventHandler(this.Btnaccount_Click);
+            this.btnnotif.Location = new System.Drawing.Point(16, 14);
+            this.btnnotif.Name = "btnnotif";
+            this.btnnotif.Size = new System.Drawing.Size(107, 33);
+            this.btnnotif.TabIndex = 22;
+            this.btnnotif.Text = "Notification";
+            this.btnnotif.UseVisualStyleBackColor = true;
+            this.btnnotif.Click += new System.EventHandler(this.Btnnotif_Click);
             // 
-            // lbltable1
+            // lbltable10
             // 
-            this.lbltable1.AutoSize = true;
-            this.lbltable1.Location = new System.Drawing.Point(126, 69);
-            this.lbltable1.Name = "lbltable1";
-            this.lbltable1.Size = new System.Drawing.Size(12, 17);
-            this.lbltable1.TabIndex = 12;
-            this.lbltable1.Text = " ";
-            // 
-            // lbltable2
-            // 
-            this.lbltable2.AutoSize = true;
-            this.lbltable2.Location = new System.Drawing.Point(285, 69);
-            this.lbltable2.Name = "lbltable2";
-            this.lbltable2.Size = new System.Drawing.Size(12, 17);
-            this.lbltable2.TabIndex = 13;
-            this.lbltable2.Text = " ";
-            // 
-            // lbltable3
-            // 
-            this.lbltable3.AutoSize = true;
-            this.lbltable3.Location = new System.Drawing.Point(102, 192);
-            this.lbltable3.Name = "lbltable3";
-            this.lbltable3.Size = new System.Drawing.Size(12, 17);
-            this.lbltable3.TabIndex = 14;
-            this.lbltable3.Text = " ";
-            // 
-            // lbltable4
-            // 
-            this.lbltable4.AutoSize = true;
-            this.lbltable4.Location = new System.Drawing.Point(285, 192);
-            this.lbltable4.Name = "lbltable4";
-            this.lbltable4.Size = new System.Drawing.Size(12, 17);
-            this.lbltable4.TabIndex = 15;
-            this.lbltable4.Text = " ";
-            // 
-            // lbltable5
-            // 
-            this.lbltable5.AutoSize = true;
-            this.lbltable5.Location = new System.Drawing.Point(111, 310);
-            this.lbltable5.Name = "lbltable5";
-            this.lbltable5.Size = new System.Drawing.Size(12, 17);
-            this.lbltable5.TabIndex = 16;
-            this.lbltable5.Text = " ";
-            // 
-            // lbltable6
-            // 
-            this.lbltable6.AutoSize = true;
-            this.lbltable6.Location = new System.Drawing.Point(285, 310);
-            this.lbltable6.Name = "lbltable6";
-            this.lbltable6.Size = new System.Drawing.Size(12, 17);
-            this.lbltable6.TabIndex = 17;
-            this.lbltable6.Text = " ";
-            // 
-            // lbltable7
-            // 
-            this.lbltable7.AutoSize = true;
-            this.lbltable7.Location = new System.Drawing.Point(111, 422);
-            this.lbltable7.Name = "lbltable7";
-            this.lbltable7.Size = new System.Drawing.Size(12, 17);
-            this.lbltable7.TabIndex = 18;
-            this.lbltable7.Text = " ";
-            // 
-            // lbltable8
-            // 
-            this.lbltable8.AutoSize = true;
-            this.lbltable8.Location = new System.Drawing.Point(285, 422);
-            this.lbltable8.Name = "lbltable8";
-            this.lbltable8.Size = new System.Drawing.Size(12, 17);
-            this.lbltable8.TabIndex = 19;
-            this.lbltable8.Text = " ";
+            this.lbltable10.AutoSize = true;
+            this.lbltable10.Location = new System.Drawing.Point(285, 546);
+            this.lbltable10.Name = "lbltable10";
+            this.lbltable10.Size = new System.Drawing.Size(12, 17);
+            this.lbltable10.TabIndex = 21;
+            this.lbltable10.Text = " ";
             // 
             // lbltable9
             // 
@@ -304,14 +240,88 @@
             this.lbltable9.TabIndex = 20;
             this.lbltable9.Text = " ";
             // 
-            // lbltable10
+            // lbltable8
             // 
-            this.lbltable10.AutoSize = true;
-            this.lbltable10.Location = new System.Drawing.Point(285, 546);
-            this.lbltable10.Name = "lbltable10";
-            this.lbltable10.Size = new System.Drawing.Size(12, 17);
-            this.lbltable10.TabIndex = 21;
-            this.lbltable10.Text = " ";
+            this.lbltable8.AutoSize = true;
+            this.lbltable8.Location = new System.Drawing.Point(285, 422);
+            this.lbltable8.Name = "lbltable8";
+            this.lbltable8.Size = new System.Drawing.Size(12, 17);
+            this.lbltable8.TabIndex = 19;
+            this.lbltable8.Text = " ";
+            // 
+            // lbltable7
+            // 
+            this.lbltable7.AutoSize = true;
+            this.lbltable7.Location = new System.Drawing.Point(111, 422);
+            this.lbltable7.Name = "lbltable7";
+            this.lbltable7.Size = new System.Drawing.Size(12, 17);
+            this.lbltable7.TabIndex = 18;
+            this.lbltable7.Text = " ";
+            // 
+            // lbltable6
+            // 
+            this.lbltable6.AutoSize = true;
+            this.lbltable6.Location = new System.Drawing.Point(285, 310);
+            this.lbltable6.Name = "lbltable6";
+            this.lbltable6.Size = new System.Drawing.Size(12, 17);
+            this.lbltable6.TabIndex = 17;
+            this.lbltable6.Text = " ";
+            // 
+            // lbltable5
+            // 
+            this.lbltable5.AutoSize = true;
+            this.lbltable5.Location = new System.Drawing.Point(111, 310);
+            this.lbltable5.Name = "lbltable5";
+            this.lbltable5.Size = new System.Drawing.Size(12, 17);
+            this.lbltable5.TabIndex = 16;
+            this.lbltable5.Text = " ";
+            // 
+            // lbltable4
+            // 
+            this.lbltable4.AutoSize = true;
+            this.lbltable4.Location = new System.Drawing.Point(285, 192);
+            this.lbltable4.Name = "lbltable4";
+            this.lbltable4.Size = new System.Drawing.Size(12, 17);
+            this.lbltable4.TabIndex = 15;
+            this.lbltable4.Text = " ";
+            // 
+            // lbltable3
+            // 
+            this.lbltable3.AutoSize = true;
+            this.lbltable3.Location = new System.Drawing.Point(102, 192);
+            this.lbltable3.Name = "lbltable3";
+            this.lbltable3.Size = new System.Drawing.Size(12, 17);
+            this.lbltable3.TabIndex = 14;
+            this.lbltable3.Text = " ";
+            // 
+            // lbltable2
+            // 
+            this.lbltable2.AutoSize = true;
+            this.lbltable2.Location = new System.Drawing.Point(285, 69);
+            this.lbltable2.Name = "lbltable2";
+            this.lbltable2.Size = new System.Drawing.Size(12, 17);
+            this.lbltable2.TabIndex = 13;
+            this.lbltable2.Text = " ";
+            // 
+            // lbltable1
+            // 
+            this.lbltable1.AutoSize = true;
+            this.lbltable1.Location = new System.Drawing.Point(126, 69);
+            this.lbltable1.Name = "lbltable1";
+            this.lbltable1.Size = new System.Drawing.Size(12, 17);
+            this.lbltable1.TabIndex = 12;
+            this.lbltable1.Text = " ";
+            // 
+            // btnaccount
+            // 
+            this.btnaccount.Location = new System.Drawing.Point(368, 10);
+            this.btnaccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnaccount.Name = "btnaccount";
+            this.btnaccount.Size = new System.Drawing.Size(100, 37);
+            this.btnaccount.TabIndex = 11;
+            this.btnaccount.Text = "My Account";
+            this.btnaccount.UseVisualStyleBackColor = true;
+            this.btnaccount.Click += new System.EventHandler(this.Btnaccount_Click);
             // 
             // pnlnotif
             // 
@@ -324,35 +334,15 @@
             this.pnlnotif.Size = new System.Drawing.Size(497, 709);
             this.pnlnotif.TabIndex = 12;
             // 
-            // btnnotif
+            // btnrefresh
             // 
-            this.btnnotif.Location = new System.Drawing.Point(16, 14);
-            this.btnnotif.Name = "btnnotif";
-            this.btnnotif.Size = new System.Drawing.Size(107, 33);
-            this.btnnotif.TabIndex = 22;
-            this.btnnotif.Text = "Notification";
-            this.btnnotif.UseVisualStyleBackColor = true;
-            this.btnnotif.Click += new System.EventHandler(this.Btnnotif_Click);
-            // 
-            // listviewnotif
-            // 
-            this.listviewnotif.Location = new System.Drawing.Point(61, 101);
-            this.listviewnotif.Name = "listviewnotif";
-            this.listviewnotif.Size = new System.Drawing.Size(375, 347);
-            this.listviewnotif.TabIndex = 0;
-            this.listviewnotif.UseCompatibleStateImageBehavior = false;
-            this.listviewnotif.View = System.Windows.Forms.View.Details;
-            this.listviewnotif.Click += new System.EventHandler(this.Listviewnotif_SelectedIndexChanged);
-            // 
-            // btnpanelback
-            // 
-            this.btnpanelback.Location = new System.Drawing.Point(20, 20);
-            this.btnpanelback.Name = "btnpanelback";
-            this.btnpanelback.Size = new System.Drawing.Size(109, 25);
-            this.btnpanelback.TabIndex = 1;
-            this.btnpanelback.Text = "Back";
-            this.btnpanelback.UseVisualStyleBackColor = true;
-            this.btnpanelback.Click += new System.EventHandler(this.Btnpanelback_Click);
+            this.btnrefresh.Location = new System.Drawing.Point(133, 580);
+            this.btnrefresh.Name = "btnrefresh";
+            this.btnrefresh.Size = new System.Drawing.Size(227, 40);
+            this.btnrefresh.TabIndex = 3;
+            this.btnrefresh.Text = "Refresh";
+            this.btnrefresh.UseVisualStyleBackColor = true;
+            this.btnrefresh.Click += new System.EventHandler(this.Btnrefresh_Click);
             // 
             // btnserveitem
             // 
@@ -364,23 +354,33 @@
             this.btnserveitem.UseVisualStyleBackColor = true;
             this.btnserveitem.Click += new System.EventHandler(this.Btnserveitem_Click);
             // 
-            // btnrefresh
+            // btnpanelback
             // 
-            this.btnrefresh.Location = new System.Drawing.Point(133, 580);
-            this.btnrefresh.Name = "btnrefresh";
-            this.btnrefresh.Size = new System.Drawing.Size(227, 40);
-            this.btnrefresh.TabIndex = 3;
-            this.btnrefresh.Text = "Refresh";
-            this.btnrefresh.UseVisualStyleBackColor = true;
-            this.btnrefresh.Click += new System.EventHandler(this.Btnrefresh_Click);
+            this.btnpanelback.Location = new System.Drawing.Point(20, 20);
+            this.btnpanelback.Name = "btnpanelback";
+            this.btnpanelback.Size = new System.Drawing.Size(109, 25);
+            this.btnpanelback.TabIndex = 1;
+            this.btnpanelback.Text = "Back";
+            this.btnpanelback.UseVisualStyleBackColor = true;
+            this.btnpanelback.Click += new System.EventHandler(this.Btnpanelback_Click);
+            // 
+            // listviewnotif
+            // 
+            this.listviewnotif.Location = new System.Drawing.Point(61, 101);
+            this.listviewnotif.Name = "listviewnotif";
+            this.listviewnotif.Size = new System.Drawing.Size(375, 347);
+            this.listviewnotif.TabIndex = 0;
+            this.listviewnotif.UseCompatibleStateImageBehavior = false;
+            this.listviewnotif.View = System.Windows.Forms.View.Details;
+            this.listviewnotif.Click += new System.EventHandler(this.Listviewnotif_SelectedIndexChanged);
             // 
             // Table_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 732);
-            this.Controls.Add(this.pnlnotif);
             this.Controls.Add(this.pnltable);
+            this.Controls.Add(this.pnlnotif);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Table_Form";
             this.Text = "Table_Form";
