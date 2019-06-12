@@ -75,16 +75,14 @@ namespace Restaurant_UI
         }
         private void Button_Click(object sender, EventArgs e)
         {
-            //Make Panel Status with orders capability in OrderForm
             button = (Button)sender;
-
+            //If button clicked, get table from list based on it's TabIndex
             table = tables[button.TabIndex];
 
             Order_Form order_Form = new Order_Form(table,this);
             order_Form.Show();
       
         }
-
         private void Btnaccount_Click(object sender, EventArgs e)
         {
             this.Hide();

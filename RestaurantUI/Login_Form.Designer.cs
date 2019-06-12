@@ -40,7 +40,7 @@
             // 
             this.lbllogin.AutoSize = true;
             this.lbllogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllogin.Location = new System.Drawing.Point(305, 129);
+            this.lbllogin.Location = new System.Drawing.Point(292, 127);
             this.lbllogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbllogin.Name = "lbllogin";
             this.lbllogin.Size = new System.Drawing.Size(86, 33);

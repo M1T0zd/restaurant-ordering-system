@@ -18,6 +18,7 @@ namespace Restaurant_UI
         Login_Form loginform;
         Employee Employee;
         Table_Form Table_Form;
+        Kitchen_Form Kitchen_Form;
         public Account_Form(Employee employee,Login_Form login_Form,Table_Form table_Form)
         {
             InitializeComponent();
@@ -26,10 +27,11 @@ namespace Restaurant_UI
             Table_Form = table_Form;
           
             lblname.Text = $"{employee.Name}";
+            lbljob.Text = $"{employee.Role}";         
         }
         public Account_Form(Employee employee, Login_Form login_Form,Kitchen_Form kitchen_Form)
         {
-
+            this.Kitchen_Form = kitchen_Form;
         }
 
         private void Btnlogout_Click(object sender, EventArgs e)
@@ -43,6 +45,10 @@ namespace Restaurant_UI
             if (Employee.Role == "Waiter")
             {
                 Table_Form.Show();
+            }
+            else
+            {
+                Kitchen_Form.Show();
             }
             this.Hide();
         }

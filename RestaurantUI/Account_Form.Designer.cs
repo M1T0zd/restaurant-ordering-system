@@ -33,6 +33,8 @@
             this.btnlogout = new System.Windows.Forms.Button();
             this.lblnm = new System.Windows.Forms.Label();
             this.btnback = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbljob = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -70,9 +72,9 @@
             this.lblnm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnm.Location = new System.Drawing.Point(139, 152);
             this.lblnm.Name = "lblnm";
-            this.lblnm.Size = new System.Drawing.Size(64, 25);
+            this.lblnm.Size = new System.Drawing.Size(70, 25);
             this.lblnm.TabIndex = 3;
-            this.lblnm.Text = "Name";
+            this.lblnm.Text = "Name:";
             // 
             // btnback
             // 
@@ -84,11 +86,33 @@
             this.btnback.UseVisualStyleBackColor = true;
             this.btnback.Click += new System.EventHandler(this.Btnback_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(139, 195);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Job:";
+            // 
+            // lbljob
+            // 
+            this.lbljob.AutoSize = true;
+            this.lbljob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbljob.Location = new System.Drawing.Point(270, 195);
+            this.lbljob.Name = "lbljob";
+            this.lbljob.Size = new System.Drawing.Size(57, 25);
+            this.lbljob.TabIndex = 6;
+            this.lbljob.Text = "lbljob";
+            // 
             // Account_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 499);
+            this.Controls.Add(this.lbljob);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.lblnm);
             this.Controls.Add(this.btnlogout);
@@ -108,5 +132,7 @@
         private System.Windows.Forms.Button btnlogout;
         private System.Windows.Forms.Label lblnm;
         private System.Windows.Forms.Button btnback;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbljob;
     }
 }

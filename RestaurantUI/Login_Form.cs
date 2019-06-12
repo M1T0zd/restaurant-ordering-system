@@ -25,10 +25,12 @@ namespace Restaurant_UI
         public Login_Form()
         {
             InitializeComponent();
+            
             GetEmployee();
         }
         void GetEmployee()
         {
+            //Get list of all employees
             Employee_Service employee_Service = new Employee_Service();
             employees = employee_Service.GetEmployee();
         }
@@ -54,6 +56,7 @@ namespace Restaurant_UI
         }
         void CheckEmployee()
         {
+            //Get Current Employee
             foreach (Employee employee in employees)
             {
                 if (employee.Number == CurrentLogin.EmployeeNumber)
