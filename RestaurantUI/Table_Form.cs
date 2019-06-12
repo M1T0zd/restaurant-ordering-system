@@ -18,6 +18,9 @@ namespace Restaurant_UI
         Button button;
         Table table;
         Account_Form form;
+        Employee Employee;
+        List<OrderItem> orderItems;
+        
         public Table_Service Table_Service { get; set; }
 
 
@@ -25,11 +28,13 @@ namespace Restaurant_UI
         {
             InitializeComponent();
             form = new Account_Form(employee,login_Form,this);
+            this.Employee = employee;
         }
 
         private void Table_Form_Load(object sender, EventArgs e)
         {
             Initialize();
+            GetList();
         }
 
         private void Initialize()
@@ -39,6 +44,29 @@ namespace Restaurant_UI
 
             GiveColor();
 
+        }
+        public void GiveName()
+        {
+            List<Label> labels = new List<Label>
+            {
+               lbltable1,lbltable2,lbltable3,lbltable4,lbltable5,lbltable6,lbltable7,lbltable8,lbltable9,lbltable10
+            };
+
+            for (int i = 0; i < tables.Count; i++)
+            {
+                if (tables[i].Status == TableStatus.Available)
+                {
+                    labels[i].Text = "";
+                }
+                else if (tables[i].Status == TableStatus.Reserved)
+                {
+                    labels[i].Text = "";
+                }
+                else
+                {
+                    labels[i].Text = $"Taken by: {tables[i].Employee.Name}";
+                }
+            }
         }
         public void GiveColor()
         {
@@ -79,7 +107,7 @@ namespace Restaurant_UI
             //If button clicked, get table from list based on it's TabIndex
             table = tables[button.TabIndex];
 
-            Order_Form order_Form = new Order_Form(table,this);
+            Order_Form order_Form = new Order_Form(table,this,Employee);
             order_Form.Show();
       
         }
@@ -87,6 +115,36 @@ namespace Restaurant_UI
         {
             this.Hide();
             form.Show();
+            
         }
-	}
+
+        private void Btnnotif_Click(object sender, EventArgs e)
+        {
+            pnltable.Hide();
+            pnlnotif.Show();
+        }
+        private void GetList()
+        {
+            listviewnotif.View = View.Details;
+            listviewnotif.Columns.Add("Name");
+            listviewnotif.Columns.Add("Status");
+            OrderItem_Service order_Service = new OrderItem_Service();
+            orderItems = order_Service.GetOrder();
+
+            foreach (OrderItem order in orderItems)
+            {
+                ListViewItem listViewItem = new ListViewItem(order.ItemName);
+                listViewItem.SubItems.Add(order.Status.ToString());
+
+                listviewnotif.Items.Add(listViewItem);
+            }
+
+        }
+
+        private void Btnpanelback_Click(object sender, EventArgs e)
+        {
+            pnlnotif.Hide();
+            pnltable.Show();
+        }
+    }
 }
