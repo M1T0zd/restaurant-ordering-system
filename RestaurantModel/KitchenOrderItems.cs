@@ -12,7 +12,7 @@ namespace RestaurantModel
         public string ItemName { get; set; }
         public int Amount { get; set; }
         public string Comment { get; set; }
-        public OrderState state { get; set; } //************** i only need 3 states 
+        public OrderState state { get; set; }
         public int OrderItemId { get; set; }
         public int OrderId { get; set; }
 

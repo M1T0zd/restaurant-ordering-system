@@ -31,6 +31,8 @@ namespace Restaurant_UI
         {
             designHelper.ListViewDesign(listViewFood);
             FillFoodList(listViewFood);
+            timerRefrech.Interval = 20000; //refresh every 20 seconds 
+            timerRefrech.Enabled = true;
         }
 
         public void DisplayFood()
@@ -82,9 +84,25 @@ namespace Restaurant_UI
                 listView.Items.Add(li);
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void refrech()
         {
+            dgviewFood.DataSource = OrderItem_Service.GetFoodOrders(designHelper.GetslectedIndexOfListview(listViewFood));
+            DisplayFood();
+        }
+        private void listViewFood_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            //try
+            //{
+                  refrech();
+            //}
+            //catch (Exception k)
+            //{
+            //    MessageBox.Show("something went wrong while updating " + k.Message);
+            //}
+        }
 
+        private void btn_PrepareFood_Click(object sender, EventArgs e)
+        {
             try
             {
                 var OrderItemIndex = dgviewFood.CurrentRow.Cells["OrderItemId"].FormattedValue;// get the id of the orderItem
@@ -99,7 +117,11 @@ namespace Restaurant_UI
                     }
                 }
                 else
+                {
                     OrderItem_Service.UpdateOrderItemState(ItemId, state);
+                    refrech();
+                }
+               
             }
             catch (Exception k)
             {
@@ -108,17 +130,25 @@ namespace Restaurant_UI
             }
         }
 
-        private void listViewFood_MouseClick_1(object sender, MouseEventArgs e)
+        private void timerRefrech_Tick(object sender, EventArgs e)
         {
-            //try
-            //{
-                dgviewFood.DataSource = OrderItem_Service.GetFoodOrders(designHelper.GetslectedIndexOfListview(listViewFood));
-                DisplayFood();
-            //}
-            //catch (Exception k)
-            //{
-            //    MessageBox.Show("something went wrong while updating " + k.Message);
-            //}
+            Orders = OrderItem_Service.GetOrders();
+            AutoRefrech(listViewFood);
+           // AutoRefrech(listViewDrink);
+        }
+        private void AutoRefrech(ListView listView)
+        {
+            //************ new orders will be displyed automatically here 
+            listView.Items.Clear();
+            foreach (Order o in Orders)
+            {
+                ListViewItem li = new ListViewItem(o.Id.ToString());
+                li.Tag = o.Id;
+                li.SubItems.Add(o.TakenAt.ToShortDateString());
+                li.SubItems.Add(o.Table.ToString());
+                listView.Items.Add(li);
+            }
+
         }
     }
 }

@@ -13,12 +13,19 @@ namespace Restaurant_UI
     {
         public void fillInComboxob(DataGridView dataGridView)
         {
+
             DataGridViewComboBoxColumn col = new DataGridViewComboBoxColumn();
             col.Name = "change the current state";
             col.Tag = "state";
             col.DataSource = Enum.GetValues(typeof(OrderStatus));
             col.ValueType = typeof(OrderStatus);
             dataGridView.Columns.Add(col);
+
+            //*** to look at later 
+            //DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            //btn.Name = "btnReady";
+            //btn.Tag = "mark as ready ";
+            //dataGridView.Columns.Add(btn);
         }
         public int GetslectedIndexOfListview(ListView listView)
         {
@@ -35,7 +42,7 @@ namespace Restaurant_UI
             listView.View = View.Details;
             listView.GridLines = true;
             listView.Columns.Add("ID", 50, HorizontalAlignment.Center);
-            listView.Columns.Add("taken at", 200, HorizontalAlignment.Center);
+            listView.Columns.Add("Taken at", 200, HorizontalAlignment.Center);
             listView.Columns.Add("Tabel number ", 100, HorizontalAlignment.Center);
             listView.FullRowSelect = true;
         }
