@@ -95,7 +95,6 @@ namespace Restaurant_DAL
             sqlParameters[1] = new SqlParameter("@Id", SqlDbType.Int) { Value = OrderItemItemId };
             ExecuteEditQuery(query, sqlParameters);
         }
-        //**************************** is ready 
         private List<OrderItem> ReadTables(DataTable dataTable)
         {
             List<OrderItem> orderItems = new List<OrderItem>();
