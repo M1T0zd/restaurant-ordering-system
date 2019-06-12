@@ -55,13 +55,13 @@ namespace Restaurant_UI
 
         private void ListViewSetups()
         {
-			lvMenuItems.Columns.Add("Name", 100, HorizontalAlignment.Left);
-			lvMenuItems.Columns.Add("Price", 150, HorizontalAlignment.Left);
-			lvMenuItems.Columns.Add("Stock", 150, HorizontalAlignment.Left);
+			lvMenuItems.Columns.Add("Name", 150, HorizontalAlignment.Left);
+			lvMenuItems.Columns.Add("Price", 50, HorizontalAlignment.Left);
+			lvMenuItems.Columns.Add("Stock", 50, HorizontalAlignment.Left);
 
-			lvOrderItems.Columns.Add("Name", 100, HorizontalAlignment.Left);
-			lvOrderItems.Columns.Add("Price", 150, HorizontalAlignment.Left);
-			lvOrderItems.Columns.Add("Stock", 150, HorizontalAlignment.Left);
+			lvOrderItems.Columns.Add("Name", 150, HorizontalAlignment.Left);
+			lvOrderItems.Columns.Add("Price", 50, HorizontalAlignment.Left);
+			lvOrderItems.Columns.Add("Stock", 50, HorizontalAlignment.Left);
 
 			MenuItem_Service menuItem_Service = new MenuItem_Service();
 			List<RestaurantModel.MenuItem> menuItems = menuItem_Service.GetMenuItems();
@@ -124,13 +124,30 @@ namespace Restaurant_UI
 		{
 			foreach(ListViewItem lvi in lvMenuItems.SelectedItems)
 			{
-				lvOrderItems.Items.Add(lvi);
+				RestaurantModel.MenuItem menuItem = (RestaurantModel.MenuItem)lvi.Tag;
+
+				OrderItem orderItem = new OrderItem
+				{
+					Amount = 1,
+					MenuItem = menuItem,
+					Status = OrderStatus.Waiting
+				};
+
+				ListViewItem lviNew = new ListViewItem(orderItem.MenuItem.Name);// menuItem.Name);
+				lviNew.SubItems.Add(orderItem.MenuItem.Price.ToString());
+				lviNew.SubItems.Add(orderItem.MenuItem.Stock.ToString());
+				lviNew.Tag = orderItem;
+
+				lvOrderItems.Items.Add(lviNew);
 			}
 		}
 
 		private void BtnRemove_Click(object sender, EventArgs e)
 		{
-			lvOrderItems.SelectedItems.Clear();
+			foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
+			{
+				lvOrderItems.Items.Remove(lvi);
+			}
 		}
 
 		private void BtnChangeStatus_Click(object sender, EventArgs e)
@@ -169,6 +186,45 @@ namespace Restaurant_UI
 			}
 		}
 
+		private void TxtComment_Leave(object sender, EventArgs e)
+		{
+			foreach(ListViewItem lvi in lvOrderItems.SelectedItems)
+			{
+				OrderItem orderItem = (OrderItem)lvi.Tag;
 
+				orderItem.Comment = txtComment.Text;
+			}
+		}
+
+		private void LvOrderItems_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+		{
+			if(lvOrderItems.SelectedItems.Count == 1)
+			{
+				OrderItem orderItem = (OrderItem)lvOrderItems.SelectedItems[0].Tag;
+
+				txtComment.Text = orderItem.Comment;
+				txtQuantity.Text = orderItem.Amount.ToString();
+			} else {
+				txtComment.Text = "";
+				txtQuantity.Text = "";
+			}
+		}
+
+		private void TxtQuantity_Leave(object sender, EventArgs e)
+		{
+			foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
+			{
+				OrderItem orderItem = (OrderItem)lvi.Tag;
+
+				/*try
+				{*/
+					orderItem.Amount = int.Parse(txtComment.Text);
+				/*}
+				catch(FormatException)
+				{
+					orderItem.Amount = 1;
+				}*/
+			}
+		}
 	}
 }

@@ -15,27 +15,21 @@ namespace Restaurant_Logic
     {
         MenuItem_DAO menuItem_DAO = new MenuItem_DAO();
 
-		public MenuItem_DAO MenuItem_DAO
-		{
-			get => default;
-			set
-			{
-			}
-		}
+	
 
 		public List<MenuItem> GetMenuItems()
         {
-			try
-			{
-				List<MenuItem> menuitems = MenuItem_DAO.GetMenuItems();
+			/*try
+			{*/
+				List<MenuItem> menuitems = menuItem_DAO.GetMenuItems();
                 return menuitems;
-			}
+			/*}
             catch (Exception e)
             {
                 ErrorLogging(e);
 
                 return null;
-            }
+            }*/
 }
         private static void ErrorLogging(Exception e)
         {
