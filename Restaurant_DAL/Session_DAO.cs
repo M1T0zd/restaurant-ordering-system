@@ -12,11 +12,33 @@ namespace Restaurant_DAL
 {
     public class Session_DAO : Base
     {
-        public int UpdateTable(Session session)
+        public List<Session> GetID()
         {
-            string query = ($"INSERT INTO [Sessions] OUTPUT inserted.Id VALUES(2, 3, 1, '2019-06-12 16:32:00', null, null)");
+            string query = "SELECT TOP 1 Id FROM Sessions ORDER BY ID DESC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTable(ExecuteEditOutputQuery(query, sqlParameters));
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private List<Session> ReadTables(DataTable dataTable)
+        {
+            List<Session> sessions = new List<Session>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Session session = new Session()
+                {
+                   
+                    Id = (int)dr["Id"]
+                };
+                sessions.Add(session);
+            }
+            return sessions;
+        }
+        public void UpdateTable(Session session)
+        {
+            string query = ($"INSERT INTO [Sessions] VALUES(2, 3, 1,'{DateTime.Now}', null,null)");
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         private int ReadTable(DataTable dataTable)
@@ -27,5 +49,6 @@ namespace Restaurant_DAL
 
             return id;
         }
+        
     }
 }
