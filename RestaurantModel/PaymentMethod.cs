@@ -6,5 +6,6 @@ using System.Threading.Tasks;
 
 namespace RestaurantModel
 {
-	public enum PaymentMethod { Pin = 1, Cash, Credit }
+
+    public enum PaymentMethod { Pin = 1, Cash, CreditCard }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using RestaurantModel;
 using Restaurant_Logic;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

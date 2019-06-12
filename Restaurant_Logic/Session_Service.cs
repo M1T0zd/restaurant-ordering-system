@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantModel
+namespace Restaurant_Logic
 {
-	public enum OrderStatus { Waiting = 1, Processing, Ready, Served }
+    class Session_Service
+    {
+    }
 }
