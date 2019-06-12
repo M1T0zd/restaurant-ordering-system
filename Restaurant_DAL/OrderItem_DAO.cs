@@ -14,8 +14,11 @@ namespace Restaurant_DAL
     {
         public List<OrderItem> GetOrders()
         {
-            string query = "SELECT o.Id,m.Name,OS.State FROM MenuItems AS M JOIN " +
-                "OrderItems as O on o.MenuItemId = m.Id JOIN ORDERSTATE as OS on o.StateId = OS.id WHERE OS.State = 'Ready'";
+            string query = "SELECT OI.Id, m.Name,OI.StateId,s.TableId " +
+                "FROM MenuItems AS M JOIN OrderItems as OI on OI.MenuItemId = m.Id " +
+                "JOIN Orders AS O on OI.OrderId = o.Id " +
+                "JOIN Sessions AS S ON O.SessionId = S.Id " +
+                "WHERE OI.StateId = 3";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -29,7 +32,8 @@ namespace Restaurant_DAL
             {
                 OrderItem order = new OrderItem()
                 {
-                    Status = (OrderStatus)dr["State"],
+                    TableNumber = (int)dr["tableid"],
+                    Status = (OrderStatus)dr["StateId"],
                     ItemName = (String)dr["Name"],
                     Id = (int)dr["Id"]
                 };

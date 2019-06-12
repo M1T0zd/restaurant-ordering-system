@@ -32,6 +32,7 @@ namespace Restaurant_DAL
                     Name = (String)(dr["Name"]),
                     Price = (decimal)dr["Price"],
                     Stock = (int)dr["Stock"]
+                    
                 };
                 menuItems.Add(menuItem);
             }

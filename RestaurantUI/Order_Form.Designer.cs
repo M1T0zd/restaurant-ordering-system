@@ -399,6 +399,7 @@
 		private System.Windows.Forms.Label lblNumber2;
 		private System.Windows.Forms.Button btnChangeStatus;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox txtQuantity;
 		private System.Windows.Forms.Button btnAvailable;
 		private System.Windows.Forms.NumericUpDown nudQuantity;
 		private System.Windows.Forms.GroupBox groupBox1;

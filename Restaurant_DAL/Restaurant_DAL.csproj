@@ -69,6 +69,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Session_DAO.cs" />
     <Compile Include="Table_DAO.cs" />
   </ItemGroup>
   <ItemGroup>
