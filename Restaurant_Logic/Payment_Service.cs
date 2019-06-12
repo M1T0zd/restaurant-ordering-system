@@ -13,9 +13,9 @@ namespace Restaurant_Logic
 
         Payment_DAO insertDetails = new Payment_DAO();
 
-      public void insertOrder(int method, Decimal total, Decimal taxt)
+      public void insertOrder(int method, Decimal total, Decimal tax)
         {
-            insertDetails.InsertDetails(method, total, taxt);
+            insertDetails.InsertDetails(method, total, tax);
         }
        
     }
