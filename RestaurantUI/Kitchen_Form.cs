@@ -18,7 +18,7 @@ namespace Restaurant_UI
         OrderItems_Service OrderItem_Service = new OrderItems_Service();
         DesignHelper designHelper = new DesignHelper();
         List<Order> Orders = new List<Order>();// refreching use
-        Payment_Service Payment_Service = new Payment_Service();
+        //Payment_Service Payment_Service = new Payment_Service();
         public static string RoleState;//Barman  Chef
         public Kitchen_Form(Employee employee)
         {
@@ -31,10 +31,50 @@ namespace Restaurant_UI
         {
             designHelper.ListViewDesign(listViewFood);
             FillFoodList(listViewFood);
-            timerRefrech.Interval = 20000; //refresh every 20 seconds 
+
+
+            designHelper.ListViewDesign(listViewDrink);
+            FillDrinksList(listViewDrink);
+
+            timerRefrech.Interval =20000; //refresh every 20 seconds 
             timerRefrech.Enabled = true;
         }
+        public void DisplayDrinks()
+        {
+            try
+            {
+                foreach (DataGridViewRow row in dgviewDrinks.Rows)
+                {
+                    if (row.Index >= 0)
+                    {
+                        string State = Convert.ToString(row.Cells[4].Value);// every time verify the value of the cell state
+                        if (State.ToLower().Trim() == "waiting")
+                        {
+                            row.DefaultCellStyle.BackColor = Color.Red;
 
+                        }
+                        else if (State.ToLower().Trim() == "processing")
+                        {
+                            row.DefaultCellStyle.BackColor = Color.Yellow;
+                        }
+                        else if (State.ToLower().Trim() == "ready")
+                        {
+                            row.DefaultCellStyle.BackColor = Color.LightGreen;
+                        }
+                        else if (State.ToLower().Trim() == "served")
+                        {
+                            row.DefaultCellStyle.BackColor = Color.GreenYellow;
+                        }
+                    }
+
+                }
+            }
+            catch (Exception k)
+            {
+                MessageBox.Show(" something went wrong :" + k.Message);
+            }
+
+        }
         public void DisplayFood()
         {
             try
@@ -84,42 +124,52 @@ namespace Restaurant_UI
                 listView.Items.Add(li);
             }
         }
-        private void refrech()
+        private void FillDrinksList(ListView listView)
         {
-            dgviewFood.DataSource = OrderItem_Service.GetFoodOrders(designHelper.GetslectedIndexOfListview(listViewFood));
-            DisplayFood();
+            designHelper.ListViewDesign(listViewDrink);
+            foreach (Order o in Orders)
+            {
+                ListViewItem li = new ListViewItem(o.Id.ToString());
+                li.Tag = o.Id;
+                li.SubItems.Add(o.TakenAt.ToShortDateString());
+                li.SubItems.Add(o.Table.ToString());
+                listView.Items.Add(li);
+            }
+        }
+        private void refrech(string FoodOrDrinks)
+        {
+            if (FoodOrDrinks=="food")
+            {
+                dgviewFood.DataSource = OrderItem_Service.GetFoodOrders(designHelper.GetslectedIndexOfListview(listViewFood));
+                DisplayFood();
+            }
+            else if (FoodOrDrinks=="drink")
+            {
+                dgviewDrinks.DataSource = OrderItem_Service.GetDrinksOrders(designHelper.GetslectedIndexOfListview(listViewDrink));
+                DisplayDrinks();
+            }
         }
         private void listViewFood_MouseClick_1(object sender, MouseEventArgs e)
         {
-            //try
-            //{
-                  refrech();
-            //}
-            //catch (Exception k)
-            //{
-            //    MessageBox.Show("something went wrong while updating " + k.Message);
-            //}
+            refrech("food");
         }
 
         private void btn_PrepareFood_Click(object sender, EventArgs e)
         {
             try
             {
-                var OrderItemIndex = dgviewFood.CurrentRow.Cells["OrderItemId"].FormattedValue;// get the id of the orderItem
-                int ItemId = Convert.ToInt32(OrderItemIndex);
-                var StateValue = dgviewFood.CurrentRow.Cells[0].FormattedValue;// first get the value of the cell
-                OrderState state = (OrderState)Enum.Parse(typeof(OrderState), Convert.ToString(StateValue));// then parse to the enum value 
-                if (state == OrderState.Ready)//*** only confirmation for ready
+                if (OrderState.Ready== designHelper.getDGcellState(dgviewFood, 0))//*** only confirmation for ready
                 {
-                    if (MessageBox.Show(" are you sure you want to mark this order as : " + state.ToString(), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show(" are you sure you want to mark this order as : Ready " , "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        OrderItem_Service.UpdateOrderItemState(ItemId, state);
+                        OrderItem_Service.UpdateOrderItemState(designHelper.GetGgridIndex(dgviewFood, "OrderItemId"), designHelper.getDGcellState(dgviewFood,0));
+                        refrech("food");
                     }
                 }
                 else
                 {
-                    OrderItem_Service.UpdateOrderItemState(ItemId, state);
-                    refrech();
+                    OrderItem_Service.UpdateOrderItemState(designHelper.GetGgridIndex(dgviewFood, "OrderItemId"), designHelper.getDGcellState(dgviewFood, 0));
+                    refrech("food");
                 }
                
             }
@@ -133,22 +183,23 @@ namespace Restaurant_UI
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
             Orders = OrderItem_Service.GetOrders();
-            AutoRefrech(listViewFood);
+            designHelper.AutoRefrech(listViewFood,Orders);
+            //designHelper.AutoRefrech(listViewDrink,Orders);
            // AutoRefrech(listViewDrink);
         }
-        private void AutoRefrech(ListView listView)
+        private void listViewDrink_MouseClick(object sender, MouseEventArgs e)
         {
-            //************ new orders will be displyed automatically here 
-            listView.Items.Clear();
-            foreach (Order o in Orders)
+            refrech("drink");
+        }
+        private void dgviewDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var OrderItemIndex = dgviewDrinks.CurrentRow.Cells["OrderItemId"].FormattedValue;// get the id of the orderItem
+            int ItemId = Convert.ToInt32(OrderItemIndex);
+            if (dgviewDrinks.Columns[e.ColumnIndex].Name == "btnMarkready")
             {
-                ListViewItem li = new ListViewItem(o.Id.ToString());
-                li.Tag = o.Id;
-                li.SubItems.Add(o.TakenAt.ToShortDateString());
-                li.SubItems.Add(o.Table.ToString());
-                listView.Items.Add(li);
+                OrderItem_Service.MarkAsRaady(ItemId, OrderState.Ready);
+                refrech("drink");
             }
-
         }
     }
 }

@@ -32,5 +32,9 @@ namespace Restaurant_Logic
         {
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }
+        public void MarkAsRaady(int orderItem, OrderState newSatate)
+        {
+            orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
+        }
     }
 }

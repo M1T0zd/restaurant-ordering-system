@@ -15,21 +15,13 @@ namespace Restaurant_DAL
         public List<KitchenOrderItems> GetFoodItems(int orderId)
         {
             //************ get the Order itmes of an order
-            //string query = @"select  m.Name,i.Quantity,i.Comment ,st.State, i.Id ,o.Id from sessions s 
-            //                    join Orders o on s.Id=o.SessionId
-            //                    join OrderItems i on i.OrderId=i.Id
-            //                    join OrderState st on st.Id=i.StateId
-            //                    join MenuItems m on m.Id=i.MenuItemId
-            //                    join Dishes d on d.Id=m.Id 
-            //                    where st.State !='Ready' and o.id=@OrderId";
-
-            string query = @"select m.Name,i.Quantity,i.Comment,s.State,i.Id ,o.Id from Orders o 
+            string query = @"select m.Name,i.Quantity,i.Comment,s.State,o.Id as OrderID,i.Id from Orders o 
                                 join OrderItems i on o.Id = i.OrderId
                                 join OrderState s on s.Id = i.StateId
                                 join MenuItems m on m.Id = i.MenuItemId
                                 join Dishes d on m.Id = d.Id
                                 join Sessions se on se.Id = o.SessionId
-                                 where o.Id=@OrderId ";
+                                       where o.Id= @OrderId ";
 
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@OrderId", SqlDbType.Int) { Value = orderId };
@@ -63,13 +55,13 @@ namespace Restaurant_DAL
         public List<KitchenOrderItems> GetDrinkItems(int orderId)
         {
             //************ get the Order itmes of an order
-            string query = @"select m.Name,i.Quantity,i.Comment,s.State,o.Id ,i.Id from Orders o 
+            string query = @"select m.Name,i.Quantity,i.Comment,s.State,o.Id as OrderID,i.Id from Orders o 
 								join OrderItems i on o.Id=i.OrderId
 								join OrderState s on s.Id=i.StateId
 								join MenuItems m on m.Id=i.MenuItemId
 								join Drinks d on m.Id=d.Id
 								join Sessions se on se.Id=o.SessionId
-								where o.Id=1";
+								where o.Id=@OrderId";
 
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@OrderId", SqlDbType.Int) { Value = orderId };
@@ -87,8 +79,8 @@ namespace Restaurant_DAL
                     Amount = (int)dr["Quantity"],
                     Comment = (string)dr["Comment"],
                     state = (OrderState)Enum.Parse(typeof(OrderState), Convert.ToString(dr["State"])),
+                     OrderId = (int)dr["OrderID"],
                     OrderItemId = (int)dr["Id"],
-                    OrderId = (int)dr["Id"],
                 };
                 OrderItems.Add(OrderItem);
             }
