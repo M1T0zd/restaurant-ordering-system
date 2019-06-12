@@ -49,7 +49,7 @@
             this.panelKitchen.Controls.Add(this.btn_PrepareFood);
             this.panelKitchen.Controls.Add(this.listViewFood);
             this.panelKitchen.Controls.Add(this.dgviewFood);
-            this.panelKitchen.Location = new System.Drawing.Point(12, 47);
+            this.panelKitchen.Location = new System.Drawing.Point(12, 27);
             this.panelKitchen.Name = "panelKitchen";
             this.panelKitchen.Size = new System.Drawing.Size(420, 535);
             this.panelKitchen.TabIndex = 0;
