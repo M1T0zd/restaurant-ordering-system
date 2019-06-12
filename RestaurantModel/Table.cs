@@ -15,7 +15,9 @@ namespace RestaurantModel
 
         public TableStatus Status { get; set; }
         
-      
+
+
+		//DEPRECATED
         public Employee Employee { get; set; }
      
         public List<Order> orders = new List<Order>();

@@ -241,5 +241,54 @@ namespace Restaurant_UI
 				lvi.SubItems[2].Text = orderItem.Amount.ToString();
 			}
 		}
+
+		private void NudQuantity_Leave(object sender, EventArgs e)
+		{
+			foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
+			{
+				OrderItem orderItem = (OrderItem)lvi.Tag;
+
+				orderItem.Amount = (int)nudQuantity.Value;
+
+				if(orderItem.Amount <= 0)
+				{
+					lvOrderItems.Items.Remove(lvi);
+				}
+			}
+		}
+
+		private void RdoButtons_Changed(object sender, EventArgs e)
+		{
+			MenuItem_Service menuItem_Service = new MenuItem_Service();
+			List<RestaurantModel.MenuItem> menuItems = menuItem_Service.GetMenuItems();
+
+			lvMenuItems.Items.Clear();
+
+			if (rdoAll.Checked)
+			{
+
+			}
+			else if(rdoLunch.Checked)
+			{
+
+			}
+			else if(rdoDinner.Checked)
+			{
+
+			}
+			else if(rdoDrinks.Checked)
+			{
+
+			}
+
+			foreach (RestaurantModel.MenuItem menuItem in menuItems)
+			{
+				ListViewItem lvi = new ListViewItem(menuItem.Name);
+				lvi.SubItems.Add(menuItem.Price.ToString());
+				lvi.SubItems.Add(menuItem.Stock.ToString());
+				lvi.Tag = menuItem;
+				lvMenuItems.Items.Add(lvi);
+			}
+		}
 	}
 }
