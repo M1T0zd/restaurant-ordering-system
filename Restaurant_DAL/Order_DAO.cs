@@ -31,7 +31,6 @@ namespace Restaurant_DAL
 				{
 					Id = (int)dr["Id"],
 					TakenAt = (DateTime)dr["TakenAt"],
-					Status = (string)dr["Status"]
 				};
 				orders.Add(order);
 			}
