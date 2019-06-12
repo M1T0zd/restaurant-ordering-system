@@ -19,11 +19,13 @@ namespace Restaurant_UI
         List<RestaurantModel.MenuItem> menuItems = new List<RestaurantModel.MenuItem>();
         Table_Form table_Form;
         Table table;
+        Employee employee;
 
-        public Order_Form(Table table, Table_Form table_Form)
+        public Order_Form(Table table, Table_Form table_Form,Employee employee)
         {
             InitializeComponent();
 			Initialize(table, table_Form);
+            this.employee = employee;
 		}
 
         void Initialize(Table table, Table_Form table_Form)
@@ -81,7 +83,8 @@ namespace Restaurant_UI
 			table.Status = TableStatus.Occupied;
 			table_Form.GiveColor();
 			pnlChangeStatus.Hide();
-			pnlDefault.Show();
+			pnlDefault.Show();           
+            
 		}
 
 		private void BtnAvailable_Click(object sender, EventArgs e)

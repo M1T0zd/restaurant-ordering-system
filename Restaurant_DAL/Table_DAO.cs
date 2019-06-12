@@ -15,7 +15,7 @@ namespace Restaurant_DAL
         public List<Table> GetTables()
         {
             //
-            string query = "SELECT Number FROM [Tables]";
+            string query = "SELECT Number, StatusID FROM [Tables]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -27,11 +27,19 @@ namespace Restaurant_DAL
             {
                 Table table = new Table()
                 {                
-                    Number = (int)dr["Number"]       
+                    Number = (int)dr["Number"],
+                    Status = (TableStatus)dr["StatusId"]
+                    
                 };
                 tables.Add(table);
             }
             return tables;
+        }
+        public void UpdateTable(Table table)
+        {
+            string query = ($"UPDATE Tables SET StatusId = {(int)table.Status} where Number = 1");
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
 }
