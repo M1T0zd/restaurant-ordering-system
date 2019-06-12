@@ -36,7 +36,6 @@
 			this.lblNumber = new System.Windows.Forms.Label();
 			this.pnlDefault = new System.Windows.Forms.Panel();
 			this.label4 = new System.Windows.Forms.Label();
-			this.txtQuantity = new System.Windows.Forms.TextBox();
 			this.btnChangeStatus = new System.Windows.Forms.Button();
 			this.lblNumber2 = new System.Windows.Forms.Label();
 			this.txtComment = new System.Windows.Forms.TextBox();
@@ -48,8 +47,10 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.lvMenuItems = new System.Windows.Forms.ListView();
 			this.lvOrderItems = new System.Windows.Forms.ListView();
+			this.nudQuantity = new System.Windows.Forms.NumericUpDown();
 			this.pnlChangeStatus.SuspendLayout();
 			this.pnlDefault.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnPay
@@ -119,8 +120,8 @@
 			// 
 			// pnlDefault
 			// 
+			this.pnlDefault.Controls.Add(this.nudQuantity);
 			this.pnlDefault.Controls.Add(this.label4);
-			this.pnlDefault.Controls.Add(this.txtQuantity);
 			this.pnlDefault.Controls.Add(this.btnChangeStatus);
 			this.pnlDefault.Controls.Add(this.lblNumber2);
 			this.pnlDefault.Controls.Add(this.txtComment);
@@ -142,22 +143,12 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
-			this.label4.Location = new System.Drawing.Point(432, 626);
+			this.label4.Location = new System.Drawing.Point(442, 633);
 			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(39, 20);
 			this.label4.TabIndex = 14;
 			this.label4.Text = "Qty.";
-			// 
-			// txtQuantity
-			// 
-			this.txtQuantity.Location = new System.Drawing.Point(432, 654);
-			this.txtQuantity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.txtQuantity.MaxLength = 1;
-			this.txtQuantity.Name = "txtQuantity";
-			this.txtQuantity.Size = new System.Drawing.Size(38, 26);
-			this.txtQuantity.TabIndex = 13;
-			this.txtQuantity.Leave += new System.EventHandler(this.TxtQuantity_Leave);
 			// 
 			// btnChangeStatus
 			// 
@@ -261,6 +252,7 @@
 			// 
 			// lvMenuItems
 			// 
+			this.lvMenuItems.HideSelection = false;
 			this.lvMenuItems.Location = new System.Drawing.Point(51, 106);
 			this.lvMenuItems.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.lvMenuItems.Name = "lvMenuItems";
@@ -271,6 +263,7 @@
 			// 
 			// lvOrderItems
 			// 
+			this.lvOrderItems.HideSelection = false;
 			this.lvOrderItems.Location = new System.Drawing.Point(516, 106);
 			this.lvOrderItems.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.lvOrderItems.Name = "lvOrderItems";
@@ -279,6 +272,19 @@
 			this.lvOrderItems.UseCompatibleStateImageBehavior = false;
 			this.lvOrderItems.View = System.Windows.Forms.View.Details;
 			this.lvOrderItems.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LvOrderItems_ItemSelectionChanged);
+			// 
+			// nudQuantity
+			// 
+			this.nudQuantity.Location = new System.Drawing.Point(428, 656);
+			this.nudQuantity.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+			this.nudQuantity.Name = "nudQuantity";
+			this.nudQuantity.Size = new System.Drawing.Size(66, 26);
+			this.nudQuantity.TabIndex = 15;
+			this.nudQuantity.ValueChanged += new System.EventHandler(this.NudQuantity_ValueChanged);
 			// 
 			// Order_Form
 			// 
@@ -296,6 +302,7 @@
 			this.pnlChangeStatus.PerformLayout();
 			this.pnlDefault.ResumeLayout(false);
 			this.pnlDefault.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -320,7 +327,7 @@
 		private System.Windows.Forms.Label lblNumber2;
 		private System.Windows.Forms.Button btnChangeStatus;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox txtQuantity;
 		private System.Windows.Forms.Button btnAvailable;
+		private System.Windows.Forms.NumericUpDown nudQuantity;
 	}
 }

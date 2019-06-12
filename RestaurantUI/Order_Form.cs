@@ -61,7 +61,7 @@ namespace Restaurant_UI
 
 			lvOrderItems.Columns.Add("Name", 150, HorizontalAlignment.Left);
 			lvOrderItems.Columns.Add("Price", 50, HorizontalAlignment.Left);
-			lvOrderItems.Columns.Add("Stock", 50, HorizontalAlignment.Left);
+			lvOrderItems.Columns.Add("Amount", 50, HorizontalAlignment.Left);
 
 			MenuItem_Service menuItem_Service = new MenuItem_Service();
 			List<RestaurantModel.MenuItem> menuItems = menuItem_Service.GetMenuItems();
@@ -126,17 +126,28 @@ namespace Restaurant_UI
 			{
 				RestaurantModel.MenuItem menuItem = (RestaurantModel.MenuItem)lvi.Tag;
 
-				OrderItem orderItem = new OrderItem
+				//Check if MenuItem is already in OrderItem list.
+				foreach(ListViewItem orderLvi in lvOrderItems.Items)
+				{
+					OrderItem orderItem = (OrderItem)orderLvi.Tag;
+					if (menuItem == orderItem.MenuItem)
+					{
+						return;
+					}
+				}
+				
+				
+				OrderItem newOrderItem = new OrderItem
 				{
 					Amount = 1,
 					MenuItem = menuItem,
 					Status = OrderStatus.Waiting
 				};
 
-				ListViewItem lviNew = new ListViewItem(orderItem.MenuItem.Name);// menuItem.Name);
-				lviNew.SubItems.Add(orderItem.MenuItem.Price.ToString());
-				lviNew.SubItems.Add(orderItem.MenuItem.Stock.ToString());
-				lviNew.Tag = orderItem;
+				ListViewItem lviNew = new ListViewItem(newOrderItem.MenuItem.Name);// menuItem.Name);
+				lviNew.SubItems.Add(newOrderItem.MenuItem.Price.ToString());
+				lviNew.SubItems.Add(newOrderItem.Amount.ToString());
+				lviNew.Tag = newOrderItem;
 
 				lvOrderItems.Items.Add(lviNew);
 			}
@@ -181,7 +192,6 @@ namespace Restaurant_UI
 			}
 			else if (table.Status == TableStatus.Reserved)
 			{
-
 				btnReserved.Hide();
 			}
 		}
@@ -203,27 +213,23 @@ namespace Restaurant_UI
 				OrderItem orderItem = (OrderItem)lvOrderItems.SelectedItems[0].Tag;
 
 				txtComment.Text = orderItem.Comment;
-				txtQuantity.Text = orderItem.Amount.ToString();
+				nudQuantity.Value = orderItem.Amount;
+
 			} else {
 				txtComment.Text = "";
-				txtQuantity.Text = "";
+				nudQuantity.Value = 0;
 			}
 		}
 
-		private void TxtQuantity_Leave(object sender, EventArgs e)
+		private void NudQuantity_ValueChanged(object sender, EventArgs e)
 		{
 			foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
 			{
 				OrderItem orderItem = (OrderItem)lvi.Tag;
 
-				/*try
-				{*/
-					orderItem.Amount = int.Parse(txtComment.Text);
-				/*}
-				catch(FormatException)
-				{
-					orderItem.Amount = 1;
-				}*/
+				orderItem.Amount = (int)nudQuantity.Value;
+
+				lvi.SubItems[2].Text = orderItem.Amount.ToString();
 			}
 		}
 	}
