@@ -136,7 +136,7 @@ namespace Restaurant_UI
             listviewnotif.Columns.Add("Status");
             listviewnotif.Columns.Add("Table");
 
-            OrderItem_Service order_Service = new OrderItem_Service();
+            OrderItems_Service order_Service = new OrderItems_Service();
             orderItems = order_Service.GetOrder();
 
             foreach (OrderItem order in orderItems)
@@ -167,7 +167,7 @@ namespace Restaurant_UI
             try
             {
                 selectedorderItem.Status = OrderStatus.Served;
-                OrderItem_Service item_Service = new OrderItem_Service();
+                OrderItems_Service item_Service = new OrderItems_Service();
                 item_Service.UpdateStatus(selectedorderItem);
             }
             catch (Exception)

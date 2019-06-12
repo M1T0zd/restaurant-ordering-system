@@ -10,17 +10,39 @@ using System.Diagnostics;
 
 namespace Restaurant_Logic
 {
-    public class OrderItem_Service
+    public class OrderItems_Service
     {
         OrderItem_DAO order_DAO = new OrderItem_DAO();
-
+        OrderItem_DAO orderItem_DAO = new OrderItem_DAO();
+        Order_DAO Order_DAO = new Order_DAO();
+        List<KitchenOrderItems> orderItems = new List<KitchenOrderItems>();
+        //****************************************************************
+        public List<KitchenOrderItems> GetFoodOrders(int OrderID)
+        {
+            return orderItems = orderItem_DAO.GetFoodItems(OrderID);
+        }
+        public List<KitchenOrderItems> GetDrinksOrders(int OrderID)
+        {
+            return orderItems = orderItem_DAO.GetDrinkItems(OrderID);
+        }
+        public List<Order> GetOrders()
+        {
+            List<Order> orders = new List<Order>();
+            return orders = orderItem_DAO.GetOrders1();
+        }
+        public void UpdateOrderItemState(int orderItem, OrderState newSatate)
+        {
+            orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
+        }
+        public void MarkAsRaady(int orderItem, OrderState newSatate)
+        {
+            orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
+        }
+        //*********************************** prins code************************** pleasse dont destroy my code
         public List<OrderItem> GetOrder()
         {
-           
-                List<OrderItem> orders = order_DAO.GetOrders();
-                return orders;
-            
-
+            List<OrderItem> orders = new List<OrderItem>();
+            return orders;
         }
         public void UpdateStatus(OrderItem orderItem)
         {

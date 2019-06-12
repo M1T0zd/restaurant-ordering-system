@@ -63,6 +63,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>chapeau1819sdb02DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DesignHelper.cs" />
     <Compile Include="Kitchen_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +76,8 @@
     <Compile Include="Login_Form.Designer.cs">
       <DependentUpon>Login_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderItems_Service.cs" />
+    <Compile Include="OrderItem_Service.cs" />
     <Compile Include="Order_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bar_Form.resx">
       <DependentUpon>Bar_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen_Form.resx">
+      <DependentUpon>Kitchen_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
