@@ -36,7 +36,15 @@ namespace Restaurant_DAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_GetOrder(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<Order> ReadTables_GetOrder(DataTable dataTable)
+		public void PushOrderItem(OrderItem orderItem)
+		{
+			string query = "INSERT INTO OrderItems" +
+				$"VALUES ({orderItem.OrderId}, {orderItem.MenuItem.Id}, {(int)orderItem.Status}, {orderItem.Amount}, {orderItem.Comment});";
+			SqlParameter[] sqlParameters = new SqlParameter[0];
+			ExecuteSelectQuery(query, sqlParameters);
+		}
+
+		private List<Order> ReadTables_GetOrder(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
 
@@ -116,14 +124,14 @@ namespace Restaurant_DAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                OrderItem order = new OrderItem()
+                OrderItem orderItem = new OrderItem()
                 {
                     TableNumber = (int)dr["tableid"],
                     Status = (OrderStatus)dr["StateId"],
                     ItemName = (String)dr["Name"],
                     Id = (int)dr["Id"]
                 };
-                orderItems.Add(order);
+                orderItems.Add(orderItem);
             }
             return orderItems;
         }

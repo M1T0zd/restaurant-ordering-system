@@ -43,8 +43,7 @@ namespace Restaurant_UI
         {
             Table_Service = new Table_Service();
             tables = Table_Service.GetTables();
-            currentsession.HostId = Employee.Number;
-            //Give Color For Table
+            currentsession.Host = Employee;
             GiveColor();
             //Get Notification List If Order Is ready
             GetList();
@@ -112,7 +111,7 @@ namespace Restaurant_UI
             button = (Button)sender;
             //If button clicked, get table from list based on it's TabIndex
             table = tables[button.TabIndex];
-            currentsession.TableId = table.Number;
+            currentsession.Table = table;
 
             Order_Form order_Form = new Order_Form(table,this,Employee,currentsession);
             order_Form.Show();
@@ -197,5 +196,10 @@ namespace Restaurant_UI
         {
             GiveColor();
         }
-    }
+    
+		private void Table_Form_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Application.Exit();
+		}
+	}
 }

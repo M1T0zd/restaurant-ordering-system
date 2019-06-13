@@ -36,7 +36,35 @@ namespace Restaurant_Logic
                 return null;
             }
         }
-        private static void ErrorLogging(Exception e)
+
+		public void PushOrder(Order order)
+		{
+			try
+			{
+				order_DAO.PushOrder(order);
+			}
+			catch (Exception e)
+			{
+				ErrorLogging(e);
+			}
+		}
+
+		public void PushOrders(List<Order> orders)
+		{
+			try
+			{
+				foreach(Order order in orders)
+				{
+					order_DAO.PushOrder(order);
+				}
+			}
+			catch (Exception e)
+			{
+				ErrorLogging(e);
+			}
+		}
+
+		private static void ErrorLogging(Exception e)
         {
             string strPath = @"D:\Prins\Log.txt";
             if (!File.Exists(strPath))

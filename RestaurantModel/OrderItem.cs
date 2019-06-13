@@ -10,6 +10,7 @@ namespace RestaurantModel
 	{
 
 		public int Id { get; set; }
+		public int OrderId { get; set; }
 		public int Amount { get; set; }
 		public string Comment { get; set; }
 		public string ItemName { get; set; }

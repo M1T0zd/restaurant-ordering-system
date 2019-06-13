@@ -28,379 +28,374 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btntbl1 = new System.Windows.Forms.Button();
-            this.btntbl2 = new System.Windows.Forms.Button();
-            this.btntbl3 = new System.Windows.Forms.Button();
-            this.btntbl4 = new System.Windows.Forms.Button();
-            this.btntbl5 = new System.Windows.Forms.Button();
-            this.btntbl6 = new System.Windows.Forms.Button();
-            this.btntbl7 = new System.Windows.Forms.Button();
-            this.btntbl8 = new System.Windows.Forms.Button();
-            this.btntable9 = new System.Windows.Forms.Button();
-            this.btntable10 = new System.Windows.Forms.Button();
-            this.lbltitle = new System.Windows.Forms.Label();
-            this.pnltable = new System.Windows.Forms.Panel();
-            this.btnnotif = new System.Windows.Forms.Button();
-            this.lbltable10 = new System.Windows.Forms.Label();
-            this.lbltable9 = new System.Windows.Forms.Label();
-            this.lbltable8 = new System.Windows.Forms.Label();
-            this.lbltable7 = new System.Windows.Forms.Label();
-            this.lbltable6 = new System.Windows.Forms.Label();
-            this.lbltable5 = new System.Windows.Forms.Label();
-            this.lbltable4 = new System.Windows.Forms.Label();
-            this.lbltable3 = new System.Windows.Forms.Label();
-            this.lbltable2 = new System.Windows.Forms.Label();
-            this.lbltable1 = new System.Windows.Forms.Label();
-            this.btnaccount = new System.Windows.Forms.Button();
-            this.pnlnotif = new System.Windows.Forms.Panel();
-            this.btnrefresh = new System.Windows.Forms.Button();
-            this.btnserveitem = new System.Windows.Forms.Button();
-            this.btnpanelback = new System.Windows.Forms.Button();
-            this.listviewnotif = new System.Windows.Forms.ListView();
-            this.btnrefreshtableview = new System.Windows.Forms.Button();
-            this.pnltable.SuspendLayout();
-            this.pnlnotif.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // btntbl1
-            // 
-            this.btntbl1.Location = new System.Drawing.Point(104, 117);
-            this.btntbl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btntbl1.Name = "btntbl1";
-            this.btntbl1.Size = new System.Drawing.Size(91, 90);
-            this.btntbl1.TabIndex = 0;
-            this.btntbl1.Text = "Table 1";
-            this.btntbl1.UseVisualStyleBackColor = true;
-            this.btntbl1.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btntbl2
-            // 
-            this.btntbl2.Location = new System.Drawing.Point(278, 117);
-            this.btntbl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btntbl2.Name = "btntbl2";
-            this.btntbl2.Size = new System.Drawing.Size(91, 90);
-            this.btntbl2.TabIndex = 1;
-            this.btntbl2.Text = "Table 2";
-            this.btntbl2.UseVisualStyleBackColor = true;
-            this.btntbl2.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btntbl3
-            // 
-            this.btntbl3.Location = new System.Drawing.Point(104, 240);
-            this.btntbl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btntbl3.Name = "btntbl3";
-            this.btntbl3.Size = new System.Drawing.Size(91, 90);
-            this.btntbl3.TabIndex = 2;
-            this.btntbl3.Text = "Table 3";
-            this.btntbl3.UseVisualStyleBackColor = true;
-            this.btntbl3.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btntbl4
-            // 
-            this.btntbl4.Location = new System.Drawing.Point(278, 240);
-            this.btntbl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btntbl4.Name = "btntbl4";
-            this.btntbl4.Size = new System.Drawing.Size(91, 90);
-            this.btntbl4.TabIndex = 3;
-            this.btntbl4.Text = "Table 4";
-            this.btntbl4.UseVisualStyleBackColor = true;
-            this.btntbl4.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btntbl5
-            // 
-            this.btntbl5.Location = new System.Drawing.Point(104, 358);
-            this.btntbl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btntbl5.Name = "btntbl5";
-            this.btntbl5.Size = new System.Drawing.Size(91, 90);
-            this.btntbl5.TabIndex = 4;
-            this.btntbl5.Text = "Table 5";
-            this.btntbl5.UseVisualStyleBackColor = true;
-            this.btntbl5.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btntbl6
-            // 
-            this.btntbl6.Location = new System.Drawing.Point(278, 358);
-            this.btntbl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btntbl6.Name = "btntbl6";
-            this.btntbl6.Size = new System.Drawing.Size(91, 90);
-            this.btntbl6.TabIndex = 5;
-            this.btntbl6.Text = "Table 6";
-            this.btntbl6.UseVisualStyleBackColor = true;
-            this.btntbl6.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btntbl7
-            // 
-            this.btntbl7.Location = new System.Drawing.Point(104, 470);
-            this.btntbl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btntbl7.Name = "btntbl7";
-            this.btntbl7.Size = new System.Drawing.Size(91, 90);
-            this.btntbl7.TabIndex = 6;
-            this.btntbl7.Text = "Table 7";
-            this.btntbl7.UseVisualStyleBackColor = true;
-            this.btntbl7.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btntbl8
-            // 
-            this.btntbl8.Location = new System.Drawing.Point(278, 470);
-            this.btntbl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btntbl8.Name = "btntbl8";
-            this.btntbl8.Size = new System.Drawing.Size(91, 90);
-            this.btntbl8.TabIndex = 7;
-            this.btntbl8.Text = "Table 8";
-            this.btntbl8.UseVisualStyleBackColor = true;
-            this.btntbl8.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btntable9
-            // 
-            this.btntable9.Location = new System.Drawing.Point(104, 594);
-            this.btntable9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btntable9.Name = "btntable9";
-            this.btntable9.Size = new System.Drawing.Size(91, 90);
-            this.btntable9.TabIndex = 8;
-            this.btntable9.Text = "Table 9";
-            this.btntable9.UseVisualStyleBackColor = true;
-            this.btntable9.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btntable10
-            // 
-            this.btntable10.Location = new System.Drawing.Point(278, 594);
-            this.btntable10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btntable10.Name = "btntable10";
-            this.btntable10.Size = new System.Drawing.Size(91, 90);
-            this.btntable10.TabIndex = 9;
-            this.btntable10.Text = "Table 10";
-            this.btntable10.UseVisualStyleBackColor = true;
-            this.btntable10.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // lbltitle
-            // 
-            this.lbltitle.AutoSize = true;
-            this.lbltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitle.Location = new System.Drawing.Point(156, 18);
-            this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(178, 38);
-            this.lbltitle.TabIndex = 10;
-            this.lbltitle.Text = "Table View";
-            // 
-            // pnltable
-            // 
-            this.pnltable.Controls.Add(this.btnrefreshtableview);
-            this.pnltable.Controls.Add(this.btnnotif);
-            this.pnltable.Controls.Add(this.lbltable10);
-            this.pnltable.Controls.Add(this.lbltable9);
-            this.pnltable.Controls.Add(this.lbltable8);
-            this.pnltable.Controls.Add(this.lbltable7);
-            this.pnltable.Controls.Add(this.lbltable6);
-            this.pnltable.Controls.Add(this.lbltable5);
-            this.pnltable.Controls.Add(this.lbltable4);
-            this.pnltable.Controls.Add(this.lbltable3);
-            this.pnltable.Controls.Add(this.lbltable2);
-            this.pnltable.Controls.Add(this.lbltable1);
-            this.pnltable.Controls.Add(this.btnaccount);
-            this.pnltable.Controls.Add(this.lbltitle);
-            this.pnltable.Controls.Add(this.btntable10);
-            this.pnltable.Controls.Add(this.btntable9);
-            this.pnltable.Controls.Add(this.btntbl8);
-            this.pnltable.Controls.Add(this.btntbl7);
-            this.pnltable.Controls.Add(this.btntbl6);
-            this.pnltable.Controls.Add(this.btntbl5);
-            this.pnltable.Controls.Add(this.btntbl4);
-            this.pnltable.Controls.Add(this.btntbl3);
-            this.pnltable.Controls.Add(this.btntbl2);
-            this.pnltable.Controls.Add(this.btntbl1);
-            this.pnltable.Location = new System.Drawing.Point(16, 13);
-            this.pnltable.Margin = new System.Windows.Forms.Padding(4);
-            this.pnltable.Name = "pnltable";
-            this.pnltable.Size = new System.Drawing.Size(486, 703);
-            this.pnltable.TabIndex = 11;
-            // 
-            // btnnotif
-            // 
-            this.btnnotif.Location = new System.Drawing.Point(18, 18);
-            this.btnnotif.Name = "btnnotif";
-            this.btnnotif.Size = new System.Drawing.Size(107, 33);
-            this.btnnotif.TabIndex = 22;
-            this.btnnotif.Text = "Notification";
-            this.btnnotif.UseVisualStyleBackColor = true;
-            this.btnnotif.Click += new System.EventHandler(this.Btnnotif_Click);
-            // 
-            // lbltable10
-            // 
-            this.lbltable10.AutoSize = true;
-            this.lbltable10.Location = new System.Drawing.Point(284, 575);
-            this.lbltable10.Name = "lbltable10";
-            this.lbltable10.Size = new System.Drawing.Size(12, 17);
-            this.lbltable10.TabIndex = 21;
-            this.lbltable10.Text = " ";
-            // 
-            // lbltable9
-            // 
-            this.lbltable9.AutoSize = true;
-            this.lbltable9.Location = new System.Drawing.Point(110, 575);
-            this.lbltable9.Name = "lbltable9";
-            this.lbltable9.Size = new System.Drawing.Size(12, 17);
-            this.lbltable9.TabIndex = 20;
-            this.lbltable9.Text = " ";
-            // 
-            // lbltable8
-            // 
-            this.lbltable8.AutoSize = true;
-            this.lbltable8.Location = new System.Drawing.Point(284, 451);
-            this.lbltable8.Name = "lbltable8";
-            this.lbltable8.Size = new System.Drawing.Size(12, 17);
-            this.lbltable8.TabIndex = 19;
-            this.lbltable8.Text = " ";
-            // 
-            // lbltable7
-            // 
-            this.lbltable7.AutoSize = true;
-            this.lbltable7.Location = new System.Drawing.Point(110, 451);
-            this.lbltable7.Name = "lbltable7";
-            this.lbltable7.Size = new System.Drawing.Size(12, 17);
-            this.lbltable7.TabIndex = 18;
-            this.lbltable7.Text = " ";
-            // 
-            // lbltable6
-            // 
-            this.lbltable6.AutoSize = true;
-            this.lbltable6.Location = new System.Drawing.Point(284, 339);
-            this.lbltable6.Name = "lbltable6";
-            this.lbltable6.Size = new System.Drawing.Size(12, 17);
-            this.lbltable6.TabIndex = 17;
-            this.lbltable6.Text = " ";
-            // 
-            // lbltable5
-            // 
-            this.lbltable5.AutoSize = true;
-            this.lbltable5.Location = new System.Drawing.Point(110, 339);
-            this.lbltable5.Name = "lbltable5";
-            this.lbltable5.Size = new System.Drawing.Size(12, 17);
-            this.lbltable5.TabIndex = 16;
-            this.lbltable5.Text = " ";
-            // 
-            // lbltable4
-            // 
-            this.lbltable4.AutoSize = true;
-            this.lbltable4.Location = new System.Drawing.Point(284, 221);
-            this.lbltable4.Name = "lbltable4";
-            this.lbltable4.Size = new System.Drawing.Size(12, 17);
-            this.lbltable4.TabIndex = 15;
-            this.lbltable4.Text = " ";
-            // 
-            // lbltable3
-            // 
-            this.lbltable3.AutoSize = true;
-            this.lbltable3.Location = new System.Drawing.Point(101, 221);
-            this.lbltable3.Name = "lbltable3";
-            this.lbltable3.Size = new System.Drawing.Size(12, 17);
-            this.lbltable3.TabIndex = 14;
-            this.lbltable3.Text = " ";
-            // 
-            // lbltable2
-            // 
-            this.lbltable2.AutoSize = true;
-            this.lbltable2.Location = new System.Drawing.Point(294, 69);
-            this.lbltable2.Name = "lbltable2";
-            this.lbltable2.Size = new System.Drawing.Size(12, 17);
-            this.lbltable2.TabIndex = 13;
-            this.lbltable2.Text = " ";
-            // 
-            // lbltable1
-            // 
-            this.lbltable1.AutoSize = true;
-            this.lbltable1.Location = new System.Drawing.Point(126, 69);
-            this.lbltable1.Name = "lbltable1";
-            this.lbltable1.Size = new System.Drawing.Size(12, 17);
-            this.lbltable1.TabIndex = 12;
-            this.lbltable1.Text = " ";
-            // 
-            // btnaccount
-            // 
-            this.btnaccount.Location = new System.Drawing.Point(369, 18);
-            this.btnaccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnaccount.Name = "btnaccount";
-            this.btnaccount.Size = new System.Drawing.Size(100, 33);
-            this.btnaccount.TabIndex = 11;
-            this.btnaccount.Text = "My Account";
-            this.btnaccount.UseVisualStyleBackColor = true;
-            this.btnaccount.Click += new System.EventHandler(this.Btnaccount_Click);
-            // 
-            // pnlnotif
-            // 
-            this.pnlnotif.Controls.Add(this.btnrefresh);
-            this.pnlnotif.Controls.Add(this.btnserveitem);
-            this.pnlnotif.Controls.Add(this.btnpanelback);
-            this.pnlnotif.Controls.Add(this.listviewnotif);
-            this.pnlnotif.Location = new System.Drawing.Point(12, 11);
-            this.pnlnotif.Name = "pnlnotif";
-            this.pnlnotif.Size = new System.Drawing.Size(497, 709);
-            this.pnlnotif.TabIndex = 12;
-            // 
-            // btnrefresh
-            // 
-            this.btnrefresh.Location = new System.Drawing.Point(133, 580);
-            this.btnrefresh.Name = "btnrefresh";
-            this.btnrefresh.Size = new System.Drawing.Size(227, 40);
-            this.btnrefresh.TabIndex = 3;
-            this.btnrefresh.Text = "Refresh";
-            this.btnrefresh.UseVisualStyleBackColor = true;
-            this.btnrefresh.Click += new System.EventHandler(this.Btnrefresh_Click);
-            // 
-            // btnserveitem
-            // 
-            this.btnserveitem.Location = new System.Drawing.Point(133, 505);
-            this.btnserveitem.Name = "btnserveitem";
-            this.btnserveitem.Size = new System.Drawing.Size(227, 40);
-            this.btnserveitem.TabIndex = 2;
-            this.btnserveitem.Text = "Serve";
-            this.btnserveitem.UseVisualStyleBackColor = true;
-            this.btnserveitem.Click += new System.EventHandler(this.Btnserveitem_Click);
-            // 
-            // btnpanelback
-            // 
-            this.btnpanelback.Location = new System.Drawing.Point(20, 20);
-            this.btnpanelback.Name = "btnpanelback";
-            this.btnpanelback.Size = new System.Drawing.Size(109, 25);
-            this.btnpanelback.TabIndex = 1;
-            this.btnpanelback.Text = "Back";
-            this.btnpanelback.UseVisualStyleBackColor = true;
-            this.btnpanelback.Click += new System.EventHandler(this.Btnpanelback_Click);
-            // 
-            // listviewnotif
-            // 
-            this.listviewnotif.Location = new System.Drawing.Point(61, 101);
-            this.listviewnotif.Name = "listviewnotif";
-            this.listviewnotif.Size = new System.Drawing.Size(375, 347);
-            this.listviewnotif.TabIndex = 0;
-            this.listviewnotif.UseCompatibleStateImageBehavior = false;
-            this.listviewnotif.View = System.Windows.Forms.View.Details;
-            this.listviewnotif.Click += new System.EventHandler(this.Listviewnotif_SelectedIndexChanged);
-            // 
-            // btnrefreshtableview
-            // 
-            this.btnrefreshtableview.Location = new System.Drawing.Point(173, 61);
-            this.btnrefreshtableview.Name = "btnrefreshtableview";
-            this.btnrefreshtableview.Size = new System.Drawing.Size(115, 33);
-            this.btnrefreshtableview.TabIndex = 23;
-            this.btnrefreshtableview.Text = "Refresh";
-            this.btnrefreshtableview.UseVisualStyleBackColor = true;
-            this.btnrefreshtableview.Click += new System.EventHandler(this.Btnrefreshtableview_Click);
-            // 
-            // Table_Form
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 732);
-            this.Controls.Add(this.pnltable);
-            this.Controls.Add(this.pnlnotif);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Table_Form";
-            this.Text = "Table_Form";
-            this.Load += new System.EventHandler(this.Table_Form_Load);
-            this.pnltable.ResumeLayout(false);
-            this.pnltable.PerformLayout();
-            this.pnlnotif.ResumeLayout(false);
-            this.ResumeLayout(false);
+			this.btntbl1 = new System.Windows.Forms.Button();
+			this.btntbl2 = new System.Windows.Forms.Button();
+			this.btntbl3 = new System.Windows.Forms.Button();
+			this.btntbl4 = new System.Windows.Forms.Button();
+			this.btntbl5 = new System.Windows.Forms.Button();
+			this.btntbl6 = new System.Windows.Forms.Button();
+			this.btntbl7 = new System.Windows.Forms.Button();
+			this.btntbl8 = new System.Windows.Forms.Button();
+			this.btntable9 = new System.Windows.Forms.Button();
+			this.btntable10 = new System.Windows.Forms.Button();
+			this.lbltitle = new System.Windows.Forms.Label();
+			this.pnltable = new System.Windows.Forms.Panel();
+			this.btnnotif = new System.Windows.Forms.Button();
+			this.lbltable10 = new System.Windows.Forms.Label();
+			this.lbltable9 = new System.Windows.Forms.Label();
+			this.lbltable8 = new System.Windows.Forms.Label();
+			this.lbltable7 = new System.Windows.Forms.Label();
+			this.lbltable6 = new System.Windows.Forms.Label();
+			this.lbltable5 = new System.Windows.Forms.Label();
+			this.lbltable4 = new System.Windows.Forms.Label();
+			this.lbltable3 = new System.Windows.Forms.Label();
+			this.lbltable2 = new System.Windows.Forms.Label();
+			this.lbltable1 = new System.Windows.Forms.Label();
+			this.btnaccount = new System.Windows.Forms.Button();
+			this.pnlnotif = new System.Windows.Forms.Panel();
+			this.btnrefresh = new System.Windows.Forms.Button();
+			this.btnserveitem = new System.Windows.Forms.Button();
+			this.btnpanelback = new System.Windows.Forms.Button();
+			this.listviewnotif = new System.Windows.Forms.ListView();
+			this.pnltable.SuspendLayout();
+			this.pnlnotif.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// btntbl1
+			// 
+			this.btntbl1.Location = new System.Drawing.Point(118, 110);
+			this.btntbl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btntbl1.Name = "btntbl1";
+			this.btntbl1.Size = new System.Drawing.Size(102, 112);
+			this.btntbl1.TabIndex = 0;
+			this.btntbl1.Text = "Table 1";
+			this.btntbl1.UseVisualStyleBackColor = true;
+			this.btntbl1.Click += new System.EventHandler(this.Button_Click);
+			// 
+			// btntbl2
+			// 
+			this.btntbl2.Location = new System.Drawing.Point(314, 110);
+			this.btntbl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btntbl2.Name = "btntbl2";
+			this.btntbl2.Size = new System.Drawing.Size(102, 112);
+			this.btntbl2.TabIndex = 1;
+			this.btntbl2.Text = "Table 2";
+			this.btntbl2.UseVisualStyleBackColor = true;
+			this.btntbl2.Click += new System.EventHandler(this.Button_Click);
+			// 
+			// btntbl3
+			// 
+			this.btntbl3.Location = new System.Drawing.Point(118, 264);
+			this.btntbl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btntbl3.Name = "btntbl3";
+			this.btntbl3.Size = new System.Drawing.Size(102, 112);
+			this.btntbl3.TabIndex = 2;
+			this.btntbl3.Text = "Table 3";
+			this.btntbl3.UseVisualStyleBackColor = true;
+			this.btntbl3.Click += new System.EventHandler(this.Button_Click);
+			// 
+			// btntbl4
+			// 
+			this.btntbl4.Location = new System.Drawing.Point(314, 264);
+			this.btntbl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btntbl4.Name = "btntbl4";
+			this.btntbl4.Size = new System.Drawing.Size(102, 112);
+			this.btntbl4.TabIndex = 3;
+			this.btntbl4.Text = "Table 4";
+			this.btntbl4.UseVisualStyleBackColor = true;
+			this.btntbl4.Click += new System.EventHandler(this.Button_Click);
+			// 
+			// btntbl5
+			// 
+			this.btntbl5.Location = new System.Drawing.Point(118, 411);
+			this.btntbl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btntbl5.Name = "btntbl5";
+			this.btntbl5.Size = new System.Drawing.Size(102, 112);
+			this.btntbl5.TabIndex = 4;
+			this.btntbl5.Text = "Table 5";
+			this.btntbl5.UseVisualStyleBackColor = true;
+			this.btntbl5.Click += new System.EventHandler(this.Button_Click);
+			// 
+			// btntbl6
+			// 
+			this.btntbl6.Location = new System.Drawing.Point(314, 411);
+			this.btntbl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btntbl6.Name = "btntbl6";
+			this.btntbl6.Size = new System.Drawing.Size(102, 112);
+			this.btntbl6.TabIndex = 5;
+			this.btntbl6.Text = "Table 6";
+			this.btntbl6.UseVisualStyleBackColor = true;
+			this.btntbl6.Click += new System.EventHandler(this.Button_Click);
+			// 
+			// btntbl7
+			// 
+			this.btntbl7.Location = new System.Drawing.Point(118, 551);
+			this.btntbl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btntbl7.Name = "btntbl7";
+			this.btntbl7.Size = new System.Drawing.Size(102, 112);
+			this.btntbl7.TabIndex = 6;
+			this.btntbl7.Text = "Table 7";
+			this.btntbl7.UseVisualStyleBackColor = true;
+			this.btntbl7.Click += new System.EventHandler(this.Button_Click);
+			// 
+			// btntbl8
+			// 
+			this.btntbl8.Location = new System.Drawing.Point(314, 551);
+			this.btntbl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btntbl8.Name = "btntbl8";
+			this.btntbl8.Size = new System.Drawing.Size(102, 112);
+			this.btntbl8.TabIndex = 7;
+			this.btntbl8.Text = "Table 8";
+			this.btntbl8.UseVisualStyleBackColor = true;
+			this.btntbl8.Click += new System.EventHandler(this.Button_Click);
+			// 
+			// btntable9
+			// 
+			this.btntable9.Location = new System.Drawing.Point(118, 706);
+			this.btntable9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btntable9.Name = "btntable9";
+			this.btntable9.Size = new System.Drawing.Size(102, 112);
+			this.btntable9.TabIndex = 8;
+			this.btntable9.Text = "Table 9";
+			this.btntable9.UseVisualStyleBackColor = true;
+			this.btntable9.Click += new System.EventHandler(this.Button_Click);
+			// 
+			// btntable10
+			// 
+			this.btntable10.Location = new System.Drawing.Point(314, 706);
+			this.btntable10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btntable10.Name = "btntable10";
+			this.btntable10.Size = new System.Drawing.Size(102, 112);
+			this.btntable10.TabIndex = 9;
+			this.btntable10.Text = "Table 10";
+			this.btntable10.UseVisualStyleBackColor = true;
+			this.btntable10.Click += new System.EventHandler(this.Button_Click);
+			// 
+			// lbltitle
+			// 
+			this.lbltitle.AutoSize = true;
+			this.lbltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbltitle.Location = new System.Drawing.Point(174, 11);
+			this.lbltitle.Name = "lbltitle";
+			this.lbltitle.Size = new System.Drawing.Size(217, 46);
+			this.lbltitle.TabIndex = 10;
+			this.lbltitle.Text = "Table View";
+			// 
+			// pnltable
+			// 
+			this.pnltable.Controls.Add(this.btnnotif);
+			this.pnltable.Controls.Add(this.lbltable10);
+			this.pnltable.Controls.Add(this.lbltable9);
+			this.pnltable.Controls.Add(this.lbltable8);
+			this.pnltable.Controls.Add(this.lbltable7);
+			this.pnltable.Controls.Add(this.lbltable6);
+			this.pnltable.Controls.Add(this.lbltable5);
+			this.pnltable.Controls.Add(this.lbltable4);
+			this.pnltable.Controls.Add(this.lbltable3);
+			this.pnltable.Controls.Add(this.lbltable2);
+			this.pnltable.Controls.Add(this.lbltable1);
+			this.pnltable.Controls.Add(this.btnaccount);
+			this.pnltable.Controls.Add(this.lbltitle);
+			this.pnltable.Controls.Add(this.btntable10);
+			this.pnltable.Controls.Add(this.btntable9);
+			this.pnltable.Controls.Add(this.btntbl8);
+			this.pnltable.Controls.Add(this.btntbl7);
+			this.pnltable.Controls.Add(this.btntbl6);
+			this.pnltable.Controls.Add(this.btntbl5);
+			this.pnltable.Controls.Add(this.btntbl4);
+			this.pnltable.Controls.Add(this.btntbl3);
+			this.pnltable.Controls.Add(this.btntbl2);
+			this.pnltable.Controls.Add(this.btntbl1);
+			this.pnltable.Location = new System.Drawing.Point(18, 16);
+			this.pnltable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.pnltable.Name = "pnltable";
+			this.pnltable.Size = new System.Drawing.Size(547, 858);
+			this.pnltable.TabIndex = 11;
+			// 
+			// btnnotif
+			// 
+			this.btnnotif.Location = new System.Drawing.Point(18, 18);
+			this.btnnotif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btnnotif.Name = "btnnotif";
+			this.btnnotif.Size = new System.Drawing.Size(120, 41);
+			this.btnnotif.TabIndex = 22;
+			this.btnnotif.Text = "Notification";
+			this.btnnotif.UseVisualStyleBackColor = true;
+			this.btnnotif.Click += new System.EventHandler(this.Btnnotif_Click);
+			// 
+			// lbltable10
+			// 
+			this.lbltable10.AutoSize = true;
+			this.lbltable10.Location = new System.Drawing.Point(321, 682);
+			this.lbltable10.Name = "lbltable10";
+			this.lbltable10.Size = new System.Drawing.Size(13, 20);
+			this.lbltable10.TabIndex = 21;
+			this.lbltable10.Text = " ";
+			// 
+			// lbltable9
+			// 
+			this.lbltable9.AutoSize = true;
+			this.lbltable9.Location = new System.Drawing.Point(125, 682);
+			this.lbltable9.Name = "lbltable9";
+			this.lbltable9.Size = new System.Drawing.Size(13, 20);
+			this.lbltable9.TabIndex = 20;
+			this.lbltable9.Text = " ";
+			// 
+			// lbltable8
+			// 
+			this.lbltable8.AutoSize = true;
+			this.lbltable8.Location = new System.Drawing.Point(321, 528);
+			this.lbltable8.Name = "lbltable8";
+			this.lbltable8.Size = new System.Drawing.Size(13, 20);
+			this.lbltable8.TabIndex = 19;
+			this.lbltable8.Text = " ";
+			// 
+			// lbltable7
+			// 
+			this.lbltable7.AutoSize = true;
+			this.lbltable7.Location = new System.Drawing.Point(125, 528);
+			this.lbltable7.Name = "lbltable7";
+			this.lbltable7.Size = new System.Drawing.Size(13, 20);
+			this.lbltable7.TabIndex = 18;
+			this.lbltable7.Text = " ";
+			// 
+			// lbltable6
+			// 
+			this.lbltable6.AutoSize = true;
+			this.lbltable6.Location = new System.Drawing.Point(321, 388);
+			this.lbltable6.Name = "lbltable6";
+			this.lbltable6.Size = new System.Drawing.Size(13, 20);
+			this.lbltable6.TabIndex = 17;
+			this.lbltable6.Text = " ";
+			// 
+			// lbltable5
+			// 
+			this.lbltable5.AutoSize = true;
+			this.lbltable5.Location = new System.Drawing.Point(125, 388);
+			this.lbltable5.Name = "lbltable5";
+			this.lbltable5.Size = new System.Drawing.Size(13, 20);
+			this.lbltable5.TabIndex = 16;
+			this.lbltable5.Text = " ";
+			// 
+			// lbltable4
+			// 
+			this.lbltable4.AutoSize = true;
+			this.lbltable4.Location = new System.Drawing.Point(321, 240);
+			this.lbltable4.Name = "lbltable4";
+			this.lbltable4.Size = new System.Drawing.Size(13, 20);
+			this.lbltable4.TabIndex = 15;
+			this.lbltable4.Text = " ";
+			// 
+			// lbltable3
+			// 
+			this.lbltable3.AutoSize = true;
+			this.lbltable3.Location = new System.Drawing.Point(115, 240);
+			this.lbltable3.Name = "lbltable3";
+			this.lbltable3.Size = new System.Drawing.Size(13, 20);
+			this.lbltable3.TabIndex = 14;
+			this.lbltable3.Text = " ";
+			// 
+			// lbltable2
+			// 
+			this.lbltable2.AutoSize = true;
+			this.lbltable2.Location = new System.Drawing.Point(321, 86);
+			this.lbltable2.Name = "lbltable2";
+			this.lbltable2.Size = new System.Drawing.Size(13, 20);
+			this.lbltable2.TabIndex = 13;
+			this.lbltable2.Text = " ";
+			// 
+			// lbltable1
+			// 
+			this.lbltable1.AutoSize = true;
+			this.lbltable1.Location = new System.Drawing.Point(142, 86);
+			this.lbltable1.Name = "lbltable1";
+			this.lbltable1.Size = new System.Drawing.Size(13, 20);
+			this.lbltable1.TabIndex = 12;
+			this.lbltable1.Text = " ";
+			// 
+			// btnaccount
+			// 
+			this.btnaccount.Location = new System.Drawing.Point(414, 12);
+			this.btnaccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btnaccount.Name = "btnaccount";
+			this.btnaccount.Size = new System.Drawing.Size(112, 46);
+			this.btnaccount.TabIndex = 11;
+			this.btnaccount.Text = "My Account";
+			this.btnaccount.UseVisualStyleBackColor = true;
+			this.btnaccount.Click += new System.EventHandler(this.Btnaccount_Click);
+			// 
+			// pnlnotif
+			// 
+			this.pnlnotif.Controls.Add(this.btnrefresh);
+			this.pnlnotif.Controls.Add(this.btnserveitem);
+			this.pnlnotif.Controls.Add(this.btnpanelback);
+			this.pnlnotif.Controls.Add(this.listviewnotif);
+			this.pnlnotif.Location = new System.Drawing.Point(14, 14);
+			this.pnlnotif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.pnlnotif.Name = "pnlnotif";
+			this.pnlnotif.Size = new System.Drawing.Size(559, 886);
+			this.pnlnotif.TabIndex = 12;
+			// 
+			// btnrefresh
+			// 
+			this.btnrefresh.Location = new System.Drawing.Point(150, 725);
+			this.btnrefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btnrefresh.Name = "btnrefresh";
+			this.btnrefresh.Size = new System.Drawing.Size(255, 50);
+			this.btnrefresh.TabIndex = 3;
+			this.btnrefresh.Text = "Refresh";
+			this.btnrefresh.UseVisualStyleBackColor = true;
+			this.btnrefresh.Click += new System.EventHandler(this.Btnrefresh_Click);
+			// 
+			// btnserveitem
+			// 
+			this.btnserveitem.Location = new System.Drawing.Point(150, 631);
+			this.btnserveitem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btnserveitem.Name = "btnserveitem";
+			this.btnserveitem.Size = new System.Drawing.Size(255, 50);
+			this.btnserveitem.TabIndex = 2;
+			this.btnserveitem.Text = "Serve";
+			this.btnserveitem.UseVisualStyleBackColor = true;
+			this.btnserveitem.Click += new System.EventHandler(this.Btnserveitem_Click);
+			// 
+			// btnpanelback
+			// 
+			this.btnpanelback.Location = new System.Drawing.Point(22, 25);
+			this.btnpanelback.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btnpanelback.Name = "btnpanelback";
+			this.btnpanelback.Size = new System.Drawing.Size(123, 31);
+			this.btnpanelback.TabIndex = 1;
+			this.btnpanelback.Text = "Back";
+			this.btnpanelback.UseVisualStyleBackColor = true;
+			this.btnpanelback.Click += new System.EventHandler(this.Btnpanelback_Click);
+			// 
+			// listviewnotif
+			// 
+			this.listviewnotif.Location = new System.Drawing.Point(69, 126);
+			this.listviewnotif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.listviewnotif.Name = "listviewnotif";
+			this.listviewnotif.Size = new System.Drawing.Size(421, 433);
+			this.listviewnotif.TabIndex = 0;
+			this.listviewnotif.UseCompatibleStateImageBehavior = false;
+			this.listviewnotif.View = System.Windows.Forms.View.Details;
+			this.listviewnotif.Click += new System.EventHandler(this.Listviewnotif_SelectedIndexChanged);
+			// 
+			// Table_Form
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(579, 915);
+			this.Controls.Add(this.pnltable);
+			this.Controls.Add(this.pnlnotif);
+			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.Name = "Table_Form";
+			this.Text = "Table_Form";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Table_Form_FormClosed);
+			this.Load += new System.EventHandler(this.Table_Form_Load);
+			this.pnltable.ResumeLayout(false);
+			this.pnltable.PerformLayout();
+			this.pnlnotif.ResumeLayout(false);
+			this.ResumeLayout(false);
 
         }
 
