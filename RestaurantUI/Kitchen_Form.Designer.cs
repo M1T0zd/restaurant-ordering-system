@@ -192,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 725);
+            this.ClientSize = new System.Drawing.Size(861, 725);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelKitchen);

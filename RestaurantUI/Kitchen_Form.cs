@@ -39,7 +39,6 @@ namespace Restaurant_UI
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
-            
             timerRefrech.Interval =20000; //refresh every 20 seconds 
             timerRefrech.Enabled = true;
         }

@@ -104,5 +104,10 @@ namespace Restaurant_UI
             writer.WriteLine(commentstxt_box.Text);
             writer.Close();
         }
+
+        private void Payment_Form_Load(object sender, EventArgs e)
+        {
+         
+        }
     }
 }

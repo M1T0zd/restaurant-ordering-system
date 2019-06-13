@@ -63,7 +63,7 @@ namespace Restaurant_UI
             foreach (Order o in orders)
             {
                 ListViewItem li = new ListViewItem(o.Id.ToString());
-                li.Tag = o.Id;
+                li.Tag = o;
                 li.SubItems.Add(o.TakenAt.ToShortDateString());
                 li.SubItems.Add(o.Table.ToString());
                 listView.Items.Add(li);

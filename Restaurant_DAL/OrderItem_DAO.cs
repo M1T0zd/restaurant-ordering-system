@@ -61,7 +61,8 @@ namespace Restaurant_DAL
 								join MenuItems m on m.Id=i.MenuItemId
 								join Drinks d on m.Id=d.Id
 								join Sessions se on se.Id=o.SessionId
-								where o.Id=@OrderId and i.StateId!=3";
+								where o.Id=@OrderId ";
+            //where o.Id = @OrderId and i.StateId != 3"; to test unready 
 
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@OrderId", SqlDbType.Int) { Value = orderId };
