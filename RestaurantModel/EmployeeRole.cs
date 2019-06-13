@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace RestaurantModel
 {
-    public class Employee
+    public enum EmployeeRole
     {
-        public int Number { get; set; }
-        public string Name { get; set; }
-        public EmployeeRole Role { get; set; }
+        Waiter = 1, Chef, Barman
     }
 }

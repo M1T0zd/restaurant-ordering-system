@@ -24,14 +24,14 @@ namespace Restaurant_UI
             this.login_Form = login_Form;
             Orders = OrderItem_Service.GetOrders();
             InitializeComponent();
-            if (employee.Role == "Chef")
+            if (employee.Role == EmployeeRole.Chef)
             {
                 panelKitchen.Visible = true;
                 panelBar.Visible = false;
                 designHelper.ListViewDesign(listViewFood);
                 FillFoodList(listViewFood);
             }
-            else if (employee.Role == "Barman")
+            else if (employee.Role == EmployeeRole.Barman)
             {
                 panelKitchen.Visible = false;
                 panelBar.Visible = true;

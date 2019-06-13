@@ -56,7 +56,7 @@ namespace Restaurant_UI
 
         private void Btnback_Click(object sender, EventArgs e)
         {
-            if (Employee.Role == "Waiter")
+            if (Employee.Role == EmployeeRole.Waiter)
             {
                 Table_Form.Show();
             }
