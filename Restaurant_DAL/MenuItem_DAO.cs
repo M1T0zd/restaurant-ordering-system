@@ -15,7 +15,7 @@ namespace Restaurant_DAL
         public List<MenuItem> GetMenuItems()
         {
             
-            string query = "SELECT Id, Name, Price, Stock FROM MenuItems";
+            string query = "SELECT Id, Name, Price, Stock, CategoryId FROM MenuItems";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -31,7 +31,8 @@ namespace Restaurant_DAL
                     Id = (int)dr["Id"],
                     Name = (String)(dr["Name"]),
                     Price = (decimal)dr["Price"],
-                    Stock = (int)dr["Stock"]
+                    Stock = (int)dr["Stock"],
+					Category = (Category)dr["CategoryId"]
                     
                 };
                 menuItems.Add(menuItem);

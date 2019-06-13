@@ -128,6 +128,15 @@ namespace Restaurant_UI
 				}
 
 				currentSession.Orders.Add(order);
+
+				//Push to database
+				Order_Service order_Service = new Order_Service();
+				OrderItem_Service orderItem_Service = new OrderItem_Service();
+
+				//order_Service.PushOrder(order);
+				//orderItem_Service.PushOrderItems(order.OrderItems);
+
+				lvOrderItems.Items.Clear();
 			} else {
 				MessageBox.Show("Please add an OrderItem to the OrderItem list first.", "OrderItems list empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
@@ -149,7 +158,7 @@ namespace Restaurant_UI
 					}
 				}
 				
-				
+				//Add Item to OrderItem list.
 				OrderItem newOrderItem = new OrderItem
 				{
 					Amount = 1,
@@ -157,7 +166,7 @@ namespace Restaurant_UI
 					Status = OrderStatus.Waiting
 				};
 
-				ListViewItem lviNew = new ListViewItem(newOrderItem.MenuItem.Name);// menuItem.Name);
+				ListViewItem lviNew = new ListViewItem(newOrderItem.MenuItem.Name);
 				lviNew.SubItems.Add(newOrderItem.MenuItem.Price.ToString());
 				lviNew.SubItems.Add(newOrderItem.Amount.ToString());
 				lviNew.Tag = newOrderItem;
@@ -188,7 +197,6 @@ namespace Restaurant_UI
 			this.Close();
 		}
 
-		//TOOLS
 		private void UpdateStatusButtons()
 		{
 			btnOccupied.Show();
