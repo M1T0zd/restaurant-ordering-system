@@ -80,8 +80,10 @@ namespace Restaurant_UI
                 else if (currentemployee.Role == "Barman")
                 {
                     //Display BarmanUI
-                    Bar_Form bar_Form = new Bar_Form();
-                    bar_Form.Show();
+                    //Bar_Form bar_Form = new Bar_Form();
+                    //bar_Form.Show();
+                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
+                    kitchen_Form.Show();
                 }
                 else if (currentemployee.Role == "Waiter")
                 {

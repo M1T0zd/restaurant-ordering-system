@@ -18,24 +18,28 @@ namespace Restaurant_UI
         OrderItem_Service OrderItem_Service = new OrderItem_Service();
         DesignHelper designHelper = new DesignHelper();
         List<Order> Orders = new List<Order>();// refreching use
-        //Payment_Service Payment_Service = new Payment_Service();
-        public static string RoleState;//Barman  Chef
         public Kitchen_Form(Employee employee)
         {
             Orders = OrderItem_Service.GetOrders();
             InitializeComponent();
-           // RoleState = role;
+            if (employee.Role == "Chef")
+            {
+                panelKitchen.Visible = true;
+                panelBar.Visible = false;
+                designHelper.ListViewDesign(listViewFood);
+                FillFoodList(listViewFood);
+            }
+            else if (employee.Role == "Barman")
+            {
+                panelKitchen.Visible = false;
+                panelBar.Visible = true;
+                designHelper.ListViewDesign(listViewDrink);
+                FillDrinksList(listViewDrink);
+            }
         }
-
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
-            designHelper.ListViewDesign(listViewFood);
-            FillFoodList(listViewFood);
-
-
-            designHelper.ListViewDesign(listViewDrink);
-            FillDrinksList(listViewDrink);
-
+            
             timerRefrech.Interval =20000; //refresh every 20 seconds 
             timerRefrech.Enabled = true;
         }
@@ -200,6 +204,16 @@ namespace Restaurant_UI
                 OrderItem_Service.MarkAsRaady(ItemId, OrderState.Ready);
                 refrech("drink");
             }
+        }
+
+        private void panelKitchen_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelBar_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

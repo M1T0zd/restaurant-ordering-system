@@ -86,7 +86,7 @@ namespace Restaurant_DAL
             }
             return OrderItems;
         }
-        //*******************updates only state of one item not the whole oorder
+  //*******************updates only state of one item not the whole oorder
         public void UpdateOrdersItemsState(int OrderItemItemId, OrderState newState) //MarkAsProccessing
         {
             string query = @"update OrderItems set  StateId=@StateId where Id=@Id";
@@ -94,6 +94,19 @@ namespace Restaurant_DAL
             sqlParameters[0] = new SqlParameter("@StateId", SqlDbType.Int) { Value = (int)newState };
             sqlParameters[1] = new SqlParameter("@Id", SqlDbType.Int) { Value = OrderItemItemId };
             ExecuteEditQuery(query, sqlParameters);
+        }
+
+        //********************************** end kitchen overview code
+
+        public List<OrderItem> GetOrders()
+        {
+            //************ get the Order itmes of an order
+            string query = @"select o.Id,o.TakenAt,s.TableId from sessions  s
+                            join  Orders o on s.Id=o.SessionId
+                            where o.Id in (select o.OrderId from OrderItems o ) and TakenAt is not null";
+
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         private List<OrderItem> ReadTables(DataTable dataTable)
         {
@@ -117,18 +130,6 @@ namespace Restaurant_DAL
             string query = ($"UPDATE Tables SET StatusId = {(int)orderItem.Status} where Number = {orderItem.Id}");
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
-        }
-        //********************************** end kitchen overview code
-
-        public List<OrderItem> GetOrders()
-        {
-            //************ get the Order itmes of an order
-            string query = @"select o.Id,o.TakenAt,s.TableId from sessions  s
-                            join  Orders o on s.Id=o.SessionId
-                            where o.Id in (select o.OrderId from OrderItems o ) and TakenAt is not null";
-
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
     }
