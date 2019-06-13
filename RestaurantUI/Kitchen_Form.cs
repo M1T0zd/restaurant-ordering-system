@@ -205,15 +205,9 @@ namespace Restaurant_UI
                 refrech("drink");
             }
         }
-
-        private void panelKitchen_Paint(object sender, PaintEventArgs e)
+        private void pictureBoxExit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void panelBar_Paint(object sender, PaintEventArgs e)
-        {
-
+            Application.Exit();
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Restaurant_DAL
 								join MenuItems m on m.Id=i.MenuItemId
 								join Drinks d on m.Id=d.Id
 								join Sessions se on se.Id=o.SessionId
-								where o.Id=@OrderId";
+								where o.Id=@OrderId and i.StateId!=3";
 
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@OrderId", SqlDbType.Int) { Value = orderId };
@@ -102,8 +102,7 @@ namespace Restaurant_DAL
         {
             //************ get the Order itmes of an order
             string query = @"select o.Id,o.TakenAt,s.TableId from sessions  s
-                            join  Orders o on s.Id=o.SessionId
-                            where o.Id in (select o.OrderId from OrderItems o ) and TakenAt is not null";
+                            join  Orders o on s.Id=o.SessionId";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));

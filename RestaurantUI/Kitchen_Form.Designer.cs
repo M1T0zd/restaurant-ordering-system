@@ -64,7 +64,6 @@
             this.panelKitchen.Name = "panelKitchen";
             this.panelKitchen.Size = new System.Drawing.Size(832, 535);
             this.panelKitchen.TabIndex = 0;
-            this.panelKitchen.Paint += new System.Windows.Forms.PaintEventHandler(this.panelKitchen_Paint);
             // 
             // btn_PrepareFood
             // 
@@ -102,7 +101,6 @@
             this.panelBar.Name = "panelBar";
             this.panelBar.Size = new System.Drawing.Size(832, 532);
             this.panelBar.TabIndex = 3;
-            this.panelBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBar_Paint);
             // 
             // listViewDrink
             // 
@@ -144,7 +142,7 @@
             this.panelMenu.Controls.Add(this.pictureBoxComments);
             this.panelMenu.Controls.Add(this.pictureBoxOrders);
             this.panelMenu.Controls.Add(this.pictureBoxExit);
-            this.panelMenu.Location = new System.Drawing.Point(12, 12);
+            this.panelMenu.Location = new System.Drawing.Point(12, 15);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(832, 68);
             this.panelMenu.TabIndex = 8;
@@ -188,6 +186,7 @@
             this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxExit.TabIndex = 0;
             this.pictureBoxExit.TabStop = false;
+            this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
             // 
             // Kitchen_Form
             // 
