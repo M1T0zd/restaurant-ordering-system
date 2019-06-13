@@ -11,18 +11,6 @@ namespace Restaurant_UI
 {
     public class DesignHelper
     {
-        public int GetGgridIndex( DataGridView dgv , string cell)
-        {
-            var OrderItemIndex = dgv.CurrentRow.Cells[cell].FormattedValue;// get the id of the orderItem
-            int ItemId = Convert.ToInt32(OrderItemIndex);
-            return ItemId;
-        }
-        public OrderStatus getDGcellState(DataGridView dgv, int cellIndex)
-        {
-            var StateValue = dgv.CurrentRow.Cells[cellIndex].FormattedValue;// first get the value of the cell
-            OrderStatus state = (OrderStatus)Enum.Parse(typeof(OrderStatus), Convert.ToString(StateValue));// then parse to the enum value 
-            return state;
-        }
         public void ListViewDesign(ListView listView)
         {
             listView.Clear();
@@ -37,8 +25,6 @@ namespace Restaurant_UI
             listView.Columns.Add("Item ID", 50, HorizontalAlignment.Center);
             listView.Columns.Add("Tabel Number", 100, HorizontalAlignment.Center);
             listView.FullRowSelect = true;
-
-         
         }
         public void AutoRefrech(ListView listView , List<Order> orders )
         {

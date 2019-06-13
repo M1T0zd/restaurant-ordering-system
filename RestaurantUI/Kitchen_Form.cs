@@ -34,8 +34,8 @@ namespace Restaurant_UI
             {
                 Orders = OrderItem_Service.GetDrinksOrders();
                 FillOrdersItemList();
-                //dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
-                //DisplayFood();
+                dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
+                DisplayFood();
             }
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
@@ -51,26 +51,16 @@ namespace Restaurant_UI
                 {
                     if (row.Index >= 0)
                     {
-                        string State = Convert.ToString(row.Cells[4].Value);// every time verify the value of the cell state
+                        string State = Convert.ToString(row.Cells[5].Value);
                         if (State.ToLower().Trim() == "waiting")
-                        {
                             row.DefaultCellStyle.BackColor = Color.Red;
-
-                        }
                         else if (State.ToLower().Trim() == "processing")
-                        {
                             row.DefaultCellStyle.BackColor = Color.Yellow;
-                        }
                         else if (State.ToLower().Trim() == "ready")
-                        {
                             row.DefaultCellStyle.BackColor = Color.LightGreen;
-                        }
                         else if (State.ToLower().Trim() == "served")
-                        {
                             row.DefaultCellStyle.BackColor = Color.GreenYellow;
-                        }
                     }
-
                 }
             }
             catch (Exception k)
@@ -116,32 +106,6 @@ namespace Restaurant_UI
                 DisplayFood();
             }
         }
-        private void btn_PrepareFood_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //if (OrderStatus.Ready== designHelper.getDGcellState(dgviewFood, 0))//*** only confirmation for ready
-                //{
-                //    if (MessageBox.Show(" are you sure you want to mark this order as : Ready " , "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                //    {
-                //        OrderItem_Service.UpdateOrderItemState(designHelper.GetGgridIndex(dgviewFood, "OrderItemId"), designHelper.getDGcellState(dgviewFood,0));
-                //        refrech("food");
-                //    }
-                //}
-                //else
-                //{
-                //    OrderItem_Service.UpdateOrderItemState(designHelper.GetGgridIndex(dgviewFood, "OrderItemId"), designHelper.getDGcellState(dgviewFood, 0));
-                //    refrech("food");
-                //}
-
-            }
-            catch (Exception k)
-            {
-
-                MessageBox.Show("something went wrong while updating " + k.Message);
-            }
-        }
-
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
             Orders = OrderItem_Service.GetFoodOrders();
@@ -151,7 +115,15 @@ namespace Restaurant_UI
         }
         private void dgviewDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var OrderItemIndex = dgviewOrders.CurrentRow.Cells["OrderItemId"].FormattedValue;// get the id of the orderItem
+            //if (OrderStatus.Ready== designHelper.getDGcellState(dgviewFood, 0))//*** only confirmation for ready
+            //{
+            //    if (MessageBox.Show(" are you sure you want to mark this order as : Ready " , "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            //    {
+            //        OrderItem_Service.UpdateOrderItemState(designHelper.GetGgridIndex(dgviewFood, "OrderItemId"), designHelper.getDGcellState(dgviewFood,0));
+            //        refrech("food");
+            //    }
+            //}
+            var OrderItemIndex = dgviewOrders.CurrentRow.Cells["Id"].FormattedValue;// get the id of the orderItem
             int ItemId = Convert.ToInt32(OrderItemIndex);
             if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
             {
