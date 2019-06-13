@@ -44,6 +44,7 @@
             this.pictureBoxComments = new System.Windows.Forms.PictureBox();
             this.pictureBoxOrders = new System.Windows.Forms.PictureBox();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
+            this.listViewOrders = new System.Windows.Forms.ListView();
             this.panelKitchen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgviewFood)).BeginInit();
             this.panelBar.SuspendLayout();
@@ -62,7 +63,7 @@
             this.panelKitchen.Controls.Add(this.dgviewFood);
             this.panelKitchen.Location = new System.Drawing.Point(12, 86);
             this.panelKitchen.Name = "panelKitchen";
-            this.panelKitchen.Size = new System.Drawing.Size(832, 535);
+            this.panelKitchen.Size = new System.Drawing.Size(223, 535);
             this.panelKitchen.TabIndex = 0;
             // 
             // btn_PrepareFood
@@ -99,7 +100,7 @@
             this.panelBar.Controls.Add(this.dgviewDrinks);
             this.panelBar.Location = new System.Drawing.Point(12, 89);
             this.panelBar.Name = "panelBar";
-            this.panelBar.Size = new System.Drawing.Size(832, 532);
+            this.panelBar.Size = new System.Drawing.Size(223, 532);
             this.panelBar.TabIndex = 3;
             // 
             // listViewDrink
@@ -144,7 +145,7 @@
             this.panelMenu.Controls.Add(this.pictureBoxExit);
             this.panelMenu.Location = new System.Drawing.Point(12, 15);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(832, 68);
+            this.panelMenu.Size = new System.Drawing.Size(432, 68);
             this.panelMenu.TabIndex = 8;
             // 
             // pictureBoxLogo
@@ -188,11 +189,20 @@
             this.pictureBoxExit.TabStop = false;
             this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
             // 
+            // listViewOrders
+            // 
+            this.listViewOrders.Location = new System.Drawing.Point(485, 35);
+            this.listViewOrders.Name = "listViewOrders";
+            this.listViewOrders.Size = new System.Drawing.Size(808, 586);
+            this.listViewOrders.TabIndex = 9;
+            this.listViewOrders.UseCompatibleStateImageBehavior = false;
+            // 
             // Kitchen_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 725);
+            this.ClientSize = new System.Drawing.Size(1454, 725);
+            this.Controls.Add(this.listViewOrders);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelKitchen);
@@ -228,5 +238,6 @@
         private System.Windows.Forms.PictureBox pictureBoxComments;
         private System.Windows.Forms.PictureBox pictureBoxOrders;
         private System.Windows.Forms.PictureBox pictureBoxExit;
+        private System.Windows.Forms.ListView listViewOrders;
     }
 }

@@ -14,8 +14,8 @@ namespace Restaurant_Logic
     {
         OrderItem_DAO orderItem_DAO = new OrderItem_DAO();
 
-        List<KitchenOrderItems> orderItems = new List<KitchenOrderItems>();
-        public List<KitchenOrderItems> GetFoodOrders(int OrderID)
+        List<OrderItem> orderItems = new List<OrderItem>();
+        public List<OrderItem> GetFoodOrders(int OrderID)
         {
             return orderItems = orderItem_DAO.GetFoodItems(OrderID);
         }

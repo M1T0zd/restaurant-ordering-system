@@ -12,7 +12,7 @@ namespace Restaurant_DAL
 {
     public class OrderItem_DAO : Base
     {
-        public List<KitchenOrderItems> GetFoodItems(int orderId)
+        public List<OrderItem> GetFoodItems(int orderId)
         {
             //************ get the Order itmes of an order
             string query = @"select m.Name,i.Quantity,i.Comment,s.State,o.Id as OrderID,i.Id from Orders o 
@@ -20,11 +20,9 @@ namespace Restaurant_DAL
                                 join OrderState s on s.Id = i.StateId
                                 join MenuItems m on m.Id = i.MenuItemId
                                 join Dishes d on m.Id = d.Id
-                                join Sessions se on se.Id = o.SessionId
-                                       where o.Id= @OrderId ";
+                                join Sessions se on se.Id = o.SessionId";
 
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@OrderId", SqlDbType.Int) { Value = orderId };
+            SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
 
@@ -60,7 +58,7 @@ namespace Restaurant_DAL
             }
             return orders;
         }
-        public List<KitchenOrderItems> GetDrinkItems(int orderId)
+        public List<OrderItem> GetDrinkItems()
         {
             //************ get the Order itmes of an order
             string query = @"select m.Name,i.Quantity,i.Comment,s.State,o.Id as OrderID,i.Id from Orders o 
@@ -70,33 +68,30 @@ namespace Restaurant_DAL
 								join Drinks d on m.Id=d.Id
 								join Sessions se on se.Id=o.SessionId
 								where o.Id=@OrderId ";
-            //where o.Id = @OrderId and i.StateId != 3"; to test unready 
-
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@OrderId", SqlDbType.Int) { Value = orderId };
+            SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<KitchenOrderItems> ReadTables_OrderItems(DataTable dataTable)
+        private List<OrderItem> ReadTables_OrderItems(DataTable dataTable)
         {
-            List<KitchenOrderItems> OrderItems = new List<KitchenOrderItems>();
+            List<OrderItem> OrderItems = new List<OrderItem>();
             foreach (DataRow dr in dataTable.Rows)
             {
-                KitchenOrderItems OrderItem = new KitchenOrderItems()
+                OrderItem OrderItem = new OrderItem()
                 {
 
                     ItemName = (string)dr["Name"],
                     Amount = (int)dr["Quantity"],
                     Comment = (string)dr["Comment"],
-                    state = (OrderState)Enum.Parse(typeof(OrderState), Convert.ToString(dr["State"])),
+                    Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), Convert.ToString(dr["State"])),
                     OrderId = (int)dr["OrderID"],
-                    OrderItemId = (int)dr["Id"],
+                    Id = (int)dr["Id"],
                 };
                 OrderItems.Add(OrderItem);
             }
             return OrderItems;
         }
   //*******************updates only state of one item not the whole oorder
-        public void UpdateOrdersItemsState(int OrderItemItemId, OrderState newState) //MarkAsProccessing
+        public void UpdateOrdersItemsState(int OrderItemItemId, OrderStatus newState) //MarkAsProccessing
         {
             string query = @"update OrderItems set  StateId=@StateId where Id=@Id";
             SqlParameter[] sqlParameters = new SqlParameter[2];
