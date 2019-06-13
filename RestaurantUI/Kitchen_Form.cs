@@ -18,8 +18,10 @@ namespace Restaurant_UI
         OrderItem_Service OrderItem_Service = new OrderItem_Service();
         DesignHelper designHelper = new DesignHelper();
         List<Order> Orders = new List<Order>();// refreching use
-        public Kitchen_Form(Employee employee)
+        Login_Form login_Form;
+        public Kitchen_Form(Employee employee, Login_Form login_Form)
         {
+            this.login_Form = login_Form;
             Orders = OrderItem_Service.GetOrders();
             InitializeComponent();
             if (employee.Role == "Chef")
@@ -206,7 +208,23 @@ namespace Restaurant_UI
         }
         private void pictureBoxExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Prompt();
+        }
+        void Prompt()
+        {
+            string message = "Are you sure you want to log out?";
+            string title = "Log Out";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                login_Form.Show();
+                this.Close();
+            }
+            else
+            {
+                // Go Back
+            }
         }
     }
 }

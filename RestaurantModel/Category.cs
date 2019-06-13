@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace RestaurantModel
 {
-	public enum Category { Lunch, Dinner, Drinks }
+	public enum Category { Lunch = 1, Dinner, Drinks }
 }

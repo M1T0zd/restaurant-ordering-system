@@ -430,5 +430,6 @@
         private System.Windows.Forms.Button btnpanelback;
         private System.Windows.Forms.Button btnserveitem;
         private System.Windows.Forms.Button btnrefresh;
+        private System.Windows.Forms.Button btnrefreshtableview;
     }
 }

@@ -12,9 +12,8 @@ namespace Restaurant_Logic
 {
     public class OrderItem_Service
     {
-        OrderItem_DAO order_DAO = new OrderItem_DAO();// not my code 
-
         OrderItem_DAO orderItem_DAO = new OrderItem_DAO();
+
         List<KitchenOrderItems> orderItems = new List<KitchenOrderItems>();
         public List<KitchenOrderItems> GetFoodOrders(int OrderID)
         {
@@ -29,7 +28,35 @@ namespace Restaurant_Logic
             List<Order> orders = new List<Order>();
             return orders = orderItem_DAO.GetOrders_();
         }
-        public void UpdateOrderItemState(int orderItem, OrderState newSatate)
+
+		public void PushOrder(OrderItem orderItem)
+		{
+			try
+			{
+				orderItem_DAO.PushOrderItem(orderItem);
+			}
+			catch (Exception e)
+			{
+				ErrorLogging(e);
+			}
+		}
+
+		public void PushOrderItems(List<OrderItem> orderItems)
+		{
+			try
+			{
+				foreach (OrderItem orderItem in orderItems)
+				{
+					orderItem_DAO.PushOrderItem(orderItem);
+				}
+			}
+			catch (Exception e)
+			{
+				ErrorLogging(e);
+			}
+		}
+
+		public void UpdateOrderItemState(int orderItem, OrderState newSatate)
         {
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }
@@ -41,12 +68,12 @@ namespace Restaurant_Logic
         public List<OrderItem> GetOrderWaiter()
         {
            
-                List<OrderItem> orders = order_DAO.GetOrdersWaiter();
+                List<OrderItem> orders = orderItem_DAO.GetOrdersWaiter();
                 return orders;
         }
         public void UpdateStatus(OrderItem orderItem)
         {
-            order_DAO.UpdateStatus(orderItem);
+            orderItem_DAO.UpdateStatus(orderItem);
         }
         private static void ErrorLogging(Exception e)
         {
