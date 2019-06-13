@@ -35,8 +35,23 @@ namespace Restaurant_UI
 
         private void Btnlogout_Click(object sender, EventArgs e)
         {
-            loginform.Show();
-            this.Close();
+            Prompt();
+        }
+        void Prompt()
+        {
+            string message = "Are you sure you want to log out?";
+            string title = "Log Out";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                loginform.Show();
+                this.Close();
+            }
+            else
+            {
+                // Go Back
+            }
         }
 
         private void Btnback_Click(object sender, EventArgs e)
