@@ -22,14 +22,14 @@ namespace Restaurant_UI
         {
             Orders = OrderItem_Service.GetOrders();
             InitializeComponent();
-            if (employee.Role == EmployeeRole.Chef)
+            if (employee.Role == "Chef")
             {
                 panelKitchen.Visible = true;
                 panelBar.Visible = false;
                 designHelper.ListViewDesign(listViewFood);
                 FillFoodList(listViewFood);
             }
-            else if (employee.Role == EmployeeRole.Barman)
+            else if (employee.Role == "Barman")
             {
                 panelKitchen.Visible = false;
                 panelBar.Visible = true;
@@ -41,42 +41,6 @@ namespace Restaurant_UI
         {
             timerRefrech.Interval =20000; //refresh every 20 seconds 
             timerRefrech.Enabled = true;
-        }
-        public void DisplayDrinks()
-        {
-            try
-            {
-                foreach (DataGridViewRow row in dgviewDrinks.Rows)
-                {
-                    if (row.Index >= 0)
-                    {
-                        string State = Convert.ToString(row.Cells[4].Value);// every time verify the value of the cell state
-                        if (State.ToLower().Trim() == "waiting")
-                        {
-                            row.DefaultCellStyle.BackColor = Color.Red;
-
-                        }
-                        else if (State.ToLower().Trim() == "processing")
-                        {
-                            row.DefaultCellStyle.BackColor = Color.Yellow;
-                        }
-                        else if (State.ToLower().Trim() == "ready")
-                        {
-                            row.DefaultCellStyle.BackColor = Color.LightGreen;
-                        }
-                        else if (State.ToLower().Trim() == "served")
-                        {
-                            row.DefaultCellStyle.BackColor = Color.GreenYellow;
-                        }
-                    }
-
-                }
-            }
-            catch (Exception k)
-            {
-                MessageBox.Show(" something went wrong :" + k.Message);
-            }
-
         }
         public void DisplayFood()
         {

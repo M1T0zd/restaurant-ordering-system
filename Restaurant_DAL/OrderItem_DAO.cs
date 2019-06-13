@@ -12,7 +12,7 @@ namespace Restaurant_DAL
 {
     public class OrderItem_DAO : Base
     {
-        public List<OrderItem> GetFoodItems(int orderId)
+        public List<OrderItem> GetFoodItems()
         {
             //************ get the Order itmes of an order
             string query = @"select m.Name,i.Quantity,i.Comment,s.State,o.Id as OrderID,i.Id from Orders o 
@@ -66,8 +66,7 @@ namespace Restaurant_DAL
 								join OrderState s on s.Id=i.StateId
 								join MenuItems m on m.Id=i.MenuItemId
 								join Drinks d on m.Id=d.Id
-								join Sessions se on se.Id=o.SessionId
-								where o.Id=@OrderId ";
+								join Sessions se on se.Id=o.SessionId ";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -78,7 +77,6 @@ namespace Restaurant_DAL
             {
                 OrderItem OrderItem = new OrderItem()
                 {
-
                     ItemName = (string)dr["Name"],
                     Amount = (int)dr["Quantity"],
                     Comment = (string)dr["Comment"],

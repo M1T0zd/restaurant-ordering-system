@@ -15,13 +15,13 @@ namespace Restaurant_Logic
         OrderItem_DAO orderItem_DAO = new OrderItem_DAO();
 
         List<OrderItem> orderItems = new List<OrderItem>();
-        public List<OrderItem> GetFoodOrders(int OrderID)
+        public List<OrderItem> GetFoodOrders()
         {
-            return orderItems = orderItem_DAO.GetFoodItems(OrderID);
+            return orderItems = orderItem_DAO.GetFoodItems();
         }
-        public List<KitchenOrderItems> GetDrinksOrders(int OrderID)
+        public List<OrderItem> GetDrinksOrders()
         {
-            return orderItems = orderItem_DAO.GetDrinkItems(OrderID);
+            return orderItems = orderItem_DAO.GetDrinkItems();
         }
         public List<Order> GetOrders()
         {
@@ -56,11 +56,11 @@ namespace Restaurant_Logic
 			}
 		}
 
-		public void UpdateOrderItemState(int orderItem, OrderState newSatate)
+		public void UpdateOrderItemState(int orderItem, OrderStatus newSatate)
         {
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }
-        public void MarkAsRaady(int orderItem, OrderState newSatate)
+        public void MarkAsRaady(int orderItem, OrderStatus newSatate)
         {
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }
