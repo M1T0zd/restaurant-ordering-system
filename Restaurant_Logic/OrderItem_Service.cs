@@ -12,15 +12,37 @@ namespace Restaurant_Logic
 {
     public class OrderItem_Service
     {
-        OrderItem_DAO order_DAO = new OrderItem_DAO();
+        OrderItem_DAO order_DAO = new OrderItem_DAO();// not my code 
+
+        OrderItem_DAO orderItem_DAO = new OrderItem_DAO();
+        List<KitchenOrderItems> orderItems = new List<KitchenOrderItems>();
+        public List<KitchenOrderItems> GetFoodOrders(int OrderID)
+        {
+            return orderItems = orderItem_DAO.GetFoodItems(OrderID);
+        }
+        public List<KitchenOrderItems> GetDrinksOrders(int OrderID)
+        {
+            return orderItems = orderItem_DAO.GetDrinkItems(OrderID);
+        }
+        public List<Order> GetOrders()
+        {
+            List<Order> orders = new List<Order>();
+            return orders = orderItem_DAO.GetOrders_();
+        }
+        public void UpdateOrderItemState(int orderItem, OrderState newSatate)
+        {
+            orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
+        }
+        public void MarkAsRaady(int orderItem, OrderState newSatate)
+        {
+            orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
+        }
 
         public List<OrderItem> GetOrder()
         {
            
                 List<OrderItem> orders = order_DAO.GetOrders();
                 return orders;
-            
-
         }
         public void UpdateStatus(OrderItem orderItem)
         {

@@ -15,7 +15,7 @@ namespace Restaurant_UI
     public partial class Kitchen_Form : Form
     {
         Order_Service Order_Service = new Order_Service();
-        OrderItems_Service OrderItem_Service = new OrderItems_Service();
+        OrderItem_Service OrderItem_Service = new OrderItem_Service();
         DesignHelper designHelper = new DesignHelper();
         List<Order> Orders = new List<Order>();// refreching use
         //Payment_Service Payment_Service = new Payment_Service();

@@ -28,7 +28,7 @@ namespace Restaurant_DAL
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public List<Order> GetOrders()
+        public List<Order> GetOrders_()
         {
             string query = @"select o.Id,o.TakenAt,s.TableId from Sessions s
                             join Orders o on s.Id=o.SessionId
@@ -118,5 +118,18 @@ namespace Restaurant_DAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
+        //********************************** end kitchen overview code
+
+        public List<OrderItem> GetOrders()
+        {
+            //************ get the Order itmes of an order
+            string query = @"select o.Id,o.TakenAt,s.TableId from sessions  s
+                            join  Orders o on s.Id=o.SessionId
+                            where o.Id in (select o.OrderId from OrderItems o ) and TakenAt is not null";
+
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
     }
 }
