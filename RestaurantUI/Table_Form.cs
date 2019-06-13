@@ -15,12 +15,13 @@ namespace Restaurant_UI
     public partial class Table_Form : Form
     {
         List<Table> tables;
+        Login_Form login_Form;
         Button button;
         Table table;
-        Account_Form form;
         Employee Employee;
         List<OrderItem> orderItems;
         Session currentsession;
+        List<Button> buttons;
         
         public Table_Service Table_Service { get; set; }
 
@@ -28,54 +29,22 @@ namespace Restaurant_UI
         public Table_Form(Employee employee, Login_Form login_Form)
         {
             InitializeComponent();
-            form = new Account_Form(employee,login_Form,this);
             currentsession = new Session();
             this.Employee = employee;
-            
+            Initialize(login_Form);
         }
 
         private void Table_Form_Load(object sender, EventArgs e)
         {
-            Initialize();          
         }
 
-        private void Initialize()
+        private void Initialize(Login_Form login_Form)
         {
             Table_Service = new Table_Service();
+            this.login_Form = login_Form;
             tables = Table_Service.GetTables();
             currentsession.Host = Employee;
-            GiveColor();
-            //Get Notification List If Order Is ready
-            GetList();
-
-        }
-      
-        public void GiveName()
-        {
-            List<Label> labels = new List<Label>
-            {
-               lbltable1,lbltable2,lbltable3,lbltable4,lbltable5,lbltable6,lbltable7,lbltable8,lbltable9,lbltable10
-            };
-
-            for (int i = 0; i < tables.Count; i++)
-            {
-                if (tables[i].Status == TableStatus.Available)
-                {
-                    labels[i].Text = "";
-                }
-                else if (tables[i].Status == TableStatus.Reserved)
-                {
-                    labels[i].Text = "";
-                }
-                else
-                {
-                    labels[i].Text = $"Taken by: {tables[i].Employee.Name}";
-                }
-            }
-        }
-        public void GiveColor()
-        {
-            List<Button> buttons = new List<Button>
+            buttons = new List<Button>
             {
                 btntbl1,
                 btntbl2,
@@ -88,7 +57,11 @@ namespace Restaurant_UI
                 btntable9,
                 btntable10
             };
-
+            GiveColor();
+            //Get Notification List If Order Is ready
+        }
+        public void GiveColor()
+        {
             for (int i = 0; i < tables.Count; i++)
             {
                 if (tables[i].Status == TableStatus.Available)
@@ -117,20 +90,16 @@ namespace Restaurant_UI
             order_Form.Show();
       
         }
-        private void Btnaccount_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            form.Show();
-            
-        }
         //Below Code is for the Notification Panel
       
         private void Btnnotif_Click(object sender, EventArgs e)
         {
+            ShowList();
+
             pnltable.Hide();
             pnlnotif.Show();
         }
-        private void GetList()
+        private void ShowList()
         {
             listviewnotif.View = View.Details;
             listviewnotif.Columns.Add("Name");
@@ -189,7 +158,7 @@ namespace Restaurant_UI
         void RefreshForm()
         {
             listviewnotif.Clear();
-            GetList();
+            ShowList();
         }
 
         private void Btnrefreshtableview_Click(object sender, EventArgs e)
@@ -201,5 +170,22 @@ namespace Restaurant_UI
 		{
 			Application.Exit();
 		}
-	}
+
+        private void Btllogout_Click(object sender, EventArgs e)
+        {
+            string message = "Are you sure you want to log out?";
+            string title = "Log Out";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                login_Form.Show();
+                this.Close();
+            }
+            else
+            {
+                // Go Back
+            }
+        }
+    }
 }

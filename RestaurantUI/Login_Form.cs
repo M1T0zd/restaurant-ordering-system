@@ -14,9 +14,7 @@ namespace Restaurant_UI
 {
     public partial class Login_Form : Form
     {
-        List<Login> loginList = new List<Login>();
         int check = 0;
-        Login_Service Login_Service { get; set; }
 
         public Login_Form()
         {
@@ -26,8 +24,8 @@ namespace Restaurant_UI
         private void Btnlogin_Click(object sender, EventArgs e)
         {
             //GetAllLoginInfo
-            Login_Service = new Login_Service();
-            loginList = Login_Service.GetLogin();
+            Login_Service Login_Service = new Login_Service();
+            List<Login> loginList = Login_Service.GetLogin();
             //Make new Current Login to save current login info
             Login CurrentLogin = new Login();
             foreach (Login login in loginList)
@@ -35,15 +33,20 @@ namespace Restaurant_UI
                 if (login.Username == txtusername.Text && login.Password == txtpassword.Text)
                 {
                     CurrentLogin.EmployeeNumber = login.EmployeeNumber;
-                    check++;
-                    txtusername.Text = "";
-                    txtpassword.Text = "";
+                    check++;         
                 }           
             }
+            //ClearingTextBoxt for logging out
+            ClearTextBox();      
             //Getting current employee
             Employee currentemployee = GetCurrentEmployee(CurrentLogin);
             //Show which form belongs to which employee
             ShowForm(currentemployee);
+        }
+        void ClearTextBox()
+        {
+            txtusername.Text = "";
+            txtpassword.Text = "";
         }
         Employee GetCurrentEmployee(Login login)
         {
@@ -57,7 +60,6 @@ namespace Restaurant_UI
             if (check == 1)
             {
                 //Hide login form
-                this.Hide();
                 if (currentemployee.Role == EmployeeRole.Chef)
                 {
                     //Display Chef UI
@@ -77,6 +79,7 @@ namespace Restaurant_UI
                     Table_Form table_Form = new Table_Form(currentemployee, this);
                     table_Form.Show();
                 }
+                this.Hide();
                 check = 0;
             }
             else
