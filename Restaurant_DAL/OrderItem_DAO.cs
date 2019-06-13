@@ -14,8 +14,12 @@ namespace Restaurant_DAL
     {
         public List<OrderItem> GetFoodItems()
         {
-            string query = @" select Name,Quantity,Comment,State,TakenAt,
-                             Id as OrderID,Id, TableId from [FoodOrders]";
+            string query = @" select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime, o.Id as OrderID,i.Id , se.TableId from Orders o 
+								join OrderItems i on o.Id=i.OrderId
+								join OrderState s on s.Id=i.StateId
+								join MenuItems m on m.Id=i.MenuItemId
+								join Dishes d on m.Id=d.Id
+								join Sessions se on se.Id=o.SessionId";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
@@ -29,7 +33,7 @@ namespace Restaurant_DAL
 		}
         public List<OrderItem> GetDrinkItems()
         {
-            string query = @"select m.Name,i.Quantity,i.Comment,s.State,o.TakenAt,o.Id as OrderID,i.Id , se.TableId from Orders o 
+            string query = @"select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime, o.Id as OrderID,i.Id , se.TableId from Orders o 
 								join OrderItems i on o.Id=i.OrderId
 								join OrderState s on s.Id=i.StateId
 								join MenuItems m on m.Id=i.MenuItemId
@@ -49,9 +53,10 @@ namespace Restaurant_DAL
                     Amount = (int)dr["Quantity"],
                     Comment = (string)dr["Comment"],
                     Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), Convert.ToString(dr["State"])),
-                    ordertime = (DateTime)dr["TakenAt"],
+                    ordertime = (string)dr["ordertime"],
                     OrderId = (int)dr["OrderID"],
                     Id = (int)dr["Id"],
+                    TableNumber=(int)dr["TableId"],
                 };
                 OrderItems.Add(OrderItem);
             }

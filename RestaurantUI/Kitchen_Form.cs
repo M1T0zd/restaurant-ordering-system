@@ -22,7 +22,6 @@ namespace Restaurant_UI
         {
             InitializeComponent();
             Role = role;
-            designHelper.ListViewDesign(listViewOrders);
             if (Role.ToString() == "Chef")
             {
                 Orders = OrderItem_Service.GetFoodOrders();
@@ -33,7 +32,6 @@ namespace Restaurant_UI
             else if (Role.ToString() == "Barman")
             {
                 Orders = OrderItem_Service.GetDrinksOrders();
-                FillOrdersItemList();
                 dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
                 DisplayFood();
             }
@@ -71,35 +69,7 @@ namespace Restaurant_UI
             }
 
         }
-        private void FillOrdersItemList()
-        {
-            listViewOrders.Clear();
-            listViewOrders.View = View.Details;
-            listViewOrders.GridLines = true;
-            listViewOrders.Columns.Add("Name", 20, HorizontalAlignment.Center);
-            listViewOrders.Columns.Add("Quanity", 20, HorizontalAlignment.Center);
-            listViewOrders.Columns.Add("Comment", 20, HorizontalAlignment.Center);
-            listViewOrders.Columns.Add("State", 20, HorizontalAlignment.Center);
-            listViewOrders.Columns.Add("Taken at", 20, HorizontalAlignment.Center);
-            listViewOrders.Columns.Add("Ordr ID", 50, HorizontalAlignment.Center);
-            listViewOrders.Columns.Add("Item ID", 50, HorizontalAlignment.Center);
-            listViewOrders.Columns.Add("Tabel Number", 100, HorizontalAlignment.Center);
-            listViewOrders.FullRowSelect = true;
-            foreach (OrderItem o in Orders)
-            {
-                ListViewItem li = new ListViewItem(o.Id.ToString());
-                li.Tag = o;
-                li.SubItems.Add(o.ItemName);
-                li.SubItems.Add(o.Amount.ToString());
-                li.SubItems.Add(o.Comment.ToString());
-                li.SubItems.Add(o.Status.ToString());
-                li.SubItems.Add(o.ordertime.ToString());
-                li.SubItems.Add(o.Id.ToString());
-                li.SubItems.Add(o.Id.ToString());
-                li.SubItems.Add(o.TableNumber.ToString());
-                listViewOrders.Items.Add(li);
-            }
-        }
+       
         private void refrech(string FoodOrDrinks)
         {
             if (FoodOrDrinks == "drink")

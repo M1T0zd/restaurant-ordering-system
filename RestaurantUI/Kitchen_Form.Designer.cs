@@ -33,20 +33,14 @@
             this.panelBar = new System.Windows.Forms.Panel();
             this.dgviewOrders = new System.Windows.Forms.DataGridView();
             this.btnMarkready = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.foodOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chapeau1819sdb02DataSet2 = new Restaurant_UI.chapeau1819sdb02DataSet2();
             this.timerRefrech = new System.Windows.Forms.Timer(this.components);
             this.panelMenu = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pictureBoxComments = new System.Windows.Forms.PictureBox();
             this.pictureBoxOrders = new System.Windows.Forms.PictureBox();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
-            this.listViewOrders = new System.Windows.Forms.ListView();
-            this.foodOrdersTableAdapter = new Restaurant_UI.chapeau1819sdb02DataSet2TableAdapters.FoodOrdersTableAdapter();
             this.panelBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgviewOrders)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodOrdersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chapeau1819sdb02DataSet2)).BeginInit();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxComments)).BeginInit();
@@ -57,9 +51,9 @@
             // panelBar
             // 
             this.panelBar.Controls.Add(this.dgviewOrders);
-            this.panelBar.Location = new System.Drawing.Point(12, 222);
+            this.panelBar.Location = new System.Drawing.Point(12, 89);
             this.panelBar.Name = "panelBar";
-            this.panelBar.Size = new System.Drawing.Size(1005, 371);
+            this.panelBar.Size = new System.Drawing.Size(1022, 583);
             this.panelBar.TabIndex = 3;
             // 
             // dgviewOrders
@@ -70,7 +64,7 @@
             this.dgviewOrders.Location = new System.Drawing.Point(14, 13);
             this.dgviewOrders.Name = "dgviewOrders";
             this.dgviewOrders.RowTemplate.Height = 24;
-            this.dgviewOrders.Size = new System.Drawing.Size(949, 298);
+            this.dgviewOrders.Size = new System.Drawing.Size(983, 552);
             this.dgviewOrders.TabIndex = 1;
             this.dgviewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgviewDrinks_CellContentClick);
             this.dgviewOrders.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgviewOrders_DataError_1);
@@ -82,16 +76,6 @@
             this.btnMarkready.Text = "Mark as Ready";
             this.btnMarkready.ToolTipText = "mark ready";
             this.btnMarkready.UseColumnTextForButtonValue = true;
-            // 
-            // foodOrdersBindingSource
-            // 
-            this.foodOrdersBindingSource.DataMember = "FoodOrders";
-            this.foodOrdersBindingSource.DataSource = this.chapeau1819sdb02DataSet2;
-            // 
-            // chapeau1819sdb02DataSet2
-            // 
-            this.chapeau1819sdb02DataSet2.DataSetName = "chapeau1819sdb02DataSet2";
-            this.chapeau1819sdb02DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // timerRefrech
             // 
@@ -150,24 +134,11 @@
             this.pictureBoxExit.TabStop = false;
             this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
             // 
-            // listViewOrders
-            // 
-            this.listViewOrders.Location = new System.Drawing.Point(12, 89);
-            this.listViewOrders.Name = "listViewOrders";
-            this.listViewOrders.Size = new System.Drawing.Size(1005, 127);
-            this.listViewOrders.TabIndex = 9;
-            this.listViewOrders.UseCompatibleStateImageBehavior = false;
-            // 
-            // foodOrdersTableAdapter
-            // 
-            this.foodOrdersTableAdapter.ClearBeforeFill = true;
-            // 
             // Kitchen_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1454, 684);
-            this.Controls.Add(this.listViewOrders);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelMenu);
             this.Name = "Kitchen_Form";
@@ -175,8 +146,6 @@
             this.Load += new System.EventHandler(this.Kitchen_Form_Load);
             this.panelBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgviewOrders)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodOrdersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chapeau1819sdb02DataSet2)).EndInit();
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxComments)).EndInit();
@@ -196,9 +165,5 @@
         private System.Windows.Forms.PictureBox pictureBoxComments;
         private System.Windows.Forms.PictureBox pictureBoxOrders;
         private System.Windows.Forms.PictureBox pictureBoxExit;
-        private System.Windows.Forms.ListView listViewOrders;
-        private chapeau1819sdb02DataSet2 chapeau1819sdb02DataSet2;
-        private System.Windows.Forms.BindingSource foodOrdersBindingSource;
-        private chapeau1819sdb02DataSet2TableAdapters.FoodOrdersTableAdapter foodOrdersTableAdapter;
     }
 }
