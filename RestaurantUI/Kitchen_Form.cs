@@ -26,8 +26,8 @@ namespace Restaurant_UI
             if (Role.ToString() == "Chef")
             {
                 Orders = OrderItem_Service.GetFoodOrders();
-               // FillOrdersItemList();
-            
+                // FillOrdersItemList();
+                dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
                 DisplayFood();
             }
             else if (Role.ToString() == "Barman")
@@ -40,8 +40,6 @@ namespace Restaurant_UI
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'chapeau1819sdb02DataSet2.FoodOrders' table. You can move, or remove it, as needed.
-            this.foodOrdersTableAdapter.Fill(this.chapeau1819sdb02DataSet2.FoodOrders);
             timerRefrech.Interval = 100; //refresh every 20 seconds 
             timerRefrech.Enabled = true;
         }
@@ -49,21 +47,11 @@ namespace Restaurant_UI
         {
             try
             {
-                dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
                 foreach (DataGridViewRow row in dgviewOrders.Rows)
                 {
                     if (row.Index >= 0)
                     {
                         string State = Convert.ToString(row.Cells[5].Value);
-                        //if (State.ToLower().Trim() == "waiting")
-                        //   dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.Red;
-                        //else if (State.ToLower().Trim() == "processing")
-                        //    row.DefaultCellStyle.BackColor = Color.Yellow;
-                        //else if (State.ToLower().Trim() == "ready")
-                        //    row.DefaultCellStyle.BackColor = Color.LightGreen;
-                        //else if (State.ToLower().Trim() == "served")
-                        //    row.DefaultCellStyle.BackColor = Color.GreenYellow;
-
                         if (State.ToLower().Trim() == "waiting")
 
                             dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.Red;
@@ -156,14 +144,9 @@ namespace Restaurant_UI
             e.Cancel = true;
         }
 
-        private void dgviewOrders_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            DisplayFood();
-        }
 
-        private void dgviewOrders_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-        
         }
     }
 }
