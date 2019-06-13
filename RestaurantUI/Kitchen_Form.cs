@@ -17,7 +17,7 @@ namespace Restaurant_UI
         OrderItem_Service OrderItem_Service = new OrderItem_Service();
         DesignHelper designHelper = new DesignHelper();
         List<OrderItem> Orders = new List<OrderItem>();// refreching use
-        public static string Role = "Chef";
+        public static string Role = "Barman";
         public Kitchen_Form(string role/*Employee employee*/)
         {
             InitializeComponent();
@@ -26,8 +26,8 @@ namespace Restaurant_UI
             if (Role.ToString() == "Chef")
             {
                 Orders = OrderItem_Service.GetFoodOrders();
-                FillOrdersItemList();
-                dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
+               // FillOrdersItemList();
+            
                 DisplayFood();
             }
             else if (Role.ToString() == "Barman")
@@ -40,26 +40,40 @@ namespace Restaurant_UI
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
-            timerRefrech.Interval = 20000; //refresh every 20 seconds 
+            // TODO: This line of code loads data into the 'chapeau1819sdb02DataSet2.FoodOrders' table. You can move, or remove it, as needed.
+            this.foodOrdersTableAdapter.Fill(this.chapeau1819sdb02DataSet2.FoodOrders);
+            timerRefrech.Interval = 100; //refresh every 20 seconds 
             timerRefrech.Enabled = true;
         }
         public void DisplayFood()
         {
             try
             {
+                dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
                 foreach (DataGridViewRow row in dgviewOrders.Rows)
                 {
                     if (row.Index >= 0)
                     {
                         string State = Convert.ToString(row.Cells[5].Value);
+                        //if (State.ToLower().Trim() == "waiting")
+                        //   dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.Red;
+                        //else if (State.ToLower().Trim() == "processing")
+                        //    row.DefaultCellStyle.BackColor = Color.Yellow;
+                        //else if (State.ToLower().Trim() == "ready")
+                        //    row.DefaultCellStyle.BackColor = Color.LightGreen;
+                        //else if (State.ToLower().Trim() == "served")
+                        //    row.DefaultCellStyle.BackColor = Color.GreenYellow;
+
                         if (State.ToLower().Trim() == "waiting")
-                            row.DefaultCellStyle.BackColor = Color.Red;
+
+                            dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.Red;
+
                         else if (State.ToLower().Trim() == "processing")
-                            row.DefaultCellStyle.BackColor = Color.Yellow;
+                            dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.Yellow;
                         else if (State.ToLower().Trim() == "ready")
-                            row.DefaultCellStyle.BackColor = Color.LightGreen;
+                            dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.LightGreen;
                         else if (State.ToLower().Trim() == "served")
-                            row.DefaultCellStyle.BackColor = Color.GreenYellow;
+                            dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.GreenYellow;
                     }
                 }
             }
@@ -109,9 +123,8 @@ namespace Restaurant_UI
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
             Orders = OrderItem_Service.GetFoodOrders();
-            // designHelper.AutoRefrech(listViewFood,Orders);
-            //designHelper.AutoRefrech(listViewDrink,Orders);
-            // AutoRefrech(listViewDrink);
+            //dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
+            //DisplayFood();
         }
         private void dgviewDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -129,6 +142,8 @@ namespace Restaurant_UI
             {
                 OrderItem_Service.MarkAsRaady(ItemId, OrderStatus.Ready);
                 refrech("drink");
+                DisplayFood();
+
             }
         }
         private void pictureBoxExit_Click(object sender, EventArgs e)
@@ -139,6 +154,16 @@ namespace Restaurant_UI
         private void dgviewOrders_DataError_1(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
+        }
+
+        private void dgviewOrders_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            DisplayFood();
+        }
+
+        private void dgviewOrders_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+        
         }
     }
 }

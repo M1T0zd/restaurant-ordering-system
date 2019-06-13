@@ -14,12 +14,8 @@ namespace Restaurant_DAL
     {
         public List<OrderItem> GetFoodItems()
         {
-            string query = @"select m.Name,i.Quantity,i.Comment,s.State,o.TakenAt,o.Id as OrderID,i.Id, se.TableId from Orders o 
-								join OrderItems i on o.Id=i.OrderId
-								join OrderState s on s.Id=i.StateId
-								join MenuItems m on m.Id=i.MenuItemId
-								join Dishes d on m.Id=d.Id
-								join Sessions se on se.Id=o.SessionId";
+            string query = @" select Name,Quantity,Comment,State,TakenAt,
+                             Id as OrderID,Id, TableId from [FoodOrders]";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));

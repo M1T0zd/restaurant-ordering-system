@@ -40,6 +40,17 @@
             this.pictureBoxOrders = new System.Windows.Forms.PictureBox();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
             this.listViewOrders = new System.Windows.Forms.ListView();
+            this.chapeau1819sdb02DataSet2 = new Restaurant_UI.chapeau1819sdb02DataSet2();
+            this.foodOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foodOrdersTableAdapter = new Restaurant_UI.chapeau1819sdb02DataSet2TableAdapters.FoodOrdersTableAdapter();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.takenAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgviewOrders)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -47,6 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxComments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chapeau1819sdb02DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodOrdersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBar
@@ -59,15 +72,27 @@
             // 
             // dgviewOrders
             // 
+            this.dgviewOrders.AutoGenerateColumns = false;
             this.dgviewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgviewOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnMarkready});
+            this.btnMarkready,
+            this.nameDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
+            this.commentDataGridViewTextBoxColumn,
+            this.stateDataGridViewTextBoxColumn,
+            this.takenAtDataGridViewTextBoxColumn,
+            this.orderIDDataGridViewTextBoxColumn,
+            this.idDataGridViewTextBoxColumn,
+            this.tableIdDataGridViewTextBoxColumn});
+            this.dgviewOrders.DataSource = this.foodOrdersBindingSource;
             this.dgviewOrders.Location = new System.Drawing.Point(15, 25);
             this.dgviewOrders.Name = "dgviewOrders";
             this.dgviewOrders.RowTemplate.Height = 24;
             this.dgviewOrders.Size = new System.Drawing.Size(949, 367);
             this.dgviewOrders.TabIndex = 1;
             this.dgviewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgviewDrinks_CellContentClick);
+            this.dgviewOrders.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgviewOrders_CellFormatting);
+            this.dgviewOrders.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgviewOrders_CellPainting);
             this.dgviewOrders.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgviewOrders_DataError_1);
             // 
             // btnMarkready
@@ -143,6 +168,68 @@
             this.listViewOrders.TabIndex = 9;
             this.listViewOrders.UseCompatibleStateImageBehavior = false;
             // 
+            // chapeau1819sdb02DataSet2
+            // 
+            this.chapeau1819sdb02DataSet2.DataSetName = "chapeau1819sdb02DataSet2";
+            this.chapeau1819sdb02DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // foodOrdersBindingSource
+            // 
+            this.foodOrdersBindingSource.DataMember = "FoodOrders";
+            this.foodOrdersBindingSource.DataSource = this.chapeau1819sdb02DataSet2;
+            // 
+            // foodOrdersTableAdapter
+            // 
+            this.foodOrdersTableAdapter.ClearBeforeFill = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            // 
+            // stateDataGridViewTextBoxColumn
+            // 
+            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
+            this.stateDataGridViewTextBoxColumn.HeaderText = "State";
+            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
+            // 
+            // takenAtDataGridViewTextBoxColumn
+            // 
+            this.takenAtDataGridViewTextBoxColumn.DataPropertyName = "TakenAt";
+            this.takenAtDataGridViewTextBoxColumn.HeaderText = "TakenAt";
+            this.takenAtDataGridViewTextBoxColumn.Name = "takenAtDataGridViewTextBoxColumn";
+            // 
+            // orderIDDataGridViewTextBoxColumn
+            // 
+            this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "OrderID";
+            this.orderIDDataGridViewTextBoxColumn.HeaderText = "OrderID";
+            this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // tableIdDataGridViewTextBoxColumn
+            // 
+            this.tableIdDataGridViewTextBoxColumn.DataPropertyName = "TableId";
+            this.tableIdDataGridViewTextBoxColumn.HeaderText = "TableId";
+            this.tableIdDataGridViewTextBoxColumn.Name = "tableIdDataGridViewTextBoxColumn";
+            // 
             // Kitchen_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -161,6 +248,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxComments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chapeau1819sdb02DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodOrdersBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -176,5 +265,16 @@
         private System.Windows.Forms.PictureBox pictureBoxOrders;
         private System.Windows.Forms.PictureBox pictureBoxExit;
         private System.Windows.Forms.ListView listViewOrders;
+        private chapeau1819sdb02DataSet2 chapeau1819sdb02DataSet2;
+        private System.Windows.Forms.BindingSource foodOrdersBindingSource;
+        private chapeau1819sdb02DataSet2TableAdapters.FoodOrdersTableAdapter foodOrdersTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn takenAtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tableIdDataGridViewTextBoxColumn;
     }
 }

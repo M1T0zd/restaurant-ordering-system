@@ -57,6 +57,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>chapeau1819sdb02DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="chapeau1819sdb02DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>chapeau1819sdb02DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="chapeau1819sdb02DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>chapeau1819sdb02DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DesignHelper.cs" />
     <Compile Include="Kitchen_Form.cs">
       <SubType>Form</SubType>
@@ -146,6 +156,28 @@
     </None>
     <None Include="chapeau1819sdb02DataSet.xss">
       <DependentUpon>chapeau1819sdb02DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="chapeau1819sdb02DataSet1.xsc">
+      <DependentUpon>chapeau1819sdb02DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="chapeau1819sdb02DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>chapeau1819sdb02DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="chapeau1819sdb02DataSet1.xss">
+      <DependentUpon>chapeau1819sdb02DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="chapeau1819sdb02DataSet2.xsc">
+      <DependentUpon>chapeau1819sdb02DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="chapeau1819sdb02DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>chapeau1819sdb02DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="chapeau1819sdb02DataSet2.xss">
+      <DependentUpon>chapeau1819sdb02DataSet2.xsd</DependentUpon>
     </None>
     <None Include="Forms_Diagram.cd" />
     <None Include="Properties\Settings.settings">
