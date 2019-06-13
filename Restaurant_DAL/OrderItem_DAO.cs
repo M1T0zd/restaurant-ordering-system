@@ -113,14 +113,14 @@ namespace Restaurant_DAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                OrderItem order = new OrderItem()
+                OrderItem orderItem = new OrderItem()
                 {
                     TableNumber = (int)dr["tableid"],
                     Status = (OrderStatus)dr["StateId"],
                     ItemName = (String)dr["Name"],
                     Id = (int)dr["Id"]
                 };
-                orderItems.Add(order);
+                orderItems.Add(orderItem);
             }
             return orderItems;
         }

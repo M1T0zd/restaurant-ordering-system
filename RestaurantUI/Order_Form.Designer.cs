@@ -35,6 +35,11 @@
 			this.btnOccupied = new System.Windows.Forms.Button();
 			this.lblNumber = new System.Windows.Forms.Label();
 			this.pnlDefault = new System.Windows.Forms.Panel();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.rdoDrinks = new System.Windows.Forms.RadioButton();
+			this.rdoDinner = new System.Windows.Forms.RadioButton();
+			this.rdoLunch = new System.Windows.Forms.RadioButton();
+			this.rdoAll = new System.Windows.Forms.RadioButton();
 			this.nudQuantity = new System.Windows.Forms.NumericUpDown();
 			this.label4 = new System.Windows.Forms.Label();
 			this.btnChangeStatus = new System.Windows.Forms.Button();
@@ -48,15 +53,10 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.lvMenuItems = new System.Windows.Forms.ListView();
 			this.lvOrderItems = new System.Windows.Forms.ListView();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.rdoAll = new System.Windows.Forms.RadioButton();
-			this.rdoLunch = new System.Windows.Forms.RadioButton();
-			this.rdoDinner = new System.Windows.Forms.RadioButton();
-			this.rdoDrinks = new System.Windows.Forms.RadioButton();
 			this.pnlChangeStatus.SuspendLayout();
 			this.pnlDefault.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnPay
@@ -146,6 +146,68 @@
 			this.pnlDefault.Size = new System.Drawing.Size(885, 781);
 			this.pnlDefault.TabIndex = 14;
 			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.rdoDrinks);
+			this.groupBox1.Controls.Add(this.rdoDinner);
+			this.groupBox1.Controls.Add(this.rdoLunch);
+			this.groupBox1.Controls.Add(this.rdoAll);
+			this.groupBox1.Location = new System.Drawing.Point(18, 114);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(129, 191);
+			this.groupBox1.TabIndex = 16;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Category";
+			// 
+			// rdoDrinks
+			// 
+			this.rdoDrinks.AutoSize = true;
+			this.rdoDrinks.Location = new System.Drawing.Point(6, 147);
+			this.rdoDrinks.Name = "rdoDrinks";
+			this.rdoDrinks.Size = new System.Drawing.Size(79, 24);
+			this.rdoDrinks.TabIndex = 3;
+			this.rdoDrinks.TabStop = true;
+			this.rdoDrinks.Text = "Drinks";
+			this.rdoDrinks.UseVisualStyleBackColor = true;
+			this.rdoDrinks.CheckedChanged += new System.EventHandler(this.RdoButtons_Changed);
+			// 
+			// rdoDinner
+			// 
+			this.rdoDinner.AutoSize = true;
+			this.rdoDinner.Location = new System.Drawing.Point(6, 112);
+			this.rdoDinner.Name = "rdoDinner";
+			this.rdoDinner.Size = new System.Drawing.Size(81, 24);
+			this.rdoDinner.TabIndex = 2;
+			this.rdoDinner.TabStop = true;
+			this.rdoDinner.Text = "Dinner";
+			this.rdoDinner.UseVisualStyleBackColor = true;
+			this.rdoDinner.CheckedChanged += new System.EventHandler(this.RdoButtons_Changed);
+			// 
+			// rdoLunch
+			// 
+			this.rdoLunch.AutoSize = true;
+			this.rdoLunch.Location = new System.Drawing.Point(6, 78);
+			this.rdoLunch.Name = "rdoLunch";
+			this.rdoLunch.Size = new System.Drawing.Size(78, 24);
+			this.rdoLunch.TabIndex = 1;
+			this.rdoLunch.TabStop = true;
+			this.rdoLunch.Text = "Lunch";
+			this.rdoLunch.UseVisualStyleBackColor = true;
+			this.rdoLunch.CheckedChanged += new System.EventHandler(this.RdoButtons_Changed);
+			// 
+			// rdoAll
+			// 
+			this.rdoAll.AutoSize = true;
+			this.rdoAll.Checked = true;
+			this.rdoAll.Location = new System.Drawing.Point(6, 44);
+			this.rdoAll.Name = "rdoAll";
+			this.rdoAll.Size = new System.Drawing.Size(51, 24);
+			this.rdoAll.TabIndex = 0;
+			this.rdoAll.TabStop = true;
+			this.rdoAll.Text = "All";
+			this.rdoAll.UseVisualStyleBackColor = false;
+			this.rdoAll.CheckedChanged += new System.EventHandler(this.RdoButtons_Changed);
+			// 
 			// nudQuantity
 			// 
 			this.nudQuantity.Location = new System.Drawing.Point(503, 629);
@@ -174,7 +236,7 @@
 			// btnChangeStatus
 			// 
 			this.btnChangeStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
-			this.btnChangeStatus.Location = new System.Drawing.Point(6, 0);
+			this.btnChangeStatus.Location = new System.Drawing.Point(8, 10);
 			this.btnChangeStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.btnChangeStatus.Name = "btnChangeStatus";
 			this.btnChangeStatus.Size = new System.Drawing.Size(134, 35);
@@ -294,68 +356,6 @@
 			this.lvOrderItems.View = System.Windows.Forms.View.Details;
 			this.lvOrderItems.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LvOrderItems_ItemSelectionChanged);
 			// 
-			// groupBox1
-			// 
-			this.groupBox1.Controls.Add(this.rdoDrinks);
-			this.groupBox1.Controls.Add(this.rdoDinner);
-			this.groupBox1.Controls.Add(this.rdoLunch);
-			this.groupBox1.Controls.Add(this.rdoAll);
-			this.groupBox1.Location = new System.Drawing.Point(18, 114);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(129, 191);
-			this.groupBox1.TabIndex = 16;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Category";
-			// 
-			// rdoAll
-			// 
-			this.rdoAll.AutoSize = true;
-			this.rdoAll.Checked = true;
-			this.rdoAll.Location = new System.Drawing.Point(6, 44);
-			this.rdoAll.Name = "rdoAll";
-			this.rdoAll.Size = new System.Drawing.Size(51, 24);
-			this.rdoAll.TabIndex = 0;
-			this.rdoAll.TabStop = true;
-			this.rdoAll.Text = "All";
-			this.rdoAll.UseVisualStyleBackColor = false;
-			this.rdoAll.CheckedChanged += new System.EventHandler(this.RdoButtons_Changed);
-			// 
-			// rdoLunch
-			// 
-			this.rdoLunch.AutoSize = true;
-			this.rdoLunch.Location = new System.Drawing.Point(6, 78);
-			this.rdoLunch.Name = "rdoLunch";
-			this.rdoLunch.Size = new System.Drawing.Size(78, 24);
-			this.rdoLunch.TabIndex = 1;
-			this.rdoLunch.TabStop = true;
-			this.rdoLunch.Text = "Lunch";
-			this.rdoLunch.UseVisualStyleBackColor = true;
-			this.rdoLunch.CheckedChanged += new System.EventHandler(this.RdoButtons_Changed);
-			// 
-			// rdoDinner
-			// 
-			this.rdoDinner.AutoSize = true;
-			this.rdoDinner.Location = new System.Drawing.Point(6, 112);
-			this.rdoDinner.Name = "rdoDinner";
-			this.rdoDinner.Size = new System.Drawing.Size(81, 24);
-			this.rdoDinner.TabIndex = 2;
-			this.rdoDinner.TabStop = true;
-			this.rdoDinner.Text = "Dinner";
-			this.rdoDinner.UseVisualStyleBackColor = true;
-			this.rdoDinner.CheckedChanged += new System.EventHandler(this.RdoButtons_Changed);
-			// 
-			// rdoDrinks
-			// 
-			this.rdoDrinks.AutoSize = true;
-			this.rdoDrinks.Location = new System.Drawing.Point(6, 147);
-			this.rdoDrinks.Name = "rdoDrinks";
-			this.rdoDrinks.Size = new System.Drawing.Size(79, 24);
-			this.rdoDrinks.TabIndex = 3;
-			this.rdoDrinks.TabStop = true;
-			this.rdoDrinks.Text = "Drinks";
-			this.rdoDrinks.UseVisualStyleBackColor = true;
-			this.rdoDrinks.CheckedChanged += new System.EventHandler(this.RdoButtons_Changed);
-			// 
 			// Order_Form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -372,9 +372,9 @@
 			this.pnlChangeStatus.PerformLayout();
 			this.pnlDefault.ResumeLayout(false);
 			this.pnlDefault.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
 			this.ResumeLayout(false);
 
         }
