@@ -14,7 +14,6 @@ namespace Restaurant_UI
 {
     public partial class Login_Form : Form
     {
-        //Bar- and Kitchen-form can be the same form(if the logged in employee == bar then get drinks otherwise get food).
         List<Login> loginList = new List<Login>();
         List<Employee> employees = new List<Employee>();
         Login CurrentLogin;
@@ -51,7 +50,9 @@ namespace Restaurant_UI
                     txtpassword.Text = "";
                 }           
             }
+            //Getting current employee
             CheckEmployee();
+            //Show which form belongs to which employee
             ShowForm();
         }
         void CheckEmployee()
@@ -74,15 +75,14 @@ namespace Restaurant_UI
                 if (currentemployee.Role == "Chef")
                 {
                     //Display Chef UI
-                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
+                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee,this);
                     kitchen_Form.Show();
                 }
                 else if (currentemployee.Role == "Barman")
                 {
                     //Display BarmanUI
-                    //Bar_Form bar_Form = new Bar_Form();
-                    //bar_Form.Show();
-                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
+                   
+                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee,this);
                     kitchen_Form.Show();
                 }
                 else if (currentemployee.Role == "Waiter")
@@ -101,10 +101,5 @@ namespace Restaurant_UI
                 MessageBox.Show(message, title);
             }
         }
-
-		private void Login_Form_Load(object sender, EventArgs e)
-		{
-
-		}
 	}
 }

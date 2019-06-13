@@ -89,7 +89,9 @@ namespace Restaurant_UI
             table_Form.GiveColor();
 
             Session_Service session_Service = new Session_Service();
-            session_Service.UpdateTable(currentsession);
+            //session_Service.UpdateTable(currentsession);
+
+            //table_Form.GiveName();
 
             pnlChangeStatus.Hide();
 			pnlDefault.Show();           

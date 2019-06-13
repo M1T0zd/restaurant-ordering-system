@@ -31,8 +31,7 @@ namespace Restaurant_UI
             form = new Account_Form(employee,login_Form,this);
             currentsession = new Session();
             this.Employee = employee;
-            //Get Notification List If Order Is ready
-            GetList();
+            
         }
 
         private void Table_Form_Load(object sender, EventArgs e)
@@ -45,7 +44,10 @@ namespace Restaurant_UI
             Table_Service = new Table_Service();
             tables = Table_Service.GetTables();
             currentsession.HostId = Employee.Number;
+            //Give Color For Table
             GiveColor();
+            //Get Notification List If Order Is ready
+            GetList();
 
         }
       
@@ -168,6 +170,8 @@ namespace Restaurant_UI
                 selectedorderItem.Status = OrderStatus.Served;
                 OrderItem_Service item_Service = new OrderItem_Service();
                 item_Service.UpdateStatus(selectedorderItem);
+
+                RefreshForm();
             }
             catch (Exception)
             {
@@ -180,8 +184,18 @@ namespace Restaurant_UI
 
         private void Btnrefresh_Click(object sender, EventArgs e)
         {
+            RefreshForm();
+        }
+
+        void RefreshForm()
+        {
             listviewnotif.Clear();
             GetList();
+        }
+
+        private void Btnrefreshtableview_Click(object sender, EventArgs e)
+        {
+            GiveColor();
         }
     }
 }
