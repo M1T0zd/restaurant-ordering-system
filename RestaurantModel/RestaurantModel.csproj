@@ -49,7 +49,6 @@
     <Compile Include="Category.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeRole.cs" />
-    <Compile Include="KitchenOrderItems.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Order.cs" />

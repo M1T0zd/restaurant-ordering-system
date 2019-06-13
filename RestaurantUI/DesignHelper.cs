@@ -11,22 +11,6 @@ namespace Restaurant_UI
 {
     public class DesignHelper
     {
-        public void fillInComboxob(DataGridView dataGridView)
-        {
-
-            DataGridViewComboBoxColumn col = new DataGridViewComboBoxColumn();
-            col.Name = "change the current state";
-            col.Tag = "state";
-            col.DataSource = Enum.GetValues(typeof(OrderStatus));
-            col.ValueType = typeof(OrderStatus);
-            dataGridView.Columns.Add(col);
-
-            //*** to look at later 
-            //DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            //btn.Name = "btnReady";
-            //btn.Tag = "mark as ready ";
-            //dataGridView.Columns.Add(btn);
-        }
         public int GetslectedIndexOfListview(ListView listView)
         {
             int index = 0;
@@ -40,10 +24,10 @@ namespace Restaurant_UI
             int ItemId = Convert.ToInt32(OrderItemIndex);
             return ItemId;
         }
-        public OrderState getDGcellState(DataGridView dgv, int cellIndex)
+        public OrderStatus getDGcellState(DataGridView dgv, int cellIndex)
         {
             var StateValue = dgv.CurrentRow.Cells[cellIndex].FormattedValue;// first get the value of the cell
-            OrderState state = (OrderState)Enum.Parse(typeof(OrderState), Convert.ToString(StateValue));// then parse to the enum value 
+            OrderStatus state = (OrderStatus)Enum.Parse(typeof(OrderStatus), Convert.ToString(StateValue));// then parse to the enum value 
             return state;
         }
         public void ListViewDesign(ListView listView)
@@ -51,9 +35,14 @@ namespace Restaurant_UI
             listView.Clear();
             listView.View = View.Details;
             listView.GridLines = true;
-            listView.Columns.Add("ID", 50, HorizontalAlignment.Center);
+            listView.Columns.Add("Name", 200, HorizontalAlignment.Center);
+            listView.Columns.Add("Quanity", 20, HorizontalAlignment.Center);
+            listView.Columns.Add("Comment", 200, HorizontalAlignment.Center);
+            listView.Columns.Add("State", 200, HorizontalAlignment.Center);
             listView.Columns.Add("Taken at", 200, HorizontalAlignment.Center);
-            listView.Columns.Add("Tabel number ", 100, HorizontalAlignment.Center);
+            listView.Columns.Add("Tabel Number", 100, HorizontalAlignment.Center);
+            listView.Columns.Add("Ordr ID", 50, HorizontalAlignment.Center);
+            listView.Columns.Add("Item ID", 50, HorizontalAlignment.Center);
             listView.FullRowSelect = true;
         }
         public void AutoRefrech(ListView listView , List<Order> orders )

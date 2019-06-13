@@ -17,24 +17,24 @@ namespace Restaurant_UI
         Order_Service Order_Service = new Order_Service();
         OrderItem_Service OrderItem_Service = new OrderItem_Service();
         DesignHelper designHelper = new DesignHelper();
-        List<Order> Orders = new List<Order>();// refreching use
+        List<OrderItem> Orders = new List<OrderItem>();// refreching use
         public Kitchen_Form(Employee employee)
         {
-            Orders = OrderItem_Service.GetOrders();
             InitializeComponent();
-            if (employee.Role == "Chef")
+            if (employee.Role.ToString() == "Chef")
             {
                 panelKitchen.Visible = true;
                 panelBar.Visible = false;
+                Orders = OrderItem_Service.GetFoodOrders();
                 designHelper.ListViewDesign(listViewFood);
                 FillFoodList(listViewFood);
             }
-            else if (employee.Role == "Barman")
+            else if (employee.Role.ToString() == "Barman")
             {
                 panelKitchen.Visible = false;
                 panelBar.Visible = true;
-                designHelper.ListViewDesign(listViewDrink);
-                FillDrinksList(listViewDrink);
+                Orders = OrderItem_Service.GetFoodOrders();
+                FillFoodList(listViewFood);
             }
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
@@ -80,26 +80,20 @@ namespace Restaurant_UI
         }
         private void FillFoodList(ListView listView)
         {
-            designHelper.fillInComboxob(dgviewFood);
             designHelper.ListViewDesign(listViewFood);
-            foreach (Order o in Orders)
+            foreach (OrderItem o in Orders)
             {
                 ListViewItem li = new ListViewItem(o.Id.ToString());
-                li.Tag = o.Id;
-                li.SubItems.Add(o.TakenAt.ToShortDateString());
-                li.SubItems.Add(o.Table.ToString());
-                listView.Items.Add(li);
-            }
-        }
-        private void FillDrinksList(ListView listView)
-        {
-            designHelper.ListViewDesign(listViewDrink);
-            foreach (Order o in Orders)
-            {
-                ListViewItem li = new ListViewItem(o.Id.ToString());
-                li.Tag = o.Id;
-                li.SubItems.Add(o.TakenAt.ToShortDateString());
-                li.SubItems.Add(o.Table.ToString());
+                li.Tag = o
+                li.SubItems.Add(o.ItemName);
+                li.SubItems.Add(o.Amount.ToString());
+                li.SubItems.Add(o.Comment.ToString());
+                li.SubItems.Add(o.Comment.ToString());
+                li.SubItems.Add(o.Status.ToString());
+                li.SubItems.Add(o.OrderTime.TakenAt.ToString());
+                li.SubItems.Add(o.OrderId.ToString());
+                li.SubItems.Add(o.TableNumber.ToString());
+                li.SubItems.Add(o.Id.ToString());
                 listView.Items.Add(li);
             }
         }
@@ -107,25 +101,20 @@ namespace Restaurant_UI
         {
             if (FoodOrDrinks=="food")
             {
-                dgviewFood.DataSource = OrderItem_Service.GetFoodOrders(designHelper.GetslectedIndexOfListview(listViewFood));
+                dgviewFood.DataSource = OrderItem_Service.GetFoodOrders();
                 DisplayFood();
             }
             else if (FoodOrDrinks=="drink")
             {
-                dgviewDrinks.DataSource = OrderItem_Service.GetDrinksOrders(designHelper.GetslectedIndexOfListview(listViewDrink));
-                DisplayDrinks();
+                dgviewFood.DataSource = OrderItem_Service.GetDrinksOrders();
+                DisplayFood();
             }
         }
-        private void listViewFood_MouseClick_1(object sender, MouseEventArgs e)
-        {
-            refrech("food");
-        }
-
         private void btn_PrepareFood_Click(object sender, EventArgs e)
         {
             try
             {
-                if (OrderState.Ready== designHelper.getDGcellState(dgviewFood, 0))//*** only confirmation for ready
+                if (OrderStatus.Ready== designHelper.getDGcellState(dgviewFood, 0))//*** only confirmation for ready
                 {
                     if (MessageBox.Show(" are you sure you want to mark this order as : Ready " , "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
@@ -149,14 +138,10 @@ namespace Restaurant_UI
 
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
-            Orders = OrderItem_Service.GetOrders();
-            designHelper.AutoRefrech(listViewFood,Orders);
+            Orders = OrderItem_Service.GetFoodOrders();
+           // designHelper.AutoRefrech(listViewFood,Orders);
             //designHelper.AutoRefrech(listViewDrink,Orders);
            // AutoRefrech(listViewDrink);
-        }
-        private void listViewDrink_MouseClick(object sender, MouseEventArgs e)
-        {
-            refrech("drink");
         }
         private void dgviewDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -164,7 +149,7 @@ namespace Restaurant_UI
             int ItemId = Convert.ToInt32(OrderItemIndex);
             if (dgviewDrinks.Columns[e.ColumnIndex].Name == "btnMarkready")
             {
-                OrderItem_Service.MarkAsRaady(ItemId, OrderState.Ready);
+                OrderItem_Service.MarkAsRaady(ItemId, OrderStatus.Ready);
                 refrech("drink");
             }
         }
