@@ -18,23 +18,22 @@ namespace Restaurant_UI
         OrderItem_Service OrderItem_Service = new OrderItem_Service();
         DesignHelper designHelper = new DesignHelper();
         List<OrderItem> Orders = new List<OrderItem>();// refreching use
-        public Kitchen_Form(Employee employee)
+        public static string Role="Chef";
+        public Kitchen_Form( string role/*Employee employee*/)
         {
             InitializeComponent();
-            if (employee.Role.ToString() == "Chef")
+            Role = role;
+            if (Role.ToString() == "Chef")
             {
-                panelKitchen.Visible = true;
                 panelBar.Visible = false;
                 Orders = OrderItem_Service.GetFoodOrders();
-                designHelper.ListViewDesign(listViewFood);
-                FillFoodList(listViewFood);
+                designHelper.ListViewDesign(listViewOrders);
+                FillFoodList(listViewOrders);
             }
-            else if (employee.Role.ToString() == "Barman")
+            else if (Role.ToString() == "Barman")
             {
-                panelKitchen.Visible = false;
-                panelBar.Visible = true;
                 Orders = OrderItem_Service.GetFoodOrders();
-                FillFoodList(listViewFood);
+                FillFoodList(listViewOrders);
             }
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
@@ -46,7 +45,7 @@ namespace Restaurant_UI
         {
             try
             {
-                foreach (DataGridViewRow row in dgviewFood.Rows)
+                foreach (DataGridViewRow row in dgviewDrinks.Rows)
                 {
                     if (row.Index >= 0)
                     {
@@ -80,11 +79,11 @@ namespace Restaurant_UI
         }
         private void FillFoodList(ListView listView)
         {
-            designHelper.ListViewDesign(listViewFood);
+            designHelper.ListViewDesign(listViewOrders);
             foreach (OrderItem o in Orders)
             {
                 ListViewItem li = new ListViewItem(o.Id.ToString());
-                li.Tag = o
+                li.Tag = o;
                 li.SubItems.Add(o.ItemName);
                 li.SubItems.Add(o.Amount.ToString());
                 li.SubItems.Add(o.Comment.ToString());
@@ -101,12 +100,12 @@ namespace Restaurant_UI
         {
             if (FoodOrDrinks=="food")
             {
-                dgviewFood.DataSource = OrderItem_Service.GetFoodOrders();
+                dgviewDrinks.DataSource = OrderItem_Service.GetFoodOrders();
                 DisplayFood();
             }
             else if (FoodOrDrinks=="drink")
             {
-                dgviewFood.DataSource = OrderItem_Service.GetDrinksOrders();
+                dgviewDrinks.DataSource = OrderItem_Service.GetDrinksOrders();
                 DisplayFood();
             }
         }
@@ -114,19 +113,19 @@ namespace Restaurant_UI
         {
             try
             {
-                if (OrderStatus.Ready== designHelper.getDGcellState(dgviewFood, 0))//*** only confirmation for ready
-                {
-                    if (MessageBox.Show(" are you sure you want to mark this order as : Ready " , "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        OrderItem_Service.UpdateOrderItemState(designHelper.GetGgridIndex(dgviewFood, "OrderItemId"), designHelper.getDGcellState(dgviewFood,0));
-                        refrech("food");
-                    }
-                }
-                else
-                {
-                    OrderItem_Service.UpdateOrderItemState(designHelper.GetGgridIndex(dgviewFood, "OrderItemId"), designHelper.getDGcellState(dgviewFood, 0));
-                    refrech("food");
-                }
+                //if (OrderStatus.Ready== designHelper.getDGcellState(dgviewFood, 0))//*** only confirmation for ready
+                //{
+                //    if (MessageBox.Show(" are you sure you want to mark this order as : Ready " , "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                //    {
+                //        OrderItem_Service.UpdateOrderItemState(designHelper.GetGgridIndex(dgviewFood, "OrderItemId"), designHelper.getDGcellState(dgviewFood,0));
+                //        refrech("food");
+                //    }
+                //}
+                //else
+                //{
+                //    OrderItem_Service.UpdateOrderItemState(designHelper.GetGgridIndex(dgviewFood, "OrderItemId"), designHelper.getDGcellState(dgviewFood, 0));
+                //    refrech("food");
+                //}
                
             }
             catch (Exception k)

@@ -13,7 +13,6 @@ namespace Restaurant_Logic
     public class OrderItem_Service
     {
         OrderItem_DAO orderItem_DAO = new OrderItem_DAO();
-
         List<OrderItem> orderItems = new List<OrderItem>();
         public List<OrderItem> GetFoodOrders()
         {

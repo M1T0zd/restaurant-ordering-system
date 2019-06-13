@@ -24,7 +24,7 @@ namespace Restaurant_UI
             //emp.Role = "Chef";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_Form());
+            Application.Run(new Kitchen_Form("Chef"));
         }
     }
 }

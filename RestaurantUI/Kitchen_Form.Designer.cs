@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kitchen_Form));
-            this.panelKitchen = new System.Windows.Forms.Panel();
-            this.btn_PrepareFood = new System.Windows.Forms.Button();
-            this.listViewFood = new System.Windows.Forms.ListView();
-            this.dgviewFood = new System.Windows.Forms.DataGridView();
             this.panelBar = new System.Windows.Forms.Panel();
             this.listViewDrink = new System.Windows.Forms.ListView();
             this.dgviewDrinks = new System.Windows.Forms.DataGridView();
@@ -45,8 +41,6 @@
             this.pictureBoxOrders = new System.Windows.Forms.PictureBox();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
             this.listViewOrders = new System.Windows.Forms.ListView();
-            this.panelKitchen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgviewFood)).BeginInit();
             this.panelBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgviewDrinks)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -56,49 +50,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelKitchen
-            // 
-            this.panelKitchen.Controls.Add(this.btn_PrepareFood);
-            this.panelKitchen.Controls.Add(this.listViewFood);
-            this.panelKitchen.Controls.Add(this.dgviewFood);
-            this.panelKitchen.Location = new System.Drawing.Point(12, 86);
-            this.panelKitchen.Name = "panelKitchen";
-            this.panelKitchen.Size = new System.Drawing.Size(223, 535);
-            this.panelKitchen.TabIndex = 0;
-            // 
-            // btn_PrepareFood
-            // 
-            this.btn_PrepareFood.Location = new System.Drawing.Point(19, 470);
-            this.btn_PrepareFood.Name = "btn_PrepareFood";
-            this.btn_PrepareFood.Size = new System.Drawing.Size(232, 46);
-            this.btn_PrepareFood.TabIndex = 1;
-            this.btn_PrepareFood.Text = "Process Order";
-            this.btn_PrepareFood.UseVisualStyleBackColor = true;
-            this.btn_PrepareFood.Click += new System.EventHandler(this.btn_PrepareFood_Click);
-            // 
-            // listViewFood
-            // 
-            this.listViewFood.Location = new System.Drawing.Point(19, 19);
-            this.listViewFood.Name = "listViewFood";
-            this.listViewFood.Size = new System.Drawing.Size(800, 157);
-            this.listViewFood.TabIndex = 2;
-            this.listViewFood.UseCompatibleStateImageBehavior = false;
-            this.listViewFood.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewFood_MouseClick_1);
-            // 
-            // dgviewFood
-            // 
-            this.dgviewFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgviewFood.Location = new System.Drawing.Point(19, 196);
-            this.dgviewFood.Name = "dgviewFood";
-            this.dgviewFood.RowTemplate.Height = 24;
-            this.dgviewFood.Size = new System.Drawing.Size(800, 256);
-            this.dgviewFood.TabIndex = 1;
-            // 
             // panelBar
             // 
             this.panelBar.Controls.Add(this.listViewDrink);
             this.panelBar.Controls.Add(this.dgviewDrinks);
-            this.panelBar.Location = new System.Drawing.Point(12, 89);
+            this.panelBar.Location = new System.Drawing.Point(1087, 89);
             this.panelBar.Name = "panelBar";
             this.panelBar.Size = new System.Drawing.Size(223, 532);
             this.panelBar.TabIndex = 3;
@@ -110,7 +66,6 @@
             this.listViewDrink.Size = new System.Drawing.Size(797, 157);
             this.listViewDrink.TabIndex = 2;
             this.listViewDrink.UseCompatibleStateImageBehavior = false;
-            this.listViewDrink.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewDrink_MouseClick);
             // 
             // dgviewDrinks
             // 
@@ -145,7 +100,7 @@
             this.panelMenu.Controls.Add(this.pictureBoxExit);
             this.panelMenu.Location = new System.Drawing.Point(12, 15);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(432, 68);
+            this.panelMenu.Size = new System.Drawing.Size(1058, 68);
             this.panelMenu.TabIndex = 8;
             // 
             // pictureBoxLogo
@@ -181,7 +136,7 @@
             // pictureBoxExit
             // 
             this.pictureBoxExit.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxExit.Image")));
-            this.pictureBoxExit.Location = new System.Drawing.Point(722, 0);
+            this.pictureBoxExit.Location = new System.Drawing.Point(945, 7);
             this.pictureBoxExit.Name = "pictureBoxExit";
             this.pictureBoxExit.Size = new System.Drawing.Size(110, 61);
             this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -191,9 +146,9 @@
             // 
             // listViewOrders
             // 
-            this.listViewOrders.Location = new System.Drawing.Point(485, 35);
+            this.listViewOrders.Location = new System.Drawing.Point(12, 86);
             this.listViewOrders.Name = "listViewOrders";
-            this.listViewOrders.Size = new System.Drawing.Size(808, 586);
+            this.listViewOrders.Size = new System.Drawing.Size(1357, 586);
             this.listViewOrders.TabIndex = 9;
             this.listViewOrders.UseCompatibleStateImageBehavior = false;
             // 
@@ -201,16 +156,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1454, 725);
+            this.ClientSize = new System.Drawing.Size(1454, 684);
             this.Controls.Add(this.listViewOrders);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelKitchen);
             this.Name = "Kitchen_Form";
             this.Text = "Kitchen_Form";
             this.Load += new System.EventHandler(this.Kitchen_Form_Load);
-            this.panelKitchen.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgviewFood)).EndInit();
             this.panelBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgviewDrinks)).EndInit();
             this.panelMenu.ResumeLayout(false);
@@ -223,11 +175,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelKitchen;
-        private System.Windows.Forms.DataGridView dgviewFood;
-        private System.Windows.Forms.Button btn_PrepareFood;
-        private System.Windows.Forms.ListView listViewFood;
         private System.Windows.Forms.Timer timerRefrech;
         private System.Windows.Forms.Panel panelBar;
         private System.Windows.Forms.ListView listViewDrink;

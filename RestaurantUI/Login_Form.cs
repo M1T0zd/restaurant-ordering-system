@@ -63,15 +63,15 @@ namespace Restaurant_UI
                 if (currentemployee.Role == EmployeeRole.Chef)
                 {
                     //Display Chef UI
-                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee,this);
+                    Kitchen_Form kitchen_Form = new Kitchen_Form("");
                     kitchen_Form.Show();
                 }
                 else if (currentemployee.Role == EmployeeRole.Barman)
                 {
                     //Display BarmanUI
                    
-                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee,this);
-                    kitchen_Form.Show();
+                    //Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
+                    //kitchen_Form.Show();
                 }
                 else if (currentemployee.Role == EmployeeRole.Waiter)
                 {
