@@ -11,13 +11,6 @@ namespace Restaurant_UI
 {
     public class DesignHelper
     {
-        public int GetslectedIndexOfListview(ListView listView)
-        {
-            int index = 0;
-            if (listView.SelectedItems.Count > 0)
-                index = Convert.ToInt16(listView.SelectedItems[0].Tag.ToString());
-            return index;
-        }
         public int GetGgridIndex( DataGridView dgv , string cell)
         {
             var OrderItemIndex = dgv.CurrentRow.Cells[cell].FormattedValue;// get the id of the orderItem
@@ -35,15 +28,17 @@ namespace Restaurant_UI
             listView.Clear();
             listView.View = View.Details;
             listView.GridLines = true;
-            listView.Columns.Add("Name", 200, HorizontalAlignment.Center);
+            listView.Columns.Add("Name", 20, HorizontalAlignment.Center);
             listView.Columns.Add("Quanity", 20, HorizontalAlignment.Center);
-            listView.Columns.Add("Comment", 200, HorizontalAlignment.Center);
-            listView.Columns.Add("State", 200, HorizontalAlignment.Center);
-            listView.Columns.Add("Taken at", 200, HorizontalAlignment.Center);
-            listView.Columns.Add("Tabel Number", 100, HorizontalAlignment.Center);
+            listView.Columns.Add("Comment", 20, HorizontalAlignment.Center);
+            listView.Columns.Add("State", 20, HorizontalAlignment.Center);
+            listView.Columns.Add("Taken at", 20, HorizontalAlignment.Center);
             listView.Columns.Add("Ordr ID", 50, HorizontalAlignment.Center);
             listView.Columns.Add("Item ID", 50, HorizontalAlignment.Center);
+            listView.Columns.Add("Tabel Number", 100, HorizontalAlignment.Center);
             listView.FullRowSelect = true;
+
+         
         }
         public void AutoRefrech(ListView listView , List<Order> orders )
         {

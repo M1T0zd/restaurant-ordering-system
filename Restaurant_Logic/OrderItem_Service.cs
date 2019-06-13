@@ -22,12 +22,6 @@ namespace Restaurant_Logic
         {
             return orderItems = orderItem_DAO.GetDrinkItems();
         }
-        public List<Order> GetOrders()
-        {
-            List<Order> orders = new List<Order>();
-            return orders = orderItem_DAO.GetOrders_();
-        }
-
 		public void PushOrder(OrderItem orderItem)
 		{
 			try
