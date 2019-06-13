@@ -92,7 +92,7 @@
             this.panelMenu.Controls.Add(this.pictureBoxExit);
             this.panelMenu.Location = new System.Drawing.Point(12, 15);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1058, 68);
+            this.panelMenu.Size = new System.Drawing.Size(1022, 68);
             this.panelMenu.TabIndex = 8;
             // 
             // pictureBoxLogo
@@ -128,7 +128,7 @@
             // pictureBoxExit
             // 
             this.pictureBoxExit.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxExit.Image")));
-            this.pictureBoxExit.Location = new System.Drawing.Point(945, 7);
+            this.pictureBoxExit.Location = new System.Drawing.Point(909, 3);
             this.pictureBoxExit.Name = "pictureBoxExit";
             this.pictureBoxExit.Size = new System.Drawing.Size(110, 61);
             this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

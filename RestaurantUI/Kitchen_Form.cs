@@ -39,7 +39,7 @@ namespace Restaurant_UI
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
             timerRefrech.Interval = 100; //refresh every 20 seconds 
-            timerRefrech.Enabled = true;
+            timerRefrech.Enabled = false;
         }
         public void DisplayFood()
         {
@@ -51,9 +51,7 @@ namespace Restaurant_UI
                     {
                         string State = Convert.ToString(row.Cells[5].Value);
                         if (State.ToLower().Trim() == "waiting")
-
                             dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.Red;
-
                         else if (State.ToLower().Trim() == "processing")
                             dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.Yellow;
                         else if (State.ToLower().Trim() == "ready")
@@ -72,7 +70,7 @@ namespace Restaurant_UI
        
         private void refrech(string FoodOrDrinks)
         {
-            if (FoodOrDrinks == "drink")
+            if (FoodOrDrinks == "Chef")
             {
                 dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
                 DisplayFood();
@@ -81,6 +79,7 @@ namespace Restaurant_UI
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
             Orders = OrderItem_Service.GetFoodOrders();
+            refrech("Chef");
             //dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
             //DisplayFood();
         }
@@ -99,7 +98,7 @@ namespace Restaurant_UI
             if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
             {
                 OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
-                refrech("drink");
+                refrech("Chef");
                 DisplayFood();
             }
 
@@ -113,20 +112,20 @@ namespace Restaurant_UI
         {
             e.Cancel = true;
         }
-
+        
         private void btn_PrepareMany_Click(object sender, EventArgs e)
         {
-            List<int> Items = new List<int>();
+            List<int> Items = new List<int>();// to remove later 
             foreach (DataGridViewRow row in dgviewOrders.SelectedRows)
             {
-                int ItemId  = int.Parse( dgviewOrders.Rows[row.Index].Cells["Id"].Value.ToString());
-                // Items.Add(ItemId);
-                OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
+                if (row.Index>0)
+                {
+                    int ItemId = int.Parse(dgviewOrders.Rows[row.Index].Cells["Id"].Value.ToString());
+                    // Items.Add(ItemId);
+                    OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
+                    refrech("Chef");
+                }
             }
-            //foreach (int i in Items)
-            //{
-            //    MessageBox.Show(i.ToString());
-            //}
         }
     }
 }
