@@ -39,6 +39,7 @@
             this.pictureBoxComments = new System.Windows.Forms.PictureBox();
             this.pictureBoxOrders = new System.Windows.Forms.PictureBox();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
+            this.btn_PrepareMany = new System.Windows.Forms.Button();
             this.panelBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgviewOrders)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -50,6 +51,7 @@
             // 
             // panelBar
             // 
+            this.panelBar.Controls.Add(this.btn_PrepareMany);
             this.panelBar.Controls.Add(this.dgviewOrders);
             this.panelBar.Location = new System.Drawing.Point(12, 89);
             this.panelBar.Name = "panelBar";
@@ -64,7 +66,7 @@
             this.dgviewOrders.Location = new System.Drawing.Point(14, 13);
             this.dgviewOrders.Name = "dgviewOrders";
             this.dgviewOrders.RowTemplate.Height = 24;
-            this.dgviewOrders.Size = new System.Drawing.Size(983, 552);
+            this.dgviewOrders.Size = new System.Drawing.Size(983, 511);
             this.dgviewOrders.TabIndex = 1;
             this.dgviewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgviewDrinks_CellContentClick);
             this.dgviewOrders.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgviewOrders_DataError_1);
@@ -134,6 +136,16 @@
             this.pictureBoxExit.TabStop = false;
             this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
             // 
+            // btn_PrepareMany
+            // 
+            this.btn_PrepareMany.Location = new System.Drawing.Point(14, 531);
+            this.btn_PrepareMany.Name = "btn_PrepareMany";
+            this.btn_PrepareMany.Size = new System.Drawing.Size(290, 49);
+            this.btn_PrepareMany.TabIndex = 2;
+            this.btn_PrepareMany.Text = "Prepare multiple orders";
+            this.btn_PrepareMany.UseVisualStyleBackColor = true;
+            this.btn_PrepareMany.Click += new System.EventHandler(this.btn_PrepareMany_Click);
+            // 
             // Kitchen_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -165,5 +177,6 @@
         private System.Windows.Forms.PictureBox pictureBoxComments;
         private System.Windows.Forms.PictureBox pictureBoxOrders;
         private System.Windows.Forms.PictureBox pictureBoxExit;
+        private System.Windows.Forms.Button btn_PrepareMany;
     }
 }

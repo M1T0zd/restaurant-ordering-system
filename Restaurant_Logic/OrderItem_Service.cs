@@ -53,7 +53,7 @@ namespace Restaurant_Logic
         {
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }
-        public void MarkAsRaady(int orderItem, OrderStatus newSatate)
+        public void MarkAsReady(int orderItem, OrderStatus newSatate)
         {
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }

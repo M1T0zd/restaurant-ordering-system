@@ -14,7 +14,7 @@ namespace Restaurant_DAL
     {
         public List<OrderItem> GetFoodItems()
         {
-            string query = @" select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime, o.Id as OrderID,i.Id , se.TableId from Orders o 
+            string query = @" select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime, o.Id as OrderID,i.Id as ItemID , se.TableId from Orders o 
 								join OrderItems i on o.Id=i.OrderId
 								join OrderState s on s.Id=i.StateId
 								join MenuItems m on m.Id=i.MenuItemId
@@ -33,7 +33,7 @@ namespace Restaurant_DAL
 		}
         public List<OrderItem> GetDrinkItems()
         {
-            string query = @"select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime, o.Id as OrderID,i.Id , se.TableId from Orders o 
+            string query = @"select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime, o.Id as OrderID,i.Id as ItemID , se.TableId from Orders o 
 								join OrderItems i on o.Id=i.OrderId
 								join OrderState s on s.Id=i.StateId
 								join MenuItems m on m.Id=i.MenuItemId
@@ -55,7 +55,7 @@ namespace Restaurant_DAL
                     Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), Convert.ToString(dr["State"])),
                     ordertime = (string)dr["ordertime"],
                     OrderId = (int)dr["OrderID"],
-                    Id = (int)dr["Id"],
+                    Id = (int)dr["ItemID"],
                     TableNumber=(int)dr["TableId"],
                 };
                 OrderItems.Add(OrderItem);

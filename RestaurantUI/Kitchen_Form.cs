@@ -98,11 +98,11 @@ namespace Restaurant_UI
             int ItemId = Convert.ToInt32(OrderItemIndex);
             if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
             {
-                OrderItem_Service.MarkAsRaady(ItemId, OrderStatus.Ready);
+                OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
                 refrech("drink");
                 DisplayFood();
-
             }
+
         }
         private void pictureBoxExit_Click(object sender, EventArgs e)
         {
@@ -114,9 +114,19 @@ namespace Restaurant_UI
             e.Cancel = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_PrepareMany_Click(object sender, EventArgs e)
         {
-
+            List<int> Items = new List<int>();
+            foreach (DataGridViewRow row in dgviewOrders.SelectedRows)
+            {
+                int ItemId  = int.Parse( dgviewOrders.Rows[row.Index].Cells["Id"].Value.ToString());
+                // Items.Add(ItemId);
+                OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
+            }
+            //foreach (int i in Items)
+            //{
+            //    MessageBox.Show(i.ToString());
+            //}
         }
     }
 }
