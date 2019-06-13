@@ -137,7 +137,7 @@ namespace Restaurant_UI
             listviewnotif.Columns.Add("Table");
 
             OrderItem_Service order_Service = new OrderItem_Service();
-            orderItems = order_Service.GetOrder();
+            orderItems = order_Service.GetOrderWaiter();
 
             foreach (OrderItem order in orderItems)
             {
@@ -159,9 +159,8 @@ namespace Restaurant_UI
         private void Listviewnotif_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = listviewnotif.SelectedIndices[0];
-            OrderItem orderItem = orderItems[index];
-            selectedorderItem = orderItem;
-        }     
+            selectedorderItem = orderItems[index];
+        }
         private void Btnserveitem_Click(object sender, EventArgs e)
         {
             try

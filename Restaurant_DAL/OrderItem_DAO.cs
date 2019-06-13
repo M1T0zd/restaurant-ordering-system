@@ -98,15 +98,18 @@ namespace Restaurant_DAL
 
         //********************************** end kitchen overview code
 
-        public List<OrderItem> GetOrders()
+        public List<OrderItem> GetOrdersWaiter()
         {
-            //************ get the Order itmes of an order
-            string query = @"select o.Id,o.TakenAt,s.TableId from sessions  s
-                            join  Orders o on s.Id=o.SessionId";
-
+            string query = "SELECT OI.Id, m.Name,OI.StateId,s.TableId " +
+                "FROM MenuItems AS M JOIN OrderItems as OI on OI.MenuItemId = m.Id " +
+                "JOIN Orders AS O on OI.OrderId = o.Id " +
+                "JOIN Sessions AS S ON O.SessionId = S.Id " +
+                "WHERE OI.StateId = 3";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+
+
         private List<OrderItem> ReadTables(DataTable dataTable)
         {
             List<OrderItem> orderItems = new List<OrderItem>();
