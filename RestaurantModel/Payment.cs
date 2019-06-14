@@ -8,13 +8,13 @@ namespace RestaurantModel
 {
     public class Payment
     {
-
-
-        public Decimal Tip { get; set; }
-
-        public Decimal Tax { get; set; }
+        public string ItemName { get; set; }
+        public int quantity { get; set; }
+        public string price { get; set; }
         public Decimal Total { get; set; }
-       
+        public int IDpayment { get; set; }
+        public Decimal Tip { get; set; }
+        public Decimal Tax { get; set; }
         public PaymentMethod PaymentMethod;
         
 

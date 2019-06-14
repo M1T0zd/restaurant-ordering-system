@@ -30,7 +30,6 @@ namespace Restaurant_UI
         }
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
-            //oers = OrderItem_Service.GetFoodOrders();
             if (employee.Role.ToString() == "Chef")
                 LoadingData("Chef");
             else
@@ -134,11 +133,6 @@ namespace Restaurant_UI
                 LoadingData("Chef");
             else
                 LoadingData("Barman");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

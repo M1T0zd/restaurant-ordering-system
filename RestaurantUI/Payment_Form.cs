@@ -77,7 +77,6 @@ namespace Restaurant_UI
                 string message = "Select a payment method";
                 string title = "Error";
                 MessageBox.Show(message, title);
-
             }
             else
             {
