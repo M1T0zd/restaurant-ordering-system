@@ -25,12 +25,12 @@ namespace Restaurant_UI
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
-            timerRefrech.Interval = 100; //refresh every 20 seconds 
+            timerRefrech.Interval = 1000;//efresh every 20 seconds 
             timerRefrech.Enabled = true;
         }
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
-            Orders = OrderItem_Service.GetFoodOrders();
+            //oers = OrderItem_Service.GetFoodOrders();
             if (Role.ToString() == "Chef")
                 LoadingData("Chef");
             else
@@ -115,12 +115,14 @@ namespace Restaurant_UI
         private void LoadingData(string FoodOrDrinks)
         {
             if (FoodOrDrinks == "Chef")
-            { 
+            {
+                Orders = OrderItem_Service.GetFoodOrders();
                 dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
                  DisplayFood();
             }
             else if (FoodOrDrinks == "Barman")
             {
+                Orders = OrderItem_Service.GetDrinksOrders();
                 dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
                  DisplayFood();
             }
