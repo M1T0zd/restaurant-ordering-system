@@ -19,30 +19,20 @@ namespace Restaurant_UI
         public Payment_Service payment_Services;
         Table_Form table_Form;
         Table table;
-        Payment payment;
+      
         Session currentsession;
-        public Payment_Form(Table_Form table_Form, Table table,Session session)
+        public Payment_Form(int TabelID)// send the tabel id with every click 
         {
-            InitializeComponent();
-            this.currentsession = session;
-            this.table_Form = table_Form;
-            this.table = table;
-            Table_Numberlbl.Text = table.Number.ToString();
-            this.Text = $"Payment From   {DateTime.Now.ToShortDateString()}  [ {DateTime.Now.ToShortTimeString()} ]";
-            payment_Services = new Payment_Service();
-            displayOrderDetails();
-
+            Payment payment = payment_Services.ProcessPayment(TabelID);
+            //******* after you pay update  the tabel state to free (No reserved )
+            bool checkVAt = payment.IsAlchoholic;
+            decimal calculVAt = 0;
+            if (checkVAt is true )
+            {
+               // calculVAt = payment.price * 06 %;
+                
+            }
         }
-
-        private void displayOrderDetails()
-        {
-            payment.Total = 89;
-            payment.Tax = payment.Total * Convert.ToDecimal(0.15);
-            Total_txt_bx.Text = payment.Total.ToString() + payment.Tax.ToString();
-            Tax_txt_bx.Text = payment.Tax.ToString();
-        }
-
-
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -88,7 +78,7 @@ namespace Restaurant_UI
         public void SaveOrderDetails()
         {
             int paymentMethod = selectedPaymentMethod();
-            payment_Services.insertOrder (paymentMethod, payment.Total, payment.Tax);
+          //  payment_Services.insertOrder (paymentMethod, payment.Total, payment.Tax);
         }
 
         //write comments to text file
@@ -106,7 +96,7 @@ namespace Restaurant_UI
 
         private void Payment_Form_Load(object sender, EventArgs e)
         {
-         
+           // listView1Items
         }
     }
 }

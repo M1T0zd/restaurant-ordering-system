@@ -73,7 +73,8 @@ namespace Restaurant_UI
                 else if (currentemployee.Role == EmployeeRole.Waiter)
                 {
                     //Display WaiterUI
-                    Table_Form table_Form = new Table_Form(currentemployee, this);
+                   // Table_Form table_Form = new Table_Form(currentemployee, this);
+                    Table_Form table_Form = new Table_Form();
                     table_Form.Show();
                 }
                 this.Hide();

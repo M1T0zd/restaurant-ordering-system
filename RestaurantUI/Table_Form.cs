@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Restaurant_UI
 {
     public partial class Table_Form : Form
@@ -22,15 +23,15 @@ namespace Restaurant_UI
         List<OrderItem> orderItems;
         Session currentsession;
         List<Button> buttons;
-        
+        Payment_Service Payment_Service = new Payment_Service();
+        Payment payment = new Payment();
         public Table_Service Table_Service { get; set; }
-
-
-        public Table_Form(Employee employee, Login_Form login_Form)
+       // Employee employee, Login_Form login_Form
+        public Table_Form(/*Employee employee, Login_Form login_Form*/)
         {
             InitializeComponent();
             currentsession = new Session();
-            this.Employee = employee;
+           // this.Employee = employee;
             Initialize(login_Form);
         }
 
@@ -79,13 +80,16 @@ namespace Restaurant_UI
                 }
             } 
         }
+        public static int tableID = 0;
         private void Button_Click(object sender, EventArgs e)
         {
             button = (Button)sender;
             //If button clicked, get table from list based on it's TabIndex
             table = tables[button.TabIndex];
-            currentsession.Table = table;
 
+             tableID = tables.Find(x => x.Number == table.Number).Number;
+            currentsession.Table = table;
+           // Payment_Form payment_Form = new Payment_Form(tableID);
             Order_Form order_Form = new Order_Form(table,this,Employee,currentsession);
             order_Form.Show();
       

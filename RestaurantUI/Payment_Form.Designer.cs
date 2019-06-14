@@ -34,19 +34,23 @@
             this.Tax_txt_bx = new System.Windows.Forms.TextBox();
             this.Vattxtbx = new System.Windows.Forms.TextBox();
             this.Total_txt_bx = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView1Items = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableNumbertxtbx = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cashRadiobtn = new System.Windows.Forms.RadioButton();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.PinRadiobtn = new System.Windows.Forms.RadioButton();
             this.creditCardRdbtn = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.PayOrderbtn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.CancelBtn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.Table_Numberlbl = new System.Windows.Forms.TextBox();
@@ -54,14 +58,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.commentstxt_box = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.PayOrderbtn = new System.Windows.Forms.Button();
-            this.CancelBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
@@ -108,20 +108,20 @@
             this.Total_txt_bx.Size = new System.Drawing.Size(84, 22);
             this.Total_txt_bx.TabIndex = 37;
             // 
-            // listView1
+            // listView1Items
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView1Items.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView1.Location = new System.Drawing.Point(29, 73);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(474, 178);
-            this.listView1.TabIndex = 36;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1Items.Location = new System.Drawing.Point(29, 73);
+            this.listView1Items.Margin = new System.Windows.Forms.Padding(4);
+            this.listView1Items.Name = "listView1Items";
+            this.listView1Items.Size = new System.Drawing.Size(474, 178);
+            this.listView1Items.TabIndex = 36;
+            this.listView1Items.UseCompatibleStateImageBehavior = false;
+            this.listView1Items.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -176,6 +176,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select payment method ";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Restaurant_UI.Properties.Resources.Custom_Icon_Design_Flatastic_3_Payment_creditcard_visa;
+            this.pictureBox1.Location = new System.Drawing.Point(273, 100);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(44, 36);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -199,6 +210,17 @@
             this.cashRadiobtn.TabStop = true;
             this.cashRadiobtn.Text = "Cash";
             this.cashRadiobtn.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Restaurant_UI.Properties.Resources.Designbolts_Credit_Card_Payment_American_Express;
+            this.pictureBox4.Location = new System.Drawing.Point(320, 100);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(63, 34);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox4.TabIndex = 22;
+            this.pictureBox4.TabStop = false;
             // 
             // PinRadiobtn
             // 
@@ -239,6 +261,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Process payment ";
             // 
+            // PayOrderbtn
+            // 
+            this.PayOrderbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PayOrderbtn.Image = global::Restaurant_UI.Properties.Resources.Tatice_Cristal_Intense_Ok1;
+            this.PayOrderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PayOrderbtn.Location = new System.Drawing.Point(23, 53);
+            this.PayOrderbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.PayOrderbtn.Name = "PayOrderbtn";
+            this.PayOrderbtn.Size = new System.Drawing.Size(175, 49);
+            this.PayOrderbtn.TabIndex = 54;
+            this.PayOrderbtn.Text = "      Pay Order";
+            this.PayOrderbtn.UseVisualStyleBackColor = true;
+            this.PayOrderbtn.Click += new System.EventHandler(this.PayOrderbtn_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -250,6 +286,20 @@
             this.label8.Size = new System.Drawing.Size(110, 20);
             this.label8.TabIndex = 48;
             this.label8.Text = "(Mandatory)";
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.Image = global::Restaurant_UI.Properties.Resources.Gakuseisean_Ivista_Error;
+            this.CancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CancelBtn.Location = new System.Drawing.Point(249, 53);
+            this.CancelBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(175, 49);
+            this.CancelBtn.TabIndex = 0;
+            this.CancelBtn.Text = " Cancel";
+            this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // label7
             // 
@@ -330,56 +380,6 @@
             this.commentstxt_box.Size = new System.Drawing.Size(447, 90);
             this.commentstxt_box.TabIndex = 54;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Restaurant_UI.Properties.Resources.Custom_Icon_Design_Flatastic_3_Payment_creditcard_visa;
-            this.pictureBox1.Location = new System.Drawing.Point(273, 100);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(44, 36);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Restaurant_UI.Properties.Resources.Designbolts_Credit_Card_Payment_American_Express;
-            this.pictureBox4.Location = new System.Drawing.Point(320, 100);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(63, 34);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox4.TabIndex = 22;
-            this.pictureBox4.TabStop = false;
-            // 
-            // PayOrderbtn
-            // 
-            this.PayOrderbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PayOrderbtn.Image = global::Restaurant_UI.Properties.Resources.Tatice_Cristal_Intense_Ok1;
-            this.PayOrderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PayOrderbtn.Location = new System.Drawing.Point(23, 53);
-            this.PayOrderbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.PayOrderbtn.Name = "PayOrderbtn";
-            this.PayOrderbtn.Size = new System.Drawing.Size(175, 49);
-            this.PayOrderbtn.TabIndex = 54;
-            this.PayOrderbtn.Text = "      Pay Order";
-            this.PayOrderbtn.UseVisualStyleBackColor = true;
-            this.PayOrderbtn.Click += new System.EventHandler(this.PayOrderbtn_Click);
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.Image = global::Restaurant_UI.Properties.Resources.Gakuseisean_Ivista_Error;
-            this.CancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CancelBtn.Location = new System.Drawing.Point(249, 53);
-            this.CancelBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(175, 49);
-            this.CancelBtn.TabIndex = 0;
-            this.CancelBtn.Text = " Cancel";
-            this.CancelBtn.UseVisualStyleBackColor = true;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
             // Payment_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -397,7 +397,7 @@
             this.Controls.Add(this.Tax_txt_bx);
             this.Controls.Add(this.Vattxtbx);
             this.Controls.Add(this.Total_txt_bx);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listView1Items);
             this.Controls.Add(this.tableNumbertxtbx);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -408,10 +408,10 @@
             this.Load += new System.EventHandler(this.Payment_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,7 +423,7 @@
         private System.Windows.Forms.TextBox Tax_txt_bx;
         private System.Windows.Forms.TextBox Vattxtbx;
         private System.Windows.Forms.TextBox Total_txt_bx;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView1Items;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
