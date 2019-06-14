@@ -37,6 +37,11 @@ namespace Restaurant_UI
         {
             this.Close();
             table_Form.Show();
+            if (MessageBox.Show(" are you sure you want to mark this order as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+            }
+
 
         }
         //select payment method
