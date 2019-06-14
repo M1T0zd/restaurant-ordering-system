@@ -98,8 +98,11 @@ namespace Restaurant_UI
         }
         private void SavePaymentDetails()// send to database
         {
+
             Payment_Service payment_Service = new Payment_Service();
             payment_Service.insertOrder(payment);
+          
+        }
 
         }
         //write comments to text file

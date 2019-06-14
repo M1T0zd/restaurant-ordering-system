@@ -23,8 +23,9 @@ namespace Restaurant_Logic
             }
         }
 
-        public List<Employee> GetEmployee()
+        public Employee GetCurrentEmployee(Login login)
         {
+
             try
             {
                 List<Employee> employees = employee_db.GetEmployees();
@@ -32,10 +33,14 @@ namespace Restaurant_Logic
             }
             catch (Exception e)
             {
-               // ErrorLogging(e);
+                ErrorLogging(e);
 
                 return null;
             }
+          
+                Employee employee = employee_db.GetCurrentEmployee(login);
+                return employee;
+           
         }
         private static void ErrorLogging(Exception e)
         {

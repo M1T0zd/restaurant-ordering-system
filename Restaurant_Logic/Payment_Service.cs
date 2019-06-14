@@ -10,13 +10,16 @@ namespace Restaurant_Logic
 {
     public class Payment_Service
     {
-
-        Payment_DAO insertDetails = new Payment_DAO();
+        Payment_DAO payementDao = new Payment_DAO();
 
         public void insertOrder(Payment payment)
         {
             insertDetails.InsertOrder(payment);
+           
         }
-
+        public Payment ProcessPayment(int TabelID)
+        {
+           return  payementDao.processPayment(TabelID);
+        }
     }
 }

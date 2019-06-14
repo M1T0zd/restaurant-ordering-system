@@ -14,37 +14,34 @@ namespace Restaurant_UI
 {
     public partial class Order_Form : Form
     {
-		//Make Panel Status with orders capability in OrderForm
-        List<Order> orders;
         List<RestaurantModel.MenuItem> menuItems = new List<RestaurantModel.MenuItem>();
         Table_Form table_Form;
-        Table table;
-        Employee employee;
-        Session currentsession;
+        Session currentSession;
 
         public Order_Form(Table table, Table_Form table_Form,Employee employee,Session session)
         {
             InitializeComponent();
-			Initialize(table, table_Form,session);
-            this.employee = employee;
+			Initialize(table_Form, session, table, employee);
 		}
 
-        void Initialize(Table table, Table_Form table_Form,Session session)
+        void Initialize(Table_Form table_Form, Session session, Table table, Employee employee)
         {
 			this.table_Form = table_Form;
-			this.table = table;
-            this.currentsession = session;
-			orders = table.orders;
-        }
+			currentSession = session;
+			currentSession.Table = table;
+            
+			currentSession.Orders = table.orders;
+			currentSession.Host = employee;
+		}
        
         private void Order_Form_Load(object sender, EventArgs e)
         {
-			lblNumber.Text = $"Table {table.Number}";
-			lblNumber2.Text = $"Table {table.Number}";
+			lblNumber.Text = $"Table {currentSession.Table.Number}";
+			lblNumber2.Text = $"Table {currentSession.Table.Number}";
 
 			UpdateStatusButtons();
 
-			if (table.Status == TableStatus.Occupied)
+			if (currentSession.Table.Status == TableStatus.Occupied)
 			{
 				pnlChangeStatus.Hide();
 				pnlDefault.Show();
@@ -81,15 +78,18 @@ namespace Restaurant_UI
 
 		private void BtnOccupied_Click(object sender, EventArgs e)
 		{
-            currentsession.Start = DateTime.Now;
+            currentSession.Start = DateTime.Now;
 
-            table.Status = TableStatus.Occupied;
+			currentSession.Table.Status = TableStatus.Occupied;
             Table_Service table_Service = new Table_Service();
-            table_Service.UpdateStatus(table);
+            table_Service.UpdateStatus(currentSession.Table);
             table_Form.GiveColor();
 
             Session_Service session_Service = new Session_Service();
-            session_Service.UpdateTable(currentsession);
+
+            //session_Service.UpdateTable(currentsession);
+
+            //table_Form.GiveName();
 
             pnlChangeStatus.Hide();
 			pnlDefault.Show();           
@@ -98,9 +98,9 @@ namespace Restaurant_UI
 
 		private void BtnAvailable_Click(object sender, EventArgs e)
 		{
-			table.Status = TableStatus.Available;
+			currentSession.Table.Status = TableStatus.Available;
             Table_Service table_Service = new Table_Service();
-            table_Service.UpdateStatus(table);
+            table_Service.UpdateStatus(currentSession.Table);
             table_Form.GiveColor();
 			table_Form.Show();
 			this.Close();
@@ -108,9 +108,9 @@ namespace Restaurant_UI
 
 		private void BtnReserved_Click(object sender, EventArgs e)
 		{
-			table.Status = TableStatus.Reserved;
+			currentSession.Table.Status = TableStatus.Reserved;
             Table_Service table_Service = new Table_Service();
-            table_Service.UpdateStatus(table);
+            table_Service.UpdateStatus(currentSession.Table);
 			table_Form.GiveColor();
 			table_Form.Show();
 			this.Close();
@@ -130,7 +130,16 @@ namespace Restaurant_UI
 					order.OrderItems.Add((OrderItem)lvi.Tag);
 				}
 
-				orders.Add(order);
+				currentSession.Orders.Add(order);
+
+				//Push to database
+				Order_Service order_Service = new Order_Service();
+				OrderItem_Service orderItem_Service = new OrderItem_Service();
+
+				//order_Service.PushOrder(order);
+				//orderItem_Service.PushOrderItems(order.OrderItems);
+
+				lvOrderItems.Items.Clear();
 			} else {
 				MessageBox.Show("Please add an OrderItem to the OrderItem list first.", "OrderItems list empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
@@ -152,7 +161,7 @@ namespace Restaurant_UI
 					}
 				}
 				
-				
+				//Add Item to OrderItem list.
 				OrderItem newOrderItem = new OrderItem
 				{
 					Amount = 1,
@@ -160,7 +169,7 @@ namespace Restaurant_UI
 					Status = OrderStatus.Waiting
 				};
 
-				ListViewItem lviNew = new ListViewItem(newOrderItem.MenuItem.Name);// menuItem.Name);
+				ListViewItem lviNew = new ListViewItem(newOrderItem.MenuItem.Name);
 				lviNew.SubItems.Add(newOrderItem.MenuItem.Price.ToString());
 				lviNew.SubItems.Add(newOrderItem.Amount.ToString());
 				lviNew.Tag = newOrderItem;
@@ -190,24 +199,24 @@ namespace Restaurant_UI
             this.Hide();
             Payment_Form form = new Payment_Form(table_Form, table);
             form.Show();
+
 		}
 
-		//TOOLS
 		private void UpdateStatusButtons()
 		{
 			btnOccupied.Show();
 			btnAvailable.Show();
 			btnReserved.Show();
 
-			if (table.Status == TableStatus.Occupied)
+			if (currentSession.Table.Status == TableStatus.Occupied)
 			{
 				btnOccupied.Hide();
 			}
-			else if (table.Status == TableStatus.Available)
+			else if (currentSession.Table.Status == TableStatus.Available)
 			{
 				btnAvailable.Hide();
 			}
-			else if (table.Status == TableStatus.Reserved)
+			else if (currentSession.Table.Status == TableStatus.Reserved)
 			{
 				btnReserved.Hide();
 			}
@@ -274,28 +283,56 @@ namespace Restaurant_UI
 
 			if (rdoAll.Checked)
 			{
-
+				foreach (RestaurantModel.MenuItem menuItem in menuItems)
+				{
+					ListViewItem lvi = new ListViewItem(menuItem.Name);
+					lvi.SubItems.Add(menuItem.Price.ToString());
+					lvi.SubItems.Add(menuItem.Stock.ToString());
+					lvi.Tag = menuItem;
+					lvMenuItems.Items.Add(lvi);
+				}
 			}
 			else if(rdoLunch.Checked)
 			{
-
+				foreach (RestaurantModel.MenuItem menuItem in menuItems)
+				{
+					if(menuItem.Category == Category.Lunch)
+					{
+						ListViewItem lvi = new ListViewItem(menuItem.Name);
+						lvi.SubItems.Add(menuItem.Price.ToString());
+						lvi.SubItems.Add(menuItem.Stock.ToString());
+						lvi.Tag = menuItem;
+						lvMenuItems.Items.Add(lvi);
+					}
+				}
 			}
 			else if(rdoDinner.Checked)
 			{
-
+				foreach (RestaurantModel.MenuItem menuItem in menuItems)
+				{
+					if (menuItem.Category == Category.Dinner)
+					{
+						ListViewItem lvi = new ListViewItem(menuItem.Name);
+						lvi.SubItems.Add(menuItem.Price.ToString());
+						lvi.SubItems.Add(menuItem.Stock.ToString());
+						lvi.Tag = menuItem;
+						lvMenuItems.Items.Add(lvi);
+					}
+				}
 			}
 			else if(rdoDrinks.Checked)
 			{
-
-			}
-
-			foreach (RestaurantModel.MenuItem menuItem in menuItems)
-			{
-				ListViewItem lvi = new ListViewItem(menuItem.Name);
-				lvi.SubItems.Add(menuItem.Price.ToString());
-				lvi.SubItems.Add(menuItem.Stock.ToString());
-				lvi.Tag = menuItem;
-				lvMenuItems.Items.Add(lvi);
+				foreach (RestaurantModel.MenuItem menuItem in menuItems)
+				{
+					if (menuItem.Category == Category.Drinks)
+					{
+						ListViewItem lvi = new ListViewItem(menuItem.Name);
+						lvi.SubItems.Add(menuItem.Price.ToString());
+						lvi.SubItems.Add(menuItem.Stock.ToString());
+						lvi.Tag = menuItem;
+						lvMenuItems.Items.Add(lvi);
+					}
+				}
 			}
 		}
 	}
