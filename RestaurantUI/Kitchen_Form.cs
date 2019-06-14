@@ -14,26 +14,29 @@ namespace Restaurant_UI
 {
     public partial class Kitchen_Form : Form
     {
-        OrderItem_Service OrderItem_Service = new OrderItem_Service();
+        public OrderItem_Service OrderItem_Service = new OrderItem_Service();
         DesignHelper designHelper = new DesignHelper();
         List<OrderItem> Orders = new List<OrderItem>();// refreching use
         public static string Role = "Barman";
+        Login_Form Login_Form = new Login_Form(); 
+
         public Kitchen_Form(string role/*Employee employee*/)
         {
             InitializeComponent();
             Role = role;
+          // Orders = OrderItem_Service.GetFoodOrders();
             if (Role.ToString() == "Chef")
             {
-                Orders = OrderItem_Service.GetFoodOrders();
-                // FillOrdersItemList();
-                dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
-                DisplayFood();
+               
+                //// FillOrdersItemList();
+                //dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
+                //DisplayFood();
             }
             else if (Role.ToString() == "Barman")
             {
-                Orders = OrderItem_Service.GetDrinksOrders();
-                dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
-                DisplayFood();
+                //Orders = OrderItem_Service.GetDrinksOrders();
+                //dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
+                //Login_Form.DisplayFood();
             }
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
@@ -41,47 +44,10 @@ namespace Restaurant_UI
             timerRefrech.Interval = 100; //refresh every 20 seconds 
             timerRefrech.Enabled = false;
         }
-        public void DisplayFood()
-        {
-            try
-            {
-                foreach (DataGridViewRow row in dgviewOrders.Rows)
-                {
-                    if (row.Index >= 0)
-                    {
-                        string State = Convert.ToString(row.Cells[5].Value);
-                        if (State.ToLower().Trim() == "waiting")
-                            dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.Red;
-                        else if (State.ToLower().Trim() == "processing")
-                            dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.Yellow;
-                        else if (State.ToLower().Trim() == "ready")
-                            dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.LightGreen;
-                        else if (State.ToLower().Trim() == "served")
-                            dgviewOrders.Rows[row.Index].DefaultCellStyle.BackColor = Color.GreenYellow;
-                    }
-                }
-            }
-            catch (Exception k)
-            {
-                MessageBox.Show(" something went wrong :" + k.Message);
-            }
-
-        }
-       
-        private void refrech(string FoodOrDrinks)
-        {
-            if (FoodOrDrinks == "Chef")
-            {
-                dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
-                DisplayFood();
-            }
-        }
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
             Orders = OrderItem_Service.GetFoodOrders();
             refrech("Chef");
-            //dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
-            //DisplayFood();
         }
         private void dgviewDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -99,7 +65,7 @@ namespace Restaurant_UI
             {
                 OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
                 refrech("Chef");
-                DisplayFood();
+                Login_Form.DisplayFood();
             }
 
         }
@@ -121,11 +87,61 @@ namespace Restaurant_UI
                 if (row.Index>0)
                 {
                     int ItemId = int.Parse(dgviewOrders.Rows[row.Index].Cells["Id"].Value.ToString());
-                    // Items.Add(ItemId);
-                    OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
-                    refrech("Chef");
+                     Items.Add(ItemId);
                 }
             }
+            foreach (int z in Items)
+            {
+                OrderItem_Service.MarkAsReady(z, OrderStatus.Ready);
+            }
+            refrech("Chef");
+        }
+
+        public void DisplayFood()
+        {
+            try
+            {
+                foreach (DataGridViewRow row in dgviewOrders.Rows)
+                {
+                    if (row.Index >= 0)
+                    {
+                        string State = Convert.ToString(row.Cells[4].Value);
+                        if (State.ToLower().Trim() == "waiting")
+                            row.DefaultCellStyle.BackColor = Color.Red;
+                        else if (State.ToLower().Trim() == "processing")
+                            row.DefaultCellStyle.BackColor = Color.Yellow;
+                        else if (State.ToLower().Trim() == "ready")
+                            row.DefaultCellStyle.BackColor = Color.LightGreen;
+                        else if (State.ToLower().Trim() == "served")
+                            row.DefaultCellStyle.BackColor = Color.GreenYellow;
+                    }
+                }
+            }
+            catch (Exception k)
+            {
+                MessageBox.Show(" something went wrong :" + k.Message);
+            }
+
+        }
+
+        private void refrech(string FoodOrDrinks)
+        {
+            if (FoodOrDrinks == "Chef")
+            { 
+                dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
+                Login_Form.DisplayFood();
+            }
+            else if (FoodOrDrinks == "Barman")
+            {
+                dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
+                Login_Form.DisplayFood();
+            }
+        }
+
+        private void pictureBoxOrders_Click(object sender, EventArgs e)
+        {
+            dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
+            DisplayFood();
         }
     }
 }

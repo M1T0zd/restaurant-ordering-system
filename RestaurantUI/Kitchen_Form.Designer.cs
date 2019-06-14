@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kitchen_Form));
             this.panelBar = new System.Windows.Forms.Panel();
+            this.btn_PrepareMany = new System.Windows.Forms.Button();
             this.dgviewOrders = new System.Windows.Forms.DataGridView();
             this.btnMarkready = new System.Windows.Forms.DataGridViewButtonColumn();
             this.timerRefrech = new System.Windows.Forms.Timer(this.components);
@@ -39,7 +40,7 @@
             this.pictureBoxComments = new System.Windows.Forms.PictureBox();
             this.pictureBoxOrders = new System.Windows.Forms.PictureBox();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
-            this.btn_PrepareMany = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgviewOrders)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -57,6 +58,16 @@
             this.panelBar.Name = "panelBar";
             this.panelBar.Size = new System.Drawing.Size(1022, 583);
             this.panelBar.TabIndex = 3;
+            // 
+            // btn_PrepareMany
+            // 
+            this.btn_PrepareMany.Location = new System.Drawing.Point(14, 531);
+            this.btn_PrepareMany.Name = "btn_PrepareMany";
+            this.btn_PrepareMany.Size = new System.Drawing.Size(290, 49);
+            this.btn_PrepareMany.TabIndex = 2;
+            this.btn_PrepareMany.Text = "Prepare multiple orders";
+            this.btn_PrepareMany.UseVisualStyleBackColor = true;
+            this.btn_PrepareMany.Click += new System.EventHandler(this.btn_PrepareMany_Click);
             // 
             // dgviewOrders
             // 
@@ -98,7 +109,7 @@
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(21, 4);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 3);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(110, 61);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -118,12 +129,13 @@
             // pictureBoxOrders
             // 
             this.pictureBoxOrders.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOrders.Image")));
-            this.pictureBoxOrders.Location = new System.Drawing.Point(155, 4);
+            this.pictureBoxOrders.Location = new System.Drawing.Point(140, 4);
             this.pictureBoxOrders.Name = "pictureBoxOrders";
             this.pictureBoxOrders.Size = new System.Drawing.Size(110, 61);
             this.pictureBoxOrders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxOrders.TabIndex = 1;
             this.pictureBoxOrders.TabStop = false;
+            this.pictureBoxOrders.Click += new System.EventHandler(this.pictureBoxOrders_Click);
             // 
             // pictureBoxExit
             // 
@@ -136,21 +148,22 @@
             this.pictureBoxExit.TabStop = false;
             this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
             // 
-            // btn_PrepareMany
+            // button1
             // 
-            this.btn_PrepareMany.Location = new System.Drawing.Point(14, 531);
-            this.btn_PrepareMany.Name = "btn_PrepareMany";
-            this.btn_PrepareMany.Size = new System.Drawing.Size(290, 49);
-            this.btn_PrepareMany.TabIndex = 2;
-            this.btn_PrepareMany.Text = "Prepare multiple orders";
-            this.btn_PrepareMany.UseVisualStyleBackColor = true;
-            this.btn_PrepareMany.Click += new System.EventHandler(this.btn_PrepareMany_Click);
+            this.button1.Location = new System.Drawing.Point(1146, 89);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 59);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Kitchen_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1454, 684);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelMenu);
             this.Name = "Kitchen_Form";
@@ -170,7 +183,6 @@
         #endregion
         private System.Windows.Forms.Timer timerRefrech;
         private System.Windows.Forms.Panel panelBar;
-        private System.Windows.Forms.DataGridView dgviewOrders;
         private System.Windows.Forms.DataGridViewButtonColumn btnMarkready;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
@@ -178,5 +190,7 @@
         private System.Windows.Forms.PictureBox pictureBoxOrders;
         private System.Windows.Forms.PictureBox pictureBoxExit;
         private System.Windows.Forms.Button btn_PrepareMany;
+        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.DataGridView dgviewOrders;
     }
 }
