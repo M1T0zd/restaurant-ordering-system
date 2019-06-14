@@ -32,7 +32,7 @@ namespace Restaurant_Logic
             }
             catch (Exception e)
             {
-                ErrorLogging(e);
+               // ErrorLogging(e);
 
                 return null;
             }

@@ -11,10 +11,10 @@ namespace Restaurant_DAL
 {
     public class Payment_DAO : Base
     {
-        // save payment to database
-        public void InsertDetails( int method, Decimal total, Decimal tax)
+        
+        public void InsertOrder(Payment payment)
         {
-            string query = $"INSERT INTO  Payments VALUES ( {method}, {total},{tax})";
+            string query = $"INSERT INTO  Payments VALUES ({payment.Tip}, {payment.Tax},{payment.PaymentMethod})";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
 

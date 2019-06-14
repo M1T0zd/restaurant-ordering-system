@@ -81,23 +81,11 @@
     <Compile Include="Order_Form.Designer.cs">
       <DependentUpon>Order_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Payment Successful.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Payment Successful.Designer.cs">
-      <DependentUpon>Payment Successful.cs</DependentUpon>
-    </Compile>
     <Compile Include="Payment_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Payment_Form.Designer.cs">
       <DependentUpon>Payment_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Confirm_payment_Method.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Confirm_payment_Method.Designer.cs">
-      <DependentUpon>Confirm_payment_Method.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,14 +107,8 @@
     <EmbeddedResource Include="Order_Form.resx">
       <DependentUpon>Order_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Payment Successful.resx">
-      <DependentUpon>Payment Successful.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Payment_Form.resx">
       <DependentUpon>Payment_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Confirm_payment_Method.resx">
-      <DependentUpon>Confirm_payment_Method.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

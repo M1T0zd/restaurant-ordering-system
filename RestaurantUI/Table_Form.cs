@@ -114,6 +114,7 @@ namespace Restaurant_UI
 
             Order_Form order_Form = new Order_Form(table,this,Employee,currentsession);
             order_Form.Show();
+            this.Hide();
       
         }
         private void Btnaccount_Click(object sender, EventArgs e)
