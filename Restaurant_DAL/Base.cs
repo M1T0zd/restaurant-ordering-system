@@ -26,7 +26,7 @@ namespace Restaurant_DAL
             return conn;
         }
 
-        private void CloseConnection()
+        public void CloseConnection()
         {
             conn.Close();
         }
