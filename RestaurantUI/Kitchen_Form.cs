@@ -18,56 +18,39 @@ namespace Restaurant_UI
         DesignHelper designHelper = new DesignHelper();
         List<OrderItem> Orders = new List<OrderItem>();// refreching use
         public static string Role = "Barman";
-        Login_Form Login_Form = new Login_Form(); 
-
         public Kitchen_Form(string role/*Employee employee*/)
         {
             InitializeComponent();
             Role = role;
-          // Orders = OrderItem_Service.GetFoodOrders();
-            if (Role.ToString() == "Chef")
-            {
-               
-                //// FillOrdersItemList();
-                //dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
-                //DisplayFood();
-            }
-            else if (Role.ToString() == "Barman")
-            {
-                //Orders = OrderItem_Service.GetDrinksOrders();
-                //dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
-                //Login_Form.DisplayFood();
-            }
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
             timerRefrech.Interval = 100; //refresh every 20 seconds 
-            timerRefrech.Enabled = false;
+            timerRefrech.Enabled = true;
         }
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
             Orders = OrderItem_Service.GetFoodOrders();
-            refrech("Chef");
+            if (Role.ToString() == "Chef")
+                LoadingData("Chef");
+            else
+                LoadingData("Barman");
         }
         private void dgviewDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (OrderStatus.Ready== designHelper.getDGcellState(dgviewFood, 0))//*** only confirmation for ready
-            //{
-            //    if (MessageBox.Show(" are you sure you want to mark this order as : Ready " , "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            //    {
-            //        OrderItem_Service.UpdateOrderItemState(designHelper.GetGgridIndex(dgviewFood, "OrderItemId"), designHelper.getDGcellState(dgviewFood,0));
-            //        refrech("food");
-            //    }
-            //}
-            var OrderItemIndex = dgviewOrders.CurrentRow.Cells["Id"].FormattedValue;// get the id of the orderItem
+            var OrderItemIndex = dgviewOrders.CurrentRow.Cells["Id"].FormattedValue;
             int ItemId = Convert.ToInt32(OrderItemIndex);
-            if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
+            if (MessageBox.Show(" are you sure you want to mark this order as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
-                refrech("Chef");
-                Login_Form.DisplayFood();
+                if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
+                {
+                    OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
+                    if (Role.ToString() == "Chef")
+                        LoadingData("Chef");
+                    else
+                        LoadingData("Barman");
+                }
             }
-
         }
         private void pictureBoxExit_Click(object sender, EventArgs e)
         {
@@ -78,23 +61,28 @@ namespace Restaurant_UI
         {
             e.Cancel = true;
         }
-        
         private void btn_PrepareMany_Click(object sender, EventArgs e)
         {
             List<int> Items = new List<int>();// to remove later 
             foreach (DataGridViewRow row in dgviewOrders.SelectedRows)
             {
-                if (row.Index>0)
+                if (row.Index>=0)
                 {
                     int ItemId = int.Parse(dgviewOrders.Rows[row.Index].Cells["Id"].Value.ToString());
                      Items.Add(ItemId);
                 }
             }
-            foreach (int z in Items)
+            if (MessageBox.Show(" are you sure you want to mark this order as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                OrderItem_Service.MarkAsReady(z, OrderStatus.Ready);
+                foreach (int Id in Items)
+                    OrderItem_Service.MarkAsReady(Id, OrderStatus.Ready);
+                if (Role.ToString() == "Chef")
+                    LoadingData("Chef");
+                else
+                    LoadingData("Barman");
             }
-            refrech("Chef");
+            else
+                MessageBox.Show("Operation was aborted ");
         }
 
         public void DisplayFood()
@@ -124,24 +112,31 @@ namespace Restaurant_UI
 
         }
 
-        private void refrech(string FoodOrDrinks)
+        private void LoadingData(string FoodOrDrinks)
         {
             if (FoodOrDrinks == "Chef")
             { 
                 dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
-                Login_Form.DisplayFood();
+                 DisplayFood();
             }
             else if (FoodOrDrinks == "Barman")
             {
                 dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
-                Login_Form.DisplayFood();
+                 DisplayFood();
             }
         }
 
         private void pictureBoxOrders_Click(object sender, EventArgs e)
         {
-            dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
-            DisplayFood();
+            if (Role.ToString()=="Chef")
+                LoadingData("Chef");
+            else
+                LoadingData("Barman");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
