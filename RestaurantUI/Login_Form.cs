@@ -15,36 +15,9 @@ namespace Restaurant_UI
     public partial class Login_Form : Form
     {
         int check = 0;
-        Kitchen_Form kitchen_Form;
         public Login_Form()
         {
             InitializeComponent();         
-        }
-        public void DisplayFood()
-        {
-            try
-            {
-                foreach (DataGridViewRow row in kitchen_Form.dgviewOrders.Rows)
-                {
-                    if (row.Index >= 0)
-                    {
-                        string State = Convert.ToString(row.Cells[4].Value);
-                        if (State.ToLower().Trim() == "waiting")
-                            row.DefaultCellStyle.BackColor = Color.Red;
-                        else if (State.ToLower().Trim() == "processing")
-                            row.DefaultCellStyle.BackColor = Color.Yellow;
-                        else if (State.ToLower().Trim() == "ready")
-                            row.DefaultCellStyle.BackColor = Color.LightGreen;
-                        else if (State.ToLower().Trim() == "served")
-                            row.DefaultCellStyle.BackColor = Color.GreenYellow;
-                    }
-                }
-            }
-            catch (Exception k)
-            {
-                MessageBox.Show(" something went wrong :" + k.Message);
-            }
-
         }
         private void Btnlogin_Click(object sender, EventArgs e)
         {
@@ -88,15 +61,14 @@ namespace Restaurant_UI
                 if (currentemployee.Role == EmployeeRole.Chef)
                 {
                     //Display Chef UI
-                   kitchen_Form = new Kitchen_Form("Chef");
+                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
                     kitchen_Form.Show();
                 }
                 else if (currentemployee.Role == EmployeeRole.Barman)
                 {
                     //Display BarmanUI
-                   
-                    //Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
-                    //kitchen_Form.Show();
+                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
+                    kitchen_Form.Show();
                 }
                 else if (currentemployee.Role == EmployeeRole.Waiter)
                 {

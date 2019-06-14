@@ -17,11 +17,11 @@ namespace Restaurant_UI
         public OrderItem_Service OrderItem_Service = new OrderItem_Service();
         DesignHelper designHelper = new DesignHelper();
         List<OrderItem> Orders = new List<OrderItem>();// refreching use
-        public static string Role = "Barman";
-        public Kitchen_Form(string role/*Employee employee*/)
+        public  Employee employee = new Employee();
+        public Kitchen_Form(Employee employee)
         {
             InitializeComponent();
-            Role = role;
+            this.employee = employee;
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
@@ -31,7 +31,7 @@ namespace Restaurant_UI
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
             //oers = OrderItem_Service.GetFoodOrders();
-            if (Role.ToString() == "Chef")
+            if (employee.Role.ToString() == "Chef")
                 LoadingData("Chef");
             else
                 LoadingData("Barman");
@@ -45,7 +45,7 @@ namespace Restaurant_UI
                 if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
                 {
                     OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
-                    if (Role.ToString() == "Chef")
+                    if (employee.Role.ToString() == "Chef")
                         LoadingData("Chef");
                     else
                         LoadingData("Barman");
@@ -76,7 +76,7 @@ namespace Restaurant_UI
             {
                 foreach (int Id in Items)
                     OrderItem_Service.MarkAsReady(Id, OrderStatus.Ready);
-                if (Role.ToString() == "Chef")
+                if (employee.Role.ToString() == "Chef")
                     LoadingData("Chef");
                 else
                     LoadingData("Barman");
@@ -130,7 +130,7 @@ namespace Restaurant_UI
 
         private void pictureBoxOrders_Click(object sender, EventArgs e)
         {
-            if (Role.ToString()=="Chef")
+            if (employee.Role.ToString()=="Chef")
                 LoadingData("Chef");
             else
                 LoadingData("Barman");
