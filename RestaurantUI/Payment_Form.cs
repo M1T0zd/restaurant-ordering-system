@@ -101,10 +101,10 @@ namespace Restaurant_UI
 
             Payment_Service payment_Service = new Payment_Service();
             payment_Service.insertOrder(payment);
-          
-        }
 
         }
+
+
         //write comments to text file
         private void WriteComments()// to text file
         {
@@ -145,9 +145,10 @@ namespace Restaurant_UI
             }
             catch (Exception m)
             {
-                MessageBox.Show("Enter numbers only", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Enter numbers only", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
-}
+ }
+
 
