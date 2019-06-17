@@ -18,6 +18,7 @@ namespace Restaurant_UI
         DesignHelper designHelper = new DesignHelper();
         List<OrderItem> Orders = new List<OrderItem>();// refreching use
         public  Employee employee = new Employee();
+        //***************************************************
         public Kitchen_Form(Employee employee)
         {
             InitializeComponent();
@@ -37,13 +38,13 @@ namespace Restaurant_UI
         }
         private void dgviewDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var OrderItemIndex = dgviewOrders.CurrentRow.Cells["Id"].FormattedValue;
-            int ItemId = Convert.ToInt32(OrderItemIndex);
+            OrderItem currentObject = (OrderItem)dgviewOrders.CurrentRow.DataBoundItem;
+            int OrderItemIndex = currentObject.Id;
             if (MessageBox.Show(" are you sure you want to mark this order as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
                 {
-                    OrderItem_Service.MarkAsReady(ItemId, OrderStatus.Ready);
+                    OrderItem_Service.MarkAsReady(OrderItemIndex, OrderStatus.Ready);
                     if (employee.Role.ToString() == "Chef")
                         LoadingData("Chef");
                     else
@@ -65,13 +66,13 @@ namespace Restaurant_UI
             List<int> Items = new List<int>();// to remove later 
             foreach (DataGridViewRow row in dgviewOrders.SelectedRows)
             {
-                if (row.Index>=0)
+                if (row.Index >= 0)
                 {
-                    int ItemId = int.Parse(dgviewOrders.Rows[row.Index].Cells["Id"].Value.ToString());
-                     Items.Add(ItemId);
+                    OrderItem currentObject = (OrderItem)row.DataBoundItem; // i use the current object in datagrid 
+                    Items.Add(currentObject.Id);// i get the id from the object not from the interface 
                 }
             }
-            if (MessageBox.Show(" are you sure you want to mark this order as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show(" are you sure you want to mark all these orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 foreach (int Id in Items)
                     OrderItem_Service.MarkAsReady(Id, OrderStatus.Ready);
@@ -116,8 +117,19 @@ namespace Restaurant_UI
             if (FoodOrDrinks == "Chef")
             {
                 Orders = OrderItem_Service.GetFoodOrders();
-                dgviewOrders.DataSource = OrderItem_Service.GetFoodOrders();
-                 DisplayFood();
+                //var _bind = from a in Orders
+                //            select new
+                //            {
+                //                Name = a.ItemName,
+                //                Quantity = a.Amount,
+                //                TakenAt = a.ordertime,
+                //                TabelNumber = a.TableNumber,
+                //                State = a.Status,
+                //                OrdrId = a.Id,
+                //            };
+                //dgviewOrders.DataSource = _bind.ToList();
+                dgviewOrders.DataSource = Orders;
+                DisplayFood();
             }
             else if (FoodOrDrinks == "Barman")
             {

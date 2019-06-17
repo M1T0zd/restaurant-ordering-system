@@ -52,7 +52,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.Table_Numberlbl = new System.Windows.Forms.TextBox();
-            this.tbNumberlbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.commentstxt_box = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -105,11 +104,6 @@
             this.Total_txt_bx.Name = "Total_txt_bx";
             this.Total_txt_bx.ReadOnly = true;
             this.Total_txt_bx.Size = new System.Drawing.Size(64, 13);
-            this.Vattxtbx.Location = new System.Drawing.Point(419, 295);
-            this.Vattxtbx.Margin = new System.Windows.Forms.Padding(4);
-            this.Vattxtbx.Name = "Vattxtbx";
-            this.Vattxtbx.Size = new System.Drawing.Size(84, 22);
-            this.Vattxtbx.TabIndex = 38;
             // 
             this.Total_txt_bx.TabIndex = 37;
             // 
@@ -153,14 +147,6 @@
             // 
             // tableNumbertxtbx
             // 
-            this.tableNumbertxtbx.BackColor = System.Drawing.SystemColors.Menu;
-            this.tableNumbertxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableNumbertxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableNumbertxtbx.Location = new System.Drawing.Point(320, 47);
-            this.tableNumbertxtbx.Margin = new System.Windows.Forms.Padding(4);
-            this.tableNumbertxtbx.Name = "tableNumbertxtbx";
-            this.tableNumbertxtbx.Size = new System.Drawing.Size(52, 19);
-            this.tableNumbertxtbx.TabIndex = 32;
             // 
             // groupBox1
             // 
@@ -217,14 +203,6 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Restaurant_UI.Properties.Resources.Designbolts_Credit_Card_Payment_American_Express;
-            this.pictureBox4.Location = new System.Drawing.Point(320, 100);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(63, 34);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox4.TabIndex = 22;
-            this.pictureBox4.TabStop = false;
             // PinRadiobtn
             // 
             this.PinRadiobtn.AutoSize = true;
@@ -343,25 +321,7 @@
             // 
             // tbNumberlbl
             // 
-            this.tbNumberlbl.AutoSize = true;
-            this.tbNumberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNumberlbl.Location = new System.Drawing.Point(168, 11);
-            this.tbNumberlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.tbNumberlbl.Name = "tbNumberlbl";
-            this.tbNumberlbl.Size = new System.Drawing.Size(129, 20);
-            this.tbNumberlbl.TabIndex = 51;
-            this.tbNumberlbl.Text = "Table number:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(179, 47);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 18);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "Order number:";
+
             // label5
             // 
             this.label5.AutoSize = true;
@@ -391,7 +351,6 @@
             this.Controls.Add(this.commentstxt_box);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Table_Numberlbl);
-            this.Controls.Add(this.tbNumberlbl);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -399,15 +358,12 @@
             this.Controls.Add(this.Tax_txt_bx);
             this.Controls.Add(this.Tiptxt_bx);
             this.Controls.Add(this.Total_txt_bx);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.tableNumbertxtbx);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Payment_Form";
             this.Text = "Payment_Form";
-            this.Load += new System.EventHandler(this.Payment_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

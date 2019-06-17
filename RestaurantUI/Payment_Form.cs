@@ -36,17 +36,17 @@ namespace Restaurant_UI
                 ListViewItem listViewItem = new ListViewItem(Convert.ToString(i));
                 listViewItem.SubItems.Add("1");
                 listViewItem.SubItems.Add("10");
-                listView1.Items.Add(listViewItem);
+                //listView1.Items.Add(listViewItem);
             }
             Calculate();
         }
         private void Calculate()// VAT and total
         {
             string total = null;
-            for (int i = 0; i < listView1.Items.Count; i++)
-            {
-                total = listView1.Items[i].SubItems[2].Text;
-            }
+            //for (int i = 0; i < listView1.Items.Count; i++)
+            //{
+            //  //  total = listView1.Items[i].SubItems[2].Text;
+            //}
             payment.Tax = (Convert.ToDecimal(total) * Convert.ToDecimal(0.21)); // calculate vat
             Tax_txt_bx.Text = payment.Tax.ToString();
             payment.Total = (Convert.ToDecimal(total) + payment.Tax);

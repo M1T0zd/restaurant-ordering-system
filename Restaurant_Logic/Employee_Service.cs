@@ -28,8 +28,8 @@ namespace Restaurant_Logic
 
             try
             {
-                List<Employee> employees = employee_db.GetEmployees();
-                return employees;
+                //List<Employee> employees = employee_db.GetEmployees();
+                //return employees;
             }
             catch (Exception e)
             {

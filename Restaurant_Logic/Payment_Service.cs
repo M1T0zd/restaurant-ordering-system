@@ -14,7 +14,7 @@ namespace Restaurant_Logic
 
         public void insertOrder(Payment payment)
         {
-            insertDetails.InsertOrder(payment);
+            //insertDetails.InsertOrder(payment);
            
         }
         public Payment ProcessPayment(int TabelID)
