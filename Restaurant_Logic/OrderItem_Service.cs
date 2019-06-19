@@ -12,19 +12,61 @@ namespace Restaurant_Logic
 {
     public class OrderItem_Service
     {
-        OrderItem_DAO order_DAO = new OrderItem_DAO();
+        OrderItem_DAO orderItem_DAO = new OrderItem_DAO();
+        List<OrderItem> orderItems = new List<OrderItem>();
+        public List<OrderItem> GetFoodOrders()
+        {
+            return orderItems = orderItem_DAO.GetFoodItems();
+        }
+        public List<OrderItem> GetDrinksOrders()
+        {
+            return orderItems = orderItem_DAO.GetDrinkItems();
+        }
+		public void PushOrder(OrderItem orderItem)
+		{
+			try
+			{
+				orderItem_DAO.PushOrderItem(orderItem);
+			}
+			catch (Exception e)
+			{
+				ErrorLogging(e);
+			}
+		}
 
-        public List<OrderItem> GetOrder()
+		public void PushOrderItems(List<OrderItem> orderItems)
+		{
+			try
+			{
+				foreach (OrderItem orderItem in orderItems)
+				{
+					orderItem_DAO.PushOrderItem(orderItem);
+				}
+			}
+			catch (Exception e)
+			{
+				ErrorLogging(e);
+			}
+		}
+
+		public void UpdateOrderItemState(int orderItem, OrderStatus newSatate)
+        {
+            orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
+        }
+        public void MarkAsReady(int orderItem, OrderStatus newSatate)
+        {
+            orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
+        }
+
+        public List<OrderItem> GetOrderWaiter()
         {
            
-                List<OrderItem> orders = order_DAO.GetOrders();
+                List<OrderItem> orders = orderItem_DAO.GetOrdersWaiter();
                 return orders;
-            
-
         }
         public void UpdateStatus(OrderItem orderItem)
         {
-            order_DAO.UpdateStatus(orderItem);
+            orderItem_DAO.UpdateStatus(orderItem);
         }
         private static void ErrorLogging(Exception e)
         {
