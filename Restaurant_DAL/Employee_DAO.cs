@@ -12,27 +12,22 @@ namespace Restaurant_DAL
 {
     public class Employee_DAO : Base
     {
-        public List<Employee> GetEmployees()
+        public Employee GetCurrentEmployee(Login login)
         {
-            string query = "SELECT name,number,ER.Role FROM Employees AS E JOIN EmployeeRole AS ER ON ER.Id = E.RoleId";
+            string query = $"SELECT name,number,RoleID FROM Employees WHERE Number = {login.EmployeeNumber}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<Employee> ReadTables(DataTable dataTable)
+        private Employee ReadTables(DataTable dataTable)
         {
-            List<Employee> employees = new List<Employee>();
-
+            Employee employee = new Employee();
             foreach (DataRow dr in dataTable.Rows)
             {
-                Employee employee = new Employee()
-                {
-                    Name = (String)dr["Name"],
-                    Number = (int)dr["Number"],
-                    Role = (String)dr["Role"]               
-                };
-                employees.Add(employee);
+                employee.Name = (String)dr["Name"];
+                employee.Number = (int)dr["Number"];
+                employee.Role = (EmployeeRole)dr["RoleID"];                         
             }
-            return employees;
+            return employee;
         }
     }
 }

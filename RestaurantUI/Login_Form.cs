@@ -14,81 +14,70 @@ namespace Restaurant_UI
 {
     public partial class Login_Form : Form
     {
-        //Bar- and Kitchen-form can be the same form(if the logged in employee == bar then get drinks otherwise get food).
-        List<Login> loginList = new List<Login>();
-        List<Employee> employees = new List<Employee>();
-        Login CurrentLogin;
-        Employee currentemployee;
         int check = 0;
-        Login_Service Login_Service { get; set; }
-
         public Login_Form()
         {
-            InitializeComponent();
-            
-            GetEmployee();
-        }
-        void GetEmployee()
-        {
-            //Get list of all employees
-            Employee_Service employee_Service = new Employee_Service();
-            employees = employee_Service.GetEmployee();
+            InitializeComponent();         
         }
         private void Btnlogin_Click(object sender, EventArgs e)
         {
             //GetAllLoginInfo
-            Login_Service = new Login_Service();
-            loginList = Login_Service.GetLogin();
+            Login_Service Login_Service = new Login_Service();
+            List<Login> loginList = Login_Service.GetLogin();
             //Make new Current Login to save current login info
-            CurrentLogin = new Login();
+            Login CurrentLogin = new Login();
             foreach (Login login in loginList)
             {
                 if (login.Username == txtusername.Text && login.Password == txtpassword.Text)
                 {
                     CurrentLogin.EmployeeNumber = login.EmployeeNumber;
-                    check++;
-                    txtusername.Text = "";
-                    txtpassword.Text = "";
+                    check++;         
                 }           
             }
-            CheckEmployee();
-            ShowForm();
+            //ClearingTextBoxt for logging out
+            ClearTextBox();      
+            //Getting current employee
+            Employee currentemployee = GetCurrentEmployee(CurrentLogin);
+            //Show which form belongs to which employee
+            ShowForm(currentemployee);
         }
-        void CheckEmployee()
+        void ClearTextBox()
         {
-            //Get Current Employee
-            foreach (Employee employee in employees)
-            {
-                if (employee.Number == CurrentLogin.EmployeeNumber)
-                {
-                    currentemployee = employee;
-                }
-            }
+            txtusername.Text = "";
+            txtpassword.Text = "";
         }
-        private void ShowForm()
+        Employee GetCurrentEmployee(Login login)
+        {
+            Employee_Service employee_Service = new Employee_Service();
+            Employee employee = employee_Service.GetCurrentEmployee(login);
+            return employee;
+        }
+      
+        private void ShowForm(Employee currentemployee)
         {
             if (check == 1)
             {
                 //Hide login form
-                this.Hide();
-                if (currentemployee.Role == "Chef")
+                if (currentemployee.Role == EmployeeRole.Chef)
                 {
                     //Display Chef UI
                     Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
                     kitchen_Form.Show();
                 }
-                else if (currentemployee.Role == "Barman")
+                else if (currentemployee.Role == EmployeeRole.Barman)
                 {
                     //Display BarmanUI
-                    Bar_Form bar_Form = new Bar_Form();
-                    bar_Form.Show();
+                    Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
+                    kitchen_Form.Show();
                 }
-                else if (currentemployee.Role == "Waiter")
+                else if (currentemployee.Role == EmployeeRole.Waiter)
                 {
                     //Display WaiterUI
-                    Table_Form table_Form = new Table_Form(currentemployee, this);
+                   // Table_Form table_Form = new Table_Form(currentemployee, this);
+                    Table_Form table_Form = new Table_Form();
                     table_Form.Show();
                 }
+                this.Hide();
                 check = 0;
             }
             else
@@ -97,12 +86,12 @@ namespace Restaurant_UI
                 string message = "Wrong Username / Password";
                 string title = "Enter valid login credentials";
                 MessageBox.Show(message, title);
-            }
+            }        
         }
 
-		private void Login_Form_Load(object sender, EventArgs e)
-		{
+        private void Login_Form_Load(object sender, EventArgs e)
+        {
 
-		}
-	}
+        }
+    }
 }

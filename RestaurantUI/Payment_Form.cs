@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Restaurant_UI
 {
-     partial class Payment_Form : Form
+    partial class Payment_Form : Form
     {
 
         Table_Form table_Form;
@@ -116,8 +116,6 @@ namespace Restaurant_UI
         }
         private void SavePaymentDetails()// send to database
         {
-           // Payment_Service payment_Service = new Payment_Service();
-           // payment_Service.insertOrder(payment);
 
         }
         //write comments to text file
@@ -132,7 +130,6 @@ namespace Restaurant_UI
                 try
                 {
                     string file = "Comments.txt";
-    
                     if (!File.Exists(file))
                     {
                         File.Create(file);
@@ -169,11 +166,12 @@ namespace Restaurant_UI
             }
             catch (Exception m)
             {
-                MessageBox.Show("Enter numbers only", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Enter numbers only", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-       
     }
 }
+ 
+
 

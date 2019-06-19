@@ -20,8 +20,11 @@ namespace Restaurant_UI
         [STAThread]
         static void Main()
         {
+            //Employee emp = new Employee();
+            //emp.Role = "Chef";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Employee emp = new Employee();
             Application.Run(new Login_Form());
         }
     }
