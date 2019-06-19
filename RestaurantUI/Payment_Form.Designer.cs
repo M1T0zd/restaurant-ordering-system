@@ -19,7 +19,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -413,5 +412,6 @@
         private System.Windows.Forms.TextBox commentstxt_box;
         private System.Windows.Forms.Label VAT;
         private System.Windows.Forms.PictureBox pictureBox2;
+
     }
 }

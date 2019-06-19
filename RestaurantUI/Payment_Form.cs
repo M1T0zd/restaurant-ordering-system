@@ -44,10 +44,6 @@ namespace Restaurant_UI
         {
             string total = null;
             for (int i = 1; i < listView1.Items.Count; i++)
-            {
-                total = listView1.Items[i].SubItems[2].Text;
-            }
-
             CalculateVaT(total);
             payment.Total = (Convert.ToDecimal(total) + payment.Tax);
             Total_txt_bx.Text = string.Format("{0:C}", payment.Total);
@@ -116,10 +112,14 @@ namespace Restaurant_UI
         }
         private void SavePaymentDetails()// send to database
         {
-           // Payment_Service payment_Service = new Payment_Service();
-           // payment_Service.insertOrder(payment);
+
+
+            Payment_Service payment_Service = new Payment_Service();
+            payment_Service.insertOrder(payment);
 
         }
+
+
         //write comments to text file
         private void WriteComments()// to text file
         {
@@ -169,11 +169,12 @@ namespace Restaurant_UI
             }
             catch (Exception m)
             {
-                MessageBox.Show("Enter numbers only", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Enter numbers only", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
        
     }
-}
+ }
+
 

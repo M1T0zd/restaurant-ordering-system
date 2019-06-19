@@ -6,5 +6,8 @@ using System.Threading.Tasks;
 
 namespace RestaurantModel
 {
-	public enum Category { Lunch = 1, Dinner, Drinks }
+    public enum EmployeeRole
+    {
+        Waiter = 1, Chef, Barman
+    }
 }
