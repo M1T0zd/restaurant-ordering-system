@@ -14,12 +14,13 @@ using System.Windows.Forms;
 
 namespace Restaurant_UI
 {
-    public partial class Payment_Form : Form
+     partial class Payment_Form : Form
     {
 
         Table_Form table_Form;
         Table tableNumber;
         private Payment payment = new Payment();
+
         public Payment_Form(Table_Form table_Form, Table tableNumber)
         {
             InitializeComponent();
@@ -27,7 +28,6 @@ namespace Restaurant_UI
             this.tableNumber = tableNumber;
             DisplayOrderDetails();
         }
-
         private void DisplayOrderDetails()
         {
             Table_Numberlbl.Text = tableNumber.Number.ToString();
@@ -38,19 +38,36 @@ namespace Restaurant_UI
                 listViewItem.SubItems.Add("10");
                 listView1.Items.Add(listViewItem);
             }
-            Calculate();
+            CalculateTotal();
         }
-        private void Calculate()// VAT and total
+        private void CalculateTotal() // add vat
         {
             string total = null;
-            for (int i = 0; i < listView1.Items.Count; i++)
+            for (int i = 1; i < listView1.Items.Count; i++)
             {
                 total = listView1.Items[i].SubItems[2].Text;
             }
-            payment.Tax = (Convert.ToDecimal(total) * Convert.ToDecimal(0.21)); // calculate vat
-            Tax_txt_bx.Text = payment.Tax.ToString();
+
+            CalculateVaT(total);
             payment.Total = (Convert.ToDecimal(total) + payment.Tax);
-            Total_txt_bx.Text = payment.Total.ToString();
+            Total_txt_bx.Text = string.Format("{0:C}", payment.Total);
+        }
+        private void CalculateVaT(string total)
+        {
+            bool isAlchoholic = true;
+            if (!isAlchoholic)
+            {
+                payment.Tax = (Convert.ToDecimal(total) * Convert.ToDecimal(0.06));
+                VAT.Text = "6%";
+            }
+            else
+            {
+                payment.Tax = (Convert.ToDecimal(total) * Convert.ToDecimal(0.21));
+
+                VAT.Text = "21%";
+            }
+
+            Tax_txt_bx.Text = string.Format("{0:C}", payment.Tax);
         }
         private void CancelBtn_Click(object sender, EventArgs e)
         {
@@ -93,13 +110,14 @@ namespace Restaurant_UI
                 {
                     this.Hide();
                     WriteComments();
+                    SavePaymentDetails();
                 }
             }
         }
         private void SavePaymentDetails()// send to database
         {
-            Payment_Service payment_Service = new Payment_Service();
-            payment_Service.insertOrder(payment);
+           // Payment_Service payment_Service = new Payment_Service();
+           // payment_Service.insertOrder(payment);
 
         }
         //write comments to text file
@@ -111,15 +129,24 @@ namespace Restaurant_UI
             }
             else
             {
-                string file = "Comments.txt";
-                if (!File.Exists(file))
+                try
                 {
-                    File.Create(file);
+                    string file = "Comments.txt";
+    
+                    if (!File.Exists(file))
+                    {
+                        File.Create(file);
+                    }
+                    StreamWriter writer = File.AppendText(file);
+                    {
+                        writer.WriteLine($"{DateTime.Now} : {commentstxt_box.Text}");
+                    }
+                    PaymentConfirmation();
                 }
-                StreamWriter writer = File.AppendText(file);
-                writer.WriteLine($"{DateTime.Now} : {commentstxt_box.Text}");
-                writer.Close();
-                PaymentConfirmation();
+                catch (Exception e)
+                {
+                    MessageBox.Show("e");
+                }
             }
         }
         private void PaymentConfirmation()
@@ -145,6 +172,8 @@ namespace Restaurant_UI
                 MessageBox.Show("Enter numbers only", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
+
+       
     }
 }
 
