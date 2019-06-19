@@ -10,6 +10,6 @@ namespace RestaurantModel
     {
         public int Number { get; set; }
         public string Name { get; set; }
-        public string Role { get; set; }
+        public EmployeeRole Role { get; set; }
     }
 }
