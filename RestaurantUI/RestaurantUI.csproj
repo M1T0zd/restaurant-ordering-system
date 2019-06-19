@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Account_Form.Designer.cs">
-      <DependentUpon>Account_Form.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bar_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +57,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>chapeau1819sdb02DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="chapeau1819sdb02DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>chapeau1819sdb02DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="chapeau1819sdb02DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>chapeau1819sdb02DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DesignHelper.cs" />
     <Compile Include="Kitchen_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,11 +100,11 @@
     <Compile Include="Table_Form.Designer.cs">
       <DependentUpon>Table_Form.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Account_Form.resx">
-      <DependentUpon>Account_Form.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bar_Form.resx">
       <DependentUpon>Bar_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen_Form.resx">
+      <DependentUpon>Kitchen_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
@@ -133,6 +138,28 @@
     </None>
     <None Include="chapeau1819sdb02DataSet.xss">
       <DependentUpon>chapeau1819sdb02DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="chapeau1819sdb02DataSet1.xsc">
+      <DependentUpon>chapeau1819sdb02DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="chapeau1819sdb02DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>chapeau1819sdb02DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="chapeau1819sdb02DataSet1.xss">
+      <DependentUpon>chapeau1819sdb02DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="chapeau1819sdb02DataSet2.xsc">
+      <DependentUpon>chapeau1819sdb02DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="chapeau1819sdb02DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>chapeau1819sdb02DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="chapeau1819sdb02DataSet2.xss">
+      <DependentUpon>chapeau1819sdb02DataSet2.xsd</DependentUpon>
     </None>
     <None Include="Forms_Diagram.cd" />
     <None Include="Properties\Settings.settings">
@@ -184,6 +211,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Capture.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

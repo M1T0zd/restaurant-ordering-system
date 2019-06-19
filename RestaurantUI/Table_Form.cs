@@ -10,71 +10,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Restaurant_UI
 {
     public partial class Table_Form : Form
     {
         List<Table> tables;
+        Login_Form login_Form;
         Button button;
         Table table;
-        Account_Form form;
         Employee Employee;
         List<OrderItem> orderItems;
         Session currentsession;
-        
+        List<Button> buttons;
+        Payment_Service Payment_Service = new Payment_Service();
+        Payment payment = new Payment();
         public Table_Service Table_Service { get; set; }
-
-
-        public Table_Form(Employee employee, Login_Form login_Form)
+       // Employee employee, Login_Form login_Form
+        public Table_Form(/*Employee employee, Login_Form login_Form*/)
         {
             InitializeComponent();
-            form = new Account_Form(employee,login_Form,this);
             currentsession = new Session();
-            this.Employee = employee;
-            //Get Notification List If Order Is ready
-            GetList();
+           // this.Employee = employee;
+            Initialize(login_Form);
         }
 
         private void Table_Form_Load(object sender, EventArgs e)
         {
-            Initialize();          
         }
 
-        private void Initialize()
+        private void Initialize(Login_Form login_Form)
         {
             Table_Service = new Table_Service();
+            this.login_Form = login_Form;
             tables = Table_Service.GetTables();
-            currentsession.HostId = Employee.Number;
-            GiveColor();
-
-        }
-      
-        public void GiveName()
-        {
-            List<Label> labels = new List<Label>
-            {
-               lbltable1,lbltable2,lbltable3,lbltable4,lbltable5,lbltable6,lbltable7,lbltable8,lbltable9,lbltable10
-            };
-
-            for (int i = 0; i < tables.Count; i++)
-            {
-                if (tables[i].Status == TableStatus.Available)
-                {
-                    labels[i].Text = "";
-                }
-                else if (tables[i].Status == TableStatus.Reserved)
-                {
-                    labels[i].Text = "";
-                }
-                else
-                {
-                    labels[i].Text = $"Taken by: {tables[i].Employee.Name}";
-                }
-            }
-        }
-        public void GiveColor()
-        {
-            List<Button> buttons = new List<Button>
+            currentsession.Host = Employee;
+            buttons = new List<Button>
             {
                 btntbl1,
                 btntbl2,
@@ -87,7 +58,11 @@ namespace Restaurant_UI
                 btntable9,
                 btntable10
             };
-
+            GiveColor();
+            //Get Notification List If Order Is ready
+        }
+        public void GiveColor()
+        {
             for (int i = 0; i < tables.Count; i++)
             {
                 if (tables[i].Status == TableStatus.Available)
@@ -105,32 +80,31 @@ namespace Restaurant_UI
                 }
             } 
         }
+        public static int tableID = 0;
         private void Button_Click(object sender, EventArgs e)
         {
             button = (Button)sender;
             //If button clicked, get table from list based on it's TabIndex
             table = tables[button.TabIndex];
-            currentsession.TableId = table.Number;
 
+             tableID = tables.Find(x => x.Number == table.Number).Number;
+            currentsession.Table = table;
+           // Payment_Form payment_Form = new Payment_Form(tableID);
             Order_Form order_Form = new Order_Form(table,this,Employee,currentsession);
             order_Form.Show();
             this.Hide();
       
         }
-        private void Btnaccount_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            form.Show();
-            
-        }
         //Below Code is for the Notification Panel
       
         private void Btnnotif_Click(object sender, EventArgs e)
         {
+            ShowList();
+
             pnltable.Hide();
             pnlnotif.Show();
         }
-        private void GetList()
+        private void ShowList()
         {
             listviewnotif.View = View.Details;
             listviewnotif.Columns.Add("Name");
@@ -138,7 +112,7 @@ namespace Restaurant_UI
             listviewnotif.Columns.Add("Table");
 
             OrderItem_Service order_Service = new OrderItem_Service();
-            orderItems = order_Service.GetOrder();
+            orderItems = order_Service.GetOrderWaiter();
 
             foreach (OrderItem order in orderItems)
             {
@@ -160,9 +134,8 @@ namespace Restaurant_UI
         private void Listviewnotif_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = listviewnotif.SelectedIndices[0];
-            OrderItem orderItem = orderItems[index];
-            selectedorderItem = orderItem;
-        }     
+            selectedorderItem = orderItems[index];
+        }
         private void Btnserveitem_Click(object sender, EventArgs e)
         {
             try
@@ -170,6 +143,8 @@ namespace Restaurant_UI
                 selectedorderItem.Status = OrderStatus.Served;
                 OrderItem_Service item_Service = new OrderItem_Service();
                 item_Service.UpdateStatus(selectedorderItem);
+
+                RefreshForm();
             }
             catch (Exception)
             {
@@ -182,8 +157,40 @@ namespace Restaurant_UI
 
         private void Btnrefresh_Click(object sender, EventArgs e)
         {
+            RefreshForm();
+        }
+
+        void RefreshForm()
+        {
             listviewnotif.Clear();
-            GetList();
+            ShowList();
+        }
+
+        private void Btnrefreshtableview_Click(object sender, EventArgs e)
+        {
+            GiveColor();
+        }
+    
+		private void Table_Form_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Application.Exit();
+		}
+
+        private void Btllogout_Click(object sender, EventArgs e)
+        {
+            string message = "Are you sure you want to log out?";
+            string title = "Log Out";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                login_Form.Show();
+                this.Close();
+            }
+            else
+            {
+                // Go Back
+            }
         }
     }
 }

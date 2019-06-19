@@ -44,9 +44,7 @@ namespace Restaurant_DAL
         private int ReadTable(DataTable dataTable)
         {
             DataRow dataRow = dataTable.Rows[0];
-
             int id = (int)dataRow["Id"];
-
             return id;
         }
         

@@ -51,12 +51,12 @@
             this.lbltable3 = new System.Windows.Forms.Label();
             this.lbltable2 = new System.Windows.Forms.Label();
             this.lbltable1 = new System.Windows.Forms.Label();
-            this.btnaccount = new System.Windows.Forms.Button();
             this.pnlnotif = new System.Windows.Forms.Panel();
             this.btnrefresh = new System.Windows.Forms.Button();
             this.btnserveitem = new System.Windows.Forms.Button();
             this.btnpanelback = new System.Windows.Forms.Button();
             this.listviewnotif = new System.Windows.Forms.ListView();
+            this.btllogout = new System.Windows.Forms.Button();
             this.pnltable.SuspendLayout();
             this.pnlnotif.SuspendLayout();
             this.SuspendLayout();
@@ -183,6 +183,7 @@
             // 
             // pnltable
             // 
+            this.pnltable.Controls.Add(this.btllogout);
             this.pnltable.Controls.Add(this.btnnotif);
             this.pnltable.Controls.Add(this.lbltable10);
             this.pnltable.Controls.Add(this.lbltable9);
@@ -194,7 +195,6 @@
             this.pnltable.Controls.Add(this.lbltable3);
             this.pnltable.Controls.Add(this.lbltable2);
             this.pnltable.Controls.Add(this.lbltable1);
-            this.pnltable.Controls.Add(this.btnaccount);
             this.pnltable.Controls.Add(this.lbltitle);
             this.pnltable.Controls.Add(this.btntable10);
             this.pnltable.Controls.Add(this.btntable9);
@@ -207,7 +207,7 @@
             this.pnltable.Controls.Add(this.btntbl2);
             this.pnltable.Controls.Add(this.btntbl1);
             this.pnltable.Location = new System.Drawing.Point(16, 13);
-            this.pnltable.Margin = new System.Windows.Forms.Padding(4);
+            this.pnltable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnltable.Name = "pnltable";
             this.pnltable.Size = new System.Drawing.Size(486, 686);
             this.pnltable.TabIndex = 11;
@@ -312,17 +312,6 @@
             this.lbltable1.TabIndex = 12;
             this.lbltable1.Text = " ";
             // 
-            // btnaccount
-            // 
-            this.btnaccount.Location = new System.Drawing.Point(368, 10);
-            this.btnaccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnaccount.Name = "btnaccount";
-            this.btnaccount.Size = new System.Drawing.Size(100, 37);
-            this.btnaccount.TabIndex = 11;
-            this.btnaccount.Text = "My Account";
-            this.btnaccount.UseVisualStyleBackColor = true;
-            this.btnaccount.Click += new System.EventHandler(this.Btnaccount_Click);
-            // 
             // pnlnotif
             // 
             this.pnlnotif.Controls.Add(this.btnrefresh);
@@ -374,6 +363,17 @@
             this.listviewnotif.View = System.Windows.Forms.View.Details;
             this.listviewnotif.Click += new System.EventHandler(this.Listviewnotif_SelectedIndexChanged);
             // 
+            // btllogout
+            // 
+            this.btllogout.Location = new System.Drawing.Point(376, 14);
+            this.btllogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btllogout.Name = "btllogout";
+            this.btllogout.Size = new System.Drawing.Size(100, 37);
+            this.btllogout.TabIndex = 23;
+            this.btllogout.Text = "Log Out";
+            this.btllogout.UseVisualStyleBackColor = true;
+            this.btllogout.Click += new System.EventHandler(this.Btllogout_Click);
+            // 
             // Table_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -381,9 +381,10 @@
             this.ClientSize = new System.Drawing.Size(515, 732);
             this.Controls.Add(this.pnltable);
             this.Controls.Add(this.pnlnotif);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Table_Form";
             this.Text = "Table_Form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Table_Form_FormClosed);
             this.Load += new System.EventHandler(this.Table_Form_Load);
             this.pnltable.ResumeLayout(false);
             this.pnltable.PerformLayout();
@@ -406,7 +407,6 @@
         private System.Windows.Forms.Button btntable10;
         private System.Windows.Forms.Label lbltitle;
         private System.Windows.Forms.Panel pnltable;
-        private System.Windows.Forms.Button btnaccount;
         private System.Windows.Forms.Label lbltable7;
         private System.Windows.Forms.Label lbltable6;
         private System.Windows.Forms.Label lbltable5;
@@ -423,5 +423,7 @@
         private System.Windows.Forms.Button btnpanelback;
         private System.Windows.Forms.Button btnserveitem;
         private System.Windows.Forms.Button btnrefresh;
+        private System.Windows.Forms.Button btnrefreshtableview;
+        private System.Windows.Forms.Button btllogout;
     }
 }

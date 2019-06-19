@@ -19,7 +19,13 @@ namespace Restaurant_DAL
 			return ReadTables(ExecuteSelectQuery(query, sqlParameters));
 		}
 
-		//TODO: Status, Comment and Quantity should go to OrderItem, not Order.
+		public void PushOrder(Order order)
+		{
+			string query = "INSERT INTO Orders" +
+				$"VALUES ({order.SessionId}, {order.TakenAt});";
+			SqlParameter[] sqlParameters = new SqlParameter[0];
+			ExecuteSelectQuery(query, sqlParameters);
+		}
 
 		private List<Order> ReadTables(DataTable dataTable)
 		{
