@@ -12,14 +12,15 @@ namespace Restaurant_DAL
 {
     public class OrderItem_DAO : Base
     {
-        public List<OrderItem> GetFoodItems()
+        public List<OrderItem> GetUnReadyFoodItemsOrderByTakenTime()
         {
-            string query = @" select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime, o.Id as OrderID,i.Id as ItemID , se.TableId from Orders o 
+            string query = @" select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime,se.TableId, o.Id as OrderID,i.Id as ItemID  from Orders o 
 								join OrderItems i on o.Id=i.OrderId
 								join OrderState s on s.Id=i.StateId
 								join MenuItems m on m.Id=i.MenuItemId
 								join Dishes d on m.Id=d.Id
-								join Sessions se on se.Id=o.SessionId where i.StateId!=3";
+								join Sessions se on se.Id=o.SessionId where i.StateId!=3
+                                order by  FORMAT (o.TakenAt, 'hh:mm:ss') desc";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
@@ -31,14 +32,15 @@ namespace Restaurant_DAL
 			SqlParameter[] sqlParameters = new SqlParameter[0];
 			ExecuteSelectQuery(query, sqlParameters);
 		}
-        public List<OrderItem> GetDrinkItems()
+        public List<OrderItem> GetReadyDrinkItemsOrderByTakenTime()
         {
-            string query = @"select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime, o.Id as OrderID,i.Id as ItemID , se.TableId from Orders o 
+            string query = @"select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime,se.TableId, o.Id as OrderID,i.Id as ItemID  from Orders o 
 								join OrderItems i on o.Id=i.OrderId
 								join OrderState s on s.Id=i.StateId
 								join MenuItems m on m.Id=i.MenuItemId
 								join Drinks d on m.Id=d.Id
-								join Sessions se on se.Id=o.SessionId where i.StateId!=3";
+								join Sessions se on se.Id=o.SessionId where i.StateId!=3
+                                order by  FORMAT (o.TakenAt, 'hh:mm:ss') desc";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -54,9 +56,10 @@ namespace Restaurant_DAL
                     Comment = (string)dr["Comment"],
                     Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), Convert.ToString(dr["State"])),
                     ordertime = (string)dr["ordertime"],
+                    TableNumber = (int)dr["TableId"],
                     OrderId = (int)dr["OrderID"],
                     Id = (int)dr["ItemID"],
-                    TableNumber=(int)dr["TableId"],
+                    
                 };
                 OrderItems.Add(OrderItem);
             }

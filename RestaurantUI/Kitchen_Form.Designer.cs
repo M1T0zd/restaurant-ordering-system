@@ -55,7 +55,7 @@
             this.panelBar.Controls.Add(this.dgviewOrders);
             this.panelBar.Location = new System.Drawing.Point(12, 89);
             this.panelBar.Name = "panelBar";
-            this.panelBar.Size = new System.Drawing.Size(1225, 583);
+            this.panelBar.Size = new System.Drawing.Size(1019, 583);
             this.panelBar.TabIndex = 3;
             // 
             // btn_PrepareMany
@@ -76,10 +76,12 @@
             this.dgviewOrders.Location = new System.Drawing.Point(14, 13);
             this.dgviewOrders.Name = "dgviewOrders";
             this.dgviewOrders.RowTemplate.Height = 24;
-            this.dgviewOrders.Size = new System.Drawing.Size(1193, 511);
+            this.dgviewOrders.Size = new System.Drawing.Size(994, 512);
             this.dgviewOrders.TabIndex = 1;
             this.dgviewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgviewDrinks_CellContentClick);
             this.dgviewOrders.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgviewOrders_DataError_1);
+            this.dgviewOrders.MouseEnter += new System.EventHandler(this.dgviewOrders_MouseEnter);
+            this.dgviewOrders.MouseHover += new System.EventHandler(this.dgviewOrders_MouseHover);
             // 
             // btnMarkready
             // 
@@ -102,7 +104,7 @@
             this.panelMenu.Controls.Add(this.pictureBoxExit);
             this.panelMenu.Location = new System.Drawing.Point(12, 15);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1225, 68);
+            this.panelMenu.Size = new System.Drawing.Size(1019, 68);
             this.panelMenu.TabIndex = 8;
             // 
             // pictureBoxLogo
@@ -139,7 +141,7 @@
             // pictureBoxExit
             // 
             this.pictureBoxExit.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxExit.Image")));
-            this.pictureBoxExit.Location = new System.Drawing.Point(1097, 4);
+            this.pictureBoxExit.Location = new System.Drawing.Point(906, 4);
             this.pictureBoxExit.Name = "pictureBoxExit";
             this.pictureBoxExit.Size = new System.Drawing.Size(110, 61);
             this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -151,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 684);
+            this.ClientSize = new System.Drawing.Size(1040, 684);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelMenu);
             this.Name = "Kitchen_Form";

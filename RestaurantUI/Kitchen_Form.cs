@@ -17,7 +17,7 @@ namespace Restaurant_UI
         public OrderItem_Service OrderItem_Service = new OrderItem_Service();
         DesignHelper designHelper = new DesignHelper();
         List<OrderItem> Orders = new List<OrderItem>();// refreching use
-        public  Employee employee = new Employee();
+        public Employee employee = new Employee();
         //***************************************************
         public Kitchen_Form(Employee employee)
         {
@@ -27,7 +27,7 @@ namespace Restaurant_UI
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
             timerRefrech.Interval = 1000;//efresh every 20 seconds 
-            timerRefrech.Enabled = true;
+            timerRefrech.Enabled = false;
         }
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
@@ -39,16 +39,18 @@ namespace Restaurant_UI
         private void dgviewDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             OrderItem currentObject = (OrderItem)dgviewOrders.CurrentRow.DataBoundItem;
-            int OrderItemIndex = currentObject.Id;
-            if (MessageBox.Show(" are you sure you want to mark this order as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (currentObject != null)
             {
-                if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
+                if (MessageBox.Show(" are you sure you want to mark this order as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    OrderItem_Service.MarkAsReady(OrderItemIndex, OrderStatus.Ready);
-                    if (employee.Role.ToString() == "Chef")
-                        LoadingData("Chef");
-                    else
-                        LoadingData("Barman");
+                    if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
+                    {
+                        OrderItem_Service.MarkAsReady(currentObject.Id, OrderStatus.Ready);
+                        if (employee.Role.ToString() == "Chef")
+                            LoadingData("Chef");
+                        else
+                            LoadingData("Barman");
+                    }
                 }
             }
         }
@@ -68,8 +70,9 @@ namespace Restaurant_UI
             {
                 if (row.Index >= 0)
                 {
-                    OrderItem currentObject = (OrderItem)row.DataBoundItem; // i use the current object in datagrid 
-                    Items.Add(currentObject.Id);// i get the id from the object not from the interface 
+                    OrderItem currentObject = (OrderItem)row.DataBoundItem;
+                    if (currentObject != null)
+                        Items.Add(currentObject.Id);
                 }
             }
             if (MessageBox.Show(" are you sure you want to mark all these orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -80,6 +83,7 @@ namespace Restaurant_UI
                     LoadingData("Chef");
                 else
                     LoadingData("Barman");
+                MessageBox.Show(Items.Count + " Items were marked as ready");
             }
             else
                 MessageBox.Show("Operation was aborted ");
@@ -116,34 +120,58 @@ namespace Restaurant_UI
         {
             if (FoodOrDrinks == "Chef")
             {
-                Orders = OrderItem_Service.GetFoodOrders();
-                //var _bind = from a in Orders
-                //            select new
-                //            {
-                //                Name = a.ItemName,
-                //                Quantity = a.Amount,
-                //                TakenAt = a.ordertime,
-                //                TabelNumber = a.TableNumber,
-                //                State = a.Status,
-                //                OrdrId = a.Id,
-                //            };
-                //dgviewOrders.DataSource = _bind.ToList();
-                dgviewOrders.DataSource = Orders;
+                Orders = OrderItem_Service.GetUnReadyFoodItemsOrderByTakenTimeDesc();
+                var _bind =from a in Orders
+                            select new   OrderItem
+                            {
+                                ItemName = a.ItemName,
+                                Amount = a.Amount,
+                                Comment = a.Comment,
+                                Status = a.Status,
+                                TableNumber = a.TableNumber,
+                                ordertime = a.ordertime,
+                                Id = a.Id,
+                            };
+                dgviewOrders.DataSource = _bind.ToList(); 
                 DisplayFood();
             }
             else if (FoodOrDrinks == "Barman")
             {
-                Orders = OrderItem_Service.GetDrinksOrders();
-                dgviewOrders.DataSource = OrderItem_Service.GetDrinksOrders();
-                 DisplayFood();
+                Orders = OrderItem_Service.GetDrinkItemsOrderByTakenTime();
+                var _bind = from a in Orders
+                            select new OrderItem
+                            {
+                                ItemName = a.ItemName,
+                                Amount = a.Amount,
+                                Comment = a.Comment,
+                                Status = a.Status,
+                                TableNumber = a.TableNumber,
+                                ordertime = a.ordertime,
+                                 Id = a.Id,
+                            };
+                dgviewOrders.DataSource = _bind.ToList();
+                DisplayFood();
             }
         }
 
         private void pictureBoxOrders_Click(object sender, EventArgs e)
         {
-            if (employee.Role.ToString()=="Chef")
+            if (employee.Role.ToString() == "Chef")
                 LoadingData("Chef");
-            else
+            else if (employee.Role.ToString() == "Barman")
+                LoadingData("Barman");
+        }
+
+        private void dgviewOrders_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgviewOrders_MouseHover(object sender, EventArgs e)
+        {
+            if (employee.Role.ToString() == "Chef")
+                LoadingData("Chef");
+            else if (employee.Role.ToString() == "Barman")
                 LoadingData("Barman");
         }
     }

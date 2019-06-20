@@ -14,13 +14,13 @@ namespace Restaurant_Logic
     {
         OrderItem_DAO orderItem_DAO = new OrderItem_DAO();
         List<OrderItem> orderItems = new List<OrderItem>();
-        public List<OrderItem> GetFoodOrders()
+        public List<OrderItem> GetUnReadyFoodItemsOrderByTakenTimeDesc()
         {
-            return orderItems = orderItem_DAO.GetFoodItems();
+            return orderItems = orderItem_DAO.GetUnReadyFoodItemsOrderByTakenTime();
         }
-        public List<OrderItem> GetDrinksOrders()
+        public List<OrderItem> GetDrinkItemsOrderByTakenTime()
         {
-            return orderItems = orderItem_DAO.GetDrinkItems();
+            return orderItems = orderItem_DAO.GetReadyDrinkItemsOrderByTakenTime();
         }
 		public void PushOrder(OrderItem orderItem)
 		{
