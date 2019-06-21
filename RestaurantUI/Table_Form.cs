@@ -168,7 +168,6 @@ namespace Restaurant_UI
     
 		private void Table_Form_FormClosed(object sender, FormClosedEventArgs e)
 		{
-			Application.Exit();
 		}
 
         private void Btllogout_Click(object sender, EventArgs e)
@@ -179,8 +178,8 @@ namespace Restaurant_UI
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                login_Form.Show();
                 this.Close();
+                login_Form.Show();
             }
             else
             {
