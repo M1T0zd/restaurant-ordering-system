@@ -18,6 +18,9 @@ namespace Restaurant_Logic
         public void UpdateTable(Session session)
         {
             session_DAO.UpdateTable(session);
+        }
+        public void GetSessionId(Session session)
+        {
             sessions = session_DAO.GetID();
             foreach (Session session1 in sessions)
             {

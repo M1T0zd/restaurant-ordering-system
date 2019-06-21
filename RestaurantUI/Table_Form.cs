@@ -22,10 +22,10 @@ namespace Restaurant_UI
         List<OrderItem> orderItems;
         Session currentsession;
         List<Button> buttons;
-        Payment_Service Payment_Service = new Payment_Service();
-        Payment payment = new Payment();
-        public Table_Service Table_Service { get; set; }
-       // Employee employee, Login_Form login_Form
+        public Panel panelnotif { get { return pnlnotif; } }
+        public Panel paneltable { get { return pnltable; } }
+        public Panel pnlstatus { get { return pnlChangeStatus; } }
+
         public Table_Form(Employee employee, Login_Form login_Form)
         {
             InitializeComponent();
@@ -39,9 +39,9 @@ namespace Restaurant_UI
 
         private void Initialize(Login_Form login_Form,Employee employee)
         {
-            Table_Service = new Table_Service();
+            Table_Service table_Service = new Table_Service();
             this.login_Form = login_Form;
-            tables = Table_Service.GetTables();
+            tables = table_Service.GetTables();
             currentsession.Host = employee;
             buttons = new List<Button>
             {
@@ -59,7 +59,7 @@ namespace Restaurant_UI
             GiveColor();
             //Get Notification List If Order Is ready
         }
-        public void GiveColor()
+        private void GiveColor()
         {
             for (int i = 0; i < tables.Count; i++)
             {
@@ -87,35 +87,69 @@ namespace Restaurant_UI
 
             tableID = tables.Find(x => x.Number == table.Number).Number;
             currentsession.Table = table;
-            // Payment_Form payment_Form = new Payment_Form(tableID);
-            Order_Form order_Form = new Order_Form(table, this, currentsession.Host, currentsession);
-            order_Form.Show();
-            this.Hide();
+            CheckStatusPanel();
+        }
+        void CheckStatusPanel()
+        {
+            CheckStatusButton();
+            if (currentsession.Table.Status == TableStatus.Occupied)
+            {
+                Order_Form order_Form = new Order_Form(this, currentsession);
+                order_Form.Show();
+            }
+            else
+            {
+                pnlChangeStatus.Show();
+                pnltable.Hide();
+            }
+        }
+        private void CheckStatusButton()
+        {
+            btnOccupied.Show();
+            btnAvailable.Show();
+            btnReserved.Show();
 
+            if (currentsession.Table.Status == TableStatus.Occupied)
+            {
+                btnOccupied.Hide();
+            }
+            else if (currentsession.Table.Status == TableStatus.Available)
+            {
+                btnAvailable.Hide();
+            }
+            else if (currentsession.Table.Status == TableStatus.Reserved)
+            {
+                btnReserved.Hide();
+            }
         }
         //Below Code is for the Notification Panel
-      
+
         private void Btnnotif_Click(object sender, EventArgs e)
         {
             ShowList();
 
             pnltable.Hide();
+            pnlChangeStatus.Hide();
             pnlnotif.Show();
         }
         private void ShowList()
         {
+            OrderItem_Service order_Service = new OrderItem_Service();
+            orderItems = order_Service.GetOrderItemReady();
+
+            listviewnotif.Clear();
             listviewnotif.View = View.Details;
             listviewnotif.Columns.Add("Name");
+            listviewnotif.Columns.Add("Quantity");
             listviewnotif.Columns.Add("Status");
             listviewnotif.Columns.Add("Table");
 
-            OrderItem_Service order_Service = new OrderItem_Service();
-            orderItems = order_Service.GetOrderWaiter();
 
             foreach (OrderItem order in orderItems)
             {
                // ListViewItem listViewItem = new ListViewItem(order.MenuItem.Name);
                 ListViewItem listViewItem = new ListViewItem(order.ItemName);
+                listViewItem.SubItems.Add(order.Amount.ToString());
                 listViewItem.SubItems.Add(order.Status.ToString());
                 listViewItem.SubItems.Add(order.TableNumber.ToString());
 
@@ -161,7 +195,6 @@ namespace Restaurant_UI
 
         void RefreshForm()
         {
-            listviewnotif.Clear();
             ShowList();
         }
 
@@ -189,6 +222,44 @@ namespace Restaurant_UI
             {
                 // Go Back
             }
+        }
+
+        private void BtnOccupied_Click(object sender, EventArgs e)
+        {
+            currentsession.Start = DateTime.Now;
+
+            currentsession.Table.Status = TableStatus.Occupied;
+            Table_Service table_Service = new Table_Service();
+            table_Service.UpdateStatus(currentsession.Table);
+            GiveColor();
+
+            Session_Service session_Service = new Session_Service();
+
+            //session_Service.UpdateTable(currentsession);
+
+            pnlChangeStatus.Hide();
+            pnltable.Show();
+
+            Order_Form order_Form = new Order_Form(this, currentsession);
+            order_Form.Show();
+        }
+
+        private void BtnAvailable_Click(object sender, EventArgs e)
+        {
+            currentsession.Table.Status = TableStatus.Available;
+            Table_Service table_Service = new Table_Service();
+            table_Service.UpdateStatus(currentsession.Table);
+            GiveColor();
+            pnltable.Show();      
+        }
+
+        private void BtnReserved_Click(object sender, EventArgs e)
+        {
+            currentsession.Table.Status = TableStatus.Reserved;
+            Table_Service table_Service = new Table_Service();
+            table_Service.UpdateStatus(currentsession.Table);
+            GiveColor();
+            pnltable.Show();
         }
     }
 }

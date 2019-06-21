@@ -40,6 +40,7 @@
             this.btntable10 = new System.Windows.Forms.Button();
             this.lbltitle = new System.Windows.Forms.Label();
             this.pnltable = new System.Windows.Forms.Panel();
+            this.btllogout = new System.Windows.Forms.Button();
             this.btnnotif = new System.Windows.Forms.Button();
             this.lbltable10 = new System.Windows.Forms.Label();
             this.lbltable9 = new System.Windows.Forms.Label();
@@ -56,9 +57,14 @@
             this.btnserveitem = new System.Windows.Forms.Button();
             this.btnpanelback = new System.Windows.Forms.Button();
             this.listviewnotif = new System.Windows.Forms.ListView();
-            this.btllogout = new System.Windows.Forms.Button();
+            this.pnlChangeStatus = new System.Windows.Forms.Panel();
+            this.btnAvailable = new System.Windows.Forms.Button();
+            this.btnReserved = new System.Windows.Forms.Button();
+            this.btnOccupied = new System.Windows.Forms.Button();
+            this.lblNumber = new System.Windows.Forms.Label();
             this.pnltable.SuspendLayout();
             this.pnlnotif.SuspendLayout();
+            this.pnlChangeStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // btntbl1
@@ -206,11 +212,22 @@
             this.pnltable.Controls.Add(this.btntbl3);
             this.pnltable.Controls.Add(this.btntbl2);
             this.pnltable.Controls.Add(this.btntbl1);
-            this.pnltable.Location = new System.Drawing.Point(16, 13);
-            this.pnltable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnltable.Location = new System.Drawing.Point(13, 15);
+            this.pnltable.Margin = new System.Windows.Forms.Padding(4);
             this.pnltable.Name = "pnltable";
             this.pnltable.Size = new System.Drawing.Size(486, 686);
             this.pnltable.TabIndex = 11;
+            // 
+            // btllogout
+            // 
+            this.btllogout.Location = new System.Drawing.Point(376, 14);
+            this.btllogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btllogout.Name = "btllogout";
+            this.btllogout.Size = new System.Drawing.Size(100, 37);
+            this.btllogout.TabIndex = 23;
+            this.btllogout.Text = "Log Out";
+            this.btllogout.UseVisualStyleBackColor = true;
+            this.btllogout.Click += new System.EventHandler(this.Btllogout_Click);
             // 
             // btnnotif
             // 
@@ -318,7 +335,7 @@
             this.pnlnotif.Controls.Add(this.btnserveitem);
             this.pnlnotif.Controls.Add(this.btnpanelback);
             this.pnlnotif.Controls.Add(this.listviewnotif);
-            this.pnlnotif.Location = new System.Drawing.Point(12, 11);
+            this.pnlnotif.Location = new System.Drawing.Point(13, 11);
             this.pnlnotif.Name = "pnlnotif";
             this.pnlnotif.Size = new System.Drawing.Size(497, 709);
             this.pnlnotif.TabIndex = 12;
@@ -355,6 +372,7 @@
             // 
             // listviewnotif
             // 
+            this.listviewnotif.HideSelection = false;
             this.listviewnotif.Location = new System.Drawing.Point(61, 101);
             this.listviewnotif.Name = "listviewnotif";
             this.listviewnotif.Size = new System.Drawing.Size(375, 347);
@@ -363,16 +381,64 @@
             this.listviewnotif.View = System.Windows.Forms.View.Details;
             this.listviewnotif.Click += new System.EventHandler(this.Listviewnotif_SelectedIndexChanged);
             // 
-            // btllogout
+            // pnlChangeStatus
             // 
-            this.btllogout.Location = new System.Drawing.Point(376, 14);
-            this.btllogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btllogout.Name = "btllogout";
-            this.btllogout.Size = new System.Drawing.Size(100, 37);
-            this.btllogout.TabIndex = 23;
-            this.btllogout.Text = "Log Out";
-            this.btllogout.UseVisualStyleBackColor = true;
-            this.btllogout.Click += new System.EventHandler(this.Btllogout_Click);
+            this.pnlChangeStatus.Controls.Add(this.btnAvailable);
+            this.pnlChangeStatus.Controls.Add(this.btnReserved);
+            this.pnlChangeStatus.Controls.Add(this.btnOccupied);
+            this.pnlChangeStatus.Controls.Add(this.lblNumber);
+            this.pnlChangeStatus.Location = new System.Drawing.Point(23, 20);
+            this.pnlChangeStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlChangeStatus.Name = "pnlChangeStatus";
+            this.pnlChangeStatus.Size = new System.Drawing.Size(524, 710);
+            this.pnlChangeStatus.TabIndex = 25;
+            // 
+            // btnAvailable
+            // 
+            this.btnAvailable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAvailable.Location = new System.Drawing.Point(175, 319);
+            this.btnAvailable.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAvailable.Name = "btnAvailable";
+            this.btnAvailable.Size = new System.Drawing.Size(148, 53);
+            this.btnAvailable.TabIndex = 3;
+            this.btnAvailable.Text = "Available";
+            this.btnAvailable.UseVisualStyleBackColor = false;
+            this.btnAvailable.Click += new System.EventHandler(this.BtnAvailable_Click);
+            // 
+            // btnReserved
+            // 
+            this.btnReserved.BackColor = System.Drawing.Color.Yellow;
+            this.btnReserved.Location = new System.Drawing.Point(175, 403);
+            this.btnReserved.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReserved.Name = "btnReserved";
+            this.btnReserved.Size = new System.Drawing.Size(148, 48);
+            this.btnReserved.TabIndex = 2;
+            this.btnReserved.Text = "Reserved";
+            this.btnReserved.UseVisualStyleBackColor = false;
+            this.btnReserved.Click += new System.EventHandler(this.BtnReserved_Click);
+            // 
+            // btnOccupied
+            // 
+            this.btnOccupied.BackColor = System.Drawing.Color.Red;
+            this.btnOccupied.Location = new System.Drawing.Point(175, 246);
+            this.btnOccupied.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOccupied.Name = "btnOccupied";
+            this.btnOccupied.Size = new System.Drawing.Size(148, 50);
+            this.btnOccupied.TabIndex = 1;
+            this.btnOccupied.Text = "Occupied";
+            this.btnOccupied.UseVisualStyleBackColor = false;
+            this.btnOccupied.Click += new System.EventHandler(this.BtnOccupied_Click);
+            // 
+            // lblNumber
+            // 
+            this.lblNumber.AutoSize = true;
+            this.lblNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumber.Location = new System.Drawing.Point(199, 162);
+            this.lblNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNumber.Name = "lblNumber";
+            this.lblNumber.Size = new System.Drawing.Size(88, 25);
+            this.lblNumber.TabIndex = 0;
+            this.lblNumber.Text = "Table X";
             // 
             // Table_Form
             // 
@@ -381,7 +447,8 @@
             this.ClientSize = new System.Drawing.Size(515, 732);
             this.Controls.Add(this.pnltable);
             this.Controls.Add(this.pnlnotif);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.pnlChangeStatus);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Table_Form";
             this.Text = "Table_Form";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Table_Form_FormClosed);
@@ -389,6 +456,8 @@
             this.pnltable.ResumeLayout(false);
             this.pnltable.PerformLayout();
             this.pnlnotif.ResumeLayout(false);
+            this.pnlChangeStatus.ResumeLayout(false);
+            this.pnlChangeStatus.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -425,5 +494,10 @@
         private System.Windows.Forms.Button btnrefresh;
         private System.Windows.Forms.Button btnrefreshtableview;
         private System.Windows.Forms.Button btllogout;
+        private System.Windows.Forms.Panel pnlChangeStatus;
+        private System.Windows.Forms.Button btnAvailable;
+        private System.Windows.Forms.Button btnReserved;
+        private System.Windows.Forms.Button btnOccupied;
+        private System.Windows.Forms.Label lblNumber;
     }
 }
