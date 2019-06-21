@@ -21,7 +21,7 @@ namespace Restaurant_UI
         Table tableNumber;
         private Payment payment = new Payment();
 
-        public Payment_Form(Table_Form table_Form, Table tableNumber)
+        public Payment_Form(Table_Form table_Form)
         {
             InitializeComponent();
             this.table_Form = table_Form;
@@ -30,17 +30,19 @@ namespace Restaurant_UI
         }
         private void DisplayOrderDetails()
         {
-            Table_Numberlbl.Text = tableNumber.Number.ToString();
-            for (int i = 1; i < 5; i++)
+            //Table_Numberlbl.Text = tableNumber.Number.ToString();
+            Payment_Service payment_Service = new Payment_Service();
+            List<OrderItem> orderItems = payment_Service.GetOrderItemPayment();
+            foreach (OrderItem item in orderItems)
             {
-                ListViewItem listViewItem = new ListViewItem(Convert.ToString(i));
-                listViewItem.SubItems.Add("1");
-                listViewItem.SubItems.Add("10");
+                ListViewItem listViewItem = new ListViewItem(item.ItemName);
+                listViewItem.SubItems.Add(item.Amount.ToString());
+                listViewItem.SubItems.Add(item.Price.ToString());
                 listView1.Items.Add(listViewItem);
-            }
-            CalculateTotal();
+            }           
+            CalculateTotal(orderItems);
         }
-        private void CalculateTotal() // add vat
+        private void CalculateTotal(List<OrderItem> orderItems) // add vat
         {
             string total = null;
             for (int i = 1; i < listView1.Items.Count; i++)
@@ -48,24 +50,29 @@ namespace Restaurant_UI
                 total = listView1.Items[i].SubItems[2].Text;
             }
 
-            CalculateVaT(total);
+            CalculateVaT(orderItems);
             payment.Total = (Convert.ToDecimal(total) + payment.Tax);
             Total_txt_bx.Text = string.Format("{0:C}", payment.Total);
         }
-        private void CalculateVaT(string total)
+        private void CalculateVaT(List<OrderItem> orderItems)
         {
             bool isAlchoholic = true;
-            if (!isAlchoholic)
-            {
-                payment.Tax = (Convert.ToDecimal(total) * Convert.ToDecimal(0.06));
-                VAT.Text = "6%";
-            }
-            else
-            {
-                payment.Tax = (Convert.ToDecimal(total) * Convert.ToDecimal(0.21));
 
-                VAT.Text = "21%";
+            foreach (OrderItem item in orderItems)
+            {
+                if (!isAlchoholic)
+                {
+                    payment.Tax = ((item.Price *item.Amount) * (6/100));
+                    VAT.Text = "6%";
+                }
+                else
+                {
+                    payment.Tax = ((item.Price * item.Amount) * (21 / 100));
+
+                    VAT.Text = "21%";
+                }
             }
+        
 
             Tax_txt_bx.Text = string.Format("{0:C}", payment.Tax);
         }

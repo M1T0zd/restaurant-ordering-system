@@ -21,5 +21,10 @@ namespace Restaurant_Logic
         {
            return  payementDao.processPayment(TabelID);
         }
+        public List<OrderItem> GetOrderItemPayment()
+        {
+            List<OrderItem> orderItems = new List<OrderItem>();
+            return orderItems = payementDao.GetOrderItemPayment();
+        }
     }
 }

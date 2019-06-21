@@ -19,7 +19,6 @@ namespace Restaurant_UI
         Login_Form login_Form;
         Button button;
         Table table;
-        Employee Employee;
         List<OrderItem> orderItems;
         Session currentsession;
         List<Button> buttons;
@@ -27,24 +26,23 @@ namespace Restaurant_UI
         Payment payment = new Payment();
         public Table_Service Table_Service { get; set; }
        // Employee employee, Login_Form login_Form
-        public Table_Form(/*Employee employee, Login_Form login_Form*/)
+        public Table_Form(Employee employee, Login_Form login_Form)
         {
             InitializeComponent();
             currentsession = new Session();
-           // this.Employee = employee;
-            Initialize(login_Form);
+            Initialize(login_Form,employee);
         }
 
         private void Table_Form_Load(object sender, EventArgs e)
         {
         }
 
-        private void Initialize(Login_Form login_Form)
+        private void Initialize(Login_Form login_Form,Employee employee)
         {
             Table_Service = new Table_Service();
             this.login_Form = login_Form;
             tables = Table_Service.GetTables();
-            currentsession.Host = Employee;
+            currentsession.Host = employee;
             buttons = new List<Button>
             {
                 btntbl1,
@@ -87,13 +85,13 @@ namespace Restaurant_UI
             //If button clicked, get table from list based on it's TabIndex
             table = tables[button.TabIndex];
 
-             tableID = tables.Find(x => x.Number == table.Number).Number;
+            tableID = tables.Find(x => x.Number == table.Number).Number;
             currentsession.Table = table;
-           // Payment_Form payment_Form = new Payment_Form(tableID);
-            Order_Form order_Form = new Order_Form(table,this,Employee,currentsession);
+            // Payment_Form payment_Form = new Payment_Form(tableID);
+            Order_Form order_Form = new Order_Form(table, this, currentsession.Host, currentsession);
             order_Form.Show();
             this.Hide();
-      
+
         }
         //Below Code is for the Notification Panel
       

@@ -43,5 +43,29 @@ namespace Restaurant_DAL
             p.IsAlchoholic= (bool)reader["IsAlcoholic"];
             return p;
         }
+        //******** Start Payment DAO
+        public List<OrderItem> GetOrderItemPayment()
+        {
+            string query = "SELECT M.Name,M.Price, OI.Quantity FROM OrderItems AS OI" +
+                " JOIN Orders AS O ON OI.OrderId = O.Id JOIN MenuItems AS M ON OI.MenuItemId = M.Id WHERE O.Id = 3";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTablesPayment(ExecuteSelectQuery(query, sqlParameters));
+        }
+        private List<OrderItem> ReadTablesPayment(DataTable dataTable)
+        {
+            List<OrderItem> orderItems = new List<OrderItem>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                OrderItem orderItem = new OrderItem()
+                {
+                    ItemName = (String)dr["Name"],
+                    Price = (decimal)dr["Price"],
+                    Amount = (int)dr["Quantity"]
+                };
+                orderItems.Add(orderItem);
+            }
+            return orderItems;
+        }
     }
 }
