@@ -116,6 +116,7 @@ namespace Restaurant_UI
 
             foreach (OrderItem order in orderItems)
             {
+               // ListViewItem listViewItem = new ListViewItem(order.MenuItem.Name);
                 ListViewItem listViewItem = new ListViewItem(order.ItemName);
                 listViewItem.SubItems.Add(order.Status.ToString());
                 listViewItem.SubItems.Add(order.TableNumber.ToString());

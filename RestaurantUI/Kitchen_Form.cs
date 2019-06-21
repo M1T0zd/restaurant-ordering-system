@@ -17,12 +17,16 @@ namespace Restaurant_UI
         public OrderItem_Service OrderItem_Service = new OrderItem_Service();
         DesignHelper designHelper = new DesignHelper();
         List<OrderItem> Orders = new List<OrderItem>();// refreching use
-        public Employee employee = new Employee();
+        private Employee employee = new Employee();
         //***************************************************
         public Kitchen_Form(Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
+            if (employee.Role.ToString() == "Chef")
+                LoadingData("Chef");
+            else
+                LoadingData("Barman");
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
@@ -147,32 +151,11 @@ namespace Restaurant_UI
                                 Status = a.Status,
                                 TableNumber = a.TableNumber,
                                 ordertime = a.ordertime,
-                                 Id = a.Id,
+                                Id = a.Id,
                             };
                 dgviewOrders.DataSource = _bind.ToList();
                 DisplayFood();
             }
-        }
-
-        private void pictureBoxOrders_Click(object sender, EventArgs e)
-        {
-            if (employee.Role.ToString() == "Chef")
-                LoadingData("Chef");
-            else if (employee.Role.ToString() == "Barman")
-                LoadingData("Barman");
-        }
-
-        private void dgviewOrders_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgviewOrders_MouseHover(object sender, EventArgs e)
-        {
-            if (employee.Role.ToString() == "Chef")
-                LoadingData("Chef");
-            else if (employee.Role.ToString() == "Barman")
-                LoadingData("Barman");
         }
     }
 }

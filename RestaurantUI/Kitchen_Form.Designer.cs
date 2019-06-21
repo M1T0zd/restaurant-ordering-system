@@ -80,8 +80,6 @@
             this.dgviewOrders.TabIndex = 1;
             this.dgviewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgviewDrinks_CellContentClick);
             this.dgviewOrders.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgviewOrders_DataError_1);
-            this.dgviewOrders.MouseEnter += new System.EventHandler(this.dgviewOrders_MouseEnter);
-            this.dgviewOrders.MouseHover += new System.EventHandler(this.dgviewOrders_MouseHover);
             // 
             // btnMarkready
             // 
@@ -136,7 +134,6 @@
             this.pictureBoxOrders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxOrders.TabIndex = 1;
             this.pictureBoxOrders.TabStop = false;
-            this.pictureBoxOrders.Click += new System.EventHandler(this.pictureBoxOrders_Click);
             // 
             // pictureBoxExit
             // 
