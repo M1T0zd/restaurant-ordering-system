@@ -144,7 +144,7 @@ namespace Restaurant_UI
 				MessageBox.Show("Please add an OrderItem to the OrderItem list first.", "OrderItems list empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
-
+      
 		private void BtnAdd_Click(object sender, EventArgs e)
 		{
 			foreach(ListViewItem lvi in lvMenuItems.SelectedItems)
@@ -175,6 +175,7 @@ namespace Restaurant_UI
 				lviNew.Tag = newOrderItem;
 
 				lvOrderItems.Items.Add(lviNew);
+             
 			}
 		}
 
@@ -195,9 +196,10 @@ namespace Restaurant_UI
 
 		private void BtnPay_Click(object sender, EventArgs e)
 		{
-			Payment_Form form = new Payment_Form(table_Form, currentSession.Table, currentSession);
-			form.Show();
-			this.Close();
+            //this.Hide();
+            //Payment_Form form = new Payment_Form(table_Form, table);
+            //form.Show();
+
 		}
 
 		private void UpdateStatusButtons()

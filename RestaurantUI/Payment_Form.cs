@@ -8,106 +8,170 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Restaurant_UI
 {
-    public partial class Payment_Form : Form
+    partial class Payment_Form : Form
     {
 
-        public Payment_Service payment_Services;
         Table_Form table_Form;
-        Table table;
-        Payment payment;
-        Session currentsession;
-        public Payment_Form(Table_Form table_Form, Table table,Session session)
+        Table tableNumber;
+        private Payment payment = new Payment();
+
+        public Payment_Form(Table_Form table_Form, Table tableNumber)
         {
             InitializeComponent();
-            this.currentsession = session;
             this.table_Form = table_Form;
-            this.table = table;
-            Table_Numberlbl.Text = table.Number.ToString();
-            this.Text = $"Payment From   {DateTime.Now.ToShortDateString()}  [ {DateTime.Now.ToShortTimeString()} ]";
-            payment_Services = new Payment_Service();
-            displayOrderDetails();
-
+            this.tableNumber = tableNumber;
+            DisplayOrderDetails();
         }
-
-        private void displayOrderDetails()
+        private void DisplayOrderDetails()
         {
-            payment.Total = 89;
-            payment.Tax = payment.Total * Convert.ToDecimal(0.15);
-            Total_txt_bx.Text = payment.Total.ToString() + payment.Tax.ToString();
-            Tax_txt_bx.Text = payment.Tax.ToString();
-        }
-
-
-        private void CancelBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            table_Form.Show();
-
-        }
-        //select payment method
-        public int selectedPaymentMethod()
-        {
-            int payment_Method;
-            if (PinRadiobtn.Checked == true)
+            Table_Numberlbl.Text = tableNumber.Number.ToString();
+            for (int i = 1; i < 5; i++)
             {
-                payment_Method = (int)PaymentMethod.Pin;
+                ListViewItem listViewItem = new ListViewItem(Convert.ToString(i));
+                listViewItem.SubItems.Add("1");
+                listViewItem.SubItems.Add("10");
+                listView1.Items.Add(listViewItem);
             }
-            else if (cashRadiobtn.Checked == true)
+            CalculateTotal();
+        }
+        private void CalculateTotal() // add vat
+        {
+            string total = null;
+            for (int i = 1; i < listView1.Items.Count; i++)
             {
-                payment_Method =(int) PaymentMethod.Cash;
+                total = listView1.Items[i].SubItems[2].Text;
+            }
+
+            CalculateVaT(total);
+            payment.Total = (Convert.ToDecimal(total) + payment.Tax);
+            Total_txt_bx.Text = string.Format("{0:C}", payment.Total);
+        }
+        private void CalculateVaT(string total)
+        {
+            bool isAlchoholic = true;
+            if (!isAlchoholic)
+            {
+                payment.Tax = (Convert.ToDecimal(total) * Convert.ToDecimal(0.06));
+                VAT.Text = "6%";
             }
             else
             {
-                payment_Method = (int)PaymentMethod.CreditCard;
+                payment.Tax = (Convert.ToDecimal(total) * Convert.ToDecimal(0.21));
+
+                VAT.Text = "21%";
             }
 
+            Tax_txt_bx.Text = string.Format("{0:C}", payment.Tax);
+        }
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to cancel.", "Confirm cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                table_Form.Show(); //go to home page
+            }
+        }
+        private int SelectPaymentMethod()
+        {
+            int payment_Method = 0;
+            if (PinRadiobtn.Checked == true)
+            {
+                payment_Method = 1;
+            }
+            if (cashRadiobtn.Checked == true)
+            {
+                payment_Method = 2;
+            }
+            if (creditCardRdbtn.Checked == true)
+            {
+                payment_Method = 3;
+            }
             return payment_Method;
         }
-
         // process payment 
         private void PayOrderbtn_Click(object sender, EventArgs e)
         {
-            if (cashRadiobtn.Checked == false && PinRadiobtn.Checked == false && creditCardRdbtn.Checked == false)
+            int paymentMethod = SelectPaymentMethod();
+            if (paymentMethod == 0)
             {
-                string message = "Select a payment method";
-                string title = "Error";
-                MessageBox.Show(message, title);
-
+                MessageBox.Show("Please select payment method.", "Error payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Confirm_payment_Method process_ = new Confirm_payment_Method(this, table_Form, table);
-                process_.Show();
+                DialogResult result = MessageBox.Show("Are you sure you want to make payment.", "Confirm payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    this.Hide();
+                    WriteComments();
+                    SavePaymentDetails();
+                }
             }
         }
-
-        public void SaveOrderDetails()
+        private void SavePaymentDetails()// send to database
         {
-            int paymentMethod = selectedPaymentMethod();
-            payment_Services.insertOrder (paymentMethod, payment.Total, payment.Tax);
-        }
 
+        }
         //write comments to text file
-        public void WriteComments()
+        private void WriteComments()// to text file
         {
-            string file = "Comments.txt";
-            if (!File.Exists(file))
+            if (String.IsNullOrEmpty(commentstxt_box.Text))
             {
-                File.Create(file);
+                PaymentConfirmation();
             }
-            StreamWriter writer = File.AppendText(file);
-            writer.WriteLine(commentstxt_box.Text);
-            writer.Close();
+            else
+            {
+                try
+                {
+                    string file = "Comments.txt";
+                    if (!File.Exists(file))
+                    {
+                        File.Create(file);
+                    }
+                    StreamWriter writer = File.AppendText(file);
+                    {
+                        writer.WriteLine($"{DateTime.Now} : {commentstxt_box.Text}");
+                    }
+                    PaymentConfirmation();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("e");
+                }
+            }
+        }
+        private void PaymentConfirmation()
+        {
+            MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
+            table_Form.Show(); // back to home page
+        }
+        // Add tip numeric only
+        private void Tiptxt_bx_TextChanged(object sender, EventArgs e)
+        {
+            bool match = Regex.IsMatch(Tiptxt_bx.Text, "^1-9*$");
+            try
+            {
+                if (match == false)
+                {
+                    string total = (Decimal.Parse(Tiptxt_bx.Text) + Decimal.Parse(Total_txt_bx.Text)).ToString();// add tip to total + Vat
+                    Total_txt_bx.Text = total.ToString();
+                    payment.Total = Convert.ToDecimal(total);
+                }
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show("Enter numbers only", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void Payment_Form_Load(object sender, EventArgs e)
-        {
-         
-        }
     }
 }
+ 
+
+

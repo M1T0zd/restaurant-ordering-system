@@ -12,29 +12,18 @@ namespace Restaurant_DAL
 {
     public class OrderItem_DAO : Base
     {
-        public List<KitchenOrderItems> GetFoodItems(int orderId)
+        public List<OrderItem> GetUnReadyFoodItemsOrderByTakenTime()
         {
-            //************ get the Order itmes of an order
-            string query = @"select m.Name,i.Quantity,i.Comment,s.State,o.Id as OrderID,i.Id from Orders o 
-                                join OrderItems i on o.Id = i.OrderId
-                                join OrderState s on s.Id = i.StateId
-                                join MenuItems m on m.Id = i.MenuItemId
-                                join Dishes d on m.Id = d.Id
-                                join Sessions se on se.Id = o.SessionId
-                                       where o.Id= @OrderId ";
+            string query = @" select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime,se.TableId, o.Id as OrderID,i.Id as ItemID  from Orders o 
+								join OrderItems i on o.Id=i.OrderId
+								join OrderState s on s.Id=i.StateId
+								join MenuItems m on m.Id=i.MenuItemId
+								join Dishes d on m.Id=d.Id
+								join Sessions se on se.Id=o.SessionId where i.StateId!=3
+                                order by  FORMAT (o.TakenAt, 'hh:mm:ss') desc";
 
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@OrderId", SqlDbType.Int) { Value = orderId };
-            return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
-        }
-
-        public List<Order> GetOrders_()
-        {
-            string query = @"select o.Id,o.TakenAt,s.TableId from Sessions s
-                            join Orders o on s.Id=o.SessionId
-                            where o.TakenAt is not null order by TakenAt asc";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables_GetOrder(ExecuteSelectQuery(query, sqlParameters));
+            return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
 		public void PushOrderItem(OrderItem orderItem)
 		{
@@ -43,60 +32,41 @@ namespace Restaurant_DAL
 			SqlParameter[] sqlParameters = new SqlParameter[0];
 			ExecuteSelectQuery(query, sqlParameters);
 		}
-
-		private List<Order> ReadTables_GetOrder(DataTable dataTable)
+        public List<OrderItem> GetReadyDrinkItemsOrderByTakenTime()
         {
-            List<Order> orders = new List<Order>();
-
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                Order order = new Order()
-                {
-                    Id = (int)dr["Id"],
-                    TakenAt = (DateTime)dr["TakenAt"],
-                    Table = (int)dr["TableId"],
-                };
-                orders.Add(order);
-            }
-            return orders;
-        }
-        public List<KitchenOrderItems> GetDrinkItems(int orderId)
-        {
-            //************ get the Order itmes of an order
-            string query = @"select m.Name,i.Quantity,i.Comment,s.State,o.Id as OrderID,i.Id from Orders o 
+            string query = @"select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime,se.TableId, o.Id as OrderID,i.Id as ItemID  from Orders o 
 								join OrderItems i on o.Id=i.OrderId
 								join OrderState s on s.Id=i.StateId
 								join MenuItems m on m.Id=i.MenuItemId
 								join Drinks d on m.Id=d.Id
-								join Sessions se on se.Id=o.SessionId
-								where o.Id=@OrderId ";
-            //where o.Id = @OrderId and i.StateId != 3"; to test unready 
-
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@OrderId", SqlDbType.Int) { Value = orderId };
+								join Sessions se on se.Id=o.SessionId where i.StateId!=3
+                                order by  FORMAT (o.TakenAt, 'hh:mm:ss') desc";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<KitchenOrderItems> ReadTables_OrderItems(DataTable dataTable)
+        private List<OrderItem> ReadTables_OrderItems(DataTable dataTable)
         {
-            List<KitchenOrderItems> OrderItems = new List<KitchenOrderItems>();
+            List<OrderItem> OrderItems = new List<OrderItem>();
             foreach (DataRow dr in dataTable.Rows)
             {
-                KitchenOrderItems OrderItem = new KitchenOrderItems()
+                OrderItem OrderItem = new OrderItem()
                 {
-
                     ItemName = (string)dr["Name"],
                     Amount = (int)dr["Quantity"],
                     Comment = (string)dr["Comment"],
-                    state = (OrderState)Enum.Parse(typeof(OrderState), Convert.ToString(dr["State"])),
+                    Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), Convert.ToString(dr["State"])),
+                    Ordertime = (string)dr["ordertime"],
+                    TableNumber = (int)dr["TableId"],
                     OrderId = (int)dr["OrderID"],
-                    OrderItemId = (int)dr["Id"],
+                    Id = (int)dr["ItemID"],
+                    
                 };
                 OrderItems.Add(OrderItem);
             }
             return OrderItems;
         }
   //*******************updates only state of one item not the whole oorder
-        public void UpdateOrdersItemsState(int OrderItemItemId, OrderState newState) //MarkAsProccessing
+        public void UpdateOrdersItemsState(int OrderItemItemId, OrderStatus newState) //MarkAsProccessing
         {
             string query = @"update OrderItems set  StateId=@StateId where Id=@Id";
             SqlParameter[] sqlParameters = new SqlParameter[2];
@@ -117,8 +87,6 @@ namespace Restaurant_DAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-
-
         private List<OrderItem> ReadTables(DataTable dataTable)
         {
             List<OrderItem> orderItems = new List<OrderItem>();

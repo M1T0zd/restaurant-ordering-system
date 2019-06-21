@@ -13,22 +13,15 @@ namespace Restaurant_Logic
     public class OrderItem_Service
     {
         OrderItem_DAO orderItem_DAO = new OrderItem_DAO();
-
-        List<KitchenOrderItems> orderItems = new List<KitchenOrderItems>();
-        public List<KitchenOrderItems> GetFoodOrders(int OrderID)
+        List<OrderItem> orderItems = new List<OrderItem>();
+        public List<OrderItem> GetUnReadyFoodItemsOrderByTakenTimeDesc()
         {
-            return orderItems = orderItem_DAO.GetFoodItems(OrderID);
+            return orderItems = orderItem_DAO.GetUnReadyFoodItemsOrderByTakenTime();
         }
-        public List<KitchenOrderItems> GetDrinksOrders(int OrderID)
+        public List<OrderItem> GetDrinkItemsOrderByTakenTime()
         {
-            return orderItems = orderItem_DAO.GetDrinkItems(OrderID);
+            return orderItems = orderItem_DAO.GetReadyDrinkItemsOrderByTakenTime();
         }
-        public List<Order> GetOrders()
-        {
-            List<Order> orders = new List<Order>();
-            return orders = orderItem_DAO.GetOrders_();
-        }
-
 		public void PushOrder(OrderItem orderItem)
 		{
 			try
@@ -56,11 +49,11 @@ namespace Restaurant_Logic
 			}
 		}
 
-		public void UpdateOrderItemState(int orderItem, OrderState newSatate)
+		public void UpdateOrderItemState(int orderItem, OrderStatus newSatate)
         {
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }
-        public void MarkAsRaady(int orderItem, OrderState newSatate)
+        public void MarkAsReady(int orderItem, OrderStatus newSatate)
         {
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }
