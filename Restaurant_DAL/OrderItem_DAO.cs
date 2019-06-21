@@ -55,7 +55,7 @@ namespace Restaurant_DAL
                     Amount = (int)dr["Quantity"],
                     Comment = (string)dr["Comment"],
                     Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), Convert.ToString(dr["State"])),
-                    ordertime = (string)dr["ordertime"],
+                    Ordertime = (string)dr["ordertime"],
                     TableNumber = (int)dr["TableId"],
                     OrderId = (int)dr["OrderID"],
                     Id = (int)dr["ItemID"],

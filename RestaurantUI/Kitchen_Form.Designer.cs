@@ -40,6 +40,8 @@
             this.pictureBoxComments = new System.Windows.Forms.PictureBox();
             this.pictureBoxOrders = new System.Windows.Forms.PictureBox();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
+            this.lbl_Datetime = new System.Windows.Forms.Label();
+            this.lbl_PreparedOrders = new System.Windows.Forms.Label();
             this.panelBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgviewOrders)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -51,6 +53,8 @@
             // 
             // panelBar
             // 
+            this.panelBar.Controls.Add(this.lbl_PreparedOrders);
+            this.panelBar.Controls.Add(this.lbl_Datetime);
             this.panelBar.Controls.Add(this.btn_PrepareMany);
             this.panelBar.Controls.Add(this.dgviewOrders);
             this.panelBar.Location = new System.Drawing.Point(12, 89);
@@ -146,6 +150,26 @@
             this.pictureBoxExit.TabStop = false;
             this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
             // 
+            // lbl_Datetime
+            // 
+            this.lbl_Datetime.AutoSize = true;
+            this.lbl_Datetime.ForeColor = System.Drawing.Color.Green;
+            this.lbl_Datetime.Location = new System.Drawing.Point(810, 547);
+            this.lbl_Datetime.Name = "lbl_Datetime";
+            this.lbl_Datetime.Size = new System.Drawing.Size(93, 17);
+            this.lbl_Datetime.TabIndex = 3;
+            this.lbl_Datetime.Text = "Current Date ";
+            // 
+            // lbl_PreparedOrders
+            // 
+            this.lbl_PreparedOrders.AutoSize = true;
+            this.lbl_PreparedOrders.ForeColor = System.Drawing.Color.Green;
+            this.lbl_PreparedOrders.Location = new System.Drawing.Point(403, 547);
+            this.lbl_PreparedOrders.Name = "lbl_PreparedOrders";
+            this.lbl_PreparedOrders.Size = new System.Drawing.Size(272, 17);
+            this.lbl_PreparedOrders.TabIndex = 4;
+            this.lbl_PreparedOrders.Text = "Number of the prepared orders of today : ";
+            // 
             // Kitchen_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -157,6 +181,7 @@
             this.Text = "Kitchen_Form";
             this.Load += new System.EventHandler(this.Kitchen_Form_Load);
             this.panelBar.ResumeLayout(false);
+            this.panelBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgviewOrders)).EndInit();
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
@@ -178,5 +203,7 @@
         private System.Windows.Forms.PictureBox pictureBoxExit;
         private System.Windows.Forms.Button btn_PrepareMany;
         public System.Windows.Forms.DataGridView dgviewOrders;
+        private System.Windows.Forms.Label lbl_Datetime;
+        private System.Windows.Forms.Label lbl_PreparedOrders;
     }
 }

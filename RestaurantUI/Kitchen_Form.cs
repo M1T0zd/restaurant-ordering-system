@@ -15,7 +15,6 @@ namespace Restaurant_UI
     public partial class Kitchen_Form : Form
     {
         public OrderItem_Service OrderItem_Service = new OrderItem_Service();
-        DesignHelper designHelper = new DesignHelper();
         List<OrderItem> Orders = new List<OrderItem>();// refreching use
         private Employee CurrentEmployee = new Employee();
         //***************************************************
@@ -23,11 +22,15 @@ namespace Restaurant_UI
         {
             InitializeComponent();
             this.CurrentEmployee = employee; // get the current Employee
+            this.Text ="Welcome   "+ CurrentEmployee.Name;
             LoadingData(CurrentEmployee);// load Data depend on the current Employee
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
             DisplayFood();
+            dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
+            lbl_Datetime.Text ="Current time : "+ DateTime.Now.ToString("h:mm:ss tt");
+            lbl_PreparedOrders.Text ="";// to modify later 
             timerRefrech.Interval = 1000;//refresh every 20 seconds 
             timerRefrech.Enabled = false;
         }
@@ -125,7 +128,7 @@ namespace Restaurant_UI
                                 Comment = a.Comment,
                                 Status = a.Status,
                                 TableNumber = a.TableNumber,
-                                ordertime = a.ordertime,
+                                Ordertime = a.Ordertime,
                                 Id = a.Id,
                             };
                 dgviewOrders.DataSource = _bind.ToList(); 
@@ -142,7 +145,7 @@ namespace Restaurant_UI
                                 Comment = a.Comment,
                                 Status = a.Status,
                                 TableNumber = a.TableNumber,
-                                ordertime = a.ordertime,
+                                Ordertime = a.Ordertime,
                                 Id = a.Id,
                             };
                 dgviewOrders.DataSource = _bind.ToList();
