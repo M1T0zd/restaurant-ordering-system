@@ -17,7 +17,7 @@ namespace Restaurant_UI
         List<RestaurantModel.MenuItem> menuItems = new List<RestaurantModel.MenuItem>();
         Table_Form table_Form;
         Session currentSession;
-
+        int table;
         public Order_Form( Table_Form table_Form,Session session)
         {
             InitializeComponent();
@@ -28,15 +28,18 @@ namespace Restaurant_UI
         {
 			this.table_Form = table_Form;
 			currentSession = session;
-			/*currentSession.Table = session.Table;
+			currentSession.Table = session.Table;
             
-			currentSession.Orders = table.orders;
-			currentSession.Host = employee;*/
+			//currentSession.Orders = table.orders;
+			//currentSession.Host = employee;
 		}
        
         private void Order_Form_Load(object sender, EventArgs e)
         {
-			/*lblNumber.Text = $"Table {currentSession.Table.Number}";
+             table = currentSession.Table.Number;
+            lblNumber2.Text = $"Table{table} ";
+
+            /*lblNumber.Text = $"Table {currentSession.Table.Number}";
 			lblNumber2.Text = $"Table {currentSession.Table.Number}";
 
 			UpdateStatusButtons();
@@ -50,7 +53,7 @@ namespace Restaurant_UI
 				pnlDefault.Hide();
 			}*/
 
-			ListViewSetups();
+            ListViewSetups();
 		}
 
         private void ListViewSetups()
@@ -157,8 +160,9 @@ namespace Restaurant_UI
 
 		private void BtnPay_Click(object sender, EventArgs e)
 		{
+
             this.Hide();
-            Payment_Form form = new Payment_Form(table_Form);
+            Payment_Form form = new Payment_Form(table_Form, table);
             form.Show();
 
 		}

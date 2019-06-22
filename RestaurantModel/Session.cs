@@ -8,7 +8,7 @@ namespace RestaurantModel
 {
     public class Session
     {
-        public int Id { get; set; }
+        public int Id = 1;
         public Employee Host { get; set; }
         public Table Table { get; set; }
         public DateTime Start { get; set; }

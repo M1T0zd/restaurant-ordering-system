@@ -18,10 +18,10 @@ namespace Restaurant_UI
     {
 
         Table_Form table_Form;
-        Table tableNumber;
-        private Payment payment = new Payment();
-
-        public Payment_Form(Table_Form table_Form)
+        int tableNumber;
+        Payment payment = new Payment();
+        Payment_Service payment_Service = new Payment_Service();
+        public Payment_Form(Table_Form table_Form, int tableNumber)
         {
             InitializeComponent();
             this.table_Form = table_Form;
@@ -30,8 +30,7 @@ namespace Restaurant_UI
         }
         private void DisplayOrderDetails()
         {
-            //Table_Numberlbl.Text = tableNumber.Number.ToString();
-            Payment_Service payment_Service = new Payment_Service();
+            Table_Numberlbl.Text = tableNumber.ToString();
             List<OrderItem> orderItems = payment_Service.GetOrderItemPayment();
             foreach (OrderItem item in orderItems)
             {
@@ -39,42 +38,43 @@ namespace Restaurant_UI
                 listViewItem.SubItems.Add(item.Amount.ToString());
                 listViewItem.SubItems.Add(item.Price.ToString());
                 listView1.Items.Add(listViewItem);
-            }           
-            CalculateTotal(orderItems);
+            }
+            CalculateTotal();
         }
-        private void CalculateTotal(List<OrderItem> orderItems) // add vat
+        private void CalculateTotal() // add vat
         {
-            string total = null;
-            for (int i = 1; i < listView1.Items.Count; i++)
+            int quantity = 0;
+            decimal unitPrice = 0;
+            decimal totalUnitPrice;
+            for (int i = 0; i < listView1.Items.Count; i++)
             {
-                total = listView1.Items[i].SubItems[2].Text;
+                totalUnitPrice = 0;
+                quantity = Convert.ToInt16(listView1.Items[i].SubItems[1].Text);
+                unitPrice = Convert.ToDecimal(listView1.Items[i].SubItems[2].Text);
+                totalUnitPrice += (quantity * unitPrice);
+                payment.Total += totalUnitPrice;
+                CalculateVaT(totalUnitPrice);
             }
 
-            CalculateVaT(orderItems);
-            payment.Total = (Convert.ToDecimal(total) + payment.Tax);
-            Total_txt_bx.Text = string.Format("{0:C}", payment.Total);
         }
-        private void CalculateVaT(List<OrderItem> orderItems)
+        private void CalculateVaT(decimal totalUnitPrice)
         {
+            decimal taxPerItem;
             bool isAlchoholic = true;
 
-            foreach (OrderItem item in orderItems)
+            if (totalUnitPrice > 1)
             {
-                if (!isAlchoholic)
-                {
-                    payment.Tax = ((item.Price *item.Amount) * (6/100));
-                    VAT.Text = "6%";
-                }
-                else
-                {
-                    payment.Tax = ((item.Price * item.Amount) * (21 / 100));
-
-                    VAT.Text = "21%";
-                }
+                taxPerItem = (totalUnitPrice * Convert.ToDecimal(0.06));
             }
-        
+            else
+            {
+                taxPerItem = ((totalUnitPrice) * Convert.ToDecimal(0.21));
+            }
+            payment.Tax += taxPerItem;
+            payment.Total += taxPerItem;
 
-            Tax_txt_bx.Text = string.Format("{0:C}", payment.Tax);
+            Tax_txt_bx.Text = string.Format("{0:c}", payment.Tax);
+            Total_txt_bx.Text = string.Format("{0:c}", payment.Total);
         }
         private void CancelBtn_Click(object sender, EventArgs e)
         {
@@ -87,32 +87,32 @@ namespace Restaurant_UI
         }
         private int SelectPaymentMethod()
         {
-            int payment_Method = 0;
+            payment.PaymentMethod = 0;
             if (PinRadiobtn.Checked == true)
             {
-                payment_Method = 1;
+                payment.PaymentMethod = (int)PaymentMethod.Pin;
             }
             if (cashRadiobtn.Checked == true)
             {
-                payment_Method = 2;
+                payment.PaymentMethod = (int)PaymentMethod.Cash;
             }
             if (creditCardRdbtn.Checked == true)
             {
-                payment_Method = 3;
+                payment.PaymentMethod = (int)PaymentMethod.CreditCard;
             }
-            return payment_Method;
+            return payment.PaymentMethod;
         }
         // process payment 
         private void PayOrderbtn_Click(object sender, EventArgs e)
         {
-            int paymentMethod = SelectPaymentMethod();
-            if (paymentMethod == 0)
+            payment.PaymentMethod = SelectPaymentMethod();
+            if (payment.PaymentMethod == 0)
             {
                 MessageBox.Show("Please select payment method.", "Error payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to make payment.", "Confirm payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Are you sure you want to make a payment.", "Confirm payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     this.Hide();
@@ -121,8 +121,13 @@ namespace Restaurant_UI
                 }
             }
         }
-        private void SavePaymentDetails()// send to database
+        //save paid order to database
+        private void SavePaymentDetails()
         {
+            int tbleNumber = Convert.ToInt16(tableNumber);
+            payment.Date = DateTime.Now.ToShortDateString();
+            Session session = new Session();
+            payment_Service.SavePaidOrder(payment, session, tbleNumber);
 
         }
         //write comments to text file
@@ -155,21 +160,29 @@ namespace Restaurant_UI
         }
         private void PaymentConfirmation()
         {
+         
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
+
             table_Form.Show(); // back to home page
         }
-        // Add tip numeric only
+
         private void Tiptxt_bx_TextChanged(object sender, EventArgs e)
         {
-            bool match = Regex.IsMatch(Tiptxt_bx.Text, "^1-9*$");
+            Tiptxt_bx.Text = Tiptxt_bx.Text.Trim();
             try
             {
-                if (match == false)
+
+                if (Tiptxt_bx.Text == "")
                 {
-                    string total = (Decimal.Parse(Tiptxt_bx.Text) + Decimal.Parse(Total_txt_bx.Text)).ToString();// add tip to total + Vat
-                    Total_txt_bx.Text = total.ToString();
-                    payment.Total = Convert.ToDecimal(total);
+                    payment.Tip = 0;
                 }
+                else
+                {
+                    payment.Tip = Decimal.Parse(Tiptxt_bx.Text);
+
+                }
+                decimal totalPrice = payment.Tip + payment.Total; // total plus tip
+                Total_txt_bx.Text = string.Format("{0:C}",totalPrice);
             }
             catch (Exception m)
             {
@@ -179,6 +192,8 @@ namespace Restaurant_UI
 
     }
 }
+
+    
  
 
 
