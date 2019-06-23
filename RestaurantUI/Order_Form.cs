@@ -289,7 +289,7 @@ namespace Restaurant_UI
 			{
 				foreach (RestaurantModel.MenuItem menuItem in menuItems)
 				{
-					if (menuItem.Category == Category.Drinks)
+					if (menuItem.Category == Category.Alchoholic)
 					{
 						ListViewItem lvi = new ListViewItem(menuItem.Name);
 						lvi.SubItems.Add(menuItem.Price.ToString());

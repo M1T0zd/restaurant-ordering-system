@@ -14,7 +14,7 @@ namespace Restaurant_DAL
 
         public void SavePaidOrder(Payment payment, Session session, int tableNumber)
         {
-            string query = $"INSERT INTO  Payments(SessionId,TotalAmount,Tip,PaymentMethod, Date) VALUES ({session.Id}, {payment.Total},{payment.Tip},{payment.PaymentMethod},{payment.Date})";
+            string query = $"INSERT INTO  Payments(SessionId,PayMethod,Tip,Total_ExclTip,Date) VALUES ({session.Id}, {payment.PaymentMethod},{payment.Tip},{payment.Total},'{payment.Date}')";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
 
@@ -29,8 +29,8 @@ namespace Restaurant_DAL
         }
         public List<OrderItem> GetOrderItemPayment()
         {
-            string query = "SELECT M.Name,M.Price, OI.Quantity FROM OrderItems AS OI" +
-                " JOIN Orders AS O ON OI.OrderId = O.Id JOIN MenuItems AS M ON OI.MenuItemId = M.Id WHERE O.Id = 2";
+            string query = "SELECT M.Name,M.Price,M.CategoryId,OI.Quantity FROM OrderItems AS OI" +
+                " JOIN Orders AS O ON OI.OrderId = O.Id JOIN MenuItems AS M ON OI.MenuItemId = M.Id WHERE O.Id = 3";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTablesPayment(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -44,7 +44,8 @@ namespace Restaurant_DAL
                 {
                     ItemName = (String)dr["Name"],
                     Price = (decimal)dr["Price"],
-                    Amount = (int)dr["Quantity"]
+                    Amount = (int)dr["Quantity"],
+                    Category = (Category)dr["CategoryId"]
                 };
                 orderItems.Add(orderItem);
             }

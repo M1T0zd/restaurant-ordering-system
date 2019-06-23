@@ -13,7 +13,7 @@ namespace RestaurantModel
         public decimal price { get; set; }
         public Decimal Total { get; set; }
         public bool IsAlchoholic { get; set; }
-        public String Date { get; set; }
+        public string Date { get; set; }
         public int IDpayment { get; set; }
         public Decimal Tip { get; set; }
         public Decimal Tax { get; set; }

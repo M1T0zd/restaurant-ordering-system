@@ -16,7 +16,6 @@ namespace Restaurant_UI
 {
     partial class Payment_Form : Form
     {
-
         Table_Form table_Form;
         int tableNumber;
         Payment payment = new Payment();
@@ -26,15 +25,16 @@ namespace Restaurant_UI
             InitializeComponent();
             this.table_Form = table_Form;
             this.tableNumber = tableNumber;
-            DisplayOrderDetails();
+            DisplayOrderItems();
         }
-        private void DisplayOrderDetails()
+        private void DisplayOrderItems()
         {
             Table_Numberlbl.Text = tableNumber.ToString();
             List<OrderItem> orderItems = payment_Service.GetOrderItemPayment();
             foreach (OrderItem item in orderItems)
             {
                 ListViewItem listViewItem = new ListViewItem(item.ItemName);
+                listViewItem.SubItems.Add(item.Category.ToString());
                 listViewItem.SubItems.Add(item.Amount.ToString());
                 listViewItem.SubItems.Add(item.Price.ToString());
                 listView1.Items.Add(listViewItem);
@@ -49,8 +49,8 @@ namespace Restaurant_UI
             for (int i = 0; i < listView1.Items.Count; i++)
             {
                 totalUnitPrice = 0;
-                quantity = Convert.ToInt16(listView1.Items[i].SubItems[1].Text);
-                unitPrice = Convert.ToDecimal(listView1.Items[i].SubItems[2].Text);
+                quantity = Convert.ToInt16(listView1.Items[i].SubItems[2].Text);
+                unitPrice = Convert.ToDecimal(listView1.Items[i].SubItems[3].Text);
                 totalUnitPrice += (quantity * unitPrice);
                 payment.Total += totalUnitPrice;
                 CalculateVaT(totalUnitPrice);
@@ -60,9 +60,8 @@ namespace Restaurant_UI
         private void CalculateVaT(decimal totalUnitPrice)
         {
             decimal taxPerItem;
-            bool isAlchoholic = true;
-
-            if (totalUnitPrice > 1)
+            bool isAlchoholic = IsAlchoholic();
+            if (isAlchoholic == false)
             {
                 taxPerItem = (totalUnitPrice * Convert.ToDecimal(0.06));
             }
@@ -75,6 +74,19 @@ namespace Restaurant_UI
 
             Tax_txt_bx.Text = string.Format("{0:c}", payment.Tax);
             Total_txt_bx.Text = string.Format("{0:c}", payment.Total);
+        }
+        private bool IsAlchoholic()
+        {
+            bool isAlchoholic = false;
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                if( listView1.Items[i].SubItems[1].Text == "Alchoholic") 
+                {
+                    isAlchoholic = true;
+                }
+            }
+            return isAlchoholic;
+
         }
         private void CancelBtn_Click(object sender, EventArgs e)
         {
@@ -108,7 +120,7 @@ namespace Restaurant_UI
             payment.PaymentMethod = SelectPaymentMethod();
             if (payment.PaymentMethod == 0)
             {
-                MessageBox.Show("Please select payment method.", "Error payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select payment method.", " payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -125,7 +137,7 @@ namespace Restaurant_UI
         private void SavePaymentDetails()
         {
             int tbleNumber = Convert.ToInt16(tableNumber);
-            payment.Date = DateTime.Now.ToShortDateString();
+            payment.Date = DateTime.Now.ToString();
             Session session = new Session();
             payment_Service.SavePaidOrder(payment, session, tbleNumber);
 
@@ -181,7 +193,7 @@ namespace Restaurant_UI
                     payment.Tip = Decimal.Parse(Tiptxt_bx.Text);
 
                 }
-                decimal totalPrice = payment.Tip + payment.Total; // total plus tip
+                decimal totalPrice = payment.Tip + payment.Total; 
                 Total_txt_bx.Text = string.Format("{0:C}",totalPrice);
             }
             catch (Exception m)
@@ -189,7 +201,6 @@ namespace Restaurant_UI
                 MessageBox.Show("Enter numbers only", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }
 
