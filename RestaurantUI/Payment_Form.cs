@@ -19,12 +19,14 @@ namespace Restaurant_UI
         Table_Form table_Form;
         int tableNumber;
         Payment payment = new Payment();
+        Session session;
         Payment_Service payment_Service = new Payment_Service();
-        public Payment_Form(Table_Form table_Form, int tableNumber)
+        public Payment_Form(Table_Form table_Form, Session session,int tableNumber)
         {
             InitializeComponent();
             this.table_Form = table_Form;
             this.tableNumber = tableNumber;
+            this.session = session;
             DisplayOrderItems();
         }
         private void DisplayOrderItems()
@@ -139,7 +141,7 @@ namespace Restaurant_UI
             int tbleNumber = Convert.ToInt16(tableNumber);
             payment.Date = DateTime.Now.ToString();
             Session session = new Session();
-            payment_Service.SavePaidOrder(payment, session, tbleNumber);
+            payment_Service.SavePaidOrder(payment, session);
 
         }
         //write comments to text file
@@ -173,7 +175,9 @@ namespace Restaurant_UI
         private void PaymentConfirmation()
         {
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
-            table_Form.BtnAvailable_Click(null,null);
+            session.Table.Status = TableStatus.Available;
+            Table_Service table_Service = new Table_Service();
+            table_Service.UpdateStatus(session.Table);
             table_Form.Show(); // back to home page 
         }
 

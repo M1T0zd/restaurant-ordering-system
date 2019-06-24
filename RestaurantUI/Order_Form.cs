@@ -161,9 +161,7 @@ namespace Restaurant_UI
 
 		private void BtnPay_Click(object sender, EventArgs e)
 		{
-
-            
-            Payment_Form form = new Payment_Form(table_Form, table);
+            Payment_Form form = new Payment_Form(table_Form, currentSession, table);
             form.Show();
             Hide();
 

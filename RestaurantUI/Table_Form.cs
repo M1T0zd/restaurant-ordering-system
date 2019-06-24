@@ -33,6 +33,12 @@ namespace Restaurant_UI
             Initialize(login_Form,employee);
         }
 
+        private void Table_Form_Load(object sender, EventArgs e)
+        {
+            GiveColor();
+        }
+
+
         private void Initialize(Login_Form login_Form,Employee employee)
         {
             Table_Service table_Service = new Table_Service();
@@ -243,7 +249,7 @@ namespace Restaurant_UI
       
         }
 
-        public void BtnAvailable_Click(object sender, EventArgs e)
+        private void BtnAvailable_Click(object sender, EventArgs e)
         {
             currentsession.Table.Status = TableStatus.Available;
             Table_Service table_Service = new Table_Service();

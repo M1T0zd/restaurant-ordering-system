@@ -12,20 +12,13 @@ namespace Restaurant_DAL
     public class Payment_DAO : Base
     {
 
-        public void SavePaidOrder(Payment payment, Session session, int tableNumber)
+        public void SavePaidOrder(Payment payment, Session session)
         {
             string query = $"INSERT INTO  Payments(SessionId,PayMethod,Tip,Total_ExclTip,Date) VALUES ({session.Id}, {payment.PaymentMethod},{payment.Tip},{payment.Total},'{payment.Date}')";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
 
-            UnReserveTable(tableNumber);
-        }
-        // Get order to be paid
-        public void UnReserveTable(int tableNumber) // unreserve
-        {
-                string query = ($"UPDATE Tables SET StatusId = {(int)TableStatus.Available} where Number = {tableNumber}");
-                SqlParameter[] sqlParameters = new SqlParameter[0];
-                ExecuteEditQuery(query, sqlParameters);
+          
         }
         public List<OrderItem> GetOrderItemPayment()
         {
