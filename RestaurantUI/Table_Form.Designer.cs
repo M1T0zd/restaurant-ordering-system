@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btntbl1 = new System.Windows.Forms.Button();
             this.btntbl2 = new System.Windows.Forms.Button();
             this.btntbl3 = new System.Windows.Forms.Button();
@@ -62,6 +63,7 @@
             this.btnReserved = new System.Windows.Forms.Button();
             this.btnOccupied = new System.Windows.Forms.Button();
             this.lblNumber = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnltable.SuspendLayout();
             this.pnlnotif.SuspendLayout();
             this.pnlChangeStatus.SuspendLayout();
@@ -440,6 +442,10 @@
             this.lblNumber.TabIndex = 0;
             this.lblNumber.Text = "Table X";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
             // Table_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -498,5 +504,6 @@
         private System.Windows.Forms.Button btnReserved;
         private System.Windows.Forms.Button btnOccupied;
         private System.Windows.Forms.Label lblNumber;
+        private System.Windows.Forms.Timer timer1;
     }
 }

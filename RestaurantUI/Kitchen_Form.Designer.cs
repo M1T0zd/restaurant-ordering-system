@@ -166,7 +166,7 @@
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelMenu);
             this.Name = "Kitchen_Form";
-            this.Text = "Kitchen_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Kitchen_Form_Load);
             this.panelBar.ResumeLayout(false);
             this.panelBar.PerformLayout();

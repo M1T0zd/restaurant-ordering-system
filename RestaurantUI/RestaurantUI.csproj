@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bar_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bar_Form.Designer.cs">
-      <DependentUpon>Bar_Form.cs</DependentUpon>
-    </Compile>
     <Compile Include="chapeau1819sdb02DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,9 +94,6 @@
     <Compile Include="Table_Form.Designer.cs">
       <DependentUpon>Table_Form.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Bar_Form.resx">
-      <DependentUpon>Bar_Form.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Kitchen_Form.resx">
       <DependentUpon>Kitchen_Form.cs</DependentUpon>
     </EmbeddedResource>
