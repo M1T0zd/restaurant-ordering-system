@@ -26,5 +26,9 @@ namespace Restaurant_Logic
         {
             session_DAO.GetID(session);     
         }
+        public void SaveComments(Session session, string comments)
+        {
+            session_DAO.SaveComments(session,comments);
+        }
     }
 }

@@ -89,7 +89,6 @@ namespace Restaurant_UI
                 }
             }
             return isAlcoholic;
-
         }
         private void CancelBtn_Click(object sender, EventArgs e)
         {
@@ -107,11 +106,11 @@ namespace Restaurant_UI
             {
                 payment.PaymentMethod = (int)PaymentMethod.Pin;
             }
-            if (cashRadiobtn.Checked == true)
+            else if (cashRadiobtn.Checked == true)
             {
                 payment.PaymentMethod = (int)PaymentMethod.Cash;
             }
-            if (creditCardRdbtn.Checked == true)
+            else if (creditCardRdbtn.Checked == true)
             {
                 payment.PaymentMethod = (int)PaymentMethod.CreditCard;
             }
@@ -131,22 +130,34 @@ namespace Restaurant_UI
                 if (result == DialogResult.Yes)
                 {
                     this.Hide();
-                    SavePaymentDetails();
+                    PaymentConfirmation();
                 }
             }
         }
         //save paid order to database
- 
+        private void SavePaidOrderItems()
+        {
+            string comments = commentstxt_box.Text;
+            Session_Service session_Service = new Session_Service();
+
+            if (!String.IsNullOrEmpty(commentstxt_box.Text))
+            {
+                session_Service.SaveComments(session, comments);
+            }
+            session_Service.UpdateTablePayment(session);
+            session.Table.Status = TableStatus.Available;
+
+            payment_Service.UpdateStatus(session.Table);
+            payment_Service.SavePaidOrder(payment, session);
+        }
+       
         private void PaymentConfirmation()
         {
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
-            Session_Service session_Service = new Session_Service();
-            session_Service.UpdateTablePayment(session);
-            session.Table.Status = TableStatus.Available;
-            payment_Service.UpdateStatus(session.Table);
+            SavePaidOrderItems();
             table_Form.Show(); // back to home page 
         }
-
+       
         private void Tiptxt_bx_TextChanged(object sender, EventArgs e)
         {
             Tiptxt_bx.Text = Tiptxt_bx.Text.Trim();

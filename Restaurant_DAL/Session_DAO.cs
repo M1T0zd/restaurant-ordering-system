@@ -23,7 +23,7 @@ namespace Restaurant_DAL
         {
             foreach (DataRow dr in dataTable.Rows)
             {
-                session.Id = (int)dr["Id"];   
+                session.Id = (int)dr["Id"];
             }
             return session;
         }
@@ -41,6 +41,13 @@ namespace Restaurant_DAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        public void SaveComments(Session session, string commnets)
+        {
+            string query = $"INSERT INTO Sessions(Comment) VALUES ('{commnets}') WHERE Id =  {session.Id}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
 
+
+        }
     }
 }
