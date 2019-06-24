@@ -22,6 +22,11 @@ namespace Restaurant_Logic
 			}
 		}
 
+		public void GetID(Order order)
+		{
+			order.Id = order_DAO.GetLastID();
+		}
+
 		public List<Order> GetOrder()
         {
             try
