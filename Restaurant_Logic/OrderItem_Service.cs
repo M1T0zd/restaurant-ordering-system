@@ -48,12 +48,7 @@ namespace Restaurant_Logic
 				ErrorLogging(e);
 			}
 		}
-
-		public void UpdateOrderItemState(int orderItem, OrderStatus newSatate)
-        {
-            orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
-        }
-        public void MarkAsReady(int orderItem, OrderStatus newSatate)
+        public void MarkAsReady(OrderItem orderItem, OrderStatus newSatate)
         {
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }

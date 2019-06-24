@@ -89,15 +89,14 @@ namespace Restaurant_UI
 				{
 					order.OrderItems.Add((OrderItem)lvi.Tag);
 				}
-
 				currentSession.Orders.Add(order);
 
 				//Push to database
 				Order_Service order_Service = new Order_Service();
 				OrderItem_Service orderItem_Service = new OrderItem_Service();
 
-				//order_Service.PushOrder(order);
-				//orderItem_Service.PushOrderItems(order.OrderItems);
+				order_Service.PushOrder(order);
+				orderItem_Service.PushOrderItems(order.OrderItems);
 
 				lvOrderItems.Items.Clear();
 			} else {

@@ -15,43 +15,28 @@ namespace Restaurant_UI
     public partial class Kitchen_Form : Form
     {
         public OrderItem_Service Logic = new OrderItem_Service();
-        List<OrderItem> Orders = new List<OrderItem>();// refreching use
+        List<OrderItem> Orders;
         private Employee CurrentEmployee = new Employee();
         //***************************************************
         public Kitchen_Form(Employee employee)
         {
             InitializeComponent();
-            this.CurrentEmployee = employee; // get the current Employee
-            this.Text ="Welcome   "+ CurrentEmployee.Name;
+            this.CurrentEmployee = employee; // get the current Employee kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkköö#kk
+            this.Text = "Welcome   " + CurrentEmployee.Name;
             LoadingData(CurrentEmployee);// load Data depend on the current Employee
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
             DisplayFood();
             dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
-            lbl_Datetime.Text ="Current time : "+ DateTime.Now.ToString("h:mm:ss tt");
+            lbl_Datetime.Text = "Current time : " + DateTime.Now.ToString("h:mm:ss tt");
 
-            timerRefrech.Interval = 1000;//refresh every 20 seconds 
             timerRefrech.Enabled = false;
+            timerRefrech.Interval = 20000;//refresh every 20 seconds 
         }
         private void timerRefrech_Tick(object sender, EventArgs e)
         {
-                LoadingData(CurrentEmployee);
-        }
-        private void dgviewDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            OrderItem currentObject = (OrderItem)dgviewOrders.CurrentRow.Tag;
-            if (currentObject != null)
-            {
-                if (MessageBox.Show(" are you sure you want to mark this order as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
-                    {
-                        Logic.MarkAsReady(currentObject.Id, OrderStatus.Ready);
-                            LoadingData(CurrentEmployee);
-                    }
-                }
-            }
+            LoadingData(CurrentEmployee);
         }
         private void pictureBoxExit_Click(object sender, EventArgs e)
         {
@@ -66,43 +51,54 @@ namespace Restaurant_UI
         }
         private void btn_PrepareMany_Click(object sender, EventArgs e)
         {
-            List<int> Items = new List<int>();// to remove later 
+            List<OrderItem> Items = new List<OrderItem>();// to remove later 
             foreach (DataGridViewRow row in dgviewOrders.SelectedRows)
             {
                 if (row.Index >= 0)
                 {
                     OrderItem currentObject = (OrderItem)row.Tag;
                     if (currentObject != null)
-                        Items.Add(currentObject.Id);// get the ID of each Object
+                        Items.Add(currentObject);// get the ID of each Object
                 }
             }
-            if (MessageBox.Show(" are you sure you want to mark all these orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (Items.Count>0)
             {
-                foreach (int Id in Items)
-                    Logic.MarkAsReady(Id, OrderStatus.Ready);
-                  LoadingData(CurrentEmployee);// refrech after deleting
-                MessageBox.Show(Items.Count + " Items were marked as ready"); // notify the user how many items were deleted
+                if (MessageBox.Show(" are you sure you want to mark all these orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    foreach (OrderItem  item in Items)
+                    {
+                        Logic.MarkAsReady(item, OrderStatus.Ready);
+                    }
+                    LoadingData(CurrentEmployee);
+                    MessageBox.Show(Items.Count + " Items were marked as ready");
+                }
+                else
+                    MessageBox.Show("Operation was aborted ");
             }
             else
-                MessageBox.Show("Operation was aborted ");
+            {
+                MessageBox.Show("please select an item");
+            }
         }
 
-        public void DisplayFood()
+        private void DisplayFood()
         {
+            OrderItem orderItem = null;
             try
             {
                 foreach (DataGridViewRow row in dgviewOrders.Rows)
                 {
                     if (row.Index >= 0)
                     {
-                        string State = Convert.ToString(row.Cells[4].Value);
-                        if (State.ToLower().Trim() == "waiting")
+                        //string State = Convert.ToString(row.Cells[4].Value);// tag here 
+                        orderItem = (OrderItem)row.Tag;// tag here 
+                        if (orderItem.Status == OrderStatus.Waiting)
                             row.DefaultCellStyle.BackColor = Color.Red;
-                        else if (State.ToLower().Trim() == "processing")
+                        else if (orderItem.Status == OrderStatus.Processing)
                             row.DefaultCellStyle.BackColor = Color.Yellow;
-                        else if (State.ToLower().Trim() == "ready")
+                        else if (orderItem.Status == OrderStatus.Ready)
                             row.DefaultCellStyle.BackColor = Color.LightGreen;
-                        else if (State.ToLower().Trim() == "served")
+                        else if (orderItem.Status == OrderStatus.Served)
                             row.DefaultCellStyle.BackColor = Color.GreenYellow;
                     }
                 }
@@ -140,20 +136,18 @@ namespace Restaurant_UI
         }
         private void LoadingData(Employee CurrentEmp)
         {
-            if (CurrentEmp.Role==EmployeeRole.Chef)
+            if (CurrentEmp.Role == EmployeeRole.Chef)
             {
                 Orders = Logic.GetUnReadyFoodItemsOrderByTakenTimeDesc();
-                DesignGridView();
-                FillinGridView();
                 DisplayFood();
             }
-            else if (CurrentEmp.Role== EmployeeRole.Barman)
+            else if (CurrentEmp.Role == EmployeeRole.Barman)
             {
                 Orders = Logic.GetUnReadyDrinkItemsOrderByTakenTime();
-                DesignGridView();
-                FillinGridView();
                 DisplayFood();
             }
+            DesignGridView();
+            FillinGridView();
         }
     }
 }
