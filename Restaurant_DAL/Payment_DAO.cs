@@ -18,7 +18,13 @@ namespace Restaurant_DAL
             string query = $"INSERT INTO  Payments(SessionId,PayMethod,Tip,Total_ExclTip,Date) VALUES ({session.Id}, {payment.PaymentMethod},{payment.Tip},{payment.Total},'{payment.Date}')";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
-            ChangeTableStatus.UpdateTablePayment(session);
+            ChangeTableStatus.UpdateTablePayment(session); //end session
+        }
+        public void UnReserveTable(Session session) 
+        {
+            string query = ($"UPDATE Tables SET StatusId = {(int)TableStatus.Available} where Number = {session}");
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
         public List<OrderItem> GetOrderItemPayment(Session session)
         {

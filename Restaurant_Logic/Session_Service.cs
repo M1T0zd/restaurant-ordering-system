@@ -27,6 +27,10 @@ namespace Restaurant_Logic
             int number;
             return number = session_DAO.GetID(session);     
         }
-     
+        public void SaveComments(Session session, string comments)
+        {
+            session_DAO.SaveComments(session, comments);
+        }
+
     }
 }

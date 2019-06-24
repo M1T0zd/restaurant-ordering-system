@@ -31,7 +31,6 @@ namespace Restaurant_UI
         private void Payment_Form_Load(object sender, EventArgs e)
         {
             DisplayOrderItems();
-            cashRadiobtn.Checked = true;
             payment.Total = CalculateTotal();
             Tax_txt_bx.Text = string.Format("{0:c}", payment.Tax);
             Total_txt_bx.Text = string.Format("{0:c}", payment.Total);
@@ -102,7 +101,7 @@ namespace Restaurant_UI
         }
         private PaymentMethod SelectPaymentMethod()
         {
-            PaymentMethod paymentMethod = PaymentMethod.Cash;
+            PaymentMethod paymentMethod = 0; 
             if (PinRadiobtn.Checked == true)
             {
                 paymentMethod = PaymentMethod.Pin;
@@ -111,12 +110,16 @@ namespace Restaurant_UI
             {
                 paymentMethod = PaymentMethod.CreditCard;
             }
+            else if(cashRadiobtn.Checked == true)
+            {
+               paymentMethod = PaymentMethod.Cash;
+            }
             return paymentMethod;
         }
         // process payment 
         private void PayOrderbtn_Click(object sender, EventArgs e)
         {
-            payment.PaymentMethod =(int) SelectPaymentMethod();
+            payment.PaymentMethod =(int)SelectPaymentMethod();
             if (payment.PaymentMethod == 0)
             {
                 MessageBox.Show("Please select payment method.", "payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -127,6 +130,7 @@ namespace Restaurant_UI
                 if (result == DialogResult.Yes)
                 {
                     this.Hide();
+                    SavePaidOrderItems();
                     PaymentConfirmation();
                 }
             }
@@ -140,7 +144,7 @@ namespace Restaurant_UI
 
             if (!String.IsNullOrEmpty(commentstxt_box.Text))
             {
-                //session_Service.SaveComments(session, comments);
+                session_Service.SaveComments(session,comments);
             }
             session_Service.UpdateTablePayment(session);
             payment_Service.SavePaidOrder(payment, session);
@@ -149,7 +153,6 @@ namespace Restaurant_UI
         private void PaymentConfirmation()
         {
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
-            SavePaidOrderItems();
             table_Form.Show(); // back to home page 
         }
        
@@ -158,7 +161,6 @@ namespace Restaurant_UI
             Tiptxt_bx.Text = Tiptxt_bx.Text.Trim();
             try
             {
-
                 if (Tiptxt_bx.Text == "")
                 {
                     payment.Tip = 0;
@@ -166,7 +168,6 @@ namespace Restaurant_UI
                 else
                 {
                     payment.Tip = Decimal.Parse(Tiptxt_bx.Text);
-
                 }
                 decimal totalPrice = payment.Tip + payment.Total; 
                 Total_txt_bx.Text = string.Format("{0:C}",totalPrice);
