@@ -37,7 +37,7 @@ namespace Restaurant_UI
         }
         private void DisplayOrderItems()
         {
-            Table_Numberlbl.Text = session.Table.ToString();
+            Table_Numberlbl.Text = session.Table.Number.ToString();
             List<OrderItem> orderItems = payment_Service.GetOrderItemPayment(session);
             foreach (OrderItem item in orderItems)
             {
@@ -143,7 +143,7 @@ namespace Restaurant_UI
 
             if (!String.IsNullOrEmpty(commentstxt_box.Text))
             {
-               //session_Service.(session, comments);
+                //session_Service.SaveComments(session, comments);
             }
             session_Service.UpdateTablePayment(session);
             payment_Service.SavePaidOrder(payment, session);

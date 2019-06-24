@@ -89,7 +89,6 @@ namespace Restaurant_UI
             Session_Service session_Service = new Session_Service();
             //Get SessionId
             currentsession.Id = session_Service.GetSessionId(currentsession);
-            Console.WriteLine(currentsession.Id);
 
             if (currentsession.Table.Status == TableStatus.Occupied)
             {

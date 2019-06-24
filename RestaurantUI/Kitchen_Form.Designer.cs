@@ -153,6 +153,8 @@
             this.ClientSize = new System.Drawing.Size(953, 684);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelMenu);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Kitchen_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Kitchen_Form_Load);

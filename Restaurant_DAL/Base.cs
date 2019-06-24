@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
-using System.IO;
+using System.Diagnostics;
 
 namespace Restaurant_DAL
 {
@@ -139,22 +139,11 @@ namespace Restaurant_DAL
         }
         private static void ErrorLogging(Exception e)
         {
-            string strPath = @"D:\Prins\Log.txt";
-            if (!File.Exists(strPath))
-            {
-                File.Create(strPath).Dispose();
-            }
-            using (StreamWriter sw = File.AppendText(strPath))
-            {
-                sw.WriteLine("=============Error Logging ===========");
-                sw.WriteLine("===========Start============= " + DateTime.Now);
-                sw.WriteLine("Error Message: " + e.Message);
-                sw.WriteLine("Stack Trace: " + e.StackTrace);
-                sw.WriteLine("===========End============= " + DateTime.Now);
-                sw.WriteLine();
-
-            }
-        }
-
+			Debug.WriteLine("=============Error Logging ===========");
+			Debug.WriteLine("===========Start============= " + DateTime.Now);
+			Debug.WriteLine("Error Message: " + e.Message);
+			Debug.WriteLine("Stack Trace: " + e.StackTrace);
+			Debug.WriteLine("===========End============= " + DateTime.Now + "\n");
+		}
     }
 }
