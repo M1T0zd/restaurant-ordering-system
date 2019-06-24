@@ -88,7 +88,9 @@ namespace Restaurant_UI
             lblNumber.Text = $"Table {currentsession.Table.Number.ToString()}";
             Session_Service session_Service = new Session_Service();
             //Get SessionId
-            session_Service.GetSessionIdforOccupiedTable(currentsession);
+            currentsession.Id = session_Service.GetSessionId(currentsession);
+            Console.WriteLine(currentsession.Id);
+
             if (currentsession.Table.Status == TableStatus.Occupied)
             {
                 Order_Form order_Form = new Order_Form(this, currentsession);
@@ -218,7 +220,8 @@ namespace Restaurant_UI
 
             Session_Service session_Service = new Session_Service();
             session_Service.UpdateTable(currentsession);
-            session_Service.GetSessionId(currentsession);
+            currentsession.Id = session_Service.GetSessionId(currentsession);
+
 
             pnlChangeStatus.Hide();
             pnltable.Show();

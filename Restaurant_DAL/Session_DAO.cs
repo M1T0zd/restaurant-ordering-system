@@ -12,26 +12,21 @@ namespace Restaurant_DAL
 {
     public class Session_DAO : Base
     {
-        public Session GetID(Session session)
-        {
-            string query = "SELECT TOP 1 Id FROM Sessions ORDER BY ID DESC";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters), session);
-        }
-        public Session GetIDforOccupiedTable(Session session)
+        public int GetID(Session session)
         {
             string query = $"SELECT TOP 1 Id FROM Sessions WHERE TableId = {session.Table.Number} ORDER BY ID DESC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters), session);
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        private Session ReadTables(DataTable dataTable, Session session)
+        private int ReadTables(DataTable dataTable)
         {
+            int id = 0;
             foreach (DataRow dr in dataTable.Rows)
             {
-                session.Id = (int)dr["Id"];   
+                id = (int)dr["Id"];   
             }
-            return session;
+            return id;
         }
         public void UpdateTable(Session session)
         {
