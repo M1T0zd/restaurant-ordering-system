@@ -144,7 +144,6 @@ namespace Restaurant_UI
             {
                 //session_Service.SaveComments(session, comments);
                 //session_Service.SaveComments(session, comments);
-
             }
             session_Service.UpdateTablePayment(session);
             session.Table.Status = TableStatus.Available;
