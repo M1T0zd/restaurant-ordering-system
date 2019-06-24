@@ -19,7 +19,7 @@ namespace RestaurantModel
         public int Id { get; set; }
         public int MenuItemId { get; set; }
         public DateTime DateReady { get; set; }
-        //public Order order = new Order();
+
         public Category Category { get; set; }
         public MenuItem MenuItem { get; set; }
 

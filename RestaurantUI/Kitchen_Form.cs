@@ -30,8 +30,8 @@ namespace Restaurant_UI
         {
             dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
             lbl_Datetime.Text = "Current time : " + DateTime.Now.ToString("h:mm:ss tt");
-            timerRefrech.Enabled = false;
-            timerRefrech.Interval = 1000;//refresh every 20 seconds 
+            timerRefrech.Enabled = true;
+            timerRefrech.Interval = 3000;//refresh every 20 seconds 
         }
         private void timerRefresh_Tick(object sender, EventArgs e)
         {
@@ -67,8 +67,10 @@ namespace Restaurant_UI
                     foreach (OrderItem  item in Items)
                     {
                         Logic.MarkAsReady(item, OrderStatus.Ready);
+                        Orders.Remove(item);
                     }
-                    LoadAndDisplayData(CurrentEmployee);
+                    // LoadAndDisplayData(CurrentEmployee);
+                    FillinGridView();// fill in the info from the list without going to the DAL again
                     MessageBox.Show(Items.Count + " Items were marked as ready");
                 }
                 else
@@ -126,6 +128,7 @@ namespace Restaurant_UI
                 dgviewOrders.Rows[row].Cells["TableNumber"].Value = item.TableNumber;
                 dgviewOrders.Rows[row].Tag = item;
             }
+            DisplayData();// for refrech
         }
         private void LoadAndDisplayData(Employee CurrentEmp)
         {
