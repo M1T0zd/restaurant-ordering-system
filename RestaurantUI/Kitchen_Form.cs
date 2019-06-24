@@ -30,7 +30,7 @@ namespace Restaurant_UI
         {
             dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
             lbl_Datetime.Text = "Current time : " + DateTime.Now.ToString("h:mm:ss tt");
-            timerRefrech.Enabled = true;
+            timerRefrech.Enabled = false;
             timerRefrech.Interval = 3000;//refresh every 20 seconds 
         }
         private void timerRefresh_Tick(object sender, EventArgs e)
