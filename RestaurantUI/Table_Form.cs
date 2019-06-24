@@ -241,10 +241,12 @@ namespace Restaurant_UI
             pnltable.Show();
 
             Order_Form order_Form = new Order_Form(this, currentsession);
+            Hide();
             order_Form.Show();
+      
         }
 
-        private void BtnAvailable_Click(object sender, EventArgs e)
+        public void BtnAvailable_Click(object sender, EventArgs e)
         {
             currentsession.Table.Status = TableStatus.Available;
             Table_Service table_Service = new Table_Service();
