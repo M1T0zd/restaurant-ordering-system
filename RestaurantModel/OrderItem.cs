@@ -22,6 +22,7 @@ namespace RestaurantModel
 
         public Category Category { get; set; }
         public MenuItem MenuItem { get; set; }
+
         public OrderItem()
         {
 
