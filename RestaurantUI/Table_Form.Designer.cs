@@ -455,8 +455,11 @@
             this.Controls.Add(this.pnlChangeStatus);
             this.Controls.Add(this.pnlnotif);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Table_Form";
-            this.Text = "Table_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tables";
             this.pnltable.ResumeLayout(false);
             this.pnltable.PerformLayout();
             this.pnlnotif.ResumeLayout(false);
