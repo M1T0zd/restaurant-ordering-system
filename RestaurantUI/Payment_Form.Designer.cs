@@ -65,7 +65,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(387, 266);
+            this.label6.Location = new System.Drawing.Point(377, 265);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 20);
@@ -89,18 +89,18 @@
             this.Tax_txt_bx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tax_txt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tax_txt_bx.Location = new System.Drawing.Point(444, 266);
-            this.Tax_txt_bx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Tax_txt_bx.Margin = new System.Windows.Forms.Padding(4);
             this.Tax_txt_bx.Name = "Tax_txt_bx";
             this.Tax_txt_bx.ReadOnly = true;
-
+            this.Tax_txt_bx.Size = new System.Drawing.Size(61, 17);
             this.Tax_txt_bx.Size = new System.Drawing.Size(61, 14);
             this.Tax_txt_bx.TabIndex = 39;
             // 
             // Tiptxt_bx
             // 
             this.Tiptxt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tiptxt_bx.Location = new System.Drawing.Point(284, 466);
-            this.Tiptxt_bx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Tiptxt_bx.Location = new System.Drawing.Point(465, 445);
+            this.Tiptxt_bx.Margin = new System.Windows.Forms.Padding(4);
             this.Tiptxt_bx.Name = "Tiptxt_bx";
             this.Tiptxt_bx.Size = new System.Drawing.Size(59, 24);
             this.Tiptxt_bx.TabIndex = 38;
@@ -113,7 +113,7 @@
             this.Total_txt_bx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Total_txt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Total_txt_bx.Location = new System.Drawing.Point(444, 298);
-            this.Total_txt_bx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Total_txt_bx.Margin = new System.Windows.Forms.Padding(4);
             this.Total_txt_bx.Name = "Total_txt_bx";
             this.Total_txt_bx.ReadOnly = true;
             this.Total_txt_bx.Size = new System.Drawing.Size(87, 17);
@@ -128,7 +128,7 @@
             this.columnHeader3});
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.Location = new System.Drawing.Point(16, 52);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(508, 206);
             this.listView1.TabIndex = 36;
@@ -165,10 +165,10 @@
             this.groupBox1.Controls.Add(this.creditCardRdbtn);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(16, 350);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(15, 336);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(509, 90);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
@@ -178,7 +178,7 @@
             // 
             this.pictureBox2.Image = global::Restaurant_UI.Properties.Resources.Designbolts_Credit_Card_Payment_American_Express;
             this.pictureBox2.Location = new System.Drawing.Point(448, 22);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(51, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -189,7 +189,7 @@
             // 
             this.pictureBox1.Image = global::Restaurant_UI.Properties.Resources.Custom_Icon_Design_Flatastic_3_Payment_creditcard_visa;
             this.pictureBox1.Location = new System.Drawing.Point(396, 22);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -212,7 +212,7 @@
             // 
             this.cashRadiobtn.AutoSize = true;
             this.cashRadiobtn.Location = new System.Drawing.Point(23, 34);
-            this.cashRadiobtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cashRadiobtn.Margin = new System.Windows.Forms.Padding(4);
             this.cashRadiobtn.Name = "cashRadiobtn";
             this.cashRadiobtn.Size = new System.Drawing.Size(64, 22);
             this.cashRadiobtn.TabIndex = 18;
@@ -225,7 +225,7 @@
             // 
             this.PinRadiobtn.AutoSize = true;
             this.PinRadiobtn.Location = new System.Drawing.Point(171, 34);
-            this.PinRadiobtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PinRadiobtn.Margin = new System.Windows.Forms.Padding(4);
             this.PinRadiobtn.Name = "PinRadiobtn";
             this.PinRadiobtn.Size = new System.Drawing.Size(50, 22);
             this.PinRadiobtn.TabIndex = 17;
@@ -238,7 +238,7 @@
             // 
             this.creditCardRdbtn.AutoSize = true;
             this.creditCardRdbtn.Location = new System.Drawing.Point(292, 34);
-            this.creditCardRdbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.creditCardRdbtn.Margin = new System.Windows.Forms.Padding(4);
             this.creditCardRdbtn.Name = "creditCardRdbtn";
             this.creditCardRdbtn.Size = new System.Drawing.Size(100, 22);
             this.creditCardRdbtn.TabIndex = 28;
@@ -254,9 +254,9 @@
             this.groupBox2.Controls.Add(this.CancelBtn);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(16, 662);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(509, 128);
             this.groupBox2.TabIndex = 44;
             this.groupBox2.TabStop = false;
@@ -268,7 +268,7 @@
             this.PayOrderbtn.Image = global::Restaurant_UI.Properties.Resources.Tatice_Cristal_Intense_Ok1;
             this.PayOrderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PayOrderbtn.Location = new System.Drawing.Point(23, 53);
-            this.PayOrderbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PayOrderbtn.Margin = new System.Windows.Forms.Padding(4);
             this.PayOrderbtn.Name = "PayOrderbtn";
             this.PayOrderbtn.Size = new System.Drawing.Size(175, 49);
             this.PayOrderbtn.TabIndex = 54;
@@ -294,7 +294,7 @@
             this.CancelBtn.Image = global::Restaurant_UI.Properties.Resources.Gakuseisean_Ivista_Error;
             this.CancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CancelBtn.Location = new System.Drawing.Point(304, 53);
-            this.CancelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CancelBtn.Margin = new System.Windows.Forms.Padding(4);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(175, 49);
             this.CancelBtn.TabIndex = 0;
@@ -307,7 +307,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(20, 519);
+            this.label7.Location = new System.Drawing.Point(20, 496);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 18);
@@ -319,7 +319,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(113, 519);
+            this.label9.Location = new System.Drawing.Point(113, 496);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 18);
@@ -333,7 +333,7 @@
             this.Table_Numberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Table_Numberlbl.ForeColor = System.Drawing.Color.Red;
             this.Table_Numberlbl.Location = new System.Drawing.Point(320, 12);
-            this.Table_Numberlbl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Table_Numberlbl.Margin = new System.Windows.Forms.Padding(4);
             this.Table_Numberlbl.Name = "Table_Numberlbl";
             this.Table_Numberlbl.Size = new System.Drawing.Size(52, 22);
             this.Table_Numberlbl.TabIndex = 52;
@@ -354,7 +354,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(192, 473);
+            this.label5.Location = new System.Drawing.Point(373, 452);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 20);
@@ -363,8 +363,8 @@
             // 
             // commentstxt_box
             // 
-            this.commentstxt_box.Location = new System.Drawing.Point(16, 542);
-            this.commentstxt_box.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.commentstxt_box.Location = new System.Drawing.Point(16, 519);
+            this.commentstxt_box.Margin = new System.Windows.Forms.Padding(4);
             this.commentstxt_box.Multiline = true;
             this.commentstxt_box.Name = "commentstxt_box";
             this.commentstxt_box.Size = new System.Drawing.Size(508, 102);
@@ -390,7 +390,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Payment_Form";
