@@ -38,7 +38,7 @@ namespace Restaurant_UI
         private void DisplayOrderItems()
         {
             Table_Numberlbl.Text = session.Table.ToString();
-            List<OrderItem> orderItems = payment_Service.GetOrderItemPayment();
+            List<OrderItem> orderItems = payment_Service.GetOrderItemPayment(session);
             foreach (OrderItem item in orderItems)
             {
                 ListViewItem listViewItem = new ListViewItem(item.ItemName);
@@ -83,7 +83,7 @@ namespace Restaurant_UI
             foreach (ListViewItem listViewItem in listView1.Items)
             {
                 OrderItem orderItem = (OrderItem)listViewItem.Tag;
-                if(orderItem.Category.ToString() == "Alcoholic")
+                if(orderItem.Category == Category.Alcoholic)
                 {
                     isAlcoholic = true;
                 }
@@ -137,17 +137,15 @@ namespace Restaurant_UI
         //save paid order to database
         private void SavePaidOrderItems()
         {
+            payment.Date = DateTime.Now.ToString();
             string comments = commentstxt_box.Text;
             Session_Service session_Service = new Session_Service();
 
             if (!String.IsNullOrEmpty(commentstxt_box.Text))
             {
-                session_Service.SaveComments(session, comments);
+               //session_Service.(session, comments);
             }
             session_Service.UpdateTablePayment(session);
-            session.Table.Status = TableStatus.Available;
-
-            payment_Service.UpdateStatus(session.Table);
             payment_Service.SavePaidOrder(payment, session);
         }
        
