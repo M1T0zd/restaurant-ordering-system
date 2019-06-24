@@ -58,12 +58,12 @@
             this.btnpanelback = new System.Windows.Forms.Button();
             this.listviewnotif = new System.Windows.Forms.ListView();
             this.pnlChangeStatus = new System.Windows.Forms.Panel();
+            this.btnback = new System.Windows.Forms.Button();
             this.btnAvailable = new System.Windows.Forms.Button();
             this.btnReserved = new System.Windows.Forms.Button();
             this.btnOccupied = new System.Windows.Forms.Button();
             this.lblNumber = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnback = new System.Windows.Forms.Button();
             this.pnltable.SuspendLayout();
             this.pnlnotif.SuspendLayout();
             this.pnlChangeStatus.SuspendLayout();
@@ -385,6 +385,16 @@
             this.pnlChangeStatus.Size = new System.Drawing.Size(524, 710);
             this.pnlChangeStatus.TabIndex = 25;
             // 
+            // btnback
+            // 
+            this.btnback.Location = new System.Drawing.Point(10, 21);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(109, 25);
+            this.btnback.TabIndex = 4;
+            this.btnback.Text = "Back";
+            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.Btnback_Click);
+            // 
             // btnAvailable
             // 
             this.btnAvailable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -436,16 +446,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // btnback
-            // 
-            this.btnback.Location = new System.Drawing.Point(10, 21);
-            this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(109, 25);
-            this.btnback.TabIndex = 4;
-            this.btnback.Text = "Back";
-            this.btnback.UseVisualStyleBackColor = true;
-            this.btnback.Click += new System.EventHandler(this.Btnback_Click);
-            // 
             // Table_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -457,7 +457,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Table_Form";
             this.Text = "Table_Form";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Table_Form_FormClosed);
             this.pnltable.ResumeLayout(false);
             this.pnltable.PerformLayout();
             this.pnlnotif.ResumeLayout(false);
