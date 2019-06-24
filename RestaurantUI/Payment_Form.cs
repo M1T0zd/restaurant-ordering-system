@@ -93,7 +93,7 @@ namespace Restaurant_UI
             DialogResult result = MessageBox.Show("Are you sure you want to cancel.", "Confirm cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                this.Hide();
+                Hide();
                 table_Form.Show(); //go to home page
             }
         }
@@ -172,10 +172,9 @@ namespace Restaurant_UI
         }
         private void PaymentConfirmation()
         {
-         
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
-
-            table_Form.Show(); // back to home page
+            table_Form.BtnAvailable_Click(null,null);
+            table_Form.Show(); // back to home page 
         }
 
         private void Tiptxt_bx_TextChanged(object sender, EventArgs e)

@@ -162,11 +162,13 @@ namespace Restaurant_UI
 		private void BtnPay_Click(object sender, EventArgs e)
 		{
 
-            this.Hide();
+            
             Payment_Form form = new Payment_Form(table_Form, table);
             form.Show();
+            Hide();
 
 		}
+
 		private void TxtComment_Leave(object sender, EventArgs e)
 		{
 			foreach(ListViewItem lvi in lvOrderItems.SelectedItems)
