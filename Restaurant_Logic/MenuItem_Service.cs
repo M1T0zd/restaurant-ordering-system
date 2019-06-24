@@ -19,19 +19,35 @@ namespace Restaurant_Logic
 
 		public List<MenuItem> GetMenuItems()
         {
-			/*try
-			{*/
+			try
+			{
 				List<MenuItem> menuitems = menuItem_DAO.GetMenuItems();
                 return menuitems;
-			/*}
+			}
             catch (Exception e)
             {
                 ErrorLogging(e);
 
                 return null;
-            }*/
-}
-        private static void ErrorLogging(Exception e)
+            }
+		}
+
+		public List<MenuItem> GetMenuItemsByCategory(Category category)
+		{
+			try
+			{
+				List<MenuItem> menuitems = menuItem_DAO.GetMenuItemsByCategory(category);
+				return menuitems;
+			}
+			catch (Exception e)
+			{
+				ErrorLogging(e);
+
+				return null;
+			}
+		}
+
+		private static void ErrorLogging(Exception e)
         {
 			Debug.WriteLine("=============Error Logging ===========");
 			Debug.WriteLine("===========Start============= " + DateTime.Now);

@@ -26,5 +26,9 @@ namespace Restaurant_Logic
         {
             session_DAO.GetID(session);     
         }
+        public void GetSessionIdforOccupiedTable(Session session)
+        {
+            session_DAO.GetIDforOccupiedTable(session);
+        }
     }
 }
