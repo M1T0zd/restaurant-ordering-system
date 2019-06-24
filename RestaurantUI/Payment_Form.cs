@@ -215,9 +215,9 @@ namespace Restaurant_UI
             Tiptxt_bx.Visible = true;
         }
 
-        private void Payment_Form_Load(object sender, EventArgs e)
+        private void CashRadiobtn_CheckedChanged(object sender, EventArgs e)
         {
-
+            Tiptxt_bx.Visible = false;
         }
     }
 }

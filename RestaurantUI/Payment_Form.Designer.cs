@@ -75,7 +75,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(279, 276);
+            this.label4.Location = new System.Drawing.Point(283, 242);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 40;
@@ -95,7 +95,7 @@
             // Tiptxt_bx
             // 
             this.Tiptxt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tiptxt_bx.Location = new System.Drawing.Point(333, 239);
+            this.Tiptxt_bx.Location = new System.Drawing.Point(213, 379);
             this.Tiptxt_bx.Name = "Tiptxt_bx";
             this.Tiptxt_bx.Size = new System.Drawing.Size(45, 21);
             this.Tiptxt_bx.TabIndex = 38;
@@ -107,7 +107,7 @@
             // 
             this.Total_txt_bx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Total_txt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Total_txt_bx.Location = new System.Drawing.Point(329, 276);
+            this.Total_txt_bx.Location = new System.Drawing.Point(333, 242);
             this.Total_txt_bx.Name = "Total_txt_bx";
             this.Total_txt_bx.ReadOnly = true;
             this.Total_txt_bx.Size = new System.Drawing.Size(65, 14);
@@ -121,9 +121,9 @@
             this.columnHeader2,
             this.columnHeader3});
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.Location = new System.Drawing.Point(26, 42);
+            this.listView1.Location = new System.Drawing.Point(12, 42);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(352, 168);
+            this.listView1.Size = new System.Drawing.Size(382, 168);
             this.listView1.TabIndex = 36;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -131,12 +131,12 @@
             // Desription
             // 
             this.Desription.Text = "Description";
-            this.Desription.Width = 180;
+            this.Desription.Width = 202;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Category";
-            this.columnHeader1.Width = 84;
+            this.columnHeader1.Width = 93;
             // 
             // columnHeader2
             // 
@@ -158,9 +158,9 @@
             this.groupBox1.Controls.Add(this.creditCardRdbtn);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(35, 305);
+            this.groupBox1.Location = new System.Drawing.Point(12, 284);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(292, 117);
+            this.groupBox1.Size = new System.Drawing.Size(382, 73);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select payment method ";
@@ -168,7 +168,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Restaurant_UI.Properties.Resources.Designbolts_Credit_Card_Payment_American_Express;
-            this.pictureBox2.Location = new System.Drawing.Point(244, 74);
+            this.pictureBox2.Location = new System.Drawing.Point(336, 18);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(38, 29);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -178,7 +178,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Restaurant_UI.Properties.Resources.Custom_Icon_Design_Flatastic_3_Payment_creditcard_visa;
-            this.pictureBox1.Location = new System.Drawing.Point(205, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(297, 18);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(33, 29);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -206,11 +206,12 @@
             this.cashRadiobtn.TabStop = true;
             this.cashRadiobtn.Text = "Cash";
             this.cashRadiobtn.UseVisualStyleBackColor = true;
+            this.cashRadiobtn.CheckedChanged += new System.EventHandler(this.CashRadiobtn_CheckedChanged);
             // 
             // PinRadiobtn
             // 
             this.PinRadiobtn.AutoSize = true;
-            this.PinRadiobtn.Location = new System.Drawing.Point(17, 84);
+            this.PinRadiobtn.Location = new System.Drawing.Point(128, 28);
             this.PinRadiobtn.Name = "PinRadiobtn";
             this.PinRadiobtn.Size = new System.Drawing.Size(43, 19);
             this.PinRadiobtn.TabIndex = 17;
@@ -222,7 +223,7 @@
             // creditCardRdbtn
             // 
             this.creditCardRdbtn.AutoSize = true;
-            this.creditCardRdbtn.Location = new System.Drawing.Point(127, 84);
+            this.creditCardRdbtn.Location = new System.Drawing.Point(219, 28);
             this.creditCardRdbtn.Name = "creditCardRdbtn";
             this.creditCardRdbtn.Size = new System.Drawing.Size(83, 19);
             this.creditCardRdbtn.TabIndex = 28;
@@ -237,9 +238,9 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.CancelBtn);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(35, 538);
+            this.groupBox2.Location = new System.Drawing.Point(12, 538);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(340, 104);
+            this.groupBox2.Size = new System.Drawing.Size(382, 104);
             this.groupBox2.TabIndex = 44;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Process payment ";
@@ -273,7 +274,7 @@
             this.CancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelBtn.Image = global::Restaurant_UI.Properties.Resources.Gakuseisean_Ivista_Error;
             this.CancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CancelBtn.Location = new System.Drawing.Point(187, 43);
+            this.CancelBtn.Location = new System.Drawing.Point(228, 43);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(131, 40);
             this.CancelBtn.TabIndex = 0;
@@ -286,7 +287,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(38, 432);
+            this.label7.Location = new System.Drawing.Point(15, 422);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 15);
             this.label7.TabIndex = 48;
@@ -297,7 +298,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(111, 432);
+            this.label9.Location = new System.Drawing.Point(85, 422);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 15);
             this.label9.TabIndex = 49;
@@ -329,7 +330,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(260, 243);
+            this.label5.Location = new System.Drawing.Point(144, 384);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 16);
             this.label5.TabIndex = 53;
@@ -337,10 +338,10 @@
             // 
             // commentstxt_box
             // 
-            this.commentstxt_box.Location = new System.Drawing.Point(35, 450);
+            this.commentstxt_box.Location = new System.Drawing.Point(12, 440);
             this.commentstxt_box.Multiline = true;
             this.commentstxt_box.Name = "commentstxt_box";
-            this.commentstxt_box.Size = new System.Drawing.Size(340, 74);
+            this.commentstxt_box.Size = new System.Drawing.Size(382, 84);
             this.commentstxt_box.TabIndex = 54;
             // 
             // Payment_Form
@@ -365,7 +366,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Payment_Form";
             this.Text = "Payment_Form";
-            this.Load += new System.EventHandler(this.Payment_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
