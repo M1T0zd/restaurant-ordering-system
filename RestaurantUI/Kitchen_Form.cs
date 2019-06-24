@@ -30,7 +30,7 @@ namespace Restaurant_UI
             DisplayFood();
             dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
             lbl_Datetime.Text ="Current time : "+ DateTime.Now.ToString("h:mm:ss tt");
-            //lbl_PreparedOrders.Text ="";// to modify later 
+
             timerRefrech.Interval = 1000;//refresh every 20 seconds 
             timerRefrech.Enabled = false;
         }
@@ -116,9 +116,9 @@ namespace Restaurant_UI
         private void DesignGridView()
         {
             dgviewOrders.Columns.Add("Name", "Name");
-            dgviewOrders.Columns.Add("Quanitity", "Quanitity");
+            dgviewOrders.Columns.Add("Quantity", "Quantity");
             dgviewOrders.Columns.Add("Comment", "Comment");
-            dgviewOrders.Columns.Add("Status", "Comment");
+            dgviewOrders.Columns.Add("Status", "State");
             dgviewOrders.Columns.Add("takenAt", "Taken At");
             dgviewOrders.Columns.Add("TableNumber", "Table Number");
         }
@@ -129,7 +129,7 @@ namespace Restaurant_UI
             {
                 int row = dgviewOrders.Rows.Add();
                 dgviewOrders.Rows[row].Cells["Name"].Value = item.ItemName;
-                dgviewOrders.Rows[row].Cells["Quanitity"].Value = item.Amount;
+                dgviewOrders.Rows[row].Cells["Quantity"].Value = item.Amount;
                 dgviewOrders.Rows[row].Cells["Comment"].Value = item.Comment;
                 dgviewOrders.Rows[row].Cells["Status"].Value = item.Status;
                 dgviewOrders.Rows[row].Cells["takenAt"].Value = item.Ordertime;
@@ -140,15 +140,14 @@ namespace Restaurant_UI
         }
         private void LoadingData(Employee CurrentEmp)
         {
-            // make only once the test for the current user and display his data 
-            if (CurrentEmp.Role.ToString() == "Chef")
+            if (CurrentEmp.Role==EmployeeRole.Chef)
             {
                 Orders = Logic.GetUnReadyFoodItemsOrderByTakenTimeDesc();
                 DesignGridView();
                 FillinGridView();
                 DisplayFood();
             }
-            else if (CurrentEmp.Role.ToString() == "Barman")
+            else if (CurrentEmp.Role== EmployeeRole.Barman)
             {
                 Orders = Logic.GetUnReadyDrinkItemsOrderByTakenTime();
                 DesignGridView();

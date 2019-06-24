@@ -102,7 +102,8 @@
             this.Controls.Add(this.lblusername);
             this.Controls.Add(this.lbllogin);
             this.Name = "Login_Form";
-            this.Text = "Login_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
