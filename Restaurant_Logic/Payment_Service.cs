@@ -12,9 +12,9 @@ namespace Restaurant_Logic
     {
         Payment_DAO payementDao = new Payment_DAO();
 
-        public void SavePaidOrder(Payment payment, Session session, int tableNumber)
+        public void SavePaidOrder(Payment payment, Session session)
         {
-            payementDao.SavePaidOrder(payment, session, tableNumber);
+            payementDao.SavePaidOrder(payment, session);
            
         }
       
