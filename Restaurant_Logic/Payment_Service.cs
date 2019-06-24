@@ -23,9 +23,6 @@ namespace Restaurant_Logic
             List<OrderItem> orderItems = new List<OrderItem>();
             return orderItems = paymentDao.GetOrderItemPayment(session);
         }
-        public void UpdateStatus(Table table)
-        {
-            paymentDao.UpdateTable(table);
-        }
+     
     }
 }

@@ -14,11 +14,11 @@ namespace Restaurant_DAL
 
         public void SavePaidOrder(Payment payment, Session session)
         {
+            Session_DAO ChangeTableStatus = new Session_DAO();
             string query = $"INSERT INTO  Payments(SessionId,PayMethod,Tip,Total_ExclTip,Date) VALUES ({session.Id}, {payment.PaymentMethod},{payment.Tip},{payment.Total},'{payment.Date}')";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
-
-          
+            ChangeTableStatus.UpdateTable(session);
         }
         public List<OrderItem> GetOrderItemPayment(Session session)
         {
@@ -44,11 +44,6 @@ namespace Restaurant_DAL
             }
             return orderItems;
         }
-        public void UpdateTable(Table table)
-        {
-            string query = ($"UPDATE Tables SET StatusId = {(int)table.Status} where Number = {table.Number}");
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
-        }
+      
     }
 }
