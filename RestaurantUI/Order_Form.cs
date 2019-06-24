@@ -36,7 +36,7 @@ namespace Restaurant_UI
        
         private void Order_Form_Load(object sender, EventArgs e)
         {
-             table = currentSession.Table.Number;
+            table = currentSession.Table.Number;
             lblNumber2.Text = $"Table{table} ";
 
             /*lblNumber.Text = $"Table {currentSession.Table.Number}";
@@ -151,6 +151,7 @@ namespace Restaurant_UI
 		{
             //UpdateStatusButtons();
             //pnlChangeStatus.Show();
+            table_Form.CheckStatusButton();
             table_Form.Show();
             table_Form.paneltable.Hide();
             table_Form.panelnotif.Hide();
@@ -164,26 +165,6 @@ namespace Restaurant_UI
             form.Show();
             Hide();
 
-        }
-
-		private void UpdateStatusButtons()
-		{
-			/*btnOccupied.Show();
-			btnAvailable.Show();
-			btnReserved.Show();
-
-			if (currentSession.Table.Status == TableStatus.Occupied)
-			{
-				btnOccupied.Hide();
-			}
-			else if (currentSession.Table.Status == TableStatus.Available)
-			{
-				btnAvailable.Hide();
-			}
-			else if (currentSession.Table.Status == TableStatus.Reserved)
-			{
-				btnReserved.Hide();
-			}*/
 		}
 
 		private void TxtComment_Leave(object sender, EventArgs e)

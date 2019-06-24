@@ -14,7 +14,7 @@ namespace Restaurant_UI
 {
     public partial class Kitchen_Form : Form
     {
-        public OrderItem_Service OrderItem_Service = new OrderItem_Service();
+        public OrderItem_Service Logic = new OrderItem_Service();
         List<OrderItem> Orders = new List<OrderItem>();// refreching use
         private Employee CurrentEmployee = new Employee();
         //***************************************************
@@ -40,14 +40,14 @@ namespace Restaurant_UI
         }
         private void dgviewDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            OrderItem currentObject = (OrderItem)dgviewOrders.CurrentRow.DataBoundItem;
+            OrderItem currentObject = (OrderItem)dgviewOrders.CurrentRow.Tag;
             if (currentObject != null)
             {
                 if (MessageBox.Show(" are you sure you want to mark this order as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     if (dgviewOrders.Columns[e.ColumnIndex].Name == "btnMarkready")
                     {
-                        OrderItem_Service.MarkAsReady(currentObject.Id, OrderStatus.Ready);
+                        Logic.MarkAsReady(currentObject.Id, OrderStatus.Ready);
                             LoadingData(CurrentEmployee);
                     }
                 }
@@ -71,7 +71,7 @@ namespace Restaurant_UI
             {
                 if (row.Index >= 0)
                 {
-                    OrderItem currentObject = (OrderItem)row.DataBoundItem;
+                    OrderItem currentObject = (OrderItem)row.Tag;
                     if (currentObject != null)
                         Items.Add(currentObject.Id);// get the ID of each Object
                 }
@@ -79,7 +79,7 @@ namespace Restaurant_UI
             if (MessageBox.Show(" are you sure you want to mark all these orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 foreach (int Id in Items)
-                    OrderItem_Service.MarkAsReady(Id, OrderStatus.Ready);
+                    Logic.MarkAsReady(Id, OrderStatus.Ready);
                   LoadingData(CurrentEmployee);// refrech after deleting
                 MessageBox.Show(Items.Count + " Items were marked as ready"); // notify the user how many items were deleted
             }
@@ -113,42 +113,46 @@ namespace Restaurant_UI
             }
 
         }
+        private void DesignGridView()
+        {
+            dgviewOrders.Columns.Add("Name", "Name");
+            dgviewOrders.Columns.Add("Quanitity", "Quanitity");
+            dgviewOrders.Columns.Add("Comment", "Comment");
+            dgviewOrders.Columns.Add("Status", "Comment");
+            dgviewOrders.Columns.Add("takenAt", "Taken At");
+            dgviewOrders.Columns.Add("TableNumber", "Table Number");
+        }
+        private void FillinGridView()
+        {
+            dgviewOrders.Rows.Clear();
+            foreach (OrderItem item in Orders)
+            {
+                int row = dgviewOrders.Rows.Add();
+                dgviewOrders.Rows[row].Cells["Name"].Value = item.ItemName;
+                dgviewOrders.Rows[row].Cells["Quanitity"].Value = item.Amount;
+                dgviewOrders.Rows[row].Cells["Comment"].Value = item.Comment;
+                dgviewOrders.Rows[row].Cells["Status"].Value = item.Status;
+                dgviewOrders.Rows[row].Cells["takenAt"].Value = item.Ordertime;
+                dgviewOrders.Rows[row].Cells["TableNumber"].Value = item.TableNumber;
+                dgviewOrders.Rows[row].Tag = item;
+            }
 
+        }
         private void LoadingData(Employee CurrentEmp)
         {
             // make only once the test for the current user and display his data 
             if (CurrentEmp.Role.ToString() == "Chef")
             {
-                Orders = OrderItem_Service.GetUnReadyFoodItemsOrderByTakenTimeDesc();
-                var _bind =from a in Orders
-                            select new   OrderItem
-                            {
-                                ItemName = a.ItemName,
-                                Amount = a.Amount,
-                                Comment = a.Comment,
-                                Status = a.Status,
-                                TableNumber = a.TableNumber,
-                                Ordertime = a.Ordertime,
-                                Id = a.Id,
-                            };
-                dgviewOrders.DataSource = _bind.ToList(); 
+                Orders = Logic.GetUnReadyFoodItemsOrderByTakenTimeDesc();
+                DesignGridView();
+                FillinGridView();
                 DisplayFood();
             }
             else if (CurrentEmp.Role.ToString() == "Barman")
             {
-                Orders = OrderItem_Service.GetDrinkItemsOrderByTakenTime();
-                var _bind = from a in Orders
-                            select new OrderItem
-                            {
-                                ItemName = a.ItemName,
-                                Amount = a.Amount,
-                                Comment = a.Comment,
-                                Status = a.Status,
-                                TableNumber = a.TableNumber,
-                                Ordertime = a.Ordertime,
-                                Id = a.Id,
-                            };
-                dgviewOrders.DataSource = _bind.ToList();
+                Orders = Logic.GetUnReadyDrinkItemsOrderByTakenTime();
+                DesignGridView();
+                FillinGridView();
                 DisplayFood();
             }
         }

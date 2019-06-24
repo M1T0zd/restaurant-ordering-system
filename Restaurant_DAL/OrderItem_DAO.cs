@@ -32,7 +32,7 @@ namespace Restaurant_DAL
 			SqlParameter[] sqlParameters = new SqlParameter[0];
 			ExecuteSelectQuery(query, sqlParameters);
 		}
-        public List<OrderItem> GetReadyDrinkItemsOrderByTakenTime()
+        public List<OrderItem> GetUnReadyDrinkItemsOrderByTakenTime()
         {
             string query = @"select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime,se.TableId, o.Id as OrderID,i.Id as ItemID  from Orders o 
 								join OrderItems i on o.Id=i.OrderId

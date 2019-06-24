@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Restaurant_UI
 {
     public partial class Table_Form : Form
@@ -22,6 +21,7 @@ namespace Restaurant_UI
         List<OrderItem> orderItems;
         Session currentsession;
         List<Button> buttons;
+        // Create a timer with a ten second interval.
         public Panel panelnotif { get { return pnlnotif; } }
         public Panel paneltable { get { return pnltable; } }
         public Panel pnlstatus { get { return pnlChangeStatus; } }
@@ -37,6 +37,7 @@ namespace Restaurant_UI
         {
             GiveColor();
         }
+
 
         private void Initialize(Login_Form login_Form,Employee employee)
         {
@@ -58,7 +59,6 @@ namespace Restaurant_UI
                 btntable10
             };
             GiveColor();
-            //Get Notification List If Order Is ready
         }
         private void GiveColor()
         {
@@ -93,6 +93,7 @@ namespace Restaurant_UI
         void CheckStatusPanel()
         {
             CheckStatusButton();
+            lblNumber.Text = $"Table {currentsession.Table.Number.ToString()}";
             if (currentsession.Table.Status == TableStatus.Occupied)
             {
                 Order_Form order_Form = new Order_Form(this, currentsession);
@@ -104,7 +105,7 @@ namespace Restaurant_UI
                 pnltable.Hide();
             }
         }
-        private void CheckStatusButton()
+        public void CheckStatusButton()
         {
             btnOccupied.Show();
             btnAvailable.Show();
@@ -224,6 +225,7 @@ namespace Restaurant_UI
                 // Go Back
             }
         }
+        //Code for Status Panel
 
         private void BtnOccupied_Click(object sender, EventArgs e)
         {

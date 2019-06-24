@@ -28,32 +28,12 @@ namespace Restaurant_Logic
             }
             catch (Exception e)
             {
-                ErrorLogging(e);
                 return null;
             }
         }
         public void UpdateStatus(Table table)
         {
             table_DAO.UpdateTable(table);
-        }
-        private static void ErrorLogging(Exception e)
-        {
-            string strPath = @"D:\Prins\Log.txt";
-            if (!File.Exists(strPath))
-            {
-                File.Create(strPath).Dispose();
-            }
-            using (StreamWriter sw = File.AppendText(strPath))
-            {
-                sw.WriteLine("=============Error Logging ===========");
-                sw.WriteLine("===========Start============= " + DateTime.Now);
-                sw.WriteLine("Error Message: " + e.Message);
-                sw.WriteLine("Stack Trace: " + e.StackTrace);
-                sw.WriteLine("===========End============= " + DateTime.Now);
-                sw.WriteLine();
-
-
-            }
         }
     }
 }
