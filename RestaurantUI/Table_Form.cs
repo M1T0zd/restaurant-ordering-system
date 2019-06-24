@@ -21,7 +21,6 @@ namespace Restaurant_UI
         List<OrderItem> orderItems;
         Session currentsession;
         List<Button> buttons;
-        // Create a timer with a ten second interval.
         public Panel panelnotif { get { return pnlnotif; } }
         public Panel paneltable { get { return pnltable; } }
         public Panel pnlstatus { get { return pnlChangeStatus; } }
@@ -41,8 +40,10 @@ namespace Restaurant_UI
 
         private void Initialize(Login_Form login_Form,Employee employee)
         {
+            //Timer with 10 second interval
             timer1.Enabled = true;
-            timer1.Interval = 1000;
+            timer1.Interval = 10000;
+
             Table_Service table_Service = new Table_Service();
             this.login_Form = login_Form;
             tables = table_Service.GetTables();
@@ -271,6 +272,15 @@ namespace Restaurant_UI
         private void Timer1_Tick(object sender, EventArgs e)
         {
             GiveColor();
+            RefreshForm();
+            ShowNotification();
+        }
+        void ShowNotification()
+        {
+            if (listviewnotif.Items.Count > 0)
+            {
+                btnnotif.Text = $"{listviewnotif.Items.Count.ToString()} orders ready";
+            }
         }
     }
 }

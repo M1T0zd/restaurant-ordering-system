@@ -15,7 +15,7 @@ namespace Restaurant_UI
     public partial class Kitchen_Form : Form
     {
         public OrderItem_Service Logic = new OrderItem_Service();
-        List<OrderItem> Orders = new List<OrderItem>();// refreching use
+        List<OrderItem> Orders = new List<OrderItem>();// refreshing use
         private Employee CurrentEmployee = new Employee();
         //***************************************************
         public Kitchen_Form(Employee employee)
@@ -34,7 +34,7 @@ namespace Restaurant_UI
             timerRefrech.Interval = 1000;//refresh every 20 seconds 
             timerRefrech.Enabled = false;
         }
-        private void timerRefrech_Tick(object sender, EventArgs e)
+        private void timerRefresh_Tick(object sender, EventArgs e)
         {
                 LoadingData(CurrentEmployee);
         }
