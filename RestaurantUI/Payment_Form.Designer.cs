@@ -92,7 +92,12 @@
             this.Tax_txt_bx.Margin = new System.Windows.Forms.Padding(4);
             this.Tax_txt_bx.Name = "Tax_txt_bx";
             this.Tax_txt_bx.ReadOnly = true;
+<<<<<<< HEAD
             this.Tax_txt_bx.Size = new System.Drawing.Size(61, 17);
+=======
+
+            this.Tax_txt_bx.Size = new System.Drawing.Size(61, 14);
+>>>>>>> 21954c6d4fece8e782c8fdaf607c193620164fc3
             this.Tax_txt_bx.TabIndex = 39;
             // 
             // Tiptxt_bx

@@ -20,10 +20,10 @@ namespace Restaurant_DAL
 
           
         }
-        public List<OrderItem> GetOrderItemPayment()
+        public List<OrderItem> GetOrderItemPayment(Session session)
         {
             string query = "SELECT M.Name,M.Price,M.CategoryId,OI.Quantity FROM OrderItems AS OI" +
-                " JOIN Orders AS O ON OI.OrderId = O.Id JOIN MenuItems AS M ON OI.MenuItemId = M.Id WHERE O.Id = 7";
+                $" JOIN Orders AS O ON OI.OrderId = O.Id JOIN MenuItems AS M ON OI.MenuItemId = M.Id WHERE O.SesionId = {session.Id}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTablesPayment(ExecuteSelectQuery(query, sqlParameters));
         }

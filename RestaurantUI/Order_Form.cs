@@ -62,7 +62,6 @@ namespace Restaurant_UI
 				}
 
 				order.SessionId = currentSession.Id;
-				Console.WriteLine(order.SessionId);
 
 				//Push to database
 				Order_Service order_Service = new Order_Service();
