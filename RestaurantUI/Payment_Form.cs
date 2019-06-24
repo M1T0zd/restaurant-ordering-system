@@ -27,6 +27,7 @@ namespace Restaurant_UI
             this.table_Form = table_Form;
             this.tableNumber = tableNumber;
             this.session = session;
+            Tiptxt_bx.Visible = false;
             DisplayOrderItems();
         }
         private void DisplayOrderItems()
@@ -166,7 +167,7 @@ namespace Restaurant_UI
                     }
                     PaymentConfirmation();
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
                     MessageBox.Show("e");
                 }
@@ -201,8 +202,23 @@ namespace Restaurant_UI
             }
             catch (Exception m)
             {
-                MessageBox.Show("Enter numbers only", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Enter numbers only"+m.Message, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void PinRadiobtn_CheckedChanged(object sender, EventArgs e)
+        {
+            Tiptxt_bx.Visible = true;
+        }
+
+        private void CreditCardRdbtn_CheckedChanged(object sender, EventArgs e)
+        {
+            Tiptxt_bx.Visible = true;
+        }
+
+        private void Payment_Form_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

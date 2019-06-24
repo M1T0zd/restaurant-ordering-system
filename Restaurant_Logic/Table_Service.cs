@@ -26,7 +26,7 @@ namespace Restaurant_Logic
                 List<Table> tables = table_DAO.GetTables();
                 return tables;
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 return null;
             }
