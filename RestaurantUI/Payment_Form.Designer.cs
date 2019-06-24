@@ -100,6 +100,7 @@
             this.Tiptxt_bx.Size = new System.Drawing.Size(45, 21);
             this.Tiptxt_bx.TabIndex = 38;
             this.Tiptxt_bx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Tiptxt_bx.Visible = false;
             this.Tiptxt_bx.TextChanged += new System.EventHandler(this.Tiptxt_bx_TextChanged);
             // 
             // Total_txt_bx
@@ -216,6 +217,7 @@
             this.PinRadiobtn.TabStop = true;
             this.PinRadiobtn.Text = "Pin";
             this.PinRadiobtn.UseVisualStyleBackColor = true;
+            this.PinRadiobtn.CheckedChanged += new System.EventHandler(this.PinRadiobtn_CheckedChanged);
             // 
             // creditCardRdbtn
             // 
@@ -227,6 +229,7 @@
             this.creditCardRdbtn.TabStop = true;
             this.creditCardRdbtn.Text = "CreditCard";
             this.creditCardRdbtn.UseVisualStyleBackColor = true;
+            this.creditCardRdbtn.CheckedChanged += new System.EventHandler(this.CreditCardRdbtn_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -362,6 +365,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Payment_Form";
             this.Text = "Payment_Form";
+            this.Load += new System.EventHandler(this.Payment_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
