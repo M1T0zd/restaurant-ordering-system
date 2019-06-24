@@ -73,7 +73,6 @@ namespace Restaurant_UI
                 }
             } 
         }
-       // public static int tableID = 0;
         private void Button_Click(object sender, EventArgs e)
         {
             button = (Button)sender;
@@ -81,13 +80,15 @@ namespace Restaurant_UI
             Table table = tables[button.TabIndex];
             currentsession.Table = table;
 
-            // tableID = tables.Find(x => x.Number == table.Number).Number;
             CheckStatusPanel();
         }
         void CheckStatusPanel()
         {
             CheckStatusButton();
             lblNumber.Text = $"Table {currentsession.Table.Number.ToString()}";
+            Session_Service session_Service = new Session_Service();
+            //Get SessionId
+            session_Service.GetSessionIdforOccupiedTable(currentsession);
             if (currentsession.Table.Status == TableStatus.Occupied)
             {
                 Order_Form order_Form = new Order_Form(this, currentsession);
@@ -199,8 +200,8 @@ namespace Restaurant_UI
                 // Go Back
             }
         }
-        //Code for Status Panel
 
+        //Code for Status Panel
         private void CreateSession()
         {
             currentsession.Start = DateTime.Now;

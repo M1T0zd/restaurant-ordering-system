@@ -18,6 +18,12 @@ namespace Restaurant_DAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters), session);
         }
+        public Session GetIDforOccupiedTable(Session session)
+        {
+            string query = $"SELECT TOP 1 Id FROM Sessions WHERE TableId = {session.Table.Number} ORDER BY ID DESC";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters), session);
+        }
 
         private Session ReadTables(DataTable dataTable, Session session)
         {
