@@ -446,13 +446,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 732);
             this.Controls.Add(this.pnltable);
-            this.Controls.Add(this.pnlnotif);
             this.Controls.Add(this.pnlChangeStatus);
+            this.Controls.Add(this.pnlnotif);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Table_Form";
             this.Text = "Table_Form";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Table_Form_FormClosed);
-            this.Load += new System.EventHandler(this.Table_Form_Load);
             this.pnltable.ResumeLayout(false);
             this.pnltable.PerformLayout();
             this.pnlnotif.ResumeLayout(false);
