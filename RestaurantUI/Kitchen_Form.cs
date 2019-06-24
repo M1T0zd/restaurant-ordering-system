@@ -21,9 +21,9 @@ namespace Restaurant_UI
         public Kitchen_Form(Employee employee)
         {
             InitializeComponent();
-            this.CurrentEmployee = employee; // get the current Employee kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkköö#kk
+            this.CurrentEmployee = employee; // get the current Employee
             this.Text = "Welcome   " + CurrentEmployee.Name;
-            LoadingData(CurrentEmployee);// load Data depend on the current Employee
+            LoadingData(CurrentEmployee);// load Data
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
@@ -148,6 +148,46 @@ namespace Restaurant_UI
             }
             DesignGridView();
             FillinGridView();
+        }
+        void getOrders()
+        {
+            List<OrderItem> orders = new List<OrderItem>();
+
+            OrderItem Item1 = new OrderItem()
+            {
+                ItemName = "egges",
+                Amount =2,
+                Comment ="no salt ",
+                Status = OrderStatus.Processing,
+                Ordertime ="00:00:00",
+                TableNumber =1,
+                OrderId =1,
+                Id = 1
+            };
+
+            OrderItem Item2 = new OrderItem()
+            {
+                ItemName = "omlette",
+                Amount = 2,
+                Comment = "no ice ",
+                Status = OrderStatus.Ready,
+                Ordertime = "00:00:00",
+                TableNumber = 1,
+                OrderId = 1,
+                Id = 2
+            };
+
+            OrderItem Item3 = new OrderItem()
+            {
+                ItemName = "bread",
+                Amount = 2,
+                Comment = "no gluten ",
+                Status = OrderStatus.Ready,
+                Ordertime = "00:00:00",
+                TableNumber = 1,
+                OrderId = 1,
+                Id = 3
+            };
         }
     }
 }

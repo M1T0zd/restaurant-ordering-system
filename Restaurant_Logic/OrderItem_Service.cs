@@ -52,10 +52,8 @@ namespace Restaurant_Logic
         {
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }
-
         public List<OrderItem> GetOrderItemReady()
         {
-           
                 List<OrderItem> orders = orderItem_DAO.GetOrderItemReady();
                 return orders;
         }
