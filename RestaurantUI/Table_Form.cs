@@ -273,6 +273,11 @@ namespace Restaurant_UI
             pnltable.Hide();
             pnlnotif.Hide();
             pnlChangeStatus.Show();
-        }      
+        }
+
+        private void Table_Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

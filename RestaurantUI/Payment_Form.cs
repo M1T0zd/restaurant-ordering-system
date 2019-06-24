@@ -17,12 +17,13 @@ namespace Restaurant_UI
     partial class Payment_Form : Form
     {
         Table_Form table_Form;
-        Payment payment = new Payment();
+        Payment payment;
         Session session;
         Payment_Service payment_Service = new Payment_Service();
         public Payment_Form(Table_Form table_Form, Session session)
         {
             InitializeComponent();
+            payment = new Payment();
             this.table_Form = table_Form;
             this.session = session;
             Tiptxt_bx.Visible = false;
@@ -30,6 +31,7 @@ namespace Restaurant_UI
         private void Payment_Form_Load(object sender, EventArgs e)
         {
             DisplayOrderItems();
+            cashRadiobtn.Checked = true;
             payment.Total = CalculateTotal();
             Tax_txt_bx.Text = string.Format("{0:c}", payment.Tax);
             Total_txt_bx.Text = string.Format("{0:c}", payment.Total);
@@ -55,7 +57,6 @@ namespace Restaurant_UI
             foreach (ListViewItem listViewItem in listView1.Items)
             {
                 OrderItem orderItem = (OrderItem)listViewItem.Tag;
-
                 total += orderItem.Price;
                 payment.Tax += CalculateVaT(orderItem.Price);
             }
@@ -66,7 +67,7 @@ namespace Restaurant_UI
             decimal taxPerItem;
             decimal totalTax = 0;
             bool isAlcoholic = IsAlcoholic();
-            if (isAlcoholic == false)
+            if (!isAlcoholic)
             {
                 taxPerItem = (totalUnitPrice * Convert.ToDecimal(0.06));
             }
@@ -99,27 +100,23 @@ namespace Restaurant_UI
                 table_Form.Show(); //go to home page
             }
         }
-        private int SelectPaymentMethod()
+        private PaymentMethod SelectPaymentMethod()
         {
-            payment.PaymentMethod = 0;
+            PaymentMethod paymentMethod = PaymentMethod.Cash;
             if (PinRadiobtn.Checked == true)
             {
-                payment.PaymentMethod = (int)PaymentMethod.Pin;
-            }
-            else if (cashRadiobtn.Checked == true)
-            {
-                payment.PaymentMethod = (int)PaymentMethod.Cash;
+                paymentMethod = PaymentMethod.Pin;
             }
             else if (creditCardRdbtn.Checked == true)
             {
-                payment.PaymentMethod = (int)PaymentMethod.CreditCard;
+                paymentMethod = PaymentMethod.CreditCard;
             }
-            return payment.PaymentMethod;
+            return paymentMethod;
         }
         // process payment 
         private void PayOrderbtn_Click(object sender, EventArgs e)
         {
-            payment.PaymentMethod = SelectPaymentMethod();
+            payment.PaymentMethod =(int) SelectPaymentMethod();
             if (payment.PaymentMethod == 0)
             {
                 MessageBox.Show("Please select payment method.", "payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
