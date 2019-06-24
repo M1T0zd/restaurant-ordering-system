@@ -23,11 +23,11 @@ namespace Restaurant_UI
             InitializeComponent();
             this.CurrentEmployee = employee; // get the current Employee
             this.Text = "Welcome   " + CurrentEmployee.Name;
-            LoadingData(CurrentEmployee);// load Data
+            LoadAndDisplayData(CurrentEmployee);// load Data
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
-            DisplayFood();
+           // Display();
             dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
             lbl_Datetime.Text = "Current time : " + DateTime.Now.ToString("h:mm:ss tt");
 
@@ -36,7 +36,7 @@ namespace Restaurant_UI
         }
         private void timerRefresh_Tick(object sender, EventArgs e)
         {
-            LoadingData(CurrentEmployee);
+            LoadAndDisplayData(CurrentEmployee);
         }
         private void pictureBoxExit_Click(object sender, EventArgs e)
         {
@@ -47,7 +47,7 @@ namespace Restaurant_UI
 
         private void dgviewOrders_DataError_1(object sender, DataGridViewDataErrorEventArgs e)
         {
-            e.Cancel = true; // to avoid error when the column is empty
+            e.Cancel = true;
         }
         private void btn_PrepareMany_Click(object sender, EventArgs e)
         {
@@ -69,7 +69,7 @@ namespace Restaurant_UI
                     {
                         Logic.MarkAsReady(item, OrderStatus.Ready);
                     }
-                    LoadingData(CurrentEmployee);
+                    LoadAndDisplayData(CurrentEmployee);
                     MessageBox.Show(Items.Count + " Items were marked as ready");
                 }
                 else
@@ -81,17 +81,16 @@ namespace Restaurant_UI
             }
         }
 
-        private void DisplayFood()
+        private void DisplayData()
         {
-            OrderItem orderItem = null;
+            // OrderItem orderItem = new OrderItem();
             try
             {
                 foreach (DataGridViewRow row in dgviewOrders.Rows)
                 {
-                    if (row.Index >= 0)
+                    if (row.Index > 0)
                     {
-                        //string State = Convert.ToString(row.Cells[4].Value);// tag here 
-                        orderItem = (OrderItem)row.Tag;// tag here 
+                        OrderItem orderItem = (OrderItem)row.Tag;
                         if (orderItem.Status == OrderStatus.Waiting)
                             row.DefaultCellStyle.BackColor = Color.Red;
                         else if (orderItem.Status == OrderStatus.Processing)
@@ -134,60 +133,20 @@ namespace Restaurant_UI
             }
 
         }
-        private void LoadingData(Employee CurrentEmp)
+        private void LoadAndDisplayData(Employee CurrentEmp)
         {
             if (CurrentEmp.Role == EmployeeRole.Chef)
             {
                 Orders = Logic.GetUnReadyFoodItemsOrderByTakenTimeDesc();
-                DisplayFood();
             }
             else if (CurrentEmp.Role == EmployeeRole.Barman)
             {
                 Orders = Logic.GetUnReadyDrinkItemsOrderByTakenTime();
-                DisplayFood();
             }
             DesignGridView();
             FillinGridView();
+            DisplayData();
         }
-        void getOrders()
-        {
-            List<OrderItem> orders = new List<OrderItem>();
-
-            OrderItem Item1 = new OrderItem()
-            {
-                ItemName = "egges",
-                Amount =2,
-                Comment ="no salt ",
-                Status = OrderStatus.Processing,
-                Ordertime ="00:00:00",
-                TableNumber =1,
-                OrderId =1,
-                Id = 1
-            };
-
-            OrderItem Item2 = new OrderItem()
-            {
-                ItemName = "omlette",
-                Amount = 2,
-                Comment = "no ice ",
-                Status = OrderStatus.Ready,
-                Ordertime = "00:00:00",
-                TableNumber = 1,
-                OrderId = 1,
-                Id = 2
-            };
-
-            OrderItem Item3 = new OrderItem()
-            {
-                ItemName = "bread",
-                Amount = 2,
-                Comment = "no gluten ",
-                Status = OrderStatus.Ready,
-                Ordertime = "00:00:00",
-                TableNumber = 1,
-                OrderId = 1,
-                Id = 3
-            };
-        }
+     
     }
 }
