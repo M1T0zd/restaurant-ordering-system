@@ -35,11 +35,11 @@ namespace Restaurant_UI
                 }           
             }
             //ClearingTextBoxt for logging out
-            ClearTextBox();      
             //Getting current employee
             Employee currentemployee = GetCurrentEmployee(CurrentLogin);
             //Show which form belongs to which employee
             ShowForm(currentemployee);
+            ClearTextBox();
         }
         void ClearTextBox()
         {

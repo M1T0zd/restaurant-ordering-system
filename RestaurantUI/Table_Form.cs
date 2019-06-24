@@ -17,10 +17,10 @@ namespace Restaurant_UI
         List<Table> tables;
         Login_Form login_Form;
         Button button;
-        Table table;
         List<OrderItem> orderItems;
         Session currentsession;
         List<Button> buttons;
+        Employee employee;
         public Panel panelnotif { get { return pnlnotif; } }
         public Panel paneltable { get { return pnltable; } }
         public Panel pnlstatus { get { return pnlChangeStatus; } }
@@ -28,7 +28,6 @@ namespace Restaurant_UI
         public Table_Form(Employee employee, Login_Form login_Form)
         {
             InitializeComponent();
-            currentsession = new Session();
             Initialize(login_Form,employee);
         }
 
@@ -37,7 +36,6 @@ namespace Restaurant_UI
             GiveColor();
         }
 
-
         private void Initialize(Login_Form login_Form,Employee employee)
         {
             //Timer with 10 second interval
@@ -45,9 +43,11 @@ namespace Restaurant_UI
             timer1.Interval = 10000;
 
             Table_Service table_Service = new Table_Service();
+            currentsession = new Session();
+
             this.login_Form = login_Form;
+            this.employee = employee;
             tables = table_Service.GetTables();
-            currentsession.Host = employee;
             buttons = new List<Button>
             {
                 btntbl1,
@@ -87,10 +87,10 @@ namespace Restaurant_UI
         {
             button = (Button)sender;
             //If button clicked, get table from list based on it's TabIndex
-            table = tables[button.TabIndex];
+            Table table = tables[button.TabIndex];
+            currentsession.Table = table;
 
             tableID = tables.Find(x => x.Number == table.Number).Number;
-            currentsession.Table = table;
             CheckStatusPanel();
         }
         void CheckStatusPanel()
@@ -104,8 +104,10 @@ namespace Restaurant_UI
             }
             else
             {
-                pnlChangeStatus.Show();
+                pnlnotif.Hide();
                 pnltable.Hide();
+                pnlChangeStatus.Show();
+
             }
         }
         public void CheckStatusButton()
@@ -192,12 +194,6 @@ namespace Restaurant_UI
                 MessageBox.Show(message, title);
             }        
         }
-
-        private void Btnrefresh_Click(object sender, EventArgs e)
-        {
-            RefreshForm();
-        }
-
         void RefreshForm()
         {
             ShowList();
@@ -230,25 +226,29 @@ namespace Restaurant_UI
         }
         //Code for Status Panel
 
-        private void BtnOccupied_Click(object sender, EventArgs e)
+        private void CreateSession()
         {
             currentsession.Start = DateTime.Now;
-
+            currentsession.Host = employee;
             currentsession.Table.Status = TableStatus.Occupied;
+        }
+
+        private void BtnOccupied_Click(object sender, EventArgs e)
+        {
+            CreateSession();
             Table_Service table_Service = new Table_Service();
             table_Service.UpdateStatus(currentsession.Table);
             GiveColor();
 
             Session_Service session_Service = new Session_Service();
-
-            //session_Service.UpdateTable(currentsession);
+            session_Service.UpdateTable(currentsession);
+            session_Service.GetSessionId(currentsession);
 
             pnlChangeStatus.Hide();
             pnltable.Show();
 
             Order_Form order_Form = new Order_Form(this, currentsession);
             order_Form.Show();
-      
         }
 
         private void BtnAvailable_Click(object sender, EventArgs e)
@@ -281,6 +281,11 @@ namespace Restaurant_UI
             {
                 btnnotif.Text = $"{listviewnotif.Items.Count.ToString()} orders ready";
             }
+        }
+
+        private void Btnback_Click(object sender, EventArgs e)
+        {
+            pnltable.Show();
         }
     }
 }
