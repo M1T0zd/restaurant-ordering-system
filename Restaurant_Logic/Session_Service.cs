@@ -22,13 +22,11 @@ namespace Restaurant_Logic
         {
             session_DAO.UpdateTablePayment(session);
         }
-        public void GetSessionId(Session session)
+        public int GetSessionId(Session session)
         {
-            session_DAO.GetID(session);     
+            int number;
+            return number = session_DAO.GetID(session);     
         }
-        public void GetSessionIdforOccupiedTable(Session session)
-        {
-            session_DAO.GetIDforOccupiedTable(session);
-        }
+     
     }
 }
