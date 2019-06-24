@@ -18,7 +18,7 @@ namespace Restaurant_UI
         Table_Form table_Form;
         Session currentSession;
 
-        public Order_Form( Table_Form table_Form,Session session)
+        public Order_Form( Table_Form table_Form, Session session)
         {
             InitializeComponent();
 			Initialize(table_Form, session);
@@ -59,6 +59,8 @@ namespace Restaurant_UI
 				foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
 				{
 					order.OrderItems.Add((OrderItem)lvi.Tag);
+					order.SessionId = currentSession.Id;
+					Console.WriteLine(order.SessionId);
 				}
 				currentSession.Orders.Add(order);
 
@@ -241,8 +243,6 @@ namespace Restaurant_UI
 				lvi.SubItems.Add(menuItem.Stock.ToString());
 				lvi.Tag = menuItem;
 				lvMenuItems.Items.Add(lvi);
-
-				Console.WriteLine(menuItem.Category);
 			}
 		}
 	}

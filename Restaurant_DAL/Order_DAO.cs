@@ -21,8 +21,9 @@ namespace Restaurant_DAL
 
 		public void PushOrder(Order order)
 		{
+			Console.WriteLine(order.SessionId + "  " + order.TakenAt);
 			string query = "INSERT INTO Orders " +
-				$"VALUES ({order.SessionId}, {order.TakenAt});";
+				$"VALUES ({order.SessionId}, '{order.TakenAt}');";
 			SqlParameter[] sqlParameters = new SqlParameter[0];
 			ExecuteSelectQuery(query, sqlParameters);
 		}

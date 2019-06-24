@@ -51,17 +51,17 @@ namespace Restaurant_Logic
 
 		public void PushOrders(List<Order> orders)
 		{
-			//try
-			//{
+			try
+			{
 				foreach(Order order in orders)
 				{
 					order_DAO.PushOrder(order);
 				}
-			//}
-			//catch (Exception e)
-			//{
-			//	ErrorLogging(e);
-			//}
+			}
+			catch (Exception e)
+			{
+				ErrorLogging(e);
+			}
 		}
 
 		private static void ErrorLogging(Exception e)
