@@ -18,6 +18,10 @@ namespace Restaurant_Logic
         {
             session_DAO.UpdateTable(session);
         }
+        public void UpdateTablePayment(Session session)
+        {
+            session_DAO.UpdateTablePayment(session);
+        }
         public void GetSessionId(Session session)
         {
             session_DAO.GetID(session);     
