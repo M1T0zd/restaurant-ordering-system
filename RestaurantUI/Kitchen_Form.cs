@@ -34,7 +34,7 @@ namespace Restaurant_UI
             timerRefrech.Enabled = false;
             timerRefrech.Interval = 20000;//refresh every 20 seconds 
         }
-        private void timerRefrech_Tick(object sender, EventArgs e)
+        private void timerRefresh_Tick(object sender, EventArgs e)
         {
             LoadingData(CurrentEmployee);
         }
