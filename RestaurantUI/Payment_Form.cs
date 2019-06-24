@@ -136,17 +136,14 @@ namespace Restaurant_UI
             }
         }
         //save paid order to database
-        private void SavePaymentDetails()
-        {
-            payment.Date = DateTime.Now.ToString();
-            Session session = new Session();
-            session.Table.Status = TableStatus.Available;
-            payment_Service.UpdateStatus(session.Table);
-            payment_Service.SavePaidOrder(payment, session);
-        }
+ 
         private void PaymentConfirmation()
         {
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
+            Session_Service session_Service = new Session_Service();
+            session_Service.UpdateTablePayment(session);
+            session.Table.Status = TableStatus.Available;
+            payment_Service.UpdateStatus(session.Table);
             table_Form.Show(); // back to home page 
         }
 

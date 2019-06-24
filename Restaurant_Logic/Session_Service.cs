@@ -14,19 +14,17 @@ namespace Restaurant_Logic
     public class Session_Service
     {
         Session_DAO session_DAO = new Session_DAO();
-        List<Session> sessions = new List<Session>();
         public void UpdateTable(Session session)
         {
             session_DAO.UpdateTable(session);
         }
+        public void UpdateTablePayment(Session session)
+        {
+            session_DAO.UpdateTablePayment(session);
+        }
         public void GetSessionId(Session session)
         {
-            sessions = session_DAO.GetID();
-            foreach (Session session1 in sessions)
-            {
-                session.Id = session1.Id;
-            }
+            session_DAO.GetID(session);     
         }
-        
     }
 }

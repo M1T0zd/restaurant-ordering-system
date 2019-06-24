@@ -17,7 +17,7 @@ namespace Restaurant_UI
         List<RestaurantModel.MenuItem> menuItems = new List<RestaurantModel.MenuItem>();
         Table_Form table_Form;
         Session currentSession;
-        int table;
+
         public Order_Form( Table_Form table_Form,Session session)
         {
             InitializeComponent();
@@ -28,16 +28,11 @@ namespace Restaurant_UI
         {
 			this.table_Form = table_Form;
 			currentSession = session;
-			currentSession.Table = session.Table;
-            
-			//currentSession.Orders = table.orders;
-			//currentSession.Host = employee;
 		}
        
         private void Order_Form_Load(object sender, EventArgs e)
         {
-            table = currentSession.Table.Number;
-            lblNumber2.Text = $"Table{table} ";
+            lblNumber.Text = $"Table {currentSession.Table.Number} ";
 
             /*lblNumber.Text = $"Table {currentSession.Table.Number}";
 			lblNumber2.Text = $"Table {currentSession.Table.Number}";
@@ -59,8 +54,8 @@ namespace Restaurant_UI
         private void ListViewSetups()
         {
 			lvMenuItems.Columns.Add("Name", 150, HorizontalAlignment.Left);
-			lvMenuItems.Columns.Add("Price", 50, HorizontalAlignment.Left);
-			lvMenuItems.Columns.Add("Stock", 50, HorizontalAlignment.Left);
+			lvMenuItems.Columns.Add("Price", 45, HorizontalAlignment.Left);
+			lvMenuItems.Columns.Add("Stock", 45, HorizontalAlignment.Left);
 
 			lvOrderItems.Columns.Add("Name", 150, HorizontalAlignment.Left);
 			lvOrderItems.Columns.Add("Price", 50, HorizontalAlignment.Left);
@@ -89,15 +84,14 @@ namespace Restaurant_UI
 				{
 					order.OrderItems.Add((OrderItem)lvi.Tag);
 				}
-
 				currentSession.Orders.Add(order);
 
 				//Push to database
 				Order_Service order_Service = new Order_Service();
 				OrderItem_Service orderItem_Service = new OrderItem_Service();
 
-				//order_Service.PushOrder(order);
-				//orderItem_Service.PushOrderItems(order.OrderItems);
+				order_Service.PushOrder(order);
+				orderItem_Service.PushOrderItems(order.OrderItems);
 
 				lvOrderItems.Items.Clear();
 			} else {
@@ -135,7 +129,6 @@ namespace Restaurant_UI
 				lviNew.Tag = newOrderItem;
 
 				lvOrderItems.Items.Add(lviNew);
-             
 			}
 		}
 
@@ -151,12 +144,9 @@ namespace Restaurant_UI
 		{
             //UpdateStatusButtons();
             //pnlChangeStatus.Show();
-            table_Form.CheckStatusButton();
-            table_Form.Show();
-            table_Form.paneltable.Hide();
-            table_Form.panelnotif.Hide();
-            table_Form.pnlstatus.Show();
-			this.Hide();
+
+            table_Form.ChangeStatusForOrder();
+            this.Hide();
 		}
 
 		private void BtnPay_Click(object sender, EventArgs e)
@@ -164,7 +154,6 @@ namespace Restaurant_UI
             Payment_Form form = new Payment_Form(table_Form, currentSession);
             form.Show();
             Hide();
-
 		}
 
 		private void TxtComment_Leave(object sender, EventArgs e)
@@ -185,7 +174,6 @@ namespace Restaurant_UI
 
 				txtComment.Text = orderItem.Comment;
 				nudQuantity.Value = orderItem.Amount;
-
 			} else {
 				txtComment.Text = "";
 				nudQuantity.Value = 0;
@@ -269,6 +257,20 @@ namespace Restaurant_UI
 			{
 				foreach (RestaurantModel.MenuItem menuItem in menuItems)
 				{
+					if (menuItem.Category == Category.Beverage)
+					{
+						ListViewItem lvi = new ListViewItem(menuItem.Name);
+						lvi.SubItems.Add(menuItem.Price.ToString());
+						lvi.SubItems.Add(menuItem.Stock.ToString());
+						lvi.Tag = menuItem;
+						lvMenuItems.Items.Add(lvi);
+					}
+				}
+			}
+			else if (rdoAlcoholic.Checked)
+			{
+				foreach (RestaurantModel.MenuItem menuItem in menuItems)
+				{
 					if (menuItem.Category == Category.Alcoholic)
 					{
 						ListViewItem lvi = new ListViewItem(menuItem.Name);
@@ -278,6 +280,21 @@ namespace Restaurant_UI
 						lvMenuItems.Items.Add(lvi);
 					}
 				}
+			}
+		}
+
+		private void btnReset_Click(object sender, EventArgs e)
+		{
+			lvOrderItems.Items.Clear();
+		}
+
+		private void Order_Form_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if(lvOrderItems.Items.Count > 0)
+			{
+				DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit? The ordering progress will be lost.", "Discarding OrderItems", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+				e.Cancel = (dialogResult == DialogResult.No);
 			}
 		}
 	}

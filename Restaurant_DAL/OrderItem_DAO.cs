@@ -66,12 +66,12 @@ namespace Restaurant_DAL
             return OrderItems;
         }
   //*******************updates only state of one item not the whole oorder
-        public void UpdateOrdersItemsState(int OrderItemItemId, OrderStatus newState) //MarkAsProccessing
+        public void UpdateOrdersItemsState(OrderItem orderItem, OrderStatus newState) //MarkAsProccessing
         {
             string query = @"update OrderItems set  StateId=@StateId where Id=@Id";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@StateId", SqlDbType.Int) { Value = (int)newState };
-            sqlParameters[1] = new SqlParameter("@Id", SqlDbType.Int) { Value = OrderItemItemId };
+            sqlParameters[1] = new SqlParameter("@Id", SqlDbType.Int) { Value = orderItem.Id };
             ExecuteEditQuery(query, sqlParameters);
         }
 
