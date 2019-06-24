@@ -142,11 +142,7 @@ namespace Restaurant_UI
 
             if (!String.IsNullOrEmpty(commentstxt_box.Text))
             {
-<<<<<<< HEAD
-             //   session_Service.SaveComments(session, comments);
-=======
                 //session_Service.SaveComments(session, comments);
->>>>>>> 21954c6d4fece8e782c8fdaf607c193620164fc3
             }
             session_Service.UpdateTablePayment(session);
             session.Table.Status = TableStatus.Available;
