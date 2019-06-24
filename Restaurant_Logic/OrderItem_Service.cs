@@ -18,9 +18,9 @@ namespace Restaurant_Logic
         {
             return orderItems = orderItem_DAO.GetUnReadyFoodItemsOrderByTakenTime();
         }
-        public List<OrderItem> GetDrinkItemsOrderByTakenTime()
+        public List<OrderItem> GetUnReadyDrinkItemsOrderByTakenTime()
         {
-            return orderItems = orderItem_DAO.GetReadyDrinkItemsOrderByTakenTime();
+            return orderItems = orderItem_DAO.GetUnReadyDrinkItemsOrderByTakenTime();
         }
 		public void PushOrder(OrderItem orderItem)
 		{
