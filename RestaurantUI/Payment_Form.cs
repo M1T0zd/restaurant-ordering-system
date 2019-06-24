@@ -176,8 +176,7 @@ namespace Restaurant_UI
         {
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
             session.Table.Status = TableStatus.Available;
-            Table_Service table_Service = new Table_Service();
-            table_Service.UpdateStatus(session.Table);
+            payment_Service.UpdateStatus(session.Table);
             table_Form.Show(); // back to home page 
         }
 

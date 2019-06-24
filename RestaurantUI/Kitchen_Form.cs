@@ -30,7 +30,7 @@ namespace Restaurant_UI
             DisplayFood();
             dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
             lbl_Datetime.Text ="Current time : "+ DateTime.Now.ToString("h:mm:ss tt");
-            lbl_PreparedOrders.Text ="";// to modify later 
+            //lbl_PreparedOrders.Text ="";// to modify later 
             timerRefrech.Interval = 1000;//refresh every 20 seconds 
             timerRefrech.Enabled = false;
         }

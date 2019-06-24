@@ -41,6 +41,8 @@ namespace Restaurant_UI
 
         private void Initialize(Login_Form login_Form,Employee employee)
         {
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
             Table_Service table_Service = new Table_Service();
             this.login_Form = login_Form;
             tables = table_Service.GetTables();
@@ -244,7 +246,6 @@ namespace Restaurant_UI
             pnltable.Show();
 
             Order_Form order_Form = new Order_Form(this, currentsession);
-            Hide();
             order_Form.Show();
       
         }
@@ -265,6 +266,11 @@ namespace Restaurant_UI
             table_Service.UpdateStatus(currentsession.Table);
             GiveColor();
             pnltable.Show();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            GiveColor();
         }
     }
 }
