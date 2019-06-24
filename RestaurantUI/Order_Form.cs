@@ -145,12 +145,9 @@ namespace Restaurant_UI
 		{
             //UpdateStatusButtons();
             //pnlChangeStatus.Show();
-            table_Form.CheckStatusButton();
-            table_Form.Show();
-            table_Form.paneltable.Hide();
-            table_Form.panelnotif.Hide();
-            table_Form.pnlstatus.Show();
-			this.Hide();
+
+            table_Form.ChangeStatusForOrder();
+            this.Hide();
 		}
 
 		private void BtnPay_Click(object sender, EventArgs e)

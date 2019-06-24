@@ -23,9 +23,7 @@ namespace Restaurant_DAL
         {
             foreach (DataRow dr in dataTable.Rows)
             {
-
-                session.Id = (int)dr["Id"];
-                
+                session.Id = (int)dr["Id"];   
             }
             return session;
         }
@@ -36,12 +34,13 @@ namespace Restaurant_DAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        private int ReadTable(DataTable dataTable)
+        public void UpdateTablePayment(Session session)
         {
-            DataRow dataRow = dataTable.Rows[0];
-            int id = (int)dataRow["Id"];
-            return id;
+            string query = ($"UPDATE Sessions SET EndedAt = '{DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")}' WHERE Id = {session.Id}");
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
-        
+
+
     }
 }
