@@ -42,9 +42,9 @@ namespace Restaurant_DAL
 		public void PushOrderItem(OrderItem orderItem)
 		{
 			string query = "INSERT INTO OrderItems " +
-				$"VALUES ({orderItem.OrderId}, {orderItem.MenuItem.Id}, {(int)orderItem.Status}, {orderItem.Amount}, {orderItem.Comment});";
+				$"VALUES ({orderItem.OrderId}, {orderItem.MenuItem.Id}, {(int)orderItem.Status}, {orderItem.Amount}, '{orderItem.Comment}');";
 			SqlParameter[] sqlParameters = new SqlParameter[0];
-			ExecuteSelectQuery(query, sqlParameters);
+			ExecuteEditQuery(query, sqlParameters);
 		}
 
 		private List<OrderItem> ReadTables_OrderItems(DataTable dataTable)

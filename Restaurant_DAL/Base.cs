@@ -115,27 +115,27 @@ namespace Restaurant_DAL
             DataTable dataTable;
             DataSet dataSet = new DataSet();
 
-            //try
-            //{
-                command.Connection = OpenConnection();
+			try
+			{
+				command.Connection = OpenConnection();
                 command.CommandText = query;
                 command.Parameters.AddRange(sqlParameters);
                 command.ExecuteNonQuery();
                 adapter.SelectCommand = command;
                 adapter.Fill(dataSet);
                 dataTable = dataSet.Tables[0];
-            //}
-            //catch (SqlException e)
-            //{
-            //    ErrorLogging(e);
-            //    return null;
-            //    throw;
-            //}
-            //finally
-            //{
-            //    CloseConnection();
-            //}
-            return dataTable;
+			}
+			catch (SqlException e)
+			{
+			    ErrorLogging(e);
+			    return null;
+			    throw;
+			}
+			finally
+			{
+			    CloseConnection();
+			}
+			return dataTable;
         }
         private static void ErrorLogging(Exception e)
         {

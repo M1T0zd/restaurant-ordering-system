@@ -17,11 +17,13 @@ namespace RestaurantModel
 
 		public Order()
 		{
-
+			OrderItems = new List<OrderItem>();
 		}
 
 		public Order(DateTime takenAt)
 		{
+			OrderItems = new List<OrderItem>();
+
 			TakenAt = takenAt;
 		}
 

@@ -28,6 +28,7 @@ namespace Restaurant_DAL
             }
             return id;
         }
+
         public void UpdateTable(Session session)
         {
             string query = ($"INSERT INTO [Sessions] VALUES({session.Host.Number}, {session.Table.Number},'{DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")}', null,null)");

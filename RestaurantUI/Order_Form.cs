@@ -56,19 +56,26 @@ namespace Restaurant_UI
 			{
 				Order order = new Order(DateTime.Now);
 
-				foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
+				foreach (ListViewItem lvi in lvOrderItems.Items)
 				{
 					order.OrderItems.Add((OrderItem)lvi.Tag);
-					order.SessionId = currentSession.Id;
-					Console.WriteLine(order.SessionId);
 				}
-				currentSession.Orders.Add(order);
+
+				order.SessionId = currentSession.Id;
+				Console.WriteLine(order.SessionId);
 
 				//Push to database
 				Order_Service order_Service = new Order_Service();
 				OrderItem_Service orderItem_Service = new OrderItem_Service();
 
 				order_Service.PushOrder(order);
+				order_Service.GetID(order);
+
+				foreach(OrderItem orderItem in order.OrderItems)
+				{
+					orderItem.OrderId = order.Id;
+				}
+
 				orderItem_Service.PushOrderItems(order.OrderItems);
 
 				lvOrderItems.Items.Clear();
