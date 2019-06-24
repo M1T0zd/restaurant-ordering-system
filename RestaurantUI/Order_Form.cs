@@ -18,7 +18,7 @@ namespace Restaurant_UI
         Table_Form table_Form;
         Session currentSession;
 
-        public Order_Form( Table_Form table_Form,Session session)
+        public Order_Form( Table_Form table_Form, Session session)
         {
             InitializeComponent();
 			Initialize(table_Form, session);
@@ -32,27 +32,9 @@ namespace Restaurant_UI
        
         private void Order_Form_Load(object sender, EventArgs e)
         {
-            lblNumber.Text = $"Table {currentSession.Table.Number} ";
+            lblNumber.Text = $"Table {currentSession.Table.Number}";
 
-            /*lblNumber.Text = $"Table {currentSession.Table.Number}";
-			lblNumber2.Text = $"Table {currentSession.Table.Number}";
-
-			UpdateStatusButtons();
-
-			if (currentSession.Table.Status == TableStatus.Occupied)
-			{
-				pnlChangeStatus.Hide();
-				pnlDefault.Show();
-			} else {
-				pnlChangeStatus.Show();
-				pnlDefault.Hide();
-			}*/
-
-            ListViewSetups();
-		}
-
-        private void ListViewSetups()
-        {
+			//ListView Setups
 			lvMenuItems.Columns.Add("Name", 150, HorizontalAlignment.Left);
 			lvMenuItems.Columns.Add("Price", 45, HorizontalAlignment.Left);
 			lvMenuItems.Columns.Add("Stock", 45, HorizontalAlignment.Left);
@@ -61,18 +43,12 @@ namespace Restaurant_UI
 			lvOrderItems.Columns.Add("Price", 50, HorizontalAlignment.Left);
 			lvOrderItems.Columns.Add("Amount", 50, HorizontalAlignment.Left);
 
+
 			MenuItem_Service menuItem_Service = new MenuItem_Service();
 			List<RestaurantModel.MenuItem> menuItems = menuItem_Service.GetMenuItems();
 
-			foreach(RestaurantModel.MenuItem menuItem in menuItems)
-			{
-				ListViewItem lvi = new ListViewItem(menuItem.Name);
-				lvi.SubItems.Add(menuItem.Price.ToString());
-				lvi.SubItems.Add(menuItem.Stock.ToString());
-				lvi.Tag = menuItem;
-				lvMenuItems.Items.Add(lvi);
-			}
-        }
+			UpdateMenuItemListView(menuItems);
+		}
 
 		private void BtnOrder_Click(object sender, EventArgs e)
 		{
@@ -80,17 +56,26 @@ namespace Restaurant_UI
 			{
 				Order order = new Order(DateTime.Now);
 
-				foreach (ListViewItem lvi in lvOrderItems.SelectedItems)
+				foreach (ListViewItem lvi in lvOrderItems.Items)
 				{
 					order.OrderItems.Add((OrderItem)lvi.Tag);
 				}
-				currentSession.Orders.Add(order);
+
+				order.SessionId = currentSession.Id;
+				Console.WriteLine(order.SessionId);
 
 				//Push to database
 				Order_Service order_Service = new Order_Service();
 				OrderItem_Service orderItem_Service = new OrderItem_Service();
 
 				order_Service.PushOrder(order);
+				order_Service.GetID(order);
+
+				foreach(OrderItem orderItem in order.OrderItems)
+				{
+					orderItem.OrderId = order.Id;
+				}
+
 				orderItem_Service.PushOrderItems(order.OrderItems);
 
 				lvOrderItems.Items.Clear();
@@ -142,9 +127,6 @@ namespace Restaurant_UI
 
 		private void BtnChangeStatus_Click(object sender, EventArgs e)
 		{
-            //UpdateStatusButtons();
-            //pnlChangeStatus.Show();
-
             table_Form.ChangeStatusForOrder();
             this.Hide();
 		}
@@ -210,76 +192,32 @@ namespace Restaurant_UI
 		private void RdoButtons_Changed(object sender, EventArgs e)
 		{
 			MenuItem_Service menuItem_Service = new MenuItem_Service();
-			List<RestaurantModel.MenuItem> menuItems = menuItem_Service.GetMenuItems();
+
+			List<RestaurantModel.MenuItem> menuItems;
 
 			lvMenuItems.Items.Clear();
 
 			if (rdoAll.Checked)
 			{
-				foreach (RestaurantModel.MenuItem menuItem in menuItems)
-				{
-					ListViewItem lvi = new ListViewItem(menuItem.Name);
-					lvi.SubItems.Add(menuItem.Price.ToString());
-					lvi.SubItems.Add(menuItem.Stock.ToString());
-					lvi.Tag = menuItem;
-					lvMenuItems.Items.Add(lvi);
-				}
+				menuItems = menuItem_Service.GetMenuItems();
+
+				UpdateMenuItemListView(menuItems);
 			}
 			else if(rdoLunch.Checked)
 			{
-				foreach (RestaurantModel.MenuItem menuItem in menuItems)
-				{
-					if(menuItem.Category == Category.Lunch)
-					{
-						ListViewItem lvi = new ListViewItem(menuItem.Name);
-						lvi.SubItems.Add(menuItem.Price.ToString());
-						lvi.SubItems.Add(menuItem.Stock.ToString());
-						lvi.Tag = menuItem;
-						lvMenuItems.Items.Add(lvi);
-					}
-				}
+				UpdateMenuItemListView(menuItem_Service.GetMenuItemsByCategory(Category.Lunch));
 			}
 			else if(rdoDinner.Checked)
 			{
-				foreach (RestaurantModel.MenuItem menuItem in menuItems)
-				{
-					if (menuItem.Category == Category.Dinner)
-					{
-						ListViewItem lvi = new ListViewItem(menuItem.Name);
-						lvi.SubItems.Add(menuItem.Price.ToString());
-						lvi.SubItems.Add(menuItem.Stock.ToString());
-						lvi.Tag = menuItem;
-						lvMenuItems.Items.Add(lvi);
-					}
-				}
+				UpdateMenuItemListView(menuItems = menuItem_Service.GetMenuItemsByCategory(Category.Dinner));
 			}
 			else if(rdoDrinks.Checked)
 			{
-				foreach (RestaurantModel.MenuItem menuItem in menuItems)
-				{
-					if (menuItem.Category == Category.Beverage)
-					{
-						ListViewItem lvi = new ListViewItem(menuItem.Name);
-						lvi.SubItems.Add(menuItem.Price.ToString());
-						lvi.SubItems.Add(menuItem.Stock.ToString());
-						lvi.Tag = menuItem;
-						lvMenuItems.Items.Add(lvi);
-					}
-				}
+				UpdateMenuItemListView(menuItem_Service.GetMenuItemsByCategory(Category.Beverage));
 			}
 			else if (rdoAlcoholic.Checked)
 			{
-				foreach (RestaurantModel.MenuItem menuItem in menuItems)
-				{
-					if (menuItem.Category == Category.Alcoholic)
-					{
-						ListViewItem lvi = new ListViewItem(menuItem.Name);
-						lvi.SubItems.Add(menuItem.Price.ToString());
-						lvi.SubItems.Add(menuItem.Stock.ToString());
-						lvi.Tag = menuItem;
-						lvMenuItems.Items.Add(lvi);
-					}
-				}
+				UpdateMenuItemListView(menuItem_Service.GetMenuItemsByCategory(Category.Alcoholic));
 			}
 		}
 
@@ -295,6 +233,23 @@ namespace Restaurant_UI
 				DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit? The ordering progress will be lost.", "Discarding OrderItems", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
 				e.Cancel = (dialogResult == DialogResult.No);
+			}
+		}
+
+
+		//TOOLS
+
+		private void UpdateMenuItemListView(List<RestaurantModel.MenuItem> menuItems)
+		{
+			lvMenuItems.Items.Clear();
+
+			foreach (RestaurantModel.MenuItem menuItem in menuItems)
+			{
+				ListViewItem lvi = new ListViewItem(menuItem.Name);
+				lvi.SubItems.Add(menuItem.Price.ToString());
+				lvi.SubItems.Add(menuItem.Stock.ToString());
+				lvi.Tag = menuItem;
+				lvMenuItems.Items.Add(lvi);
 			}
 		}
 	}

@@ -25,13 +25,7 @@ namespace Restaurant_DAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
-		public void PushOrderItem(OrderItem orderItem)
-		{
-			string query = "INSERT INTO OrderItems" +
-				$"VALUES ({orderItem.OrderId}, {orderItem.MenuItem.Id}, {(int)orderItem.Status}, {orderItem.Amount}, {orderItem.Comment});";
-			SqlParameter[] sqlParameters = new SqlParameter[0];
-			ExecuteSelectQuery(query, sqlParameters);
-		}
+
         public List<OrderItem> GetUnReadyDrinkItemsOrderByTakenTime()
         {
             string query = @"select m.Name,i.Quantity,i.Comment,s.State, FORMAT (o.TakenAt, 'hh:mm:ss') as ordertime,se.TableId, o.Id as OrderID,i.Id as ItemID  from Orders o 
@@ -44,7 +38,16 @@ namespace Restaurant_DAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<OrderItem> ReadTables_OrderItems(DataTable dataTable)
+
+		public void PushOrderItem(OrderItem orderItem)
+		{
+			string query = "INSERT INTO OrderItems " +
+				$"VALUES ({orderItem.OrderId}, {orderItem.MenuItem.Id}, {(int)orderItem.Status}, {orderItem.Amount}, '{orderItem.Comment}');";
+			SqlParameter[] sqlParameters = new SqlParameter[0];
+			ExecuteEditQuery(query, sqlParameters);
+		}
+
+		private List<OrderItem> ReadTables_OrderItems(DataTable dataTable)
         {
             List<OrderItem> OrderItems = new List<OrderItem>();
             foreach (DataRow dr in dataTable.Rows)

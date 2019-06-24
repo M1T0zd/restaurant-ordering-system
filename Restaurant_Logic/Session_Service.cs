@@ -28,7 +28,11 @@ namespace Restaurant_Logic
         }
         public void SaveComments(Session session, string comments)
         {
-            session_DAO.SaveComments(session,comments);
+            session_DAO.SaveComments(session, comments);
+        }
+        public void GetSessionIdforOccupiedTable(Session session)
+        {
+            session_DAO.GetIDforOccupiedTable(session);
         }
     }
 }

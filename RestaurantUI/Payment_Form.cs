@@ -122,7 +122,7 @@ namespace Restaurant_UI
             payment.PaymentMethod = SelectPaymentMethod();
             if (payment.PaymentMethod == 0)
             {
-                MessageBox.Show("Please select payment method.", " payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select payment method.", "payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
