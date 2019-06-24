@@ -131,7 +131,7 @@ namespace Restaurant_UI
                 if (result == DialogResult.Yes)
                 {
                     this.Hide();
-                    SavePaymentDetails();
+                    //SavePaymentDetails();
                 }
             }
         }

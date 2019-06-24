@@ -30,9 +30,8 @@ namespace Restaurant_UI
            // Display();
             dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
             lbl_Datetime.Text = "Current time : " + DateTime.Now.ToString("h:mm:ss tt");
-
             timerRefrech.Enabled = false;
-            timerRefrech.Interval = 20000;//refresh every 20 seconds 
+            timerRefrech.Interval = 1000;//refresh every 20 seconds 
         }
         private void timerRefresh_Tick(object sender, EventArgs e)
         {
@@ -83,12 +82,11 @@ namespace Restaurant_UI
 
         private void DisplayData()
         {
-            // OrderItem orderItem = new OrderItem();
             try
             {
                 foreach (DataGridViewRow row in dgviewOrders.Rows)
                 {
-                    if (row.Index > 0)
+                    if (row.Index >= 0)
                     {
                         OrderItem orderItem = (OrderItem)row.Tag;
                         if (orderItem.Status == OrderStatus.Waiting)
@@ -102,10 +100,7 @@ namespace Restaurant_UI
                     }
                 }
             }
-            catch (Exception k)
-            {
-                MessageBox.Show(" something went wrong :" + k.Message);
-            }
+            catch (Exception k)  { }
 
         }
         private void DesignGridView()
@@ -131,7 +126,6 @@ namespace Restaurant_UI
                 dgviewOrders.Rows[row].Cells["TableNumber"].Value = item.TableNumber;
                 dgviewOrders.Rows[row].Tag = item;
             }
-
         }
         private void LoadAndDisplayData(Employee CurrentEmp)
         {
