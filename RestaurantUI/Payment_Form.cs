@@ -17,22 +17,27 @@ namespace Restaurant_UI
     partial class Payment_Form : Form
     {
         Table_Form table_Form;
-        int tableNumber;
         Payment payment = new Payment();
         Session session;
         Payment_Service payment_Service = new Payment_Service();
-        public Payment_Form(Table_Form table_Form, Session session,int tableNumber)
+        public Payment_Form(Table_Form table_Form, Session session)
         {
             InitializeComponent();
             this.table_Form = table_Form;
-            this.tableNumber = tableNumber;
             this.session = session;
             Tiptxt_bx.Visible = false;
+        }
+        private void Payment_Form_Load(object sender, EventArgs e)
+        {
             DisplayOrderItems();
+            payment.Total = CalculateTotal();
+            Tax_txt_bx.Text = string.Format("{0:c}", payment.Tax);
+            Total_txt_bx.Text = string.Format("{0:c}", payment.Total);
+
         }
         private void DisplayOrderItems()
         {
-            Table_Numberlbl.Text = tableNumber.ToString();
+            Table_Numberlbl.Text = session.Table.ToString();
             List<OrderItem> orderItems = payment_Service.GetOrderItemPayment();
             foreach (OrderItem item in orderItems)
             {
@@ -40,31 +45,28 @@ namespace Restaurant_UI
                 listViewItem.SubItems.Add(item.Category.ToString());
                 listViewItem.SubItems.Add(item.Amount.ToString());
                 listViewItem.SubItems.Add(item.Price.ToString());
+                listViewItem.Tag = item;
                 listView1.Items.Add(listViewItem);
             }
-            CalculateTotal();
         }
-        private void CalculateTotal() // add vat
+        private decimal CalculateTotal() // add vat
         {
-            int quantity = 0;
-            decimal unitPrice = 0;
-            decimal totalUnitPrice;
-            for (int i = 0; i < listView1.Items.Count; i++)
+            decimal total = 0;
+            foreach (ListViewItem listViewItem in listView1.Items)
             {
-                totalUnitPrice = 0;
-                quantity = Convert.ToInt16(listView1.Items[i].SubItems[2].Text);
-                unitPrice = Convert.ToDecimal(listView1.Items[i].SubItems[3].Text);
-                totalUnitPrice += (quantity * unitPrice);
-                payment.Total += totalUnitPrice;
-                CalculateVaT(totalUnitPrice);
-            }
+                OrderItem orderItem = (OrderItem)listViewItem.Tag;
 
+                total += orderItem.Price;
+                payment.Tax += CalculateVaT(orderItem.Price);
+            }
+            return total;
         }
-        private void CalculateVaT(decimal totalUnitPrice)
+        private decimal CalculateVaT(decimal totalUnitPrice)
         {
             decimal taxPerItem;
-            bool isAlchoholic = IsAlchoholic();
-            if (isAlchoholic == false)
+            decimal totalTax = 0;
+            bool isAlcoholic = IsAlcoholic();
+            if (isAlcoholic == false)
             {
                 taxPerItem = (totalUnitPrice * Convert.ToDecimal(0.06));
             }
@@ -72,23 +74,21 @@ namespace Restaurant_UI
             {
                 taxPerItem = ((totalUnitPrice) * Convert.ToDecimal(0.21));
             }
-            payment.Tax += taxPerItem;
-            payment.Total += taxPerItem;
-
-            Tax_txt_bx.Text = string.Format("{0:c}", payment.Tax);
-            Total_txt_bx.Text = string.Format("{0:c}", payment.Total);
+            totalTax += taxPerItem;
+            return totalTax;
         }
-        private bool IsAlchoholic()
+        private bool IsAlcoholic()
         {
-            bool isAlchoholic = false;
-            for (int i = 0; i < listView1.Items.Count; i++)
+            bool isAlcoholic = false;
+            foreach (ListViewItem listViewItem in listView1.Items)
             {
-                if( listView1.Items[i].SubItems[1].Text == "Alchoholic") 
+                OrderItem orderItem = (OrderItem)listViewItem.Tag;
+                if(orderItem.Category.ToString() == "Alcoholic")
                 {
-                    isAlchoholic = true;
+                    isAlcoholic = true;
                 }
             }
-            return isAlchoholic;
+            return isAlcoholic;
 
         }
         private void CancelBtn_Click(object sender, EventArgs e)
@@ -131,7 +131,6 @@ namespace Restaurant_UI
                 if (result == DialogResult.Yes)
                 {
                     this.Hide();
-                    WriteComments();
                     SavePaymentDetails();
                 }
             }
@@ -139,45 +138,15 @@ namespace Restaurant_UI
         //save paid order to database
         private void SavePaymentDetails()
         {
-            int tbleNumber = Convert.ToInt16(tableNumber);
             payment.Date = DateTime.Now.ToString();
             Session session = new Session();
+            session.Table.Status = TableStatus.Available;
+            payment_Service.UpdateStatus(session.Table);
             payment_Service.SavePaidOrder(payment, session);
-
-        }
-        //write comments to text file
-        private void WriteComments()// to text file
-        {
-            if (String.IsNullOrEmpty(commentstxt_box.Text))
-            {
-                PaymentConfirmation();
-            }
-            else
-            {
-                try
-                {
-                    string file = "Comments.txt";
-                    if (!File.Exists(file))
-                    {
-                        File.Create(file);
-                    }
-                    StreamWriter writer = File.AppendText(file);
-                    {
-                        writer.WriteLine($"{DateTime.Now} : {commentstxt_box.Text}");
-                    }
-                    PaymentConfirmation();
-                }
-                catch (Exception )
-                {
-                    MessageBox.Show("e");
-                }
-            }
         }
         private void PaymentConfirmation()
         {
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
-            session.Table.Status = TableStatus.Available;
-            payment_Service.UpdateStatus(session.Table);
             table_Form.Show(); // back to home page 
         }
 

@@ -161,7 +161,7 @@ namespace Restaurant_UI
 
 		private void BtnPay_Click(object sender, EventArgs e)
 		{
-            Payment_Form form = new Payment_Form(table_Form, currentSession, table);
+            Payment_Form form = new Payment_Form(table_Form, currentSession);
             form.Show();
             Hide();
 
@@ -269,7 +269,7 @@ namespace Restaurant_UI
 			{
 				foreach (RestaurantModel.MenuItem menuItem in menuItems)
 				{
-					if (menuItem.Category == Category.Alchoholic)
+					if (menuItem.Category == Category.Alcoholic)
 					{
 						ListViewItem lvi = new ListViewItem(menuItem.Name);
 						lvi.SubItems.Add(menuItem.Price.ToString());
