@@ -37,7 +37,7 @@ namespace Restaurant_UI
         }
         private void DisplayOrderItems()
         {
-            Table_Numberlbl.Text = session.Table.ToString();
+            Table_Numberlbl.Text = session.Table.Number.ToString();
             List<OrderItem> orderItems = payment_Service.GetOrderItemPayment(session);
             foreach (OrderItem item in orderItems)
             {
