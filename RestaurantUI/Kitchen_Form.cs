@@ -136,22 +136,22 @@ namespace Restaurant_UI
         }
         private void LoadingData(Employee CurrentEmp)
         {
+            DisplayFood();
             if (CurrentEmp.Role == EmployeeRole.Chef)
             {
                 Orders = Logic.GetUnReadyFoodItemsOrderByTakenTimeDesc();
-                DisplayFood();
             }
             else if (CurrentEmp.Role == EmployeeRole.Barman)
             {
                 Orders = Logic.GetUnReadyDrinkItemsOrderByTakenTime();
-                DisplayFood();
             }
             DesignGridView();
             FillinGridView();
+            DisplayFood();
         }
-        void getOrders()
+        List<OrderItem> getOrders()
         {
-            List<OrderItem> orders = new List<OrderItem>();
+            List<OrderItem> items = new List<OrderItem>();
 
             OrderItem Item1 = new OrderItem()
             {
@@ -188,6 +188,11 @@ namespace Restaurant_UI
                 OrderId = 1,
                 Id = 3
             };
+            items.Add(Item1);
+            items.Add(Item2);
+            items.Add(Item3);
+
+            return items;
         }
     }
 }
