@@ -52,9 +52,9 @@ namespace Restaurant_UI
                 btntable9,
                 btntable10
             };
-            GiveColor();
+            ChangeColor();
         }
-        private void GiveColor()
+        private void ChangeColor()
         {
             for (int i = 0; i < tables.Count; i++)
             {
@@ -73,7 +73,6 @@ namespace Restaurant_UI
                 }
             } 
         }
-       // public static int tableID = 0;
         private void Button_Click(object sender, EventArgs e)
         {
             button = (Button)sender;
@@ -81,13 +80,15 @@ namespace Restaurant_UI
             Table table = tables[button.TabIndex];
             currentsession.Table = table;
 
-            // tableID = tables.Find(x => x.Number == table.Number).Number;
             CheckStatusPanel();
         }
         void CheckStatusPanel()
         {
             CheckStatusButton();
             lblNumber.Text = $"Table {currentsession.Table.Number.ToString()}";
+            Session_Service session_Service = new Session_Service();
+            //Get SessionId
+            session_Service.GetSessionIdforOccupiedTable(currentsession);
             if (currentsession.Table.Status == TableStatus.Occupied)
             {
                 Order_Form order_Form = new Order_Form(this, currentsession);
@@ -144,12 +145,10 @@ namespace Restaurant_UI
 
             foreach (OrderItem order in orderItems)
             {
-               // ListViewItem listViewItem = new ListViewItem(order.MenuItem.Name);
                 ListViewItem listViewItem = new ListViewItem(order.ItemName);
                 listViewItem.SubItems.Add(order.Amount.ToString());
                 listViewItem.SubItems.Add(order.Status.ToString());
                 listViewItem.SubItems.Add(order.TableNumber.ToString());
-
 
                 listviewnotif.Items.Add(listViewItem);
             }
@@ -183,17 +182,7 @@ namespace Restaurant_UI
                 string title = "You haven't selected An item";
                 MessageBox.Show(message, title);
             }        
-        }
-       
-
-        private void Btnrefreshtableview_Click(object sender, EventArgs e)
-        {
-            GiveColor();
-        }
-    
-		private void Table_Form_FormClosed(object sender, FormClosedEventArgs e)
-		{
-		}
+        }     
 
         private void Btllogout_Click(object sender, EventArgs e)
         {
@@ -211,8 +200,8 @@ namespace Restaurant_UI
                 // Go Back
             }
         }
-        //Code for Status Panel
 
+        //Code for Status Panel
         private void CreateSession()
         {
             currentsession.Start = DateTime.Now;
@@ -225,7 +214,7 @@ namespace Restaurant_UI
             CreateSession();
             Table_Service table_Service = new Table_Service();
             table_Service.UpdateStatus(currentsession.Table);
-            GiveColor();
+            ChangeColor();
 
             Session_Service session_Service = new Session_Service();
             session_Service.UpdateTable(currentsession);
@@ -243,7 +232,7 @@ namespace Restaurant_UI
             currentsession.Table.Status = TableStatus.Available;
             Table_Service table_Service = new Table_Service();
             table_Service.UpdateStatus(currentsession.Table);
-            GiveColor();
+            ChangeColor();
             pnltable.Show();      
         }
 
@@ -252,7 +241,7 @@ namespace Restaurant_UI
             currentsession.Table.Status = TableStatus.Reserved;
             Table_Service table_Service = new Table_Service();
             table_Service.UpdateStatus(currentsession.Table);
-            GiveColor();
+            ChangeColor();
             pnltable.Show();
         }
         private void Btnback_Click(object sender, EventArgs e)
@@ -263,7 +252,7 @@ namespace Restaurant_UI
         //
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            GiveColor();
+            ChangeColor();
             UpdateList();
             ShowNotification();
         }

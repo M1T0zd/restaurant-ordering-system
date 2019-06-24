@@ -48,28 +48,18 @@ namespace Restaurant_Logic
 				ErrorLogging(e);
 			}
 		}
-
-		public void UpdateOrderItemState(int orderItem, OrderStatus newSatate)
+        public void MarkAsReady(OrderItem orderItem, OrderStatus newState)
         {
-            orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
+            orderItem_DAO.UpdateOrdersItemsState(orderItem, newState);
         }
-        public void MarkAsReady(int orderItem, OrderStatus newSatate)
-        {
-            orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
-        }
-
         public List<OrderItem> GetOrderItemReady()
         {
-           
-                List<OrderItem> orders = orderItem_DAO.GetOrderItemReady();
-                return orders;
+            return orderItems = orderItem_DAO.GetOrderItemReady();
         }
         public void UpdateStatus(OrderItem orderItem)
         {
             orderItem_DAO.UpdateStatus(orderItem);
-        }
-
-      
+        } 
         private static void ErrorLogging(Exception e)
         {
             Debug.WriteLine("=============Error Logging ===========");

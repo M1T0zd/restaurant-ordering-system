@@ -40,7 +40,7 @@
             // 
             this.lbllogin.AutoSize = true;
             this.lbllogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllogin.Location = new System.Drawing.Point(292, 127);
+            this.lbllogin.Location = new System.Drawing.Point(258, 120);
             this.lbllogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbllogin.Name = "lbllogin";
             this.lbllogin.Size = new System.Drawing.Size(86, 33);
@@ -50,7 +50,7 @@
             // lblusername
             // 
             this.lblusername.AutoSize = true;
-            this.lblusername.Location = new System.Drawing.Point(131, 197);
+            this.lblusername.Location = new System.Drawing.Point(97, 190);
             this.lblusername.Name = "lblusername";
             this.lblusername.Size = new System.Drawing.Size(85, 17);
             this.lblusername.TabIndex = 20;
@@ -58,7 +58,7 @@
             // 
             // txtusername
             // 
-            this.txtusername.Location = new System.Drawing.Point(260, 197);
+            this.txtusername.Location = new System.Drawing.Point(226, 190);
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(262, 22);
             this.txtusername.TabIndex = 21;
@@ -66,7 +66,7 @@
             // lblpassword
             // 
             this.lblpassword.AutoSize = true;
-            this.lblpassword.Location = new System.Drawing.Point(131, 254);
+            this.lblpassword.Location = new System.Drawing.Point(97, 247);
             this.lblpassword.Name = "lblpassword";
             this.lblpassword.Size = new System.Drawing.Size(88, 17);
             this.lblpassword.TabIndex = 22;
@@ -74,7 +74,7 @@
             // 
             // txtpassword
             // 
-            this.txtpassword.Location = new System.Drawing.Point(260, 249);
+            this.txtpassword.Location = new System.Drawing.Point(226, 242);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.PasswordChar = '•';
             this.txtpassword.Size = new System.Drawing.Size(262, 22);
@@ -82,9 +82,9 @@
             // 
             // btnlogin
             // 
-            this.btnlogin.Location = new System.Drawing.Point(250, 319);
+            this.btnlogin.Location = new System.Drawing.Point(226, 296);
             this.btnlogin.Name = "btnlogin";
-            this.btnlogin.Size = new System.Drawing.Size(174, 106);
+            this.btnlogin.Size = new System.Drawing.Size(262, 59);
             this.btnlogin.TabIndex = 24;
             this.btnlogin.Text = "Log In";
             this.btnlogin.UseVisualStyleBackColor = true;
