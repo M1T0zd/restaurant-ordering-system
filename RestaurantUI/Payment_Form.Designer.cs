@@ -92,7 +92,11 @@
             this.Tax_txt_bx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Tax_txt_bx.Name = "Tax_txt_bx";
             this.Tax_txt_bx.ReadOnly = true;
+<<<<<<< HEAD
             this.Tax_txt_bx.Size = new System.Drawing.Size(60, 17);
+=======
+            this.Tax_txt_bx.Size = new System.Drawing.Size(61, 14);
+>>>>>>> 51e45130338b6d37d231a7992c535c89dfe2c454
             this.Tax_txt_bx.TabIndex = 39;
             // 
             // Tiptxt_bx
@@ -137,12 +141,12 @@
             // Desription
             // 
             this.Desription.Text = "Description";
-            this.Desription.Width = 202;
+            this.Desription.Width = 211;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Category";
-            this.columnHeader1.Width = 93;
+            this.columnHeader1.Width = 84;
             // 
             // columnHeader2
             // 
