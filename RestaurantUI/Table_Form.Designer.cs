@@ -54,7 +54,6 @@
             this.lbltable2 = new System.Windows.Forms.Label();
             this.lbltable1 = new System.Windows.Forms.Label();
             this.pnlnotif = new System.Windows.Forms.Panel();
-            this.btnrefresh = new System.Windows.Forms.Button();
             this.btnserveitem = new System.Windows.Forms.Button();
             this.btnpanelback = new System.Windows.Forms.Button();
             this.listviewnotif = new System.Windows.Forms.ListView();
@@ -233,9 +232,9 @@
             // 
             // btnnotif
             // 
-            this.btnnotif.Location = new System.Drawing.Point(16, 14);
+            this.btnnotif.Location = new System.Drawing.Point(10, 12);
             this.btnnotif.Name = "btnnotif";
-            this.btnnotif.Size = new System.Drawing.Size(107, 33);
+            this.btnnotif.Size = new System.Drawing.Size(133, 35);
             this.btnnotif.TabIndex = 22;
             this.btnnotif.Text = "Notification";
             this.btnnotif.UseVisualStyleBackColor = true;
@@ -333,7 +332,6 @@
             // 
             // pnlnotif
             // 
-            this.pnlnotif.Controls.Add(this.btnrefresh);
             this.pnlnotif.Controls.Add(this.btnserveitem);
             this.pnlnotif.Controls.Add(this.btnpanelback);
             this.pnlnotif.Controls.Add(this.listviewnotif);
@@ -342,19 +340,9 @@
             this.pnlnotif.Size = new System.Drawing.Size(497, 709);
             this.pnlnotif.TabIndex = 12;
             // 
-            // btnrefresh
-            // 
-            this.btnrefresh.Location = new System.Drawing.Point(133, 580);
-            this.btnrefresh.Name = "btnrefresh";
-            this.btnrefresh.Size = new System.Drawing.Size(227, 40);
-            this.btnrefresh.TabIndex = 3;
-            this.btnrefresh.Text = "Refresh";
-            this.btnrefresh.UseVisualStyleBackColor = true;
-            this.btnrefresh.Click += new System.EventHandler(this.Btnrefresh_Click);
-            // 
             // btnserveitem
             // 
-            this.btnserveitem.Location = new System.Drawing.Point(133, 505);
+            this.btnserveitem.Location = new System.Drawing.Point(129, 527);
             this.btnserveitem.Name = "btnserveitem";
             this.btnserveitem.Size = new System.Drawing.Size(227, 40);
             this.btnserveitem.TabIndex = 2;
@@ -452,8 +440,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 732);
             this.Controls.Add(this.pnltable);
-            this.Controls.Add(this.pnlChangeStatus);
             this.Controls.Add(this.pnlnotif);
+            this.Controls.Add(this.pnlChangeStatus);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Table_Form";
             this.Text = "Table_Form";
@@ -496,7 +484,6 @@
         private System.Windows.Forms.ListView listviewnotif;
         private System.Windows.Forms.Button btnpanelback;
         private System.Windows.Forms.Button btnserveitem;
-        private System.Windows.Forms.Button btnrefresh;
         private System.Windows.Forms.Button btnrefreshtableview;
         private System.Windows.Forms.Button btllogout;
         private System.Windows.Forms.Panel pnlChangeStatus;

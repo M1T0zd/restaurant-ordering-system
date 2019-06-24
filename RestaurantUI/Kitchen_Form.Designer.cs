@@ -103,7 +103,7 @@
             // 
             // timerRefrech
             // 
-            this.timerRefrech.Tick += new System.EventHandler(this.timerRefrech_Tick);
+            this.timerRefrech.Tick += new System.EventHandler(this.timerRefresh_Tick);
             // 
             // panelMenu
             // 
