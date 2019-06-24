@@ -30,7 +30,9 @@
         {
 			this.btnPay = new System.Windows.Forms.Button();
 			this.pnlDefault = new System.Windows.Forms.Panel();
+			this.btnReset = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.rdoAlcoholic = new System.Windows.Forms.RadioButton();
 			this.rdoDrinks = new System.Windows.Forms.RadioButton();
 			this.rdoDinner = new System.Windows.Forms.RadioButton();
 			this.rdoLunch = new System.Windows.Forms.RadioButton();
@@ -38,7 +40,7 @@
 			this.nudQuantity = new System.Windows.Forms.NumericUpDown();
 			this.label4 = new System.Windows.Forms.Label();
 			this.btnChangeStatus = new System.Windows.Forms.Button();
-			this.lblNumber2 = new System.Windows.Forms.Label();
+			this.lblNumber = new System.Windows.Forms.Label();
 			this.txtComment = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnRemove = new System.Windows.Forms.Button();
@@ -48,8 +50,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.lvMenuItems = new System.Windows.Forms.ListView();
 			this.lvOrderItems = new System.Windows.Forms.ListView();
-			this.btnReset = new System.Windows.Forms.Button();
-			this.rdoAlcoholic = new System.Windows.Forms.RadioButton();
 			this.pnlDefault.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
@@ -74,7 +74,7 @@
 			this.pnlDefault.Controls.Add(this.label4);
 			this.pnlDefault.Controls.Add(this.btnPay);
 			this.pnlDefault.Controls.Add(this.btnChangeStatus);
-			this.pnlDefault.Controls.Add(this.lblNumber2);
+			this.pnlDefault.Controls.Add(this.lblNumber);
 			this.pnlDefault.Controls.Add(this.txtComment);
 			this.pnlDefault.Controls.Add(this.label3);
 			this.pnlDefault.Controls.Add(this.btnRemove);
@@ -89,6 +89,17 @@
 			this.pnlDefault.Name = "pnlDefault";
 			this.pnlDefault.Size = new System.Drawing.Size(1072, 779);
 			this.pnlDefault.TabIndex = 14;
+			// 
+			// btnReset
+			// 
+			this.btnReset.Location = new System.Drawing.Point(571, 403);
+			this.btnReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.btnReset.Name = "btnReset";
+			this.btnReset.Size = new System.Drawing.Size(73, 44);
+			this.btnReset.TabIndex = 17;
+			this.btnReset.Text = "Reset";
+			this.btnReset.UseVisualStyleBackColor = true;
+			this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
 			// 
 			// groupBox1
 			// 
@@ -105,6 +116,19 @@
 			this.groupBox1.TabIndex = 16;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Category";
+			// 
+			// rdoAlcoholic
+			// 
+			this.rdoAlcoholic.AutoSize = true;
+			this.rdoAlcoholic.Location = new System.Drawing.Point(4, 133);
+			this.rdoAlcoholic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.rdoAlcoholic.Name = "rdoAlcoholic";
+			this.rdoAlcoholic.Size = new System.Drawing.Size(97, 24);
+			this.rdoAlcoholic.TabIndex = 4;
+			this.rdoAlcoholic.TabStop = true;
+			this.rdoAlcoholic.Text = "Alcoholic";
+			this.rdoAlcoholic.UseVisualStyleBackColor = true;
+			this.rdoAlcoholic.CheckedChanged += new System.EventHandler(this.RdoButtons_Changed);
 			// 
 			// rdoDrinks
 			// 
@@ -197,16 +221,16 @@
 			this.btnChangeStatus.UseVisualStyleBackColor = true;
 			this.btnChangeStatus.Click += new System.EventHandler(this.BtnChangeStatus_Click);
 			// 
-			// lblNumber2
+			// lblNumber
 			// 
-			this.lblNumber2.AutoSize = true;
-			this.lblNumber2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblNumber2.Location = new System.Drawing.Point(545, 15);
-			this.lblNumber2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lblNumber2.Name = "lblNumber2";
-			this.lblNumber2.Size = new System.Drawing.Size(106, 29);
-			this.lblNumber2.TabIndex = 11;
-			this.lblNumber2.Text = "Table X";
+			this.lblNumber.AutoSize = true;
+			this.lblNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblNumber.Location = new System.Drawing.Point(545, 15);
+			this.lblNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblNumber.Name = "lblNumber";
+			this.lblNumber.Size = new System.Drawing.Size(106, 29);
+			this.lblNumber.TabIndex = 11;
+			this.lblNumber.Text = "Table X";
 			// 
 			// txtComment
 			// 
@@ -308,30 +332,6 @@
 			this.lvOrderItems.View = System.Windows.Forms.View.Details;
 			this.lvOrderItems.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LvOrderItems_ItemSelectionChanged);
 			// 
-			// btnReset
-			// 
-			this.btnReset.Location = new System.Drawing.Point(571, 403);
-			this.btnReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.btnReset.Name = "btnReset";
-			this.btnReset.Size = new System.Drawing.Size(73, 44);
-			this.btnReset.TabIndex = 17;
-			this.btnReset.Text = "Reset";
-			this.btnReset.UseVisualStyleBackColor = true;
-			this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-			// 
-			// rdoAlcoholic
-			// 
-			this.rdoAlcoholic.AutoSize = true;
-			this.rdoAlcoholic.Location = new System.Drawing.Point(4, 133);
-			this.rdoAlcoholic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.rdoAlcoholic.Name = "rdoAlcoholic";
-			this.rdoAlcoholic.Size = new System.Drawing.Size(97, 24);
-			this.rdoAlcoholic.TabIndex = 4;
-			this.rdoAlcoholic.TabStop = true;
-			this.rdoAlcoholic.Text = "Alcoholic";
-			this.rdoAlcoholic.UseVisualStyleBackColor = true;
-			this.rdoAlcoholic.CheckedChanged += new System.EventHandler(this.RdoButtons_Changed);
-			// 
 			// Order_Form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -367,7 +367,7 @@
         private System.Windows.Forms.ListView lvOrderItems;
         private System.Windows.Forms.TextBox txtComment;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblNumber2;
+        private System.Windows.Forms.Label lblNumber;
         private System.Windows.Forms.Button btnChangeStatus;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtQuantity;
