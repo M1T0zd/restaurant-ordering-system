@@ -34,7 +34,6 @@
             this.lbl_Datetime = new System.Windows.Forms.Label();
             this.btn_PrepareMany = new System.Windows.Forms.Button();
             this.dgviewOrders = new System.Windows.Forms.DataGridView();
-            this.btnMarkready = new System.Windows.Forms.DataGridViewButtonColumn();
             this.timerRefrech = new System.Windows.Forms.Timer(this.components);
             this.panelMenu = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
@@ -57,14 +56,14 @@
             this.panelBar.Controls.Add(this.dgviewOrders);
             this.panelBar.Location = new System.Drawing.Point(12, 89);
             this.panelBar.Name = "panelBar";
-            this.panelBar.Size = new System.Drawing.Size(1019, 583);
+            this.panelBar.Size = new System.Drawing.Size(934, 583);
             this.panelBar.TabIndex = 3;
             // 
             // lbl_Datetime
             // 
             this.lbl_Datetime.AutoSize = true;
             this.lbl_Datetime.ForeColor = System.Drawing.Color.Green;
-            this.lbl_Datetime.Location = new System.Drawing.Point(810, 547);
+            this.lbl_Datetime.Location = new System.Drawing.Point(608, 547);
             this.lbl_Datetime.Name = "lbl_Datetime";
             this.lbl_Datetime.Size = new System.Drawing.Size(93, 17);
             this.lbl_Datetime.TabIndex = 3;
@@ -72,33 +71,23 @@
             // 
             // btn_PrepareMany
             // 
-            this.btn_PrepareMany.Location = new System.Drawing.Point(14, 531);
+            this.btn_PrepareMany.Location = new System.Drawing.Point(14, 518);
             this.btn_PrepareMany.Name = "btn_PrepareMany";
             this.btn_PrepareMany.Size = new System.Drawing.Size(290, 49);
             this.btn_PrepareMany.TabIndex = 2;
-            this.btn_PrepareMany.Text = "Prepare multiple orders";
+            this.btn_PrepareMany.Text = "Prepare orders";
             this.btn_PrepareMany.UseVisualStyleBackColor = true;
             this.btn_PrepareMany.Click += new System.EventHandler(this.btn_PrepareMany_Click);
             // 
             // dgviewOrders
             // 
             this.dgviewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgviewOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnMarkready});
             this.dgviewOrders.Location = new System.Drawing.Point(14, 13);
             this.dgviewOrders.Name = "dgviewOrders";
             this.dgviewOrders.RowTemplate.Height = 24;
-            this.dgviewOrders.Size = new System.Drawing.Size(994, 512);
+            this.dgviewOrders.Size = new System.Drawing.Size(905, 499);
             this.dgviewOrders.TabIndex = 1;
             this.dgviewOrders.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgviewOrders_DataError_1);
-            // 
-            // btnMarkready
-            // 
-            this.btnMarkready.HeaderText = "Mark Ready";
-            this.btnMarkready.Name = "btnMarkready";
-            this.btnMarkready.Text = "Mark as Ready";
-            this.btnMarkready.ToolTipText = "mark ready";
-            this.btnMarkready.UseColumnTextForButtonValue = true;
             // 
             // timerRefrech
             // 
@@ -113,7 +102,7 @@
             this.panelMenu.Controls.Add(this.pictureBoxExit);
             this.panelMenu.Location = new System.Drawing.Point(12, 15);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1019, 68);
+            this.panelMenu.Size = new System.Drawing.Size(934, 68);
             this.panelMenu.TabIndex = 8;
             // 
             // pictureBoxLogo
@@ -149,7 +138,7 @@
             // pictureBoxExit
             // 
             this.pictureBoxExit.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxExit.Image")));
-            this.pictureBoxExit.Location = new System.Drawing.Point(906, 4);
+            this.pictureBoxExit.Location = new System.Drawing.Point(809, 4);
             this.pictureBoxExit.Name = "pictureBoxExit";
             this.pictureBoxExit.Size = new System.Drawing.Size(110, 61);
             this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -161,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 684);
+            this.ClientSize = new System.Drawing.Size(953, 684);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelMenu);
             this.Name = "Kitchen_Form";
@@ -182,7 +171,6 @@
         #endregion
         private System.Windows.Forms.Timer timerRefrech;
         private System.Windows.Forms.Panel panelBar;
-        private System.Windows.Forms.DataGridViewButtonColumn btnMarkready;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.PictureBox pictureBoxComments;

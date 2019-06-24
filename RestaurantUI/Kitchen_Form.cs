@@ -14,20 +14,20 @@ namespace Restaurant_UI
 {
     public partial class Kitchen_Form : Form
     {
-        public OrderItem_Service Logic = new OrderItem_Service();
+        OrderItem_Service Logic = new OrderItem_Service();
         List<OrderItem> Orders;
-        private Employee CurrentEmployee = new Employee();
-        //***************************************************
+        Employee CurrentEmployee;
+
         public Kitchen_Form(Employee employee)
         {
             InitializeComponent();
+            DesignGridView();
             this.CurrentEmployee = employee; // get the current Employee
             this.Text = "Welcome   " + CurrentEmployee.Name;
             LoadAndDisplayData(CurrentEmployee);// load Data
         }
         private void Kitchen_Form_Load(object sender, EventArgs e)
         {
-           // Display();
             dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
             lbl_Datetime.Text = "Current time : " + DateTime.Now.ToString("h:mm:ss tt");
             timerRefrech.Enabled = false;
@@ -62,7 +62,7 @@ namespace Restaurant_UI
             }
             if (Items.Count>0)
             {
-                if (MessageBox.Show(" are you sure you want to mark all these orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show(" are you sure you want to mark this orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     foreach (OrderItem  item in Items)
                     {
@@ -84,11 +84,12 @@ namespace Restaurant_UI
         {
             try
             {
+                OrderItem orderItem = null;
                 foreach (DataGridViewRow row in dgviewOrders.Rows)
                 {
                     if (row.Index >= 0)
                     {
-                        OrderItem orderItem = (OrderItem)row.Tag;
+                        orderItem = (OrderItem)row.Tag;
                         if (orderItem.Status == OrderStatus.Waiting)
                             row.DefaultCellStyle.BackColor = Color.Red;
                         else if (orderItem.Status == OrderStatus.Processing)
@@ -99,8 +100,7 @@ namespace Restaurant_UI
                             row.DefaultCellStyle.BackColor = Color.GreenYellow;
                     }
                 }
-            }
-            catch (Exception k)  { }
+            } catch (Exception)  { }
 
         }
         private void DesignGridView()
@@ -137,7 +137,6 @@ namespace Restaurant_UI
             {
                 Orders = Logic.GetUnReadyDrinkItemsOrderByTakenTime();
             }
-            DesignGridView();
             FillinGridView();
             DisplayData();
         }
