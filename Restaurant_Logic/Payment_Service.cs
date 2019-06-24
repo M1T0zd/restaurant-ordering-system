@@ -12,14 +12,16 @@ namespace Restaurant_Logic
     {
         Payment_DAO payementDao = new Payment_DAO();
 
-        public void insertOrder(Payment payment)
+        public void SavePaidOrder(Payment payment, Session session, int tableNumber)
         {
-            //insertDetails.InsertOrder(payment);
+            payementDao.SavePaidOrder(payment, session, tableNumber);
            
         }
-        public Payment ProcessPayment(int TabelID)
+      
+        public List<OrderItem> GetOrderItemPayment()
         {
-           return  payementDao.processPayment(TabelID);
+            List<OrderItem> orderItems = new List<OrderItem>();
+            return orderItems = payementDao.GetOrderItemPayment();
         }
     }
 }

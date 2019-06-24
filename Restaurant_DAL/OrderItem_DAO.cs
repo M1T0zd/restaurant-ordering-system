@@ -77,9 +77,9 @@ namespace Restaurant_DAL
 
         //********************************** end kitchen overview code
 
-        public List<OrderItem> GetOrdersWaiter()
+        public List<OrderItem> GetOrderItemReady()
         {
-            string query = "SELECT OI.Id, m.Name,OI.StateId,s.TableId " +
+            string query = "SELECT OI.Id, m.Name,OI.StateId,s.TableId,OI.Quantity " +
                 "FROM MenuItems AS M JOIN OrderItems as OI on OI.MenuItemId = m.Id " +
                 "JOIN Orders AS O on OI.OrderId = o.Id " +
                 "JOIN Sessions AS S ON O.SessionId = S.Id " +
@@ -98,6 +98,7 @@ namespace Restaurant_DAL
                     TableNumber = (int)dr["tableid"],
                     Status = (OrderStatus)dr["StateId"],
                     ItemName = (String)dr["Name"],
+                    Amount = (int)dr["Quantity"],
                     Id = (int)dr["Id"]
                 };
                 orderItems.Add(orderItem);
@@ -111,5 +112,6 @@ namespace Restaurant_DAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+     
     }
 }

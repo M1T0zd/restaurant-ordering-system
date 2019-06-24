@@ -34,10 +34,12 @@
             this.Tiptxt_bx = new System.Windows.Forms.TextBox();
             this.Total_txt_bx = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Desription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cashRadiobtn = new System.Windows.Forms.RadioButton();
@@ -53,19 +55,17 @@
             this.tbNumberlbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.commentstxt_box = new System.Windows.Forms.TextBox();
-            this.VAT = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(259, 217);
+            this.label6.Location = new System.Drawing.Point(290, 216);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 16);
             this.label6.TabIndex = 42;
@@ -86,17 +86,16 @@
             this.Tax_txt_bx.BackColor = System.Drawing.SystemColors.Control;
             this.Tax_txt_bx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tax_txt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tax_txt_bx.Location = new System.Drawing.Point(333, 217);
+            this.Tax_txt_bx.Location = new System.Drawing.Point(333, 216);
             this.Tax_txt_bx.Name = "Tax_txt_bx";
             this.Tax_txt_bx.ReadOnly = true;
             this.Tax_txt_bx.Size = new System.Drawing.Size(45, 14);
             this.Tax_txt_bx.TabIndex = 39;
-            this.Tax_txt_bx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Tiptxt_bx
             // 
             this.Tiptxt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tiptxt_bx.Location = new System.Drawing.Point(333, 240);
+            this.Tiptxt_bx.Location = new System.Drawing.Point(333, 239);
             this.Tiptxt_bx.Name = "Tiptxt_bx";
             this.Tiptxt_bx.Size = new System.Drawing.Size(45, 21);
             this.Tiptxt_bx.TabIndex = 38;
@@ -106,45 +105,47 @@
             // Total_txt_bx
             // 
             this.Total_txt_bx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Total_txt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Total_txt_bx.Location = new System.Drawing.Point(333, 277);
+            this.Total_txt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Total_txt_bx.Location = new System.Drawing.Point(329, 276);
             this.Total_txt_bx.Name = "Total_txt_bx";
             this.Total_txt_bx.ReadOnly = true;
-            this.Total_txt_bx.Size = new System.Drawing.Size(45, 15);
+            this.Total_txt_bx.Size = new System.Drawing.Size(65, 14);
             this.Total_txt_bx.TabIndex = 37;
-            this.Total_txt_bx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Desription,
+            this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.Location = new System.Drawing.Point(39, 59);
+            this.columnHeader3});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.Location = new System.Drawing.Point(26, 42);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(339, 152);
+            this.listView1.Size = new System.Drawing.Size(352, 168);
             this.listView1.TabIndex = 36;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
+            // Desription
+            // 
+            this.Desription.Text = "Description";
+            this.Desription.Width = 180;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Category";
+            this.columnHeader1.Width = 84;
+            // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Description";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 230;
+            this.columnHeader2.Text = "Qty";
+            this.columnHeader2.Width = 35;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Qty";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 52;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Price";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 53;
+            this.columnHeader3.Text = "Price";
+            this.columnHeader3.Width = 48;
             // 
             // groupBox1
             // 
@@ -158,10 +159,20 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(35, 305);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(288, 117);
+            this.groupBox1.Size = new System.Drawing.Size(292, 117);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select payment method ";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Restaurant_UI.Properties.Resources.Designbolts_Credit_Card_Payment_American_Express;
+            this.pictureBox2.Location = new System.Drawing.Point(244, 74);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 29);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 48;
+            this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -272,7 +283,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(36, 432);
+            this.label7.Location = new System.Drawing.Point(38, 432);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 15);
             this.label7.TabIndex = 48;
@@ -283,7 +294,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(109, 432);
+            this.label9.Location = new System.Drawing.Point(111, 432);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 15);
             this.label9.TabIndex = 49;
@@ -293,20 +304,20 @@
             // 
             this.Table_Numberlbl.BackColor = System.Drawing.SystemColors.Menu;
             this.Table_Numberlbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Table_Numberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Table_Numberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Table_Numberlbl.ForeColor = System.Drawing.Color.Red;
-            this.Table_Numberlbl.Location = new System.Drawing.Point(262, 19);
+            this.Table_Numberlbl.Location = new System.Drawing.Point(240, 10);
             this.Table_Numberlbl.Name = "Table_Numberlbl";
-            this.Table_Numberlbl.Size = new System.Drawing.Size(39, 19);
+            this.Table_Numberlbl.Size = new System.Drawing.Size(39, 17);
             this.Table_Numberlbl.TabIndex = 52;
             // 
             // tbNumberlbl
             // 
             this.tbNumberlbl.AutoSize = true;
-            this.tbNumberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNumberlbl.Location = new System.Drawing.Point(128, 19);
+            this.tbNumberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNumberlbl.Location = new System.Drawing.Point(125, 9);
             this.tbNumberlbl.Name = "tbNumberlbl";
-            this.tbNumberlbl.Size = new System.Drawing.Size(128, 20);
+            this.tbNumberlbl.Size = new System.Drawing.Size(120, 18);
             this.tbNumberlbl.TabIndex = 51;
             this.tbNumberlbl.Text = "Table number :";
             // 
@@ -315,7 +326,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(260, 244);
+            this.label5.Location = new System.Drawing.Point(260, 243);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 16);
             this.label5.TabIndex = 53;
@@ -323,38 +334,17 @@
             // 
             // commentstxt_box
             // 
-            this.commentstxt_box.Location = new System.Drawing.Point(39, 450);
+            this.commentstxt_box.Location = new System.Drawing.Point(35, 450);
             this.commentstxt_box.Multiline = true;
             this.commentstxt_box.Name = "commentstxt_box";
-            this.commentstxt_box.Size = new System.Drawing.Size(336, 74);
+            this.commentstxt_box.Size = new System.Drawing.Size(340, 74);
             this.commentstxt_box.TabIndex = 54;
-            // 
-            // VAT
-            // 
-            this.VAT.AutoSize = true;
-            this.VAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VAT.Location = new System.Drawing.Point(297, 217);
-            this.VAT.Name = "VAT";
-            this.VAT.Size = new System.Drawing.Size(26, 16);
-            this.VAT.TabIndex = 55;
-            this.VAT.Text = "%  ";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Restaurant_UI.Properties.Resources.Designbolts_Credit_Card_Payment_American_Express;
-            this.pictureBox2.Location = new System.Drawing.Point(244, 74);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(33, 29);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 48;
-            this.pictureBox2.TabStop = false;
             // 
             // Payment_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 654);
-            this.Controls.Add(this.VAT);
             this.Controls.Add(this.commentstxt_box);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Table_Numberlbl);
@@ -374,10 +364,10 @@
             this.Text = "Payment_Form";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,9 +380,6 @@
         private System.Windows.Forms.TextBox Tiptxt_bx;
         private System.Windows.Forms.TextBox Total_txt_bx;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton PinRadiobtn;
         private System.Windows.Forms.RadioButton cashRadiobtn;
@@ -410,7 +397,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button PayOrderbtn;
         private System.Windows.Forms.TextBox commentstxt_box;
-        private System.Windows.Forms.Label VAT;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ColumnHeader Desription;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

@@ -74,7 +74,7 @@ namespace Restaurant_UI
                 {
                     //Display WaiterUI
                    // Table_Form table_Form = new Table_Form(currentemployee, this);
-                    Table_Form table_Form = new Table_Form();
+                    Table_Form table_Form = new Table_Form(currentemployee,this);
                     table_Form.Show();
                 }
                 this.Hide();

@@ -58,16 +58,18 @@ namespace Restaurant_Logic
             orderItem_DAO.UpdateOrdersItemsState(orderItem, newSatate);
         }
 
-        public List<OrderItem> GetOrderWaiter()
+        public List<OrderItem> GetOrderItemReady()
         {
            
-                List<OrderItem> orders = orderItem_DAO.GetOrdersWaiter();
+                List<OrderItem> orders = orderItem_DAO.GetOrderItemReady();
                 return orders;
         }
         public void UpdateStatus(OrderItem orderItem)
         {
             orderItem_DAO.UpdateStatus(orderItem);
         }
+
+      
         private static void ErrorLogging(Exception e)
         {
             Debug.WriteLine("=============Error Logging ===========");
