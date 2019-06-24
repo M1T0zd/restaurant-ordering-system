@@ -90,7 +90,6 @@
             this.dgviewOrders.RowTemplate.Height = 24;
             this.dgviewOrders.Size = new System.Drawing.Size(994, 512);
             this.dgviewOrders.TabIndex = 1;
-            this.dgviewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgviewDrinks_CellContentClick);
             this.dgviewOrders.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgviewOrders_DataError_1);
             // 
             // btnMarkready
