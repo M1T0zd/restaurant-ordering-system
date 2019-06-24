@@ -16,7 +16,7 @@ namespace Restaurant_UI
     {
         OrderItem_Service Logic = new OrderItem_Service();
         List<OrderItem> Orders;
-        Employee CurrentEmployee = new Employee();
+        Employee CurrentEmployee;
 
         public Kitchen_Form(Employee employee)
         {
@@ -62,7 +62,7 @@ namespace Restaurant_UI
             }
             if (Items.Count>0)
             {
-                if (MessageBox.Show(" are you sure you want to mark all these orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show(" are you sure you want to mark this orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     foreach (OrderItem  item in Items)
                     {

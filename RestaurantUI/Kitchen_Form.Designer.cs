@@ -71,11 +71,11 @@
             // 
             // btn_PrepareMany
             // 
-            this.btn_PrepareMany.Location = new System.Drawing.Point(14, 531);
+            this.btn_PrepareMany.Location = new System.Drawing.Point(14, 518);
             this.btn_PrepareMany.Name = "btn_PrepareMany";
             this.btn_PrepareMany.Size = new System.Drawing.Size(290, 49);
             this.btn_PrepareMany.TabIndex = 2;
-            this.btn_PrepareMany.Text = "Prepare multiple orders";
+            this.btn_PrepareMany.Text = "Prepare orders";
             this.btn_PrepareMany.UseVisualStyleBackColor = true;
             this.btn_PrepareMany.Click += new System.EventHandler(this.btn_PrepareMany_Click);
             // 
