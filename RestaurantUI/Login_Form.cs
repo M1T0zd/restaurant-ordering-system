@@ -24,21 +24,20 @@ namespace Restaurant_UI
             //GetAllLoginInfo
             Login_Service Login_Service = new Login_Service();
             List<Login> loginList = Login_Service.GetLogin();
-            //Make new Current Login to save current login info
-            Login CurrentLogin = new Login();
+
+            Employee currentemployee = new Employee();
             foreach (Login login in loginList)
             {
                 if (login.Username == txtusername.Text && login.Password == txtpassword.Text)
                 {
-                    CurrentLogin.EmployeeNumber = login.EmployeeNumber;
+                    //Getting current employee
+                    currentemployee = GetCurrentEmployee(login);
                     check++;         
                 }           
             }
-            //Getting current employee
-            Employee currentemployee = GetCurrentEmployee(CurrentLogin);
             //Show which form belongs to which employee
             ShowForm(currentemployee);
-            //ClearingTextBoxt for logging out
+            //ClearingTextBoxt for logging in after logging out
             ClearTextBox();
         }
         void ClearTextBox()
@@ -73,7 +72,6 @@ namespace Restaurant_UI
                 else if (currentemployee.Role == EmployeeRole.Waiter)
                 {
                     //Display WaiterUI
-                   // Table_Form table_Form = new Table_Form(currentemployee, this);
                     Table_Form table_Form = new Table_Form(currentemployee,this);
                     table_Form.Show();
                 }
