@@ -460,7 +460,6 @@
             this.Name = "Table_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tables";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Table_Form_FormClosed);
             this.pnltable.ResumeLayout(false);
             this.pnltable.PerformLayout();
             this.pnlnotif.ResumeLayout(false);

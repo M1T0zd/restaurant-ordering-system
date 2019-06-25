@@ -272,6 +272,7 @@ namespace Restaurant_UI
                 btnnotif.Text = $"{listviewnotif.Items.Count.ToString()} orders ready";
             }
         }
+        //For order_ui
         public void ChangeStatusForOrder()
         {
             CheckStatusButton();
@@ -279,10 +280,6 @@ namespace Restaurant_UI
             pnltable.Hide();
             pnlnotif.Hide();
             pnlChangeStatus.Show();
-        }
-
-        private void Table_Form_FormClosed(object sender, FormClosedEventArgs e)
-        {
         }
     }
 }
