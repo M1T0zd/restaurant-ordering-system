@@ -58,22 +58,23 @@ namespace Restaurant_UI
         }
         private void ChangeColor()
         {
-            for (int i = 0; i < tables.Count; i++)
+            foreach (Table table in tables)
             {
-                if (tables[i].Status == TableStatus.Available)
+                if (table.Status == TableStatus.Available)
                 {
                     //Background Green
-                    buttons[i].BackColor = Color.Green;
+                    buttons[table.Number-1].BackColor = Color.Green;
                 }
-                else if (tables[i].Status == TableStatus.Reserved)
+                else if (table.Status == TableStatus.Reserved)
                 {
-                    buttons[i].BackColor = Color.Yellow;
+                    buttons[table.Number-1].BackColor = Color.Yellow;
                 }
                 else
                 {
-                    buttons[i].BackColor = Color.Red;
+                    buttons[table.Number-1].BackColor = Color.Red;
                 }
-            } 
+            }
+           
         }
         private void Button_Click(object sender, EventArgs e)
         {
