@@ -27,8 +27,8 @@ namespace Restaurant_UI
             //Hide login form
             if (currentemployee.Role == EmployeeRole.Chef || currentemployee.Role == EmployeeRole.Barman)
             {
-                //Display Chef UI
-                Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee);
+                //Display Kitchen UI
+                Kitchen_Form kitchen_Form = new Kitchen_Form(currentemployee,this);
                 kitchen_Form.Show();
                 this.Hide();
             }
