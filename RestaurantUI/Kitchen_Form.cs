@@ -62,7 +62,7 @@ namespace Restaurant_UI
             }
             if (Items.Count>0)
             {
-                if (MessageBox.Show(" are you sure you want to mark this orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to mark this orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     foreach (OrderItem  item in Items)
                     {

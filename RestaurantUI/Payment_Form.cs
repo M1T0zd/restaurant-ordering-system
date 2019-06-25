@@ -31,7 +31,6 @@ namespace Restaurant_UI
         private void Payment_Form_Load(object sender, EventArgs e)
         {
             DisplayOrderItems();
-            cashRadiobtn.Checked = true;
             payment.Total = CalculateTotal();
             Tax_txt_bx.Text = string.Format("{0:c}", payment.Tax);
             Total_txt_bx.Text = string.Format("{0:c}", payment.Total);
