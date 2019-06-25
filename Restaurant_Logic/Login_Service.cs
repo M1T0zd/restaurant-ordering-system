@@ -15,12 +15,12 @@ namespace Restaurant_Logic
     {
         private Login_DAO login_db = new Login_DAO();
 
-        public List<Login> GetLogin()
+        public Employee GetEmployee(string username,string password)
         {
             try
             {
-                List<Login> logins = login_db.Db_Get_All_Login();
-                return logins;
+                Employee employee = login_db.GetEmployee(username,password);
+                return employee;
             }
             catch (Exception e)
             {

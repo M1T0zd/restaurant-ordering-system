@@ -43,9 +43,9 @@ namespace Restaurant_DAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public void SaveComments(Session session, string commnets)
+        public void SaveComments(Session session,string commnets)
         {
-            string query = $"INSERT INTO Sessions(Comment) VALUES ('{commnets}') WHERE Id =  {session.Id}";
+            string query = $"UPDATE Sessions SET Comment = '{commnets}' WHERE Id =  {session.Id}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
 

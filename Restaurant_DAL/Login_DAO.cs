@@ -12,28 +12,25 @@ namespace Restaurant_DAL
 {
     public class Login_DAO : Base
     {
-        public List<Login> Db_Get_All_Login()
+        public Employee GetEmployee(string username,string password)
         {
-            string query = "SELECT Username,Password,EmployeeNumber FROM Credentials";
+            string query = $"SELECT E.Name,E.Number,E.RoleId FROM Credentials AS C JOIN Employees AS E ON C.EmployeeNumber = E.Number " +
+                $"WHERE Username LIKE '{username}' AND Password LIKE '{password}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        private List<Login> ReadTables(DataTable dataTable)
+        private Employee ReadTables(DataTable dataTable)
         {
-            List<Login> logins = new List<Login>();
+            Employee employee = new Employee();
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Login login = new Login()
-                {
-                    Password = (String)dr["Password"],
-                    Username = (String)(dr["Username"]),
-                    EmployeeNumber = (int)dr["EmployeeNumber"]                
-                };
-                logins.Add(login);
+                employee.Name = (String)dr["Name"];
+                employee.Role = (EmployeeRole)(dr["RoleId"]);
+                employee.Number = (int)dr["Number"];
             }
-            return logins;
+            return employee;
         }
     }
 }
