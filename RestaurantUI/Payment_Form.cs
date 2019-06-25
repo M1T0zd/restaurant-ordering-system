@@ -30,15 +30,13 @@ namespace Restaurant_UI
         }
         private void Payment_Form_Load(object sender, EventArgs e)
         {
+            Table_Numberlbl.Text = session.Table.Number.ToString();
             DisplayOrderItems();
-            payment.Total = CalculateTotal();
             Tax_txt_bx.Text = string.Format("{0:c}", payment.Tax);
             Total_txt_bx.Text = string.Format("{0:c}", payment.Total);
-
         }
         private void DisplayOrderItems()
         {
-            Table_Numberlbl.Text = session.Table.Number.ToString();
             List<OrderItem> orderItems = payment_Service.GetOrderItemPayment(session);
             foreach (OrderItem item in orderItems)
             {
@@ -49,46 +47,31 @@ namespace Restaurant_UI
                 listViewItem.Tag = item;
                 listView1.Items.Add(listViewItem);
             }
+            CalculateVAT_TotalPrice();
         }
-        private decimal CalculateTotal() // add vat
-        {
-            decimal total = 0;
-            foreach (ListViewItem listViewItem in listView1.Items)
-            {
-                OrderItem orderItem = (OrderItem)listViewItem.Tag;
-                total += orderItem.Price;
-                payment.Tax += CalculateVaT(orderItem.Price);
-            }
-            return total;
-        }
-        private decimal CalculateVaT(decimal totalUnitPrice)
+
+        private void CalculateVAT_TotalPrice()
         {
             decimal taxPerItem;
             decimal totalTax = 0;
-            bool isAlcoholic = IsAlcoholic();
-            if (!isAlcoholic)
-            {
-                taxPerItem = (totalUnitPrice * Convert.ToDecimal(0.06));
-            }
-            else
-            {
-                taxPerItem = ((totalUnitPrice) * Convert.ToDecimal(0.21));
-            }
-            totalTax += taxPerItem;
-            return totalTax;
-        }
-        private bool IsAlcoholic()
-        {
-            bool isAlcoholic = false;
+            decimal totalPrice = 0;
             foreach (ListViewItem listViewItem in listView1.Items)
             {
                 OrderItem orderItem = (OrderItem)listViewItem.Tag;
                 if(orderItem.Category == Category.Alcoholic)
                 {
-                    isAlcoholic = true;
+                    taxPerItem = (orderItem.Price * Convert.ToDecimal(0.21));
                 }
+                else
+                {
+                    taxPerItem = ((orderItem.Price) * Convert.ToDecimal(0.06));
+                }
+                totalTax += taxPerItem;
+                totalPrice += (orderItem.Price + taxPerItem);
             }
-            return isAlcoholic;
+            payment.Total = totalPrice;
+            payment.Tax = totalTax;
+
         }
         private void CancelBtn_Click(object sender, EventArgs e)
         {
@@ -96,7 +79,7 @@ namespace Restaurant_UI
             if (result == DialogResult.Yes)
             {
                 Hide();
-                table_Form.Show(); //go to home page
+                table_Form.Show(); //go to table view
             }
         }
         private PaymentMethod SelectPaymentMethod()
@@ -119,7 +102,7 @@ namespace Restaurant_UI
         // process payment 
         private void PayOrderbtn_Click(object sender, EventArgs e)
         {
-            payment.PaymentMethod =(int)SelectPaymentMethod();
+            payment.PaymentMethod = SelectPaymentMethod();
             if (payment.PaymentMethod == 0)
             {
                 MessageBox.Show("Please select payment method.", "payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);

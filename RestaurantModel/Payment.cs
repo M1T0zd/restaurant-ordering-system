@@ -17,7 +17,7 @@ namespace RestaurantModel
         public int IDpayment { get; set; }
         public Decimal Tip { get; set; }
         public Decimal Tax { get; set; }
-        public int PaymentMethod;
+        public PaymentMethod PaymentMethod;
         
         
 	}
