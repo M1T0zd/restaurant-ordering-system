@@ -33,6 +33,8 @@ namespace Restaurant_UI
             timer1.Enabled = true;
             timer1.Interval = 10000;
 
+            this.Text = $"Tables ({employee.Name})";
+
             Table_Service table_Service = new Table_Service();
             currentsession = new Session();
 
@@ -56,22 +58,23 @@ namespace Restaurant_UI
         }
         private void ChangeColor()
         {
-            for (int i = 0; i < tables.Count; i++)
+            foreach (Table table in tables)
             {
-                if (tables[i].Status == TableStatus.Available)
+                if (table.Status == TableStatus.Available)
                 {
                     //Background Green
-                    buttons[i].BackColor = Color.Green;
+                    buttons[table.Number-1].BackColor = Color.Green;
                 }
-                else if (tables[i].Status == TableStatus.Reserved)
+                else if (table.Status == TableStatus.Reserved)
                 {
-                    buttons[i].BackColor = Color.Yellow;
+                    buttons[table.Number-1].BackColor = Color.Yellow;
                 }
                 else
                 {
-                    buttons[i].BackColor = Color.Red;
+                    buttons[table.Number-1].BackColor = Color.Red;
                 }
-            } 
+            }
+           
         }
         private void Button_Click(object sender, EventArgs e)
         {
@@ -84,14 +87,17 @@ namespace Restaurant_UI
         }
         void CheckStatusPanel()
         {
+            //Check which button to show
             CheckStatusButton();
             lblNumber.Text = $"Table {currentsession.Table.Number.ToString()}";
-            Session_Service session_Service = new Session_Service();
-            //Get SessionId
-            currentsession.Id = session_Service.GetSessionId(currentsession);
 
             if (currentsession.Table.Status == TableStatus.Occupied)
             {
+                //Get SessionId
+                Session_Service session_Service = new Session_Service();
+                currentsession.Id = session_Service.GetSessionId(currentsession);
+
+                //Show order form
                 Order_Form order_Form = new Order_Form(this, currentsession);
                 order_Form.Show();
             }
@@ -131,6 +137,7 @@ namespace Restaurant_UI
             pnlChangeStatus.Hide();
             pnlnotif.Show();
         }
+        //Show list for ready order
         private void UpdateList()
         {
             OrderItem_Service order_Service = new OrderItem_Service();
@@ -266,6 +273,7 @@ namespace Restaurant_UI
                 btnnotif.Text = $"{listviewnotif.Items.Count.ToString()} orders ready";
             }
         }
+        //For order_ui
         public void ChangeStatusForOrder()
         {
             CheckStatusButton();
@@ -273,11 +281,6 @@ namespace Restaurant_UI
             pnltable.Hide();
             pnlnotif.Hide();
             pnlChangeStatus.Show();
-        }
-
-        private void Table_Form_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

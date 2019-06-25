@@ -17,12 +17,14 @@ namespace Restaurant_UI
         OrderItem_Service Logic = new OrderItem_Service();
         List<OrderItem> Orders;
         Employee CurrentEmployee;
+        Login_Form login_Form;
 
-        public Kitchen_Form(Employee employee)
+        public Kitchen_Form(Employee employee,Login_Form login_Form)
         {
             InitializeComponent();
             DesignGridView();
             this.CurrentEmployee = employee; // get the current Employee
+            this.login_Form = login_Form;
             this.Text = "Welcome   " + CurrentEmployee.Name;
             LoadAndDisplayData(CurrentEmployee);// load Data
         }
@@ -39,9 +41,8 @@ namespace Restaurant_UI
         }
         private void pictureBoxExit_Click(object sender, EventArgs e)
         {
-            Login_Form login_Form = new Login_Form();
-            login_Form.Show();// exit and go to the default form (login form )
-            this.Hide();
+            login_Form.Show();// exit and go to the default form (login form)
+            this.Close();
         }
 
         private void dgviewOrders_DataError_1(object sender, DataGridViewDataErrorEventArgs e)
@@ -62,7 +63,7 @@ namespace Restaurant_UI
             }
             if (Items.Count>0)
             {
-                if (MessageBox.Show(" are you sure you want to mark this orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to mark this orders as : Ready ", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     foreach (OrderItem  item in Items)
                     {
