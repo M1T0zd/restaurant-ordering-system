@@ -392,7 +392,6 @@
         private System.Windows.Forms.RadioButton PinRadiobtn;
         private System.Windows.Forms.RadioButton cashRadiobtn;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button Pay_Order_btn;
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.RadioButton creditCardRdbtn;
         private System.Windows.Forms.PictureBox pictureBox1;
