@@ -89,6 +89,7 @@ namespace Restaurant_UI
         {
             //Check which button to show
             CheckStatusButton();
+
             lblNumber.Text = $"Table {currentsession.Table.Number.ToString()}";
 
             if (currentsession.Table.Status == TableStatus.Occupied)
@@ -145,17 +146,15 @@ namespace Restaurant_UI
 
             listviewnotif.Clear();
             listviewnotif.View = View.Details;
-            listviewnotif.Columns.Add("Name");
-            listviewnotif.Columns.Add("Quantity");
-            listviewnotif.Columns.Add("Status");
-            listviewnotif.Columns.Add("Table");
+            listviewnotif.Columns.Add("Name",150, HorizontalAlignment.Left);
+            listviewnotif.Columns.Add("Quantity", 70, HorizontalAlignment.Left);
+            listviewnotif.Columns.Add("Table", 45, HorizontalAlignment.Left);
 
 
             foreach (OrderItem order in orderItems)
             {
                 ListViewItem listViewItem = new ListViewItem(order.ItemName);
                 listViewItem.SubItems.Add(order.Amount.ToString());
-                listViewItem.SubItems.Add(order.Status.ToString());
                 listViewItem.SubItems.Add(order.TableNumber.ToString());
 
                 listviewnotif.Items.Add(listViewItem);

@@ -20,7 +20,7 @@ namespace Restaurant_UI
         }
         private void Btnlogin_Click(object sender, EventArgs e)
         {
-            //GetAllLoginInfo
+            //Get Current Employee
             Login_Service Login_Service = new Login_Service();
             Employee currentemployee = Login_Service.GetEmployee(txtusername.Text, txtpassword.Text);
 
@@ -46,11 +46,7 @@ namespace Restaurant_UI
                 string title = "Enter valid login credentials";
                 MessageBox.Show(message, title);
             }
-            //ClearingTextBoxt for logging in after logging out
-            ClearTextBox();
-        }
-        void ClearTextBox()
-        {
+            //ClearingTextBox for logging in after logging out
             txtusername.Text = "";
             txtpassword.Text = "";
         }

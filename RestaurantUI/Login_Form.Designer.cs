@@ -40,7 +40,7 @@
             // 
             this.lbllogin.AutoSize = true;
             this.lbllogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllogin.Location = new System.Drawing.Point(258, 120);
+            this.lbllogin.Location = new System.Drawing.Point(256, 121);
             this.lbllogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbllogin.Name = "lbllogin";
             this.lbllogin.Size = new System.Drawing.Size(86, 33);
@@ -82,7 +82,7 @@
             // 
             // btnlogin
             // 
-            this.btnlogin.Location = new System.Drawing.Point(226, 296);
+            this.btnlogin.Location = new System.Drawing.Point(172, 301);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(262, 59);
             this.btnlogin.TabIndex = 24;
@@ -94,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 517);
+            this.ClientSize = new System.Drawing.Size(616, 517);
             this.Controls.Add(this.btnlogin);
             this.Controls.Add(this.txtpassword);
             this.Controls.Add(this.lblpassword);
