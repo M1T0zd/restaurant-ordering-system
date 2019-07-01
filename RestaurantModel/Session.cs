@@ -13,11 +13,5 @@ namespace RestaurantModel
         public Table Table { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
-		public List<Order> Orders { get; set; }
-
-		public Session()
-		{
-			Orders = new List<Order>();
-		}
 	}
 }

@@ -18,11 +18,10 @@ namespace Restaurant_Logic
       
         }
       
-        public List<OrderItem> GetOrderItemPayment(Session session)
+        public List<OrderItem> GetOrderItems(Session session)
         {
             List<OrderItem> orderItems = new List<OrderItem>();
-            return orderItems = paymentDao.GetOrderItemPayment(session);
+            return orderItems = paymentDao.GetOrderItems(session);
         }
-     
     }
 }

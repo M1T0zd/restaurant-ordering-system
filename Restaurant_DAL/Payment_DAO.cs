@@ -28,6 +28,8 @@ namespace Restaurant_DAL
             ExecuteEditQuery(query, sqlParameters);
         }
         public List<OrderItem> GetOrderItemPayment(Session session)
+ 
+        public List<OrderItem> GetOrderItems(Session session)
         {
             string query = $"SELECT M.Name,M.Price,M.CategoryId,OI.Quantity FROM OrderItems AS OI " +
                   $"JOIN Orders AS O ON OI.OrderId = O.Id JOIN MenuItems AS M ON OI.MenuItemId = M.Id WHERE O.SessionId = {session.Id}";
@@ -37,7 +39,7 @@ namespace Restaurant_DAL
         private List<OrderItem> ReadTablesPayment(DataTable dataTable)
         {
             List<OrderItem> orderItems = new List<OrderItem>();
-
+            
             foreach (DataRow dr in dataTable.Rows)
             {
                 OrderItem orderItem = new OrderItem()
