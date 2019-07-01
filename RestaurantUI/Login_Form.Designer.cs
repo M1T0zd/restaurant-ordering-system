@@ -64,7 +64,7 @@
             // txtusername
             // 
             this.txtusername.Location = new System.Drawing.Point(184, 134);
-            this.txtusername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtusername.Margin = new System.Windows.Forms.Padding(2);
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(160, 20);
             this.txtusername.TabIndex = 21;
@@ -83,7 +83,7 @@
             // txtpassword
             // 
             this.txtpassword.Location = new System.Drawing.Point(184, 178);
-            this.txtpassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtpassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.PasswordChar = '•';
             this.txtpassword.Size = new System.Drawing.Size(160, 20);
@@ -92,7 +92,7 @@
             // btnlogin
             // 
             this.btnlogin.Location = new System.Drawing.Point(184, 223);
-            this.btnlogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnlogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(160, 48);
             this.btnlogin.TabIndex = 24;
@@ -115,7 +115,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(128, 303);
+            this.label2.Location = new System.Drawing.Point(124, 304);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(257, 18);
             this.label2.TabIndex = 26;
@@ -126,7 +126,7 @@
             this.pictureBox1.Image = global::Restaurant_UI.Properties.Resources.image_6_;
             this.pictureBox1.Location = new System.Drawing.Point(379, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 181);
+            this.pictureBox1.Size = new System.Drawing.Size(139, 181);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
@@ -135,7 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 351);
+            this.ClientSize = new System.Drawing.Size(518, 372);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -145,7 +145,7 @@
             this.Controls.Add(this.txtusername);
             this.Controls.Add(this.lblusername);
             this.Controls.Add(this.lbllogin);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
