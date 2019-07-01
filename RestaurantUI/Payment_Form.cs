@@ -45,34 +45,11 @@ namespace Restaurant_UI
                 listViewItem.SubItems.Add(item.Amount.ToString());
                 listViewItem.SubItems.Add(item.Price.ToString());
                 listViewItem.Tag = item;
-                listView1.Items.Add(listViewItem);
+                OrdersListView.Items.Add(listViewItem);
             }
-            CalculateVAT_TotalPrice();
+            payment.CalculateVAT_TotalPrice(OrdersListView);
         }
 
-        private void CalculateVAT_TotalPrice()
-        {
-            decimal taxPerItem;
-            decimal totalTax = 0;
-            decimal totalPrice = 0;
-            foreach (ListViewItem listViewItem in listView1.Items)
-            {
-                OrderItem orderItem = (OrderItem)listViewItem.Tag;
-                if(orderItem.Category == Category.Alcoholic)
-                {
-                    taxPerItem = (orderItem.Price * Convert.ToDecimal(0.21));
-                }
-                else
-                {
-                    taxPerItem = ((orderItem.Price) * Convert.ToDecimal(0.06));
-                }
-                totalTax += taxPerItem;
-                totalPrice += (orderItem.Price + taxPerItem);
-            }
-            payment.Total = totalPrice;
-            payment.Tax = totalTax;
-
-        }
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to cancel.", "Confirm cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -84,7 +61,7 @@ namespace Restaurant_UI
         }
         private PaymentMethod SelectPaymentMethod()
         {
-            PaymentMethod paymentMethod = 0; 
+            PaymentMethod paymentMethod = 0;
             if (PinRadiobtn.Checked == true)
             {
                 paymentMethod = PaymentMethod.Pin;
@@ -93,9 +70,9 @@ namespace Restaurant_UI
             {
                 paymentMethod = PaymentMethod.CreditCard;
             }
-            else if(cashRadiobtn.Checked == true)
+            else if (cashRadiobtn.Checked == true)
             {
-               paymentMethod = PaymentMethod.Cash;
+                paymentMethod = PaymentMethod.Cash;
             }
             return paymentMethod;
         }
@@ -105,7 +82,11 @@ namespace Restaurant_UI
             payment.PaymentMethod = SelectPaymentMethod();
             if (payment.PaymentMethod == 0)
             {
-                MessageBox.Show("Please select payment method.", "payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select payment method.", "Payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (OrdersListView.Items.Count == 0)
+            {
+                MessageBox.Show("Please place an order first.", "No order to be paid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -127,18 +108,19 @@ namespace Restaurant_UI
 
             if (!String.IsNullOrEmpty(commentstxt_box.Text))
             {
-                session_Service.SaveComments(session,comments);
+                session_Service.SaveComments(session, comments);
             }
             session_Service.UpdateTablePayment(session);
             payment_Service.SavePaidOrder(payment, session);
         }
-       
+
         private void PaymentConfirmation()
         {
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
-            table_Form.Show(); // back to home page 
+            session.Table.Status = TableStatus.Available;
+            table_Form.Show(); // back to table view
         }
-       
+
         private void Tiptxt_bx_TextChanged(object sender, EventArgs e)
         {
             Tiptxt_bx.Text = Tiptxt_bx.Text.Trim();
@@ -152,12 +134,12 @@ namespace Restaurant_UI
                 {
                     payment.Tip = Decimal.Parse(Tiptxt_bx.Text);
                 }
-                decimal totalPrice = payment.Tip + payment.Total; 
-                Total_txt_bx.Text = string.Format("{0:C}",totalPrice);
+                decimal totalPrice = payment.Tip + payment.Total;
+                Total_txt_bx.Text = string.Format("{0:C}", totalPrice);
             }
             catch (Exception m)
             {
-                MessageBox.Show("Enter numbers only"+m.Message, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Enter numbers only" + m.Message, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

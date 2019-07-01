@@ -33,7 +33,7 @@
             this.Tax_txt_bx = new System.Windows.Forms.TextBox();
             this.Tiptxt_bx = new System.Windows.Forms.TextBox();
             this.Total_txt_bx = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.OrdersListView = new System.Windows.Forms.ListView();
             this.Desription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,8 +56,8 @@
             this.AddTip_lbl = new System.Windows.Forms.Label();
             this.commentstxt_box = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -117,20 +117,20 @@
             this.Total_txt_bx.Size = new System.Drawing.Size(48, 14);
             this.Total_txt_bx.TabIndex = 37;
             // 
-            // listView1
+            // OrdersListView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.OrdersListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Desription,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.Location = new System.Drawing.Point(11, 33);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(382, 180);
-            this.listView1.TabIndex = 36;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.OrdersListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrdersListView.Location = new System.Drawing.Point(11, 33);
+            this.OrdersListView.Name = "OrdersListView";
+            this.OrdersListView.Size = new System.Drawing.Size(382, 180);
+            this.OrdersListView.TabIndex = 36;
+            this.OrdersListView.UseCompatibleStateImageBehavior = false;
+            this.OrdersListView.View = System.Windows.Forms.View.Details;
             // 
             // Desription
             // 
@@ -359,15 +359,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tax";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 13);
-            this.label1.TabIndex = 57;
-            this.label1.Text = "21% alcoholic beverages";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -376,6 +367,15 @@
             this.label3.Size = new System.Drawing.Size(190, 13);
             this.label3.TabIndex = 58;
             this.label3.Text = "6% non-alcoholic beverages and foods";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 13);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "21% alcoholic beverages";
             // 
             // Payment_Form
             // 
@@ -394,7 +394,7 @@
             this.Controls.Add(this.Tax_txt_bx);
             this.Controls.Add(this.Tiptxt_bx);
             this.Controls.Add(this.Total_txt_bx);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.OrdersListView);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -423,7 +423,7 @@
         private System.Windows.Forms.TextBox Tax_txt_bx;
         private System.Windows.Forms.TextBox Tiptxt_bx;
         private System.Windows.Forms.TextBox Total_txt_bx;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView OrdersListView;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton PinRadiobtn;
         private System.Windows.Forms.RadioButton cashRadiobtn;
