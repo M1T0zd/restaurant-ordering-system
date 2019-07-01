@@ -18,6 +18,7 @@ namespace RestaurantModel
         public int IDpayment { get; set; }
         public Decimal Tip { get; set; }
         public Decimal Tax { get; set; }
+
         public PaymentMethod PaymentMethod;
 
         public void CalculateVAT_TotalPrice(ListView listView)
