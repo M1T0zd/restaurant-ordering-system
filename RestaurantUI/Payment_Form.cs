@@ -37,7 +37,7 @@ namespace Restaurant_UI
         }
         private void DisplayOrderItems()
         {
-            List<OrderItem> orderItems = payment_Service.GetOrderItemPayment(session);
+            List<OrderItem> orderItems = payment_Service.GetOrderItems(session);
             foreach (OrderItem item in orderItems)
             {
                 ListViewItem listViewItem = new ListViewItem(item.ItemName);
