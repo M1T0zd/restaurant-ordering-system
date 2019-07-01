@@ -19,6 +19,6 @@ namespace RestaurantModel
         public Decimal Tax { get; set; }
         public PaymentMethod PaymentMethod;
         
-        z
+        
 	}
 }

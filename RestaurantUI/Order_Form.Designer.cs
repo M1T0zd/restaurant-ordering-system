@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lvMenuItems = new System.Windows.Forms.ListView();
             this.lvOrderItems = new System.Windows.Forms.ListView();
+            this.BtnTableView = new System.Windows.Forms.Button();
             this.pnlDefault.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
@@ -57,10 +58,10 @@
             // 
             // btnPay
             // 
-            this.btnPay.Location = new System.Drawing.Point(104, 402);
-            this.btnPay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPay.Location = new System.Drawing.Point(104, 390);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(2);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(128, 47);
+            this.btnPay.Size = new System.Drawing.Size(115, 47);
             this.btnPay.TabIndex = 0;
             this.btnPay.Text = "Make Payment";
             this.btnPay.UseVisualStyleBackColor = true;
@@ -68,6 +69,7 @@
             // 
             // pnlDefault
             // 
+            this.pnlDefault.Controls.Add(this.BtnTableView);
             this.pnlDefault.Controls.Add(this.btnReset);
             this.pnlDefault.Controls.Add(this.groupBox1);
             this.pnlDefault.Controls.Add(this.nudQuantity);
@@ -85,7 +87,7 @@
             this.pnlDefault.Controls.Add(this.lvMenuItems);
             this.pnlDefault.Controls.Add(this.lvOrderItems);
             this.pnlDefault.Location = new System.Drawing.Point(0, 1);
-            this.pnlDefault.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlDefault.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDefault.Name = "pnlDefault";
             this.pnlDefault.Size = new System.Drawing.Size(715, 506);
             this.pnlDefault.TabIndex = 14;
@@ -108,9 +110,9 @@
             this.groupBox1.Controls.Add(this.rdoLunch);
             this.groupBox1.Controls.Add(this.rdoAll);
             this.groupBox1.Location = new System.Drawing.Point(8, 48);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(73, 105);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
@@ -120,7 +122,7 @@
             // 
             this.rdoAlcoholic.AutoSize = true;
             this.rdoAlcoholic.Location = new System.Drawing.Point(3, 86);
-            this.rdoAlcoholic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoAlcoholic.Margin = new System.Windows.Forms.Padding(2);
             this.rdoAlcoholic.Name = "rdoAlcoholic";
             this.rdoAlcoholic.Size = new System.Drawing.Size(68, 17);
             this.rdoAlcoholic.TabIndex = 4;
@@ -133,7 +135,7 @@
             // 
             this.rdoDrinks.AutoSize = true;
             this.rdoDrinks.Location = new System.Drawing.Point(3, 70);
-            this.rdoDrinks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoDrinks.Margin = new System.Windows.Forms.Padding(2);
             this.rdoDrinks.Name = "rdoDrinks";
             this.rdoDrinks.Size = new System.Drawing.Size(55, 17);
             this.rdoDrinks.TabIndex = 3;
@@ -146,7 +148,7 @@
             // 
             this.rdoDinner.AutoSize = true;
             this.rdoDinner.Location = new System.Drawing.Point(3, 53);
-            this.rdoDinner.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoDinner.Margin = new System.Windows.Forms.Padding(2);
             this.rdoDinner.Name = "rdoDinner";
             this.rdoDinner.Size = new System.Drawing.Size(56, 17);
             this.rdoDinner.TabIndex = 2;
@@ -159,7 +161,7 @@
             // 
             this.rdoLunch.AutoSize = true;
             this.rdoLunch.Location = new System.Drawing.Point(3, 36);
-            this.rdoLunch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoLunch.Margin = new System.Windows.Forms.Padding(2);
             this.rdoLunch.Name = "rdoLunch";
             this.rdoLunch.Size = new System.Drawing.Size(55, 17);
             this.rdoLunch.TabIndex = 1;
@@ -173,7 +175,7 @@
             this.rdoAll.AutoSize = true;
             this.rdoAll.Checked = true;
             this.rdoAll.Location = new System.Drawing.Point(3, 19);
-            this.rdoAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoAll.Margin = new System.Windows.Forms.Padding(2);
             this.rdoAll.Name = "rdoAll";
             this.rdoAll.Size = new System.Drawing.Size(36, 17);
             this.rdoAll.TabIndex = 0;
@@ -185,7 +187,7 @@
             // nudQuantity
             // 
             this.nudQuantity.Location = new System.Drawing.Point(512, 417);
-            this.nudQuantity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.nudQuantity.Maximum = new decimal(new int[] {
             20,
             0,
@@ -231,7 +233,7 @@
             // txtComment
             // 
             this.txtComment.Location = new System.Drawing.Point(585, 374);
-            this.txtComment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtComment.Margin = new System.Windows.Forms.Padding(2);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
             this.txtComment.Size = new System.Drawing.Size(111, 61);
@@ -273,7 +275,7 @@
             this.btnOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnOrder.Location = new System.Drawing.Point(104, 319);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(128, 47);
+            this.btnOrder.Size = new System.Drawing.Size(114, 47);
             this.btnOrder.TabIndex = 5;
             this.btnOrder.Text = "Place Order";
             this.btnOrder.UseVisualStyleBackColor = true;
@@ -320,6 +322,16 @@
             this.lvOrderItems.View = System.Windows.Forms.View.Details;
             this.lvOrderItems.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LvOrderItems_ItemSelectionChanged);
             // 
+            // BtnTableView
+            // 
+            this.BtnTableView.Location = new System.Drawing.Point(259, 388);
+            this.BtnTableView.Name = "BtnTableView";
+            this.BtnTableView.Size = new System.Drawing.Size(114, 47);
+            this.BtnTableView.TabIndex = 15;
+            this.BtnTableView.Text = "Table view";
+            this.BtnTableView.UseVisualStyleBackColor = true;
+            this.BtnTableView.Click += new System.EventHandler(this.BtnTableView_Click);
+            // 
             // Order_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,7 +339,7 @@
             this.ClientSize = new System.Drawing.Size(714, 469);
             this.Controls.Add(this.pnlDefault);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Order_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -368,5 +380,6 @@
         private System.Windows.Forms.RadioButton rdoLunch;
 		private System.Windows.Forms.Button btnReset;
 		private System.Windows.Forms.RadioButton rdoAlcoholic;
-	}
+        private System.Windows.Forms.Button BtnTableView;
+    }
 }

@@ -26,7 +26,7 @@ namespace Restaurant_UI
             payment = new Payment();
             this.table_Form = table_Form;
             this.session = session;
-            Tiptxt_bx.Visible = false;
+            Tiptxt_bx.Visible = true;
         }
         private void Payment_Form_Load(object sender, EventArgs e)
         {
@@ -163,17 +163,21 @@ namespace Restaurant_UI
 
         private void PinRadiobtn_CheckedChanged(object sender, EventArgs e)
         {
+            AddTip_lbl.Visible = true;
             Tiptxt_bx.Visible = true;
         }
 
         private void CreditCardRdbtn_CheckedChanged(object sender, EventArgs e)
         {
+            AddTip_lbl.Visible = true;
             Tiptxt_bx.Visible = true;
         }
 
         private void CashRadiobtn_CheckedChanged(object sender, EventArgs e)
         {
+            AddTip_lbl.Visible = false;
             Tiptxt_bx.Visible = false;
+            Tiptxt_bx.Text = "";
         }
     }
 }

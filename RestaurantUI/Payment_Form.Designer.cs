@@ -53,40 +53,44 @@
             this.label9 = new System.Windows.Forms.Label();
             this.Table_Numberlbl = new System.Windows.Forms.TextBox();
             this.tbNumberlbl = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.AddTip_lbl = new System.Windows.Forms.Label();
             this.commentstxt_box = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(304, 253);
+            this.label6.Location = new System.Drawing.Point(308, 225);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 16);
+            this.label6.Size = new System.Drawing.Size(31, 16);
             this.label6.TabIndex = 42;
-            this.label6.Text = "Tax  ";
+            this.label6.Text = "Tax";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(297, 275);
+            this.label4.Location = new System.Drawing.Point(265, 247);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.Size = new System.Drawing.Size(74, 16);
             this.label4.TabIndex = 40;
-            this.label4.Text = "Total";
+            this.label4.Text = "Total due";
             // 
             // Tax_txt_bx
             // 
             this.Tax_txt_bx.BackColor = System.Drawing.SystemColors.Control;
             this.Tax_txt_bx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tax_txt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tax_txt_bx.Location = new System.Drawing.Point(345, 255);
+            this.Tax_txt_bx.Location = new System.Drawing.Point(345, 225);
             this.Tax_txt_bx.Name = "Tax_txt_bx";
             this.Tax_txt_bx.ReadOnly = true;
             this.Tax_txt_bx.Size = new System.Drawing.Size(48, 14);
@@ -95,7 +99,7 @@
             // Tiptxt_bx
             // 
             this.Tiptxt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tiptxt_bx.Location = new System.Drawing.Point(345, 391);
+            this.Tiptxt_bx.Location = new System.Drawing.Point(345, 408);
             this.Tiptxt_bx.Name = "Tiptxt_bx";
             this.Tiptxt_bx.Size = new System.Drawing.Size(48, 21);
             this.Tiptxt_bx.TabIndex = 38;
@@ -107,7 +111,7 @@
             // 
             this.Total_txt_bx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Total_txt_bx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Total_txt_bx.Location = new System.Drawing.Point(345, 277);
+            this.Total_txt_bx.Location = new System.Drawing.Point(345, 247);
             this.Total_txt_bx.Name = "Total_txt_bx";
             this.Total_txt_bx.ReadOnly = true;
             this.Total_txt_bx.Size = new System.Drawing.Size(48, 14);
@@ -121,9 +125,9 @@
             this.columnHeader2,
             this.columnHeader3});
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.Location = new System.Drawing.Point(12, 42);
+            this.listView1.Location = new System.Drawing.Point(11, 33);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(382, 198);
+            this.listView1.Size = new System.Drawing.Size(382, 180);
             this.listView1.TabIndex = 36;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -158,7 +162,7 @@
             this.groupBox1.Controls.Add(this.creditCardRdbtn);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(11, 299);
+            this.groupBox1.Location = new System.Drawing.Point(11, 315);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(382, 73);
             this.groupBox1.TabIndex = 43;
@@ -287,7 +291,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(13, 418);
+            this.label7.Location = new System.Drawing.Point(13, 429);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 15);
             this.label7.TabIndex = 48;
@@ -298,7 +302,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(83, 418);
+            this.label9.Location = new System.Drawing.Point(83, 429);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 15);
             this.label9.TabIndex = 49;
@@ -310,7 +314,7 @@
             this.Table_Numberlbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Table_Numberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Table_Numberlbl.ForeColor = System.Drawing.Color.Red;
-            this.Table_Numberlbl.Location = new System.Drawing.Point(240, 10);
+            this.Table_Numberlbl.Location = new System.Drawing.Point(245, 10);
             this.Table_Numberlbl.Name = "Table_Numberlbl";
             this.Table_Numberlbl.Size = new System.Drawing.Size(39, 17);
             this.Table_Numberlbl.TabIndex = 52;
@@ -325,32 +329,62 @@
             this.tbNumberlbl.TabIndex = 51;
             this.tbNumberlbl.Text = "Table number :";
             // 
-            // label5
+            // AddTip_lbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(278, 396);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 16);
-            this.label5.TabIndex = 53;
-            this.label5.Text = "Add Tip";
+            this.AddTip_lbl.AutoSize = true;
+            this.AddTip_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddTip_lbl.ForeColor = System.Drawing.Color.Red;
+            this.AddTip_lbl.Location = new System.Drawing.Point(278, 413);
+            this.AddTip_lbl.Name = "AddTip_lbl";
+            this.AddTip_lbl.Size = new System.Drawing.Size(63, 16);
+            this.AddTip_lbl.TabIndex = 53;
+            this.AddTip_lbl.Text = "Add Tip";
             // 
             // commentstxt_box
             // 
-            this.commentstxt_box.Location = new System.Drawing.Point(11, 436);
+            this.commentstxt_box.Location = new System.Drawing.Point(11, 447);
             this.commentstxt_box.Multiline = true;
             this.commentstxt_box.Name = "commentstxt_box";
             this.commentstxt_box.Size = new System.Drawing.Size(382, 85);
             this.commentstxt_box.TabIndex = 54;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Location = new System.Drawing.Point(12, 219);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(204, 65);
+            this.groupBox3.TabIndex = 55;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Tax";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 13);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "21% alcoholic beverages";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(190, 13);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "6% non-alcoholic beverages and foods";
             // 
             // Payment_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 654);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.commentstxt_box);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.AddTip_lbl);
             this.Controls.Add(this.Table_Numberlbl);
             this.Controls.Add(this.tbNumberlbl);
             this.Controls.Add(this.label9);
@@ -376,6 +410,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,7 +437,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox Table_Numberlbl;
         private System.Windows.Forms.Label tbNumberlbl;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label AddTip_lbl;
         private System.Windows.Forms.Button PayOrderbtn;
         private System.Windows.Forms.TextBox commentstxt_box;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -409,5 +445,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }

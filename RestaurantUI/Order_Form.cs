@@ -251,5 +251,11 @@ namespace Restaurant_UI
 				lvMenuItems.Items.Add(lvi);
 			}
 		}
-	}
+
+        private void BtnTableView_Click(object sender, EventArgs e)
+        {
+            Hide();
+            table_Form.Show();
+        }
+    }
 }
