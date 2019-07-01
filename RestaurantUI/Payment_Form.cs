@@ -110,14 +110,14 @@ namespace Restaurant_UI
             {
                 session_Service.SaveComments(session, comments);
             }
-            session_Service.UpdateTablePayment(session);
-            payment_Service.SavePaidOrder(payment, session);
+            session.Table.Status = TableStatus.Available;
+            session_Service.UpdateTablePayment(session);     // end session
+            payment_Service.SavePaidOrder(payment, session);  // save order details
         }
 
         private void PaymentConfirmation()
         {
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
-            session.Table.Status = TableStatus.Available;
             table_Form.Show(); // back to table view
         }
 
