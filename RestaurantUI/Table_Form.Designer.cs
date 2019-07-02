@@ -81,10 +81,10 @@
             // 
             // btntbl1
             // 
-            this.btntbl1.Location = new System.Drawing.Point(85, 79);
-            this.btntbl1.Margin = new System.Windows.Forms.Padding(2);
+            this.btntbl1.Location = new System.Drawing.Point(113, 97);
+            this.btntbl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntbl1.Name = "btntbl1";
-            this.btntbl1.Size = new System.Drawing.Size(68, 73);
+            this.btntbl1.Size = new System.Drawing.Size(91, 90);
             this.btntbl1.TabIndex = 0;
             this.btntbl1.Text = "Table 1";
             this.btntbl1.UseVisualStyleBackColor = true;
@@ -92,10 +92,10 @@
             // 
             // btntbl2
             // 
-            this.btntbl2.Location = new System.Drawing.Point(215, 79);
-            this.btntbl2.Margin = new System.Windows.Forms.Padding(2);
+            this.btntbl2.Location = new System.Drawing.Point(287, 97);
+            this.btntbl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntbl2.Name = "btntbl2";
-            this.btntbl2.Size = new System.Drawing.Size(68, 73);
+            this.btntbl2.Size = new System.Drawing.Size(91, 90);
             this.btntbl2.TabIndex = 1;
             this.btntbl2.Text = "Table 2";
             this.btntbl2.UseVisualStyleBackColor = true;
@@ -103,10 +103,10 @@
             // 
             // btntbl3
             // 
-            this.btntbl3.Location = new System.Drawing.Point(85, 178);
-            this.btntbl3.Margin = new System.Windows.Forms.Padding(2);
+            this.btntbl3.Location = new System.Drawing.Point(113, 219);
+            this.btntbl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntbl3.Name = "btntbl3";
-            this.btntbl3.Size = new System.Drawing.Size(68, 73);
+            this.btntbl3.Size = new System.Drawing.Size(91, 90);
             this.btntbl3.TabIndex = 2;
             this.btntbl3.Text = "Table 3";
             this.btntbl3.UseVisualStyleBackColor = true;
@@ -114,10 +114,10 @@
             // 
             // btntbl4
             // 
-            this.btntbl4.Location = new System.Drawing.Point(215, 178);
-            this.btntbl4.Margin = new System.Windows.Forms.Padding(2);
+            this.btntbl4.Location = new System.Drawing.Point(287, 219);
+            this.btntbl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntbl4.Name = "btntbl4";
-            this.btntbl4.Size = new System.Drawing.Size(68, 73);
+            this.btntbl4.Size = new System.Drawing.Size(91, 90);
             this.btntbl4.TabIndex = 3;
             this.btntbl4.Text = "Table 4";
             this.btntbl4.UseVisualStyleBackColor = true;
@@ -125,10 +125,10 @@
             // 
             // btntbl5
             // 
-            this.btntbl5.Location = new System.Drawing.Point(85, 274);
-            this.btntbl5.Margin = new System.Windows.Forms.Padding(2);
+            this.btntbl5.Location = new System.Drawing.Point(113, 337);
+            this.btntbl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntbl5.Name = "btntbl5";
-            this.btntbl5.Size = new System.Drawing.Size(68, 73);
+            this.btntbl5.Size = new System.Drawing.Size(91, 90);
             this.btntbl5.TabIndex = 4;
             this.btntbl5.Text = "Table 5";
             this.btntbl5.UseVisualStyleBackColor = true;
@@ -136,10 +136,10 @@
             // 
             // btntbl6
             // 
-            this.btntbl6.Location = new System.Drawing.Point(215, 274);
-            this.btntbl6.Margin = new System.Windows.Forms.Padding(2);
+            this.btntbl6.Location = new System.Drawing.Point(287, 337);
+            this.btntbl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntbl6.Name = "btntbl6";
-            this.btntbl6.Size = new System.Drawing.Size(68, 73);
+            this.btntbl6.Size = new System.Drawing.Size(91, 90);
             this.btntbl6.TabIndex = 5;
             this.btntbl6.Text = "Table 6";
             this.btntbl6.UseVisualStyleBackColor = true;
@@ -147,10 +147,10 @@
             // 
             // btntbl7
             // 
-            this.btntbl7.Location = new System.Drawing.Point(85, 365);
-            this.btntbl7.Margin = new System.Windows.Forms.Padding(2);
+            this.btntbl7.Location = new System.Drawing.Point(113, 449);
+            this.btntbl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntbl7.Name = "btntbl7";
-            this.btntbl7.Size = new System.Drawing.Size(68, 73);
+            this.btntbl7.Size = new System.Drawing.Size(91, 90);
             this.btntbl7.TabIndex = 6;
             this.btntbl7.Text = "Table 7";
             this.btntbl7.UseVisualStyleBackColor = true;
@@ -158,10 +158,10 @@
             // 
             // btntbl8
             // 
-            this.btntbl8.Location = new System.Drawing.Point(215, 365);
-            this.btntbl8.Margin = new System.Windows.Forms.Padding(2);
+            this.btntbl8.Location = new System.Drawing.Point(287, 449);
+            this.btntbl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntbl8.Name = "btntbl8";
-            this.btntbl8.Size = new System.Drawing.Size(68, 73);
+            this.btntbl8.Size = new System.Drawing.Size(91, 90);
             this.btntbl8.TabIndex = 7;
             this.btntbl8.Text = "Table 8";
             this.btntbl8.UseVisualStyleBackColor = true;
@@ -169,10 +169,10 @@
             // 
             // btntable9
             // 
-            this.btntable9.Location = new System.Drawing.Point(85, 466);
-            this.btntable9.Margin = new System.Windows.Forms.Padding(2);
+            this.btntable9.Location = new System.Drawing.Point(113, 574);
+            this.btntable9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntable9.Name = "btntable9";
-            this.btntable9.Size = new System.Drawing.Size(68, 73);
+            this.btntable9.Size = new System.Drawing.Size(91, 90);
             this.btntable9.TabIndex = 8;
             this.btntable9.Text = "Table 9";
             this.btntable9.UseVisualStyleBackColor = true;
@@ -180,10 +180,10 @@
             // 
             // btntable10
             // 
-            this.btntable10.Location = new System.Drawing.Point(215, 466);
-            this.btntable10.Margin = new System.Windows.Forms.Padding(2);
+            this.btntable10.Location = new System.Drawing.Point(287, 574);
+            this.btntable10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntable10.Name = "btntable10";
-            this.btntable10.Size = new System.Drawing.Size(68, 73);
+            this.btntable10.Size = new System.Drawing.Size(91, 90);
             this.btntable10.TabIndex = 9;
             this.btntable10.Text = "Table 10";
             this.btntable10.UseVisualStyleBackColor = true;
@@ -193,10 +193,9 @@
             // 
             this.lbltitle.AutoSize = true;
             this.lbltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitle.Location = new System.Drawing.Point(116, 7);
-            this.lbltitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltitle.Location = new System.Drawing.Point(155, 9);
             this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(148, 31);
+            this.lbltitle.Size = new System.Drawing.Size(178, 38);
             this.lbltitle.TabIndex = 10;
             this.lbltitle.Text = "Table View";
             // 
@@ -226,9 +225,10 @@
             this.pnltable.Controls.Add(this.btntbl3);
             this.pnltable.Controls.Add(this.btntbl2);
             this.pnltable.Controls.Add(this.btntbl1);
-            this.pnltable.Location = new System.Drawing.Point(10, 12);
+            this.pnltable.Location = new System.Drawing.Point(13, 15);
+            this.pnltable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnltable.Name = "pnltable";
-            this.pnltable.Size = new System.Drawing.Size(364, 639);
+            this.pnltable.Size = new System.Drawing.Size(485, 786);
             this.pnltable.TabIndex = 11;
             // 
             // groupBox1
@@ -240,9 +240,11 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(24, 562);
+            this.groupBox1.Location = new System.Drawing.Point(32, 692);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(313, 69);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(417, 85);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Table status";
@@ -250,68 +252,75 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(145, 38);
+            this.label4.Location = new System.Drawing.Point(193, 47);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.Size = new System.Drawing.Size(68, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Occupied";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 38);
+            this.label3.Location = new System.Drawing.Point(48, 47);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.Size = new System.Drawing.Size(65, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Available";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(171, 38);
+            this.label2.Location = new System.Drawing.Point(228, 47);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(255, 38);
+            this.label1.Location = new System.Drawing.Point(340, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "Reserved";
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.Yellow;
-            this.textBox3.Location = new System.Drawing.Point(224, 31);
+            this.textBox3.Location = new System.Drawing.Point(299, 38);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(25, 20);
+            this.textBox3.Size = new System.Drawing.Size(32, 22);
             this.textBox3.TabIndex = 2;
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.Green;
-            this.textBox2.Location = new System.Drawing.Point(6, 31);
+            this.textBox2.Location = new System.Drawing.Point(8, 38);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(25, 20);
+            this.textBox2.Size = new System.Drawing.Size(32, 22);
             this.textBox2.TabIndex = 1;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Red;
-            this.textBox1.Location = new System.Drawing.Point(114, 31);
+            this.textBox1.Location = new System.Drawing.Point(152, 38);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(25, 20);
+            this.textBox1.Size = new System.Drawing.Size(32, 22);
             this.textBox1.TabIndex = 0;
             // 
             // btllogout
             // 
-            this.btllogout.Location = new System.Drawing.Point(282, 11);
-            this.btllogout.Margin = new System.Windows.Forms.Padding(2);
+            this.btllogout.Location = new System.Drawing.Point(376, 14);
+            this.btllogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btllogout.Name = "btllogout";
-            this.btllogout.Size = new System.Drawing.Size(75, 30);
+            this.btllogout.Size = new System.Drawing.Size(100, 37);
             this.btllogout.TabIndex = 23;
             this.btllogout.Text = "Log Out";
             this.btllogout.UseVisualStyleBackColor = true;
@@ -319,10 +328,10 @@
             // 
             // btnnotif
             // 
-            this.btnnotif.Location = new System.Drawing.Point(8, 10);
-            this.btnnotif.Margin = new System.Windows.Forms.Padding(2);
+            this.btnnotif.Location = new System.Drawing.Point(11, 12);
+            this.btnnotif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnnotif.Name = "btnnotif";
-            this.btnnotif.Size = new System.Drawing.Size(100, 28);
+            this.btnnotif.Size = new System.Drawing.Size(133, 34);
             this.btnnotif.TabIndex = 22;
             this.btnnotif.Text = "Notification";
             this.btnnotif.UseVisualStyleBackColor = true;
@@ -331,100 +340,90 @@
             // lbltable10
             // 
             this.lbltable10.AutoSize = true;
-            this.lbltable10.Location = new System.Drawing.Point(220, 451);
-            this.lbltable10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltable10.Location = new System.Drawing.Point(293, 555);
             this.lbltable10.Name = "lbltable10";
-            this.lbltable10.Size = new System.Drawing.Size(10, 13);
+            this.lbltable10.Size = new System.Drawing.Size(12, 17);
             this.lbltable10.TabIndex = 21;
             this.lbltable10.Text = " ";
             // 
             // lbltable9
             // 
             this.lbltable9.AutoSize = true;
-            this.lbltable9.Location = new System.Drawing.Point(89, 451);
-            this.lbltable9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltable9.Location = new System.Drawing.Point(119, 555);
             this.lbltable9.Name = "lbltable9";
-            this.lbltable9.Size = new System.Drawing.Size(10, 13);
+            this.lbltable9.Size = new System.Drawing.Size(12, 17);
             this.lbltable9.TabIndex = 20;
             this.lbltable9.Text = " ";
             // 
             // lbltable8
             // 
             this.lbltable8.AutoSize = true;
-            this.lbltable8.Location = new System.Drawing.Point(220, 350);
-            this.lbltable8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltable8.Location = new System.Drawing.Point(293, 431);
             this.lbltable8.Name = "lbltable8";
-            this.lbltable8.Size = new System.Drawing.Size(10, 13);
+            this.lbltable8.Size = new System.Drawing.Size(12, 17);
             this.lbltable8.TabIndex = 19;
             this.lbltable8.Text = " ";
             // 
             // lbltable7
             // 
             this.lbltable7.AutoSize = true;
-            this.lbltable7.Location = new System.Drawing.Point(89, 350);
-            this.lbltable7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltable7.Location = new System.Drawing.Point(119, 431);
             this.lbltable7.Name = "lbltable7";
-            this.lbltable7.Size = new System.Drawing.Size(10, 13);
+            this.lbltable7.Size = new System.Drawing.Size(12, 17);
             this.lbltable7.TabIndex = 18;
             this.lbltable7.Text = " ";
             // 
             // lbltable6
             // 
             this.lbltable6.AutoSize = true;
-            this.lbltable6.Location = new System.Drawing.Point(220, 259);
-            this.lbltable6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltable6.Location = new System.Drawing.Point(293, 319);
             this.lbltable6.Name = "lbltable6";
-            this.lbltable6.Size = new System.Drawing.Size(10, 13);
+            this.lbltable6.Size = new System.Drawing.Size(12, 17);
             this.lbltable6.TabIndex = 17;
             this.lbltable6.Text = " ";
             // 
             // lbltable5
             // 
             this.lbltable5.AutoSize = true;
-            this.lbltable5.Location = new System.Drawing.Point(89, 259);
-            this.lbltable5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltable5.Location = new System.Drawing.Point(119, 319);
             this.lbltable5.Name = "lbltable5";
-            this.lbltable5.Size = new System.Drawing.Size(10, 13);
+            this.lbltable5.Size = new System.Drawing.Size(12, 17);
             this.lbltable5.TabIndex = 16;
             this.lbltable5.Text = " ";
             // 
             // lbltable4
             // 
             this.lbltable4.AutoSize = true;
-            this.lbltable4.Location = new System.Drawing.Point(220, 163);
-            this.lbltable4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltable4.Location = new System.Drawing.Point(293, 201);
             this.lbltable4.Name = "lbltable4";
-            this.lbltable4.Size = new System.Drawing.Size(10, 13);
+            this.lbltable4.Size = new System.Drawing.Size(12, 17);
             this.lbltable4.TabIndex = 15;
             this.lbltable4.Text = " ";
             // 
             // lbltable3
             // 
             this.lbltable3.AutoSize = true;
-            this.lbltable3.Location = new System.Drawing.Point(82, 163);
-            this.lbltable3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltable3.Location = new System.Drawing.Point(109, 201);
             this.lbltable3.Name = "lbltable3";
-            this.lbltable3.Size = new System.Drawing.Size(10, 13);
+            this.lbltable3.Size = new System.Drawing.Size(12, 17);
             this.lbltable3.TabIndex = 14;
             this.lbltable3.Text = " ";
             // 
             // lbltable2
             // 
             this.lbltable2.AutoSize = true;
-            this.lbltable2.Location = new System.Drawing.Point(223, 58);
-            this.lbltable2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltable2.Location = new System.Drawing.Point(297, 71);
             this.lbltable2.Name = "lbltable2";
-            this.lbltable2.Size = new System.Drawing.Size(10, 13);
+            this.lbltable2.Size = new System.Drawing.Size(12, 17);
             this.lbltable2.TabIndex = 13;
             this.lbltable2.Text = " ";
             // 
             // lbltable1
             // 
             this.lbltable1.AutoSize = true;
-            this.lbltable1.Location = new System.Drawing.Point(103, 58);
-            this.lbltable1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltable1.Location = new System.Drawing.Point(137, 71);
             this.lbltable1.Name = "lbltable1";
-            this.lbltable1.Size = new System.Drawing.Size(10, 13);
+            this.lbltable1.Size = new System.Drawing.Size(12, 17);
             this.lbltable1.TabIndex = 12;
             this.lbltable1.Text = " ";
             // 
@@ -433,18 +432,18 @@
             this.pnlnotif.Controls.Add(this.btnserveitem);
             this.pnlnotif.Controls.Add(this.btnpanelback);
             this.pnlnotif.Controls.Add(this.listviewnotif);
-            this.pnlnotif.Location = new System.Drawing.Point(10, 9);
-            this.pnlnotif.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlnotif.Location = new System.Drawing.Point(13, 11);
+            this.pnlnotif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlnotif.Name = "pnlnotif";
-            this.pnlnotif.Size = new System.Drawing.Size(373, 576);
+            this.pnlnotif.Size = new System.Drawing.Size(497, 709);
             this.pnlnotif.TabIndex = 12;
             // 
             // btnserveitem
             // 
-            this.btnserveitem.Location = new System.Drawing.Point(97, 428);
-            this.btnserveitem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnserveitem.Location = new System.Drawing.Point(129, 527);
+            this.btnserveitem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnserveitem.Name = "btnserveitem";
-            this.btnserveitem.Size = new System.Drawing.Size(170, 32);
+            this.btnserveitem.Size = new System.Drawing.Size(227, 39);
             this.btnserveitem.TabIndex = 2;
             this.btnserveitem.Text = "Serve";
             this.btnserveitem.UseVisualStyleBackColor = true;
@@ -452,10 +451,10 @@
             // 
             // btnpanelback
             // 
-            this.btnpanelback.Location = new System.Drawing.Point(15, 16);
-            this.btnpanelback.Margin = new System.Windows.Forms.Padding(2);
+            this.btnpanelback.Location = new System.Drawing.Point(20, 20);
+            this.btnpanelback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnpanelback.Name = "btnpanelback";
-            this.btnpanelback.Size = new System.Drawing.Size(82, 20);
+            this.btnpanelback.Size = new System.Drawing.Size(109, 25);
             this.btnpanelback.TabIndex = 1;
             this.btnpanelback.Text = "Back";
             this.btnpanelback.UseVisualStyleBackColor = true;
@@ -464,10 +463,10 @@
             // listviewnotif
             // 
             this.listviewnotif.HideSelection = false;
-            this.listviewnotif.Location = new System.Drawing.Point(46, 82);
-            this.listviewnotif.Margin = new System.Windows.Forms.Padding(2);
+            this.listviewnotif.Location = new System.Drawing.Point(61, 101);
+            this.listviewnotif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listviewnotif.Name = "listviewnotif";
-            this.listviewnotif.Size = new System.Drawing.Size(282, 283);
+            this.listviewnotif.Size = new System.Drawing.Size(375, 347);
             this.listviewnotif.TabIndex = 0;
             this.listviewnotif.UseCompatibleStateImageBehavior = false;
             this.listviewnotif.View = System.Windows.Forms.View.Details;
@@ -480,18 +479,18 @@
             this.pnlChangeStatus.Controls.Add(this.btnReserved);
             this.pnlChangeStatus.Controls.Add(this.btnOccupied);
             this.pnlChangeStatus.Controls.Add(this.lblNumber);
-            this.pnlChangeStatus.Location = new System.Drawing.Point(17, 16);
-            this.pnlChangeStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlChangeStatus.Location = new System.Drawing.Point(23, 20);
+            this.pnlChangeStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlChangeStatus.Name = "pnlChangeStatus";
-            this.pnlChangeStatus.Size = new System.Drawing.Size(393, 577);
+            this.pnlChangeStatus.Size = new System.Drawing.Size(524, 710);
             this.pnlChangeStatus.TabIndex = 25;
             // 
             // btnback
             // 
-            this.btnback.Location = new System.Drawing.Point(8, 17);
-            this.btnback.Margin = new System.Windows.Forms.Padding(2);
+            this.btnback.Location = new System.Drawing.Point(11, 21);
+            this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(82, 20);
+            this.btnback.Size = new System.Drawing.Size(109, 25);
             this.btnback.TabIndex = 4;
             this.btnback.Text = "Back";
             this.btnback.UseVisualStyleBackColor = true;
@@ -500,10 +499,10 @@
             // btnAvailable
             // 
             this.btnAvailable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnAvailable.Location = new System.Drawing.Point(131, 259);
-            this.btnAvailable.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAvailable.Location = new System.Drawing.Point(175, 319);
+            this.btnAvailable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAvailable.Name = "btnAvailable";
-            this.btnAvailable.Size = new System.Drawing.Size(111, 43);
+            this.btnAvailable.Size = new System.Drawing.Size(148, 53);
             this.btnAvailable.TabIndex = 3;
             this.btnAvailable.Text = "Available";
             this.btnAvailable.UseVisualStyleBackColor = false;
@@ -512,10 +511,10 @@
             // btnReserved
             // 
             this.btnReserved.BackColor = System.Drawing.Color.Yellow;
-            this.btnReserved.Location = new System.Drawing.Point(131, 327);
-            this.btnReserved.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReserved.Location = new System.Drawing.Point(175, 402);
+            this.btnReserved.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReserved.Name = "btnReserved";
-            this.btnReserved.Size = new System.Drawing.Size(111, 39);
+            this.btnReserved.Size = new System.Drawing.Size(148, 48);
             this.btnReserved.TabIndex = 2;
             this.btnReserved.Text = "Reserved";
             this.btnReserved.UseVisualStyleBackColor = false;
@@ -524,10 +523,10 @@
             // btnOccupied
             // 
             this.btnOccupied.BackColor = System.Drawing.Color.Red;
-            this.btnOccupied.Location = new System.Drawing.Point(131, 200);
-            this.btnOccupied.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOccupied.Location = new System.Drawing.Point(175, 246);
+            this.btnOccupied.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOccupied.Name = "btnOccupied";
-            this.btnOccupied.Size = new System.Drawing.Size(111, 41);
+            this.btnOccupied.Size = new System.Drawing.Size(148, 50);
             this.btnOccupied.TabIndex = 1;
             this.btnOccupied.Text = "Occupied";
             this.btnOccupied.UseVisualStyleBackColor = false;
@@ -537,10 +536,9 @@
             // 
             this.lblNumber.AutoSize = true;
             this.lblNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumber.Location = new System.Drawing.Point(149, 132);
-            this.lblNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNumber.Location = new System.Drawing.Point(199, 162);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(70, 20);
+            this.lblNumber.Size = new System.Drawing.Size(88, 25);
             this.lblNumber.TabIndex = 0;
             this.lblNumber.Text = "Table X";
             // 
@@ -550,13 +548,14 @@
             // 
             // Table_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 664);
+            this.ClientSize = new System.Drawing.Size(515, 817);
             this.Controls.Add(this.pnltable);
             this.Controls.Add(this.pnlChangeStatus);
             this.Controls.Add(this.pnlnotif);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Table_Form";

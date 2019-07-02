@@ -233,11 +233,23 @@ namespace Restaurant_UI
         }
         private void BtnAvailable_Click(object sender, EventArgs e)
         {
-            currentsession.Table.Status = TableStatus.Available;
-            Table_Service table_Service = new Table_Service();
-            table_Service.UpdateStatus(currentsession.Table);
-            ChangeColor();
-            pnltable.Show();      
+            string message = "Changing the status to available will remove all of the order items";
+            string title = "Changing status";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                currentsession.Table.Status = TableStatus.Available;
+                Table_Service table_Service = new Table_Service();
+                table_Service.UpdateStatus(currentsession.Table);
+                ChangeColor();
+                pnltable.Show();
+            }
+            else
+            {
+                // Go Back
+            }
+        
         }
         private void BtnReserved_Click(object sender, EventArgs e)
         {
