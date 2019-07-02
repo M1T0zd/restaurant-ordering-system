@@ -33,7 +33,7 @@ namespace Restaurant_UI
             dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
             lbl_Datetime.Text = "Current time : " + DateTime.Now.ToString("h:mm:ss tt");
             timerRefrech.Enabled = false;
-            timerRefrech.Interval = 3000;//refresh every 20 seconds 
+            timerRefrech.Interval = 20000;//refresh every 20 seconds 
         }
         private void timerRefresh_Tick(object sender, EventArgs e)
         {
@@ -58,7 +58,7 @@ namespace Restaurant_UI
                 {
                     OrderItem currentObject = (OrderItem)row.Tag;
                     if (currentObject != null)
-                        Items.Add(currentObject);// get the ID of each Object
+                        Items.Add(currentObject);// get the Object
                 }
             }
             if (Items.Count>0)
@@ -87,7 +87,7 @@ namespace Restaurant_UI
         {
             try
             {
-                OrderItem orderItem = null;
+                OrderItem orderItem=null;
                 foreach (DataGridViewRow row in dgviewOrders.Rows)
                 {
                     if (row.Index >= 0)
