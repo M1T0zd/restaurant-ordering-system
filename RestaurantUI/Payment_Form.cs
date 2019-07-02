@@ -49,7 +49,6 @@ namespace Restaurant_UI
             }
             payment.CalculateVAT_TotalPrice(OrdersListView);
         }
-
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to cancel.", "Confirm cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -80,13 +79,14 @@ namespace Restaurant_UI
         private void PayOrderbtn_Click(object sender, EventArgs e)
         {
             payment.PaymentMethod = SelectPaymentMethod();
-            if (payment.PaymentMethod == 0)
+            
+            if (OrdersListView.Items.Count == 0)
             {
-                MessageBox.Show("Please select payment method.", "Payment method is empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Place an order first.", "There is no order to pay", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (OrdersListView.Items.Count == 0)
+            else if (payment.PaymentMethod == 0)
             {
-                MessageBox.Show("Please place an order first.", "No order to be paid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select payment method.", "Payment method is not selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -102,7 +102,6 @@ namespace Restaurant_UI
         //save paid order to database
         private void SavePaidOrderItems()
         {
-            payment.Date = DateTime.Now.ToString();
             string comments = commentstxt_box.Text;
             Session_Service session_Service = new Session_Service();
 
@@ -114,13 +113,11 @@ namespace Restaurant_UI
             session_Service.UpdateTablePayment(session);     // end session
             payment_Service.SavePaidOrder(payment, session);  // save order details
         }
-
         private void PaymentConfirmation()
         {
             MessageBox.Show(" Payment successful.", "Payment recieved", MessageBoxButtons.OK, MessageBoxIcon.None);
             table_Form.Show(); // back to table view
         }
-
         private void Tiptxt_bx_TextChanged(object sender, EventArgs e)
         {
             Tiptxt_bx.Text = Tiptxt_bx.Text.Trim();
@@ -142,7 +139,6 @@ namespace Restaurant_UI
                 MessageBox.Show("Enter numbers only" + m.Message, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void PinRadiobtn_CheckedChanged(object sender, EventArgs e)
         {
             AddTip_lbl.Visible = true;

@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order_Form));
             this.btnPay = new System.Windows.Forms.Button();
             this.pnlDefault = new System.Windows.Forms.Panel();
+            this.BtnTableView = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdoAlcoholic = new System.Windows.Forms.RadioButton();
@@ -50,7 +52,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lvMenuItems = new System.Windows.Forms.ListView();
             this.lvOrderItems = new System.Windows.Forms.ListView();
-            this.BtnTableView = new System.Windows.Forms.Button();
             this.pnlDefault.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
@@ -91,6 +92,16 @@
             this.pnlDefault.Name = "pnlDefault";
             this.pnlDefault.Size = new System.Drawing.Size(715, 506);
             this.pnlDefault.TabIndex = 14;
+            // 
+            // BtnTableView
+            // 
+            this.BtnTableView.Location = new System.Drawing.Point(259, 388);
+            this.BtnTableView.Name = "BtnTableView";
+            this.BtnTableView.Size = new System.Drawing.Size(114, 47);
+            this.BtnTableView.TabIndex = 15;
+            this.BtnTableView.Text = "Table view";
+            this.BtnTableView.UseVisualStyleBackColor = true;
+            this.BtnTableView.Click += new System.EventHandler(this.BtnTableView_Click);
             // 
             // btnReset
             // 
@@ -322,16 +333,6 @@
             this.lvOrderItems.View = System.Windows.Forms.View.Details;
             this.lvOrderItems.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LvOrderItems_ItemSelectionChanged);
             // 
-            // BtnTableView
-            // 
-            this.BtnTableView.Location = new System.Drawing.Point(259, 388);
-            this.BtnTableView.Name = "BtnTableView";
-            this.BtnTableView.Size = new System.Drawing.Size(114, 47);
-            this.BtnTableView.TabIndex = 15;
-            this.BtnTableView.Text = "Table view";
-            this.BtnTableView.UseVisualStyleBackColor = true;
-            this.BtnTableView.Click += new System.EventHandler(this.BtnTableView_Click);
-            // 
             // Order_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,6 +340,7 @@
             this.ClientSize = new System.Drawing.Size(714, 469);
             this.Controls.Add(this.pnlDefault);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Order_Form";

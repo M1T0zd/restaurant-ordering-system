@@ -160,7 +160,6 @@ namespace Restaurant_UI
                 listviewnotif.Items.Add(listViewItem);
             }
         }
-
         private void Btnpanelback_Click(object sender, EventArgs e)
         {
             pnlnotif.Hide();
@@ -190,7 +189,6 @@ namespace Restaurant_UI
                 MessageBox.Show(message, title);
             }        
         }     
-
         private void Btllogout_Click(object sender, EventArgs e)
         {
             string message = "Are you sure you want to log out?";
@@ -207,7 +205,6 @@ namespace Restaurant_UI
                 // Go Back
             }
         }
-
         //Code for Status Panel
         private void CreateSession()
         {
@@ -215,7 +212,6 @@ namespace Restaurant_UI
             currentsession.Host = employee;
             currentsession.Table.Status = TableStatus.Occupied;
         }
-
         private void BtnOccupied_Click(object sender, EventArgs e)
         {
             CreateSession();
@@ -233,8 +229,8 @@ namespace Restaurant_UI
 
             Order_Form order_Form = new Order_Form(this, currentsession);
             order_Form.Show();
+            Hide();
         }
-
         private void BtnAvailable_Click(object sender, EventArgs e)
         {
             currentsession.Table.Status = TableStatus.Available;
@@ -243,7 +239,6 @@ namespace Restaurant_UI
             ChangeColor();
             pnltable.Show();      
         }
-
         private void BtnReserved_Click(object sender, EventArgs e)
         {
             currentsession.Table.Status = TableStatus.Reserved;

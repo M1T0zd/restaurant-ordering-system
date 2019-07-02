@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login_Form));
             this.lbllogin = new System.Windows.Forms.Label();
             this.lblusername = new System.Windows.Forms.Label();
             this.txtusername = new System.Windows.Forms.TextBox();
@@ -104,7 +105,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 24);
+            this.label1.Location = new System.Drawing.Point(15, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(358, 25);
             this.label1.TabIndex = 25;
@@ -145,6 +146,7 @@
             this.Controls.Add(this.txtusername);
             this.Controls.Add(this.lblusername);
             this.Controls.Add(this.lbllogin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

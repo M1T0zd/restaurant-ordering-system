@@ -98,7 +98,6 @@ namespace Restaurant_UI
 						return;
 					}
 				}
-				
 				//Add Item to OrderItem list.
 				OrderItem newOrderItem = new OrderItem
 				{

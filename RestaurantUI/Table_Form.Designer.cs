@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Table_Form));
             this.btntbl1 = new System.Windows.Forms.Button();
             this.btntbl2 = new System.Windows.Forms.Button();
             this.btntbl3 = new System.Windows.Forms.Button();
@@ -41,6 +42,14 @@
             this.btntable10 = new System.Windows.Forms.Button();
             this.lbltitle = new System.Windows.Forms.Label();
             this.pnltable = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btllogout = new System.Windows.Forms.Button();
             this.btnnotif = new System.Windows.Forms.Button();
             this.lbltable10 = new System.Windows.Forms.Label();
@@ -64,24 +73,16 @@
             this.btnOccupied = new System.Windows.Forms.Button();
             this.lblNumber = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pnltable.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.pnlnotif.SuspendLayout();
             this.pnlChangeStatus.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btntbl1
             // 
             this.btntbl1.Location = new System.Drawing.Point(85, 79);
-            this.btntbl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntbl1.Margin = new System.Windows.Forms.Padding(2);
             this.btntbl1.Name = "btntbl1";
             this.btntbl1.Size = new System.Drawing.Size(68, 73);
             this.btntbl1.TabIndex = 0;
@@ -92,7 +93,7 @@
             // btntbl2
             // 
             this.btntbl2.Location = new System.Drawing.Point(215, 79);
-            this.btntbl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntbl2.Margin = new System.Windows.Forms.Padding(2);
             this.btntbl2.Name = "btntbl2";
             this.btntbl2.Size = new System.Drawing.Size(68, 73);
             this.btntbl2.TabIndex = 1;
@@ -103,7 +104,7 @@
             // btntbl3
             // 
             this.btntbl3.Location = new System.Drawing.Point(85, 178);
-            this.btntbl3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntbl3.Margin = new System.Windows.Forms.Padding(2);
             this.btntbl3.Name = "btntbl3";
             this.btntbl3.Size = new System.Drawing.Size(68, 73);
             this.btntbl3.TabIndex = 2;
@@ -114,7 +115,7 @@
             // btntbl4
             // 
             this.btntbl4.Location = new System.Drawing.Point(215, 178);
-            this.btntbl4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntbl4.Margin = new System.Windows.Forms.Padding(2);
             this.btntbl4.Name = "btntbl4";
             this.btntbl4.Size = new System.Drawing.Size(68, 73);
             this.btntbl4.TabIndex = 3;
@@ -125,7 +126,7 @@
             // btntbl5
             // 
             this.btntbl5.Location = new System.Drawing.Point(85, 274);
-            this.btntbl5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntbl5.Margin = new System.Windows.Forms.Padding(2);
             this.btntbl5.Name = "btntbl5";
             this.btntbl5.Size = new System.Drawing.Size(68, 73);
             this.btntbl5.TabIndex = 4;
@@ -136,7 +137,7 @@
             // btntbl6
             // 
             this.btntbl6.Location = new System.Drawing.Point(215, 274);
-            this.btntbl6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntbl6.Margin = new System.Windows.Forms.Padding(2);
             this.btntbl6.Name = "btntbl6";
             this.btntbl6.Size = new System.Drawing.Size(68, 73);
             this.btntbl6.TabIndex = 5;
@@ -147,7 +148,7 @@
             // btntbl7
             // 
             this.btntbl7.Location = new System.Drawing.Point(85, 365);
-            this.btntbl7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntbl7.Margin = new System.Windows.Forms.Padding(2);
             this.btntbl7.Name = "btntbl7";
             this.btntbl7.Size = new System.Drawing.Size(68, 73);
             this.btntbl7.TabIndex = 6;
@@ -158,7 +159,7 @@
             // btntbl8
             // 
             this.btntbl8.Location = new System.Drawing.Point(215, 365);
-            this.btntbl8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntbl8.Margin = new System.Windows.Forms.Padding(2);
             this.btntbl8.Name = "btntbl8";
             this.btntbl8.Size = new System.Drawing.Size(68, 73);
             this.btntbl8.TabIndex = 7;
@@ -169,7 +170,7 @@
             // btntable9
             // 
             this.btntable9.Location = new System.Drawing.Point(85, 466);
-            this.btntable9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntable9.Margin = new System.Windows.Forms.Padding(2);
             this.btntable9.Name = "btntable9";
             this.btntable9.Size = new System.Drawing.Size(68, 73);
             this.btntable9.TabIndex = 8;
@@ -180,7 +181,7 @@
             // btntable10
             // 
             this.btntable10.Location = new System.Drawing.Point(215, 466);
-            this.btntable10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntable10.Margin = new System.Windows.Forms.Padding(2);
             this.btntable10.Name = "btntable10";
             this.btntable10.Size = new System.Drawing.Size(68, 73);
             this.btntable10.TabIndex = 9;
@@ -230,10 +231,85 @@
             this.pnltable.Size = new System.Drawing.Size(364, 639);
             this.pnltable.TabIndex = 11;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Location = new System.Drawing.Point(24, 562);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(313, 69);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Table status";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(145, 38);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Occupied";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(36, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Available";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(171, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(255, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Reserved";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.Yellow;
+            this.textBox3.Location = new System.Drawing.Point(224, 31);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(25, 20);
+            this.textBox3.TabIndex = 2;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Green;
+            this.textBox2.Location = new System.Drawing.Point(6, 31);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(25, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Red;
+            this.textBox1.Location = new System.Drawing.Point(114, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(25, 20);
+            this.textBox1.TabIndex = 0;
+            // 
             // btllogout
             // 
             this.btllogout.Location = new System.Drawing.Point(282, 11);
-            this.btllogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btllogout.Margin = new System.Windows.Forms.Padding(2);
             this.btllogout.Name = "btllogout";
             this.btllogout.Size = new System.Drawing.Size(75, 30);
             this.btllogout.TabIndex = 23;
@@ -244,7 +320,7 @@
             // btnnotif
             // 
             this.btnnotif.Location = new System.Drawing.Point(8, 10);
-            this.btnnotif.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnnotif.Margin = new System.Windows.Forms.Padding(2);
             this.btnnotif.Name = "btnnotif";
             this.btnnotif.Size = new System.Drawing.Size(100, 28);
             this.btnnotif.TabIndex = 22;
@@ -358,7 +434,7 @@
             this.pnlnotif.Controls.Add(this.btnpanelback);
             this.pnlnotif.Controls.Add(this.listviewnotif);
             this.pnlnotif.Location = new System.Drawing.Point(10, 9);
-            this.pnlnotif.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlnotif.Margin = new System.Windows.Forms.Padding(2);
             this.pnlnotif.Name = "pnlnotif";
             this.pnlnotif.Size = new System.Drawing.Size(373, 576);
             this.pnlnotif.TabIndex = 12;
@@ -366,7 +442,7 @@
             // btnserveitem
             // 
             this.btnserveitem.Location = new System.Drawing.Point(97, 428);
-            this.btnserveitem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnserveitem.Margin = new System.Windows.Forms.Padding(2);
             this.btnserveitem.Name = "btnserveitem";
             this.btnserveitem.Size = new System.Drawing.Size(170, 32);
             this.btnserveitem.TabIndex = 2;
@@ -377,7 +453,7 @@
             // btnpanelback
             // 
             this.btnpanelback.Location = new System.Drawing.Point(15, 16);
-            this.btnpanelback.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnpanelback.Margin = new System.Windows.Forms.Padding(2);
             this.btnpanelback.Name = "btnpanelback";
             this.btnpanelback.Size = new System.Drawing.Size(82, 20);
             this.btnpanelback.TabIndex = 1;
@@ -389,7 +465,7 @@
             // 
             this.listviewnotif.HideSelection = false;
             this.listviewnotif.Location = new System.Drawing.Point(46, 82);
-            this.listviewnotif.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listviewnotif.Margin = new System.Windows.Forms.Padding(2);
             this.listviewnotif.Name = "listviewnotif";
             this.listviewnotif.Size = new System.Drawing.Size(282, 283);
             this.listviewnotif.TabIndex = 0;
@@ -413,7 +489,7 @@
             // btnback
             // 
             this.btnback.Location = new System.Drawing.Point(8, 17);
-            this.btnback.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnback.Margin = new System.Windows.Forms.Padding(2);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(82, 20);
             this.btnback.TabIndex = 4;
@@ -472,81 +548,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(24, 562);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(313, 69);
-            this.groupBox1.TabIndex = 24;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Table status";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Red;
-            this.textBox1.Location = new System.Drawing.Point(114, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(25, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.Green;
-            this.textBox2.Location = new System.Drawing.Point(6, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(25, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.Yellow;
-            this.textBox3.Location = new System.Drawing.Point(224, 31);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(25, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(255, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Reserved";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(171, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
-            this.label2.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 38);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Available";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(145, 38);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Occupied";
-            // 
             // Table_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,6 +556,7 @@
             this.Controls.Add(this.pnltable);
             this.Controls.Add(this.pnlChangeStatus);
             this.Controls.Add(this.pnlnotif);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Table_Form";
@@ -562,11 +564,11 @@
             this.Text = "Tables";
             this.pnltable.ResumeLayout(false);
             this.pnltable.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.pnlnotif.ResumeLayout(false);
             this.pnlChangeStatus.ResumeLayout(false);
             this.pnlChangeStatus.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
