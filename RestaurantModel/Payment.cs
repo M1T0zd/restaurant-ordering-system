@@ -9,13 +9,15 @@ namespace RestaurantModel
 {
     public class Payment
     {
+        public DateTime Date = DateTime.Now;
+
         public Decimal Total { get; set; }
-        public DateTime Date { get; set; }
         public Decimal Tip { get; set; }
         public Decimal Tax { get; set; }
 
         public PaymentMethod PaymentMethod;
 
+     
         public void CalculateVAT_TotalPrice(ListView listView)
         {
             decimal taxPerItem;

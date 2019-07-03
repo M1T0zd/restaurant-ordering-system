@@ -16,12 +16,11 @@ namespace Restaurant_DAL
         {
             Session_DAO EndSession = new Session_DAO();
             Table_DAO ChangeStatus = new Table_DAO();
-            payment.Date = DateTime.Now;
             string query = $"INSERT INTO  Payments(SessionId,PayMethod,Tip,Total_ExclTip,Date) VALUES ({session.Id}, {(int)payment.PaymentMethod},{payment.Tip},{payment.Total},'{payment.Date.ToString()}')";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
             EndSession.UpdateTablePayment(session); //end session
-            ChangeStatus.UpdateTable((session.Table));
+            ChangeStatus.UpdateTable((session.Table)); // make table available
         }
         public List<OrderItem> GetOrderItems(Session session)
         {
