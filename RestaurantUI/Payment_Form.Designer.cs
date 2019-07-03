@@ -39,16 +39,12 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cashRadiobtn = new System.Windows.Forms.RadioButton();
             this.PinRadiobtn = new System.Windows.Forms.RadioButton();
             this.creditCardRdbtn = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.PayOrderbtn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.CancelBtn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.Table_Numberlbl = new System.Windows.Forms.TextBox();
@@ -58,11 +54,15 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PayOrderbtn = new System.Windows.Forms.Button();
+            this.CancelBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -169,26 +169,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select payment method ";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Restaurant_UI.Properties.Resources.Designbolts_Credit_Card_Payment_American_Express;
-            this.pictureBox2.Location = new System.Drawing.Point(336, 18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 29);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 48;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Restaurant_UI.Properties.Resources.Custom_Icon_Design_Flatastic_3_Payment_creditcard_visa;
-            this.pictureBox1.Location = new System.Drawing.Point(297, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 29);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -227,7 +207,7 @@
             // creditCardRdbtn
             // 
             this.creditCardRdbtn.AutoSize = true;
-            this.creditCardRdbtn.Location = new System.Drawing.Point(219, 28);
+            this.creditCardRdbtn.Location = new System.Drawing.Point(220, 28);
             this.creditCardRdbtn.Name = "creditCardRdbtn";
             this.creditCardRdbtn.Size = new System.Drawing.Size(83, 19);
             this.creditCardRdbtn.TabIndex = 28;
@@ -249,19 +229,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Process payment ";
             // 
-            // PayOrderbtn
-            // 
-            this.PayOrderbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PayOrderbtn.Image = global::Restaurant_UI.Properties.Resources.Tatice_Cristal_Intense_Ok1;
-            this.PayOrderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PayOrderbtn.Location = new System.Drawing.Point(17, 43);
-            this.PayOrderbtn.Name = "PayOrderbtn";
-            this.PayOrderbtn.Size = new System.Drawing.Size(131, 40);
-            this.PayOrderbtn.TabIndex = 54;
-            this.PayOrderbtn.Text = "      Pay Order";
-            this.PayOrderbtn.UseVisualStyleBackColor = true;
-            this.PayOrderbtn.Click += new System.EventHandler(this.PayOrderbtn_Click);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -272,19 +239,6 @@
             this.label8.Size = new System.Drawing.Size(91, 16);
             this.label8.TabIndex = 48;
             this.label8.Text = "(Mandatory)";
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.Image = global::Restaurant_UI.Properties.Resources.Gakuseisean_Ivista_Error;
-            this.CancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CancelBtn.Location = new System.Drawing.Point(233, 43);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(131, 40);
-            this.CancelBtn.TabIndex = 0;
-            this.CancelBtn.Text = " Cancel";
-            this.CancelBtn.UseVisualStyleBackColor = true;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // label7
             // 
@@ -377,6 +331,52 @@
             this.label1.TabIndex = 57;
             this.label1.Text = "21% alcoholic beverages";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Restaurant_UI.Properties.Resources.Icons8_Ios7_Finance_Amex_Copyrighted1;
+            this.pictureBox2.Location = new System.Drawing.Point(300, 20);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 48;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Restaurant_UI.Properties.Resources.Custom_Icon_Design_Flatastic_3_Payment_creditcard_visa;
+            this.pictureBox1.Location = new System.Drawing.Point(334, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
+            // PayOrderbtn
+            // 
+            this.PayOrderbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PayOrderbtn.Image = global::Restaurant_UI.Properties.Resources.Tatice_Cristal_Intense_Ok1;
+            this.PayOrderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PayOrderbtn.Location = new System.Drawing.Point(17, 43);
+            this.PayOrderbtn.Name = "PayOrderbtn";
+            this.PayOrderbtn.Size = new System.Drawing.Size(131, 40);
+            this.PayOrderbtn.TabIndex = 54;
+            this.PayOrderbtn.Text = "      Pay Order";
+            this.PayOrderbtn.UseVisualStyleBackColor = true;
+            this.PayOrderbtn.Click += new System.EventHandler(this.PayOrderbtn_Click);
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.Image = global::Restaurant_UI.Properties.Resources.Gakuseisean_Ivista_Error;
+            this.CancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CancelBtn.Location = new System.Drawing.Point(233, 43);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(131, 40);
+            this.CancelBtn.TabIndex = 0;
+            this.CancelBtn.Text = " Cancel";
+            this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
             // Payment_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,12 +406,12 @@
             this.Load += new System.EventHandler(this.Payment_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

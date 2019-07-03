@@ -63,6 +63,16 @@ namespace Restaurant_UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap american {
+            get {
+                object obj = ResourceManager.GetObject("american", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Button_warning_icon {
             get {
                 object obj = ResourceManager.GetObject("Button-warning-icon", resourceCulture);
@@ -133,6 +143,26 @@ namespace Restaurant_UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icons8_Ios7_Finance_Amex_Copyrighted {
+            get {
+                object obj = ResourceManager.GetObject("Icons8-Ios7-Finance-Amex-Copyrighted", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icons8_Ios7_Finance_Amex_Copyrighted1 {
+            get {
+                object obj = ResourceManager.GetObject("Icons8-Ios7-Finance-Amex-Copyrighted1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image_1_ {
             get {
                 object obj = ResourceManager.GetObject("image(1)", resourceCulture);
@@ -176,6 +206,16 @@ namespace Restaurant_UI.Properties {
         internal static System.Drawing.Bitmap image_6_ {
             get {
                 object obj = ResourceManager.GetObject("image(6)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images {
+            get {
+                object obj = ResourceManager.GetObject("images", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

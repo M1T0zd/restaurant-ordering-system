@@ -224,5 +224,17 @@
   <ItemGroup>
     <None Include="Resources\image%286%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\american.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons8-Ios7-Finance-Amex-Copyrighted.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons8-Ios7-Finance-Amex-Copyrighted1.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
