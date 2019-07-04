@@ -68,7 +68,6 @@ namespace Restaurant_UI
 				OrderItem_Service orderItem_Service = new OrderItem_Service();
 
 				order_Service.PushOrder(order);
-				order_Service.GetID(order);
 
 				foreach(OrderItem orderItem in order.OrderItems)
 				{
