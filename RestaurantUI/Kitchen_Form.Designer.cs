@@ -37,15 +37,11 @@
             this.timerRefrech = new System.Windows.Forms.Timer(this.components);
             this.panelMenu = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxComments = new System.Windows.Forms.PictureBox();
-            this.pictureBoxOrders = new System.Windows.Forms.PictureBox();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
             this.panelBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgviewOrders)).BeginInit();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxComments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +71,7 @@
             this.btn_PrepareMany.Name = "btn_PrepareMany";
             this.btn_PrepareMany.Size = new System.Drawing.Size(290, 49);
             this.btn_PrepareMany.TabIndex = 2;
-            this.btn_PrepareMany.Text = "Prepare orders";
+            this.btn_PrepareMany.Text = "Process  the order";
             this.btn_PrepareMany.UseVisualStyleBackColor = true;
             this.btn_PrepareMany.Click += new System.EventHandler(this.btn_PrepareMany_Click);
             // 
@@ -97,8 +93,6 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.White;
             this.panelMenu.Controls.Add(this.pictureBoxLogo);
-            this.panelMenu.Controls.Add(this.pictureBoxComments);
-            this.panelMenu.Controls.Add(this.pictureBoxOrders);
             this.panelMenu.Controls.Add(this.pictureBoxExit);
             this.panelMenu.Location = new System.Drawing.Point(12, 15);
             this.panelMenu.Name = "panelMenu";
@@ -114,26 +108,6 @@
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 3;
             this.pictureBoxLogo.TabStop = false;
-            // 
-            // pictureBoxComments
-            // 
-            this.pictureBoxComments.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxComments.Image")));
-            this.pictureBoxComments.Location = new System.Drawing.Point(379, 4);
-            this.pictureBoxComments.Name = "pictureBoxComments";
-            this.pictureBoxComments.Size = new System.Drawing.Size(110, 61);
-            this.pictureBoxComments.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxComments.TabIndex = 2;
-            this.pictureBoxComments.TabStop = false;
-            // 
-            // pictureBoxOrders
-            // 
-            this.pictureBoxOrders.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOrders.Image")));
-            this.pictureBoxOrders.Location = new System.Drawing.Point(231, 3);
-            this.pictureBoxOrders.Name = "pictureBoxOrders";
-            this.pictureBoxOrders.Size = new System.Drawing.Size(110, 61);
-            this.pictureBoxOrders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxOrders.TabIndex = 1;
-            this.pictureBoxOrders.TabStop = false;
             // 
             // pictureBoxExit
             // 
@@ -163,8 +137,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgviewOrders)).EndInit();
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxComments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             this.ResumeLayout(false);
 
@@ -175,8 +147,6 @@
         private System.Windows.Forms.Panel panelBar;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
-        private System.Windows.Forms.PictureBox pictureBoxComments;
-        private System.Windows.Forms.PictureBox pictureBoxOrders;
         private System.Windows.Forms.PictureBox pictureBoxExit;
         private System.Windows.Forms.Button btn_PrepareMany;
         public System.Windows.Forms.DataGridView dgviewOrders;

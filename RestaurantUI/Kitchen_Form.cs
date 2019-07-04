@@ -99,8 +99,6 @@ namespace Restaurant_UI
                             row.DefaultCellStyle.BackColor = Color.Yellow;
                         else if (orderItem.Status == OrderStatus.Ready)
                             row.DefaultCellStyle.BackColor = Color.LightGreen;
-                        else if (orderItem.Status == OrderStatus.Served)
-                            row.DefaultCellStyle.BackColor = Color.GreenYellow;
                     }
                 }
             } catch (Exception)  { }
