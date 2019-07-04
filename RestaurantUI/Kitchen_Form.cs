@@ -72,7 +72,7 @@ namespace Restaurant_UI
                     }
                     // LoadAndDisplayData(CurrentEmployee);
                     FillinGridView();// fill in the info from the list without going to the DAL again
-                    MessageBox.Show(Items.Count + " Items were marked as ready");
+                  //  MessageBox.Show(Items.Count + " Items were marked as ready");
                 }
                 else
                     MessageBox.Show("Operation was aborted ");
