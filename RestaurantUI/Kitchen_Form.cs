@@ -119,7 +119,7 @@ namespace Restaurant_UI
             foreach (OrderItem item in Orders)
             {
                 int row = dgviewOrders.Rows.Add();
-                dgviewOrders.Rows[row].Cells["Name"].Value = item.ItemName;
+                dgviewOrders.Rows[row].Cells["Name"].Value = item.MenuItem.Name;
                 dgviewOrders.Rows[row].Cells["Quantity"].Value = item.Amount;
                 dgviewOrders.Rows[row].Cells["Comment"].Value = item.Comment;
                 dgviewOrders.Rows[row].Cells["Status"].Value = item.Status;

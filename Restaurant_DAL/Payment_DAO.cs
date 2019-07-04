@@ -35,9 +35,14 @@ namespace Restaurant_DAL
             
             foreach (DataRow dr in dataTable.Rows)
             {
+                MenuItem menuItem = new MenuItem()
+                {
+                    Name = (String)dr["Name"],
+                };
+
                 OrderItem orderItem = new OrderItem()
                 {
-                    ItemName = (String)dr["Name"],
+                    MenuItem = menuItem,
                     Price = (decimal)dr["Price"],
                     Amount = (int)dr["Quantity"],
                     Category = (Category)dr["CategoryId"]

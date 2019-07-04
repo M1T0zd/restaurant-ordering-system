@@ -40,7 +40,7 @@ namespace Restaurant_UI
             List<OrderItem> orderItems = payment_Service.GetOrderItems(session);
             foreach (OrderItem item in orderItems)
             {
-                ListViewItem listViewItem = new ListViewItem(item.ItemName);
+                ListViewItem listViewItem = new ListViewItem(item.MenuItem.Name);
                 listViewItem.SubItems.Add(item.Category.ToString());
                 listViewItem.SubItems.Add(item.Amount.ToString());
                 listViewItem.SubItems.Add(item.Price.ToString());

@@ -153,7 +153,7 @@ namespace Restaurant_UI
 
             foreach (OrderItem order in orderItems)
             {
-                ListViewItem listViewItem = new ListViewItem(order.ItemName);
+                ListViewItem listViewItem = new ListViewItem(order.MenuItem.Name);
                 listViewItem.SubItems.Add(order.Amount.ToString());
                 listViewItem.SubItems.Add(order.TableNumber.ToString());
 
@@ -277,6 +277,10 @@ namespace Restaurant_UI
             if (listviewnotif.Items.Count > 0)
             {
                 btnnotif.Text = $"{listviewnotif.Items.Count.ToString()} orders ready";
+            }
+            else
+            {
+                btnnotif.Text = "Notification";
             }
         }
         //For order_ui
