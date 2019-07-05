@@ -20,7 +20,7 @@ namespace Restaurant_DAL
 								join MenuItems m on m.Id=i.MenuItemId
 								join Dishes d on m.Id=d.Id
 								join Sessions se on se.Id=o.SessionId where i.StateId!=3 and i.stateid != 4
-                                order by  FORMAT (o.TakenAt, 'hh:mm:ss') desc";
+                                order by  FORMAT (o.TakenAt, 'hh:mm:ss') ";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
@@ -34,7 +34,7 @@ namespace Restaurant_DAL
 								join MenuItems m on m.Id=i.MenuItemId
 								join Drinks d on m.Id=d.Id
 								join Sessions se on se.Id=o.SessionId where i.StateId!=3 and i.stateid != 4
-                                order by  FORMAT (o.TakenAt, 'hh:mm:ss') desc";
+                                order by  FORMAT (o.TakenAt, 'hh:mm:ss') ";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables_OrderItems(ExecuteSelectQuery(query, sqlParameters));
         }

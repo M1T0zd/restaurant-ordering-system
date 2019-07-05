@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RestaurantModel
 {
-    public class Payment
+    public class Payment 
     {
         public DateTime Date = DateTime.Now;
 
@@ -16,26 +12,32 @@ namespace RestaurantModel
         public Decimal Tax { get; set; }
 
         public PaymentMethod PaymentMethod;
+        Session session;
+        public Payment( Session session)
+        {
+            this.session = session;
+        }
 
-     
-        public void CalculateVAT_TotalPrice(ListView listView)
+
+        public void CalculateVAT_TotalPrice(List<OrderItem> orders)
         {
             decimal taxPerItem;
             decimal totalTax = 0;
             decimal totalPrice = 0;
-            foreach (ListViewItem listViewItem in listView.Items)
+
+            foreach (OrderItem item in orders)
             {
-                OrderItem orderItem = (OrderItem)listViewItem.Tag;
-                if (orderItem.Category == Category.Alcoholic)
+  
+                if (item.Category == Category.Alcoholic)
                 {
-                    taxPerItem = (orderItem.Price * Convert.ToDecimal(0.21));
+                    taxPerItem = (item.Price * Convert.ToDecimal(0.21));
                 }
                 else
                 {
-                    taxPerItem = ((orderItem.Price) * Convert.ToDecimal(0.06));
+                    taxPerItem = ((item.Price) * Convert.ToDecimal(0.06));
                 }
                 totalTax += taxPerItem;
-                totalPrice += (orderItem.Price + taxPerItem);
+                totalPrice += (item.Price + taxPerItem);
             }
             Total = totalPrice;
             Tax = totalTax;

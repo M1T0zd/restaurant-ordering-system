@@ -1,4 +1,5 @@
-﻿using Restaurant_Logic;
+﻿
+using Restaurant_Logic;
 using RestaurantModel;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Restaurant_UI
         public Payment_Form(Table_Form table_Form, Session session)
         {
             InitializeComponent();
-            payment = new Payment();
+            payment = new Payment(session);
             this.table_Form = table_Form;
             this.session = session;
             Tiptxt_bx.Visible = true;
@@ -47,7 +48,7 @@ namespace Restaurant_UI
                 listViewItem.Tag = item;
                 OrdersListView.Items.Add(listViewItem);
             }
-            payment.CalculateVAT_TotalPrice(OrdersListView);
+            payment.CalculateVAT_TotalPrice(orderItems);
         }
         private void CancelBtn_Click(object sender, EventArgs e)
         {

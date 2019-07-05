@@ -172,7 +172,7 @@
       <Name>RestaurantModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\Restaurant_Logic\Restaurant_Logic.csproj">
-      <Project>{3b8cd7c2-ff83-448c-ae37-665ab49af7af}</Project>
+      <Project>{3B8CD7C2-FF83-448C-AE37-665AB49AF7AF}</Project>
       <Name>Restaurant_Logic</Name>
     </ProjectReference>
   </ItemGroup>
