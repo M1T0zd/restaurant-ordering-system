@@ -226,7 +226,7 @@
             this.pnltable.Controls.Add(this.btntbl2);
             this.pnltable.Controls.Add(this.btntbl1);
             this.pnltable.Location = new System.Drawing.Point(13, 15);
-            this.pnltable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnltable.Margin = new System.Windows.Forms.Padding(4);
             this.pnltable.Name = "pnltable";
             this.pnltable.Size = new System.Drawing.Size(485, 786);
             this.pnltable.TabIndex = 11;
@@ -241,9 +241,9 @@
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(32, 692);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(417, 85);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
@@ -292,7 +292,7 @@
             // 
             this.textBox3.BackColor = System.Drawing.Color.Yellow;
             this.textBox3.Location = new System.Drawing.Point(299, 38);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(32, 22);
             this.textBox3.TabIndex = 2;
@@ -301,7 +301,7 @@
             // 
             this.textBox2.BackColor = System.Drawing.Color.Green;
             this.textBox2.Location = new System.Drawing.Point(8, 38);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(32, 22);
             this.textBox2.TabIndex = 1;
@@ -310,7 +310,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.Red;
             this.textBox1.Location = new System.Drawing.Point(152, 38);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(32, 22);
             this.textBox1.TabIndex = 0;
@@ -555,7 +555,7 @@
             this.Controls.Add(this.pnlChangeStatus);
             this.Controls.Add(this.pnlnotif);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Table_Form";

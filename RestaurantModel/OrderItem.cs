@@ -8,7 +8,6 @@ namespace RestaurantModel
 {
     public class OrderItem
     {
-        public string ItemName { get; set; }
         public int Amount { get; set; }
         public decimal Price { get; set; }
         public string Comment { get; set; }
@@ -17,19 +16,12 @@ namespace RestaurantModel
         public string Ordertime { get; set; }
         public int OrderId { get; set; }
         public int Id { get; set; }
-        public int MenuItemId { get; set; }
-        public DateTime DateReady { get; set; }
-
         public Category Category { get; set; }
         public MenuItem MenuItem { get; set; }
 
         public OrderItem()
         {
 
-        }
-        public OrderItem(OrderStatus status)
-        {
-            Status = status;
         }
     }
 }

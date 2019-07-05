@@ -34,7 +34,7 @@
             this.lbl_Datetime = new System.Windows.Forms.Label();
             this.btn_PrepareMany = new System.Windows.Forms.Button();
             this.dgviewOrders = new System.Windows.Forms.DataGridView();
-            this.timerRefrech = new System.Windows.Forms.Timer(this.components);
+            this.timerRefresh = new System.Windows.Forms.Timer(this.components);
             this.panelMenu = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
@@ -80,14 +80,16 @@
             this.dgviewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgviewOrders.Location = new System.Drawing.Point(14, 13);
             this.dgviewOrders.Name = "dgviewOrders";
+            this.dgviewOrders.RowHeadersWidth = 51;
             this.dgviewOrders.RowTemplate.Height = 24;
+            this.dgviewOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgviewOrders.Size = new System.Drawing.Size(905, 499);
             this.dgviewOrders.TabIndex = 1;
             this.dgviewOrders.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgviewOrders_DataError_1);
             // 
-            // timerRefrech
+            // timerRefresh
             // 
-            this.timerRefrech.Tick += new System.EventHandler(this.timerRefresh_Tick);
+            this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
             // 
             // panelMenu
             // 
@@ -143,7 +145,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer timerRefrech;
+        private System.Windows.Forms.Timer timerRefresh;
         private System.Windows.Forms.Panel panelBar;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.PictureBox pictureBoxLogo;

@@ -52,9 +52,14 @@ namespace Restaurant_DAL
             List<OrderItem> OrderItems = new List<OrderItem>();
             foreach (DataRow dr in dataTable.Rows)
             {
+                MenuItem menuItem = new MenuItem()
+                {
+                    Name = (string)dr["Name"]
+                };
+
                 OrderItem OrderItem = new OrderItem()
                 {
-                    ItemName = (string)dr["Name"],
+                    MenuItem = menuItem,
                     Amount = (int)dr["Quantity"],
                     Comment = (string)dr["Comment"],
                     Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), Convert.ToString(dr["State"])),
@@ -96,14 +101,20 @@ namespace Restaurant_DAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
+                MenuItem menuItem = new MenuItem()
+                {
+                    Name = (String)dr["Name"]
+                };
+
                 OrderItem orderItem = new OrderItem()
                 {
+                    MenuItem = menuItem,
                     TableNumber = (int)dr["tableid"],
                     Status = (OrderStatus)dr["StateId"],
-                    ItemName = (String)dr["Name"],
                     Amount = (int)dr["Quantity"],
                     Id = (int)dr["Id"]
                 };
+
                 orderItems.Add(orderItem);
             }
             return orderItems;

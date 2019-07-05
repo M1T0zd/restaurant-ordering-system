@@ -32,8 +32,8 @@ namespace Restaurant_UI
         {
             dgviewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;// make the column adjust to fit the content 
             lbl_Datetime.Text = "Current time : " + DateTime.Now.ToString("h:mm:ss tt");
-            timerRefrech.Enabled = false;
-            timerRefrech.Interval = 20000;//refresh every 20 seconds 
+            timerRefresh.Enabled = true;
+            timerRefresh.Interval = 20000;//refresh every 20 seconds 
         }
         private void timerRefresh_Tick(object sender, EventArgs e)
         {
@@ -71,8 +71,8 @@ namespace Restaurant_UI
                         Orders.Remove(item);
                     }
                     // LoadAndDisplayData(CurrentEmployee);
-                    FillinGridView();// fill in the info from the list without going to the DAL again
-                    MessageBox.Show(Items.Count + " Items were marked as ready");
+                    FillinGridView();
+                  //  MessageBox.Show(Items.Count + " Items were marked as ready");
                 }
                 else
                     MessageBox.Show("Operation was aborted ");
@@ -119,7 +119,7 @@ namespace Restaurant_UI
             foreach (OrderItem item in Orders)
             {
                 int row = dgviewOrders.Rows.Add();
-                dgviewOrders.Rows[row].Cells["Name"].Value = item.ItemName;
+                dgviewOrders.Rows[row].Cells["Name"].Value = item.MenuItem.Name;
                 dgviewOrders.Rows[row].Cells["Quantity"].Value = item.Amount;
                 dgviewOrders.Rows[row].Cells["Comment"].Value = item.Comment;
                 dgviewOrders.Rows[row].Cells["Status"].Value = item.Status;
